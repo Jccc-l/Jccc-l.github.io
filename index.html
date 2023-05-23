@@ -170,7 +170,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2023-05-23 13:01:29 / Modified: 18:38:31" itemprop="dateCreated datePublished" datetime="2023-05-23T13:01:29+08:00">2023-05-23</time>
+              <time title="Created: 2023-05-23 13:01:29 / Modified: 19:40:50" itemprop="dateCreated datePublished" datetime="2023-05-23T13:01:29+08:00">2023-05-23</time>
             </span>
 
           
@@ -191,87 +191,14 @@
 </ul>
 </li>
 </ul>
-<h6 id="Debian系"><a href="#Debian系" class="headerlink" title="Debian系"></a>Debian系</h6><ol>
-<li>更新本地apt索引<ul>
-<li><code>sudo apt-get update</code></li>
-</ul>
-</li>
-<li>安装<ul>
-<li><code>sudo apt-get install nodejs npm git</code></li>
-</ul>
-</li>
-</ol>
-<h6 id="Fedora系"><a href="#Fedora系" class="headerlink" title="Fedora系"></a>Fedora系</h6><ul>
-<li>安装<ul>
-<li><code>sudo dnf install nodejs npm git</code></li>
-</ul>
-</li>
-</ul>
-<h6 id="CentOS"><a href="#CentOS" class="headerlink" title="CentOS"></a>CentOS</h6><ul>
-<li>安装<ul>
-<li><code>sudo yun install nodejs npm git</code></li>
-</ul>
-</li>
-</ul>
-<h5 id="Windows端"><a href="#Windows端" class="headerlink" title="Windows端"></a>Windows端</h5><p>Windows端可以通过官网进行下载和安装<a href="git-scm.com">git</a>、<a target="_blank" rel="noopener" href="https://nodejs.org/">Node.js</a>和<a href="npmjs.com">npm</a></p>
-<p>查看git、nodejs和npm版本</p>
-<ul>
-<li><code>node -v</code></li>
-<li><code>npm -v</code></li>
-<li><code>git -v</code></li>
-</ul>
-<p><img src="/Jccc-l/Jccc-l.github.io/2023/05/23/%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B/node_npm_version.png" alt="node_version"></p>
-<h4 id="配置cnpm"><a href="#配置cnpm" class="headerlink" title="配置cnpm"></a>配置cnpm</h4><p>由于npm的服务器在国外，在国内访问的速度比较慢，通过cnpm使用国内镜像源，提升下载包的速度</p>
-<p>使用<code>cnpm</code>命令行工具替代默认的<code>npm</code>：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g cnpm --registry=https://registry.npmmirror.com</span><br></pre></td></tr></table></figure>
-
-<h3 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h3><p>通过cnpm全局安装hexo</p>
-<ul>
-<li><code>sudo cnpm i -g hexo-cli</code></li>
-</ul>
-<h3 id="hexo博客的建立和管理"><a href="#hexo博客的建立和管理" class="headerlink" title="hexo博客的建立和管理"></a>hexo博客的建立和管理</h3><p>新建并进入一个用于存储博客的文件夹此处用<code>blog</code>文件夹为例</p>
-<p><code>mkdir ~/blog &amp;&amp; cd ~/blog</code></p>
-<p>初始化博客</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure>
-<p>创建好博客以后，会有一片hexo官方的博客hello-world</p>
-<p>使用记事本或者编辑器编辑<code>_config.yml</code>，将<code>post_asset_folder:false</code>中的<code>false</code>改为<code>true</code>，该设置使hexo在创建一篇博客同时创建一个文件夹以存储这个博客的图片等</p>
-<p>新建一篇博客：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new &quot;第一篇博客&quot;</span><br></pre></td></tr></table></figure>
-
-<p>进入<code>source/_posts</code>目录中即可查看当前存在的博客文件（以md文件形式存在）。</p>
-<p>通过md文件对博客进行编辑</p>
-<p>编辑完成后，在<code>blog</code>目录中输入<code>hexo clean &amp;&amp; hexo genearte</code>(或<code>hexo cl &amp;&amp; hexo g</code>)生成博客。</p>
-<p>输入<code>hexo s</code>打开博客预览端口<code>4000</code>，在浏览器中输入<code>localhost:4000</code>即可预览博客</p>
-<h3 id="将博客部署到Github上"><a href="#将博客部署到Github上" class="headerlink" title="将博客部署到Github上"></a>将博客部署到Github上</h3><h4 id="创建一个Github账号"><a href="#创建一个Github账号" class="headerlink" title="创建一个Github账号"></a>创建一个Github账号</h4><p>通过<a href="https://github.com/">Github官网</a>创建一个Github账号<br>点击右上角<code>Sign up</code>根据提示进行操作即可（我相信你们≖‿≖✧）</p>
-<p><img src="/Jccc-l/Jccc-l.github.io/2023/05/23/%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B/Create_Github_account.png" alt="Create_Github_account.png"></p>
-<h4 id="配置git"><a href="#配置git" class="headerlink" title="配置git"></a>配置git</h4><p>配置好本地的信息</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --glabal user.name &quot;username&quot;                    # 设置用户名</span><br><span class="line">git config --glabal user.email username@example.com         # 设置邮箱</span><br></pre></td></tr></table></figure>
-
-<p>在Git中缓存GitHub凭据（可以用GitHub CLI或者Git Credential Manager进行配置，具体步骤可以查看<a target="_blank" rel="noopener" href="https://docs.github.com/zh/get-started/getting-started-with-git/caching-your-github-credentials-in-git">GitHub的官方文件</a></p>
-<p>缓存GitHub凭据以后，可以免去推送我们的博客时输入账号密码的步骤</p>
-<h4 id="创建一个Github仓库用于部署我们的博客"><a href="#创建一个Github仓库用于部署我们的博客" class="headerlink" title="创建一个Github仓库用于部署我们的博客"></a>创建一个Github仓库用于部署我们的博客</h4><p><img src="/Jccc-l/Jccc-l.github.io/2023/05/23/%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B/New_repo.png" alt="New_repo"></p>
-<p>将仓库名命名为<code>username.github.io</code>，<strong>注意username与前面<code>Owner</code>中的内容保持一致</strong>，以后将会使用仓库名来访问你的博客</p>
-<p><img src="/Jccc-l/Jccc-l.github.io/2023/05/23/%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B/Name_of_repository.png" alt="username"></p>
-<p>正常来说会显示绿色的<code>username.github.io is available</code>，但是我已经创建过了，就显示<code>The repository Jccc-l.github.io already exists on this account.</code>这样点击下面的<code>Create repository</code>即可创建仓库</p>
-<p><img src="/Jccc-l/Jccc-l.github.io/2023/05/23/%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B/Create_repository.png" alt="Create Repository"></p>
-<p>进入你的仓库，点<code>code</code>，点击连接链接右边的按钮来复制仓库 <span id="url">url</span></p>
-<h4 id="将hexo博客部署到Github上"><a href="#将hexo博客部署到Github上" class="headerlink" title="将hexo博客部署到Github上"></a>将hexo博客部署到Github上</h4><h5 id="通过cnpm安装hexo-deployer-git"><a href="#通过cnpm安装hexo-deployer-git" class="headerlink" title="通过cnpm安装hexo-deployer-git"></a>通过cnpm安装hexo-deployer-git</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">进入到博客的根目录</span></span><br><span class="line">cd blog</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">安装hexo-deployer-git</span></span><br><span class="line">cnpm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
-
-<h5 id="配置-config-yml文件"><a href="#配置-config-yml文件" class="headerlink" title="配置_config.yml文件"></a>配置<code>_config.yml</code>文件</h5><p>使用记事本或其他编辑器打开<code>_config.yml</code>文件，找到<code>deploy</code>相关的内容，配置成以下内容<br><code>repo</code>设置成上面所说的<a href="#url">url</a></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">    type: &#x27;git&#x27;</span><br><span class="line">    repo: &#x27;https://github.com/Jccc-l/Jccc-l.github.io.git&#x27;         #将前面复制的仓库url粘贴在这里</span><br><span class="line">    branch: &#x27;main&#x27;                                                  #设置博客存储的分支</span><br></pre></td></tr></table></figure>
-
-<p>输入<code>hexo deploy</code>(或<code>hexo d</code>)来部署你的博客</p>
-<p>随后你可以在你的github仓库中看到博客的文件</p>
-<p><img src="/Jccc-l/Jccc-l.github.io/2023/05/23/%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B/Files_of_blog.png" alt="Files_of_Blog"></p>
-<p>至此，你的博客就已经部署完毕，通过<code>username.github.io</code>即可查看</p>
-<p>以后对博客进行增删改查后，通过以下步骤进行更新</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hexo clean          # 清除缓存文件</span><br><span class="line">hexo genearte       # 生成博客</span><br><span class="line">hexo server         # 预览博客</span><br><span class="line">hexo deploy         # 推送博客到GitHub</span><br></pre></td></tr></table></figure>
-
-<h3 id="解决博客图片显示问题"><a href="#解决博客图片显示问题" class="headerlink" title="解决博客图片显示问题"></a>解决博客图片显示问题</h3><p>hexo插入图片的默认方式与markdown不同，默认情况无法使用markdown的形式插入图片<br>有几种方法进行图片的插入，具体可以查询<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/asset-folders.html">官方文档</a></p>
-<p>这是一种比较简便的方法，设置后即可使用markdown的方式插入图片（只需使用文件名而不需要相对路径）</p>
-<p>更改<code>_config.yml</code>的对应位置为以下选项</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">post_asset_folder: true</span><br><span class="line">marked:</span><br><span class="line">  prependRoot: true</span><br><span class="line">  postAsset: true</span><br></pre></td></tr></table></figure>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/Jccc-l/Jccc-l.github.io/2023/05/23/%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
