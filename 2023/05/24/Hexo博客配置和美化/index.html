@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"jccc-l.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="解决博客图片显示问题hexo插入图片的默认方式与markdown不同，默认情况无法使用markdown的形式插入图片有几种方法进行图片的插入，具体可以查询官方文档 这是一种比较简便的方法，设置后即可使用markdown的方式插入图片（只需使用文件名而不需要相对路径） 更改_config.yml的对应位置为以下选项 1234post_asset_folder: truemarked:  prepen">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo博客配置和美化">
+<meta property="og:url" content="https://jccc-l.github.io/2023/05/24/Hexo%E5%8D%9A%E5%AE%A2%E9%85%8D%E7%BD%AE%E5%92%8C%E7%BE%8E%E5%8C%96/index.html">
+<meta property="og:site_name" content="Jccc的小世界">
+<meta property="og:description" content="解决博客图片显示问题hexo插入图片的默认方式与markdown不同，默认情况无法使用markdown的形式插入图片有几种方法进行图片的插入，具体可以查询官方文档 这是一种比较简便的方法，设置后即可使用markdown的方式插入图片（只需使用文件名而不需要相对路径） 更改_config.yml的对应位置为以下选项 1234post_asset_folder: truemarked:  prepen">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://jccc-l.github.io/2023/05/24/Hexo%E5%8D%9A%E5%AE%A2%E9%85%8D%E7%BD%AE%E5%92%8C%E7%BE%8E%E5%8C%96/%E7%BD%91%E6%98%93%E4%BA%91%E7%94%9F%E6%88%90%E5%A4%96%E9%93%BE.png">
+<meta property="og:image" content="https://jccc-l.github.io/2023/05/24/Hexo%E5%8D%9A%E5%AE%A2%E9%85%8D%E7%BD%AE%E5%92%8C%E7%BE%8E%E5%8C%96/%E5%A4%8D%E5%88%B6%E5%A4%96%E9%93%BE.png">
+<meta property="og:image" content="https://jccc-l.github.io/2023/05/24/Hexo%E5%8D%9A%E5%AE%A2%E9%85%8D%E7%BD%AE%E5%92%8C%E7%BE%8E%E5%8C%96/%E6%8F%92%E5%85%A5%E5%A4%96%E9%93%BE.png">
+<meta property="og:image" content="https://jccc-l.github.io/2023/05/24/Hexo%E5%8D%9A%E5%AE%A2%E9%85%8D%E7%BD%AE%E5%92%8C%E7%BE%8E%E5%8C%96/%E7%BD%91%E6%98%93%E4%BA%91%E6%95%88%E6%9E%9C.png">
+<meta property="article:published_time" content="2023-05-23T16:12:51.000Z">
+<meta property="article:modified_time" content="2023-05-23T17:31:13.077Z">
+<meta property="article:author" content="Jccc">
+<meta property="article:tag" content="hexo">
+<meta property="article:tag" content="博客">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://jccc-l.github.io/2023/05/24/Hexo%E5%8D%9A%E5%AE%A2%E9%85%8D%E7%BD%AE%E5%92%8C%E7%BE%8E%E5%8C%96/%E7%BD%91%E6%98%93%E4%BA%91%E7%94%9F%E6%88%90%E5%A4%96%E9%93%BE.png">
+
+<link rel="canonical" href="https://jccc-l.github.io/2023/05/24/Hexo%E5%8D%9A%E5%AE%A2%E9%85%8D%E7%BD%AE%E5%92%8C%E7%BE%8E%E5%8C%96/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Hexo博客配置和美化 | Jccc的小世界</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Jccc的小世界</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">iX</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://jccc-l.github.io/2023/05/24/Hexo%E5%8D%9A%E5%AE%A2%E9%85%8D%E7%BD%AE%E5%92%8C%E7%BE%8E%E5%8C%96/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/Avatar.jpeg">
+      <meta itemprop="name" content="Jccc">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jccc的小世界">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Hexo博客配置和美化
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2023-05-24 00:12:51 / 修改时间：01:31:13" itemprop="dateCreated datePublished" datetime="2023-05-24T00:12:51+08:00">2023-05-24</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%8D%9A%E5%AE%A2/" itemprop="url" rel="index"><span itemprop="name">博客</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="解决博客图片显示问题"><a href="#解决博客图片显示问题" class="headerlink" title="解决博客图片显示问题"></a>解决博客图片显示问题</h2><p>hexo插入图片的默认方式与markdown不同，默认情况无法使用markdown的形式插入图片<br>有几种方法进行图片的插入，具体可以查询<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/asset-folders.html">官方文档</a></p>
+<p>这是一种比较简便的方法，设置后即可使用markdown的方式插入图片（只需使用文件名而不需要相对路径）</p>
+<p>更改<code>_config.yml</code>的对应位置为以下选项</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">post_asset_folder: true</span><br><span class="line">marked:</span><br><span class="line">  prependRoot: true</span><br><span class="line">  postAsset: true</span><br></pre></td></tr></table></figure>
+
+<span id="more"></span>
+<h2 id="Hexo博客美化"><a href="#Hexo博客美化" class="headerlink" title="Hexo博客美化"></a>Hexo博客美化</h2><h3 id="next主题"><a href="#next主题" class="headerlink" title="next主题"></a>next主题</h3><h4 id="主题安装和选择"><a href="#主题安装和选择" class="headerlink" title="主题安装和选择"></a>主题安装和选择</h4><p><a target="_blank" rel="noopener" href="https://github.com/iissnan/hexo-theme-next">主题链接</a></p>
+<ol>
+<li>在终端中进入你的博客目录，</li>
+<li>执行命令安装主题<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir themes/next</span><br><span class="line">curl -s https://api.github.com/repos/iissnan/hexo-theme-next/releases/latest | grep tarball_url | cut -d &#x27;&quot;&#x27; -f 4 | wget -i - -O- | tar -zx -C themes/next --strip-components=1</span><br></pre></td></tr></table></figure></li>
+<li>在博客的根目录主配置中配置<code>_config.yml</code>文件<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">theme: next</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h4 id="语言配置"><a href="#语言配置" class="headerlink" title="语言配置"></a>语言配置</h4><p>编辑主配置中的<code>_config.yml</code>文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">language: zh-CN</span><br></pre></td></tr></table></figure>
+
+<h4 id="添加顶部菜单"><a href="#添加顶部菜单" class="headerlink" title="添加顶部菜单"></a>添加顶部菜单</h4><p><code>/theme/next/_config.yml</code>文件中，根据需要取消<code>menu</code>下选项的注释，使选项生效</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">menu:</span><br><span class="line">  home: / || fa fa-home</span><br><span class="line">  about: /about/ || fa fa-user</span><br><span class="line">  tags: /tags/ || fa fa-tags</span><br><span class="line">  categories: /categories/ || fa fa-th</span><br><span class="line">  archives: /archives/ || fa fa-archive</span><br><span class="line">  #schedule: /schedule/ || fa fa-calendar</span><br><span class="line">  #sitemap: /sitemap.xml || fa fa-sitemap</span><br><span class="line">  #commonweal: /404/ || fa fa-heartbeat</span><br></pre></td></tr></table></figure>
+
+<h4 id="侧边栏"><a href="#侧边栏" class="headerlink" title="侧边栏"></a>侧边栏</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#设置侧边栏默认开启</span><br><span class="line">sidebar:</span><br><span class="line">  display: always</span><br><span class="line"># 设置头像(填写头像文件相对路径)</span><br><span class="line">avatar:</span><br><span class="line">  url: /images/Avatar.jpeg</span><br><span class="line"># 设置联系方式</span><br><span class="line">social:</span><br><span class="line">  GitHub: https://github.com/Jccc-l || fab fa-github</span><br><span class="line">  # E-Mail: mailto:1216550215Jc@gmail.com || fa fa-envelope</span><br></pre></td></tr></table></figure>
+
+<h3 id="网易云外链"><a href="#网易云外链" class="headerlink" title="网易云外链"></a>网易云外链</h3><h4 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h4><p>在网易云网页版中选择你喜欢的歌曲，进入歌曲详情页面，点击生成外链</p>
+<p><img src="/2023/05/24/Hexo%E5%8D%9A%E5%AE%A2%E9%85%8D%E7%BD%AE%E5%92%8C%E7%BE%8E%E5%8C%96/%E7%BD%91%E6%98%93%E4%BA%91%E7%94%9F%E6%88%90%E5%A4%96%E9%93%BE.png" alt="选择歌曲"></p>
+<p>复制歌曲生成的外链</p>
+<p><img src="/2023/05/24/Hexo%E5%8D%9A%E5%AE%A2%E9%85%8D%E7%BD%AE%E5%92%8C%E7%BE%8E%E5%8C%96/%E5%A4%8D%E5%88%B6%E5%A4%96%E9%93%BE.png" alt="复制外链"></p>
+<p>编辑博客内的文件<code>/themes/next/layout/_macro/sidebar.swig</code></p>
+<p>将外链插入到合适的位置</p>
+<p><img src="/2023/05/24/Hexo%E5%8D%9A%E5%AE%A2%E9%85%8D%E7%BD%AE%E5%92%8C%E7%BE%8E%E5%8C%96/%E6%8F%92%E5%85%A5%E5%A4%96%E9%93%BE.png" alt="插入外链"></p>
+<p>随后执行<code>hexo g</code>重新生成博客即可</p>
+<h4 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h4><p><img src="/2023/05/24/Hexo%E5%8D%9A%E5%AE%A2%E9%85%8D%E7%BD%AE%E5%92%8C%E7%BE%8E%E5%8C%96/%E7%BD%91%E6%98%93%E4%BA%91%E6%95%88%E6%9E%9C.png" alt="网易云效果"></p>
+<h3 id="文本配置"><a href="#文本配置" class="headerlink" title="文本配置"></a>文本配置</h3><h4 id="代码复制按钮"><a href="#代码复制按钮" class="headerlink" title="代码复制按钮"></a>代码复制按钮</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">codeblock:</span><br><span class="line">  copy_button:</span><br><span class="line">    enable:true</span><br><span class="line">    # Show text copy result.</span><br><span class="line">    show_result: true</span><br></pre></td></tr></table></figure>
+
+<h4 id="文字占用宽度太大"><a href="#文字占用宽度太大" class="headerlink" title="文字占用宽度太大"></a>文字占用宽度太大</h4><p>编辑文件<code>/themes/next/source/css/_schemes/Mist/_posts-expand.styl</code>，在文件最后添加一下内容后重新生成博客</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">.post-expand .post &#123;</span><br><span class="line">  margin-top: 18px;</span><br><span class="line">  margin-bottom: 18px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/hexo/" rel="tag"># hexo</a>
+              <a href="/tags/%E5%8D%9A%E5%AE%A2/" rel="tag"># 博客</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2023/05/23/Hexo%E5%8D%9A%E5%AE%A2%E7%9A%84%E6%90%AD%E5%BB%BA%E5%92%8C%E9%83%A8%E7%BD%B2/" rel="prev" title="Hexo博客的搭建和部署">
+      <i class="fa fa-chevron-left"></i> Hexo博客的搭建和部署
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E5%8D%9A%E5%AE%A2%E5%9B%BE%E7%89%87%E6%98%BE%E7%A4%BA%E9%97%AE%E9%A2%98"><span class="nav-text">解决博客图片显示问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexo%E5%8D%9A%E5%AE%A2%E7%BE%8E%E5%8C%96"><span class="nav-text">Hexo博客美化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#next%E4%B8%BB%E9%A2%98"><span class="nav-text">next主题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%BB%E9%A2%98%E5%AE%89%E8%A3%85%E5%92%8C%E9%80%89%E6%8B%A9"><span class="nav-text">主题安装和选择</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%AD%E8%A8%80%E9%85%8D%E7%BD%AE"><span class="nav-text">语言配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E9%A1%B6%E9%83%A8%E8%8F%9C%E5%8D%95"><span class="nav-text">添加顶部菜单</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BE%A7%E8%BE%B9%E6%A0%8F"><span class="nav-text">侧边栏</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BD%91%E6%98%93%E4%BA%91%E5%A4%96%E9%93%BE"><span class="nav-text">网易云外链</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A4"><span class="nav-text">步骤</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%88%E6%9E%9C"><span class="nav-text">效果</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%87%E6%9C%AC%E9%85%8D%E7%BD%AE"><span class="nav-text">文本配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E5%A4%8D%E5%88%B6%E6%8C%89%E9%92%AE"><span class="nav-text">代码复制按钮</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%87%E5%AD%97%E5%8D%A0%E7%94%A8%E5%AE%BD%E5%BA%A6%E5%A4%AA%E5%A4%A7"><span class="nav-text">文字占用宽度太大</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Jccc"
+      src="/images/Avatar.jpeg">
+  <p class="site-author-name" itemprop="name">Jccc</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="sidebar-button motion-element"><i class="fa fa-comment"></i>
+    Chat
+  </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Jccc-l" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Jccc-l" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:1216550215Jc@gmail.com" title="Gmail → mailto:1216550215Jc@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>Gmail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:1216550215@qq.com" title="QQmail → mailto:1216550215@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>QQmail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+      <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1351183637&auto=1&height=66"></iframe>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jccc</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
