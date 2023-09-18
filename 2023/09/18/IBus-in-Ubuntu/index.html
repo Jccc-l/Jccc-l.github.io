@@ -20,21 +20,36 @@
     var CONFIG = {"hostname":"jccc-l.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="双系统八小时时间差">
+  <meta name="description" content="Install Chinese Input MethodIf you choose English when you install ubuntu, there is not a Chinese input method installed, but you can install it with commands in the terminal. Update Your SystemBefore">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Windows与Linux双系统常见问题解决">
-<meta property="og:url" content="https://jccc-l.github.io/2023/05/31/Windows%E4%B8%8ELinux%E5%8F%8C%E7%B3%BB%E7%BB%9F%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/index.html">
+<meta property="og:title" content="IBus_in_Ubuntu">
+<meta property="og:url" content="https://jccc-l.github.io/2023/09/18/IBus-in-Ubuntu/index.html">
 <meta property="og:site_name" content="蕗過の迣鎅">
-<meta property="og:description" content="双系统八小时时间差">
+<meta property="og:description" content="Install Chinese Input MethodIf you choose English when you install ubuntu, there is not a Chinese input method installed, but you can install it with commands in the terminal. Update Your SystemBefore">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-05-31T12:00:58.000Z">
-<meta property="article:modified_time" content="2023-09-18T05:12:20.439Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/Jccc-l/Images/main/Ubuntu_Input_Method/not_upgrade_1.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Jccc-l/Images/main/Ubuntu_Input_Method/not_upgrade_2.png">
+<meta property="og:image" content="https://github.com/Jccc-l/Images/blob/main/Ubuntu_Input_Method/update_1.png?raw=true">
+<meta property="og:image" content="https://github.com/Jccc-l/Images/blob/main/Ubuntu_Input_Method/update_2.png?raw=true">
+<meta property="og:image" content="https://github.com/Jccc-l/Images/blob/main/Ubuntu_Input_Method/Software_update.png?raw=true">
+<meta property="og:image" content="https://github.com/Jccc-l/Images/blob/main/Ubuntu_Input_Method/Add_Chinese_Input_Method.png?raw=true">
+<meta property="og:image" content="https://github.com/Jccc-l/Images/blob/main/Ubuntu_Input_Method/Add_Chinese_Input_Method_2.png?raw=true">
+<meta property="og:image" content="https://github.com/Jccc-l/Images/blob/main/Ubuntu_Input_Method/Add_Chinese_Input_Method_3.png?raw=true">
+<meta property="og:image" content="https://github.com/Jccc-l/Images/blob/main/Ubuntu_Input_Method/settings.png?raw=true">
+<meta property="og:image" content="https://github.com/Jccc-l/Images/blob/main/Ubuntu_Input_Method/Region_and_Language.png?raw=true">
+<meta property="og:image" content="https://github.com/Jccc-l/Images/blob/main/Ubuntu_Input_Method/Region_and_Language_3.png?raw=true">
+<meta property="article:published_time" content="2023-09-18T05:09:31.000Z">
+<meta property="article:modified_time" content="2023-09-18T05:33:44.320Z">
 <meta property="article:author" content="Jccc">
+<meta property="article:tag" content="Ubuntu">
 <meta property="article:tag" content="Linux">
-<meta property="article:tag" content="Windows">
+<meta property="article:tag" content="IBus">
+<meta property="article:tag" content="Input Method">
+<meta property="article:tag" content="Pinyin">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/Jccc-l/Images/main/Ubuntu_Input_Method/not_upgrade_1.png">
 
-<link rel="canonical" href="https://jccc-l.github.io/2023/05/31/Windows%E4%B8%8ELinux%E5%8F%8C%E7%B3%BB%E7%BB%9F%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/">
+<link rel="canonical" href="https://jccc-l.github.io/2023/09/18/IBus-in-Ubuntu/">
 
 
 <script id="page-configurations">
@@ -47,7 +62,7 @@
   };
 </script>
 
-  <title>Windows与Linux双系统常见问题解决 | 蕗過の迣鎅</title>
+  <title>IBus_in_Ubuntu | 蕗過の迣鎅</title>
   
 
 
@@ -169,7 +184,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://jccc-l.github.io/2023/05/31/Windows%E4%B8%8ELinux%E5%8F%8C%E7%B3%BB%E7%BB%9F%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/">
+    <link itemprop="mainEntityOfPage" href="https://jccc-l.github.io/2023/09/18/IBus-in-Ubuntu/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/Avatar.jpeg">
@@ -182,7 +197,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Windows与Linux双系统常见问题解决
+          IBus_in_Ubuntu
         </h1>
 
         <div class="post-meta">
@@ -191,16 +206,10 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2023-05-31 20:00:58" itemprop="dateCreated datePublished" datetime="2023-05-31T20:00:58+08:00">2023-05-31</time>
+              <time title="创建时间：2023-09-18 13:09:31 / 修改时间：13:33:44" itemprop="dateCreated datePublished" datetime="2023-09-18T13:09:31+08:00">2023-09-18</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-09-18 13:12:20" itemprop="dateModified" datetime="2023-09-18T13:12:20+08:00">2023-09-18</time>
-              </span>
 
           <br>
             <span class="post-meta-item" title="本文字数">
@@ -208,14 +217,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>300</span>
+              <span>1.3k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+              <span>3 分钟</span>
             </span>
 
         </div>
@@ -227,14 +236,31 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="双系统八小时时间差"><a href="#双系统八小时时间差" class="headerlink" title="双系统八小时时间差"></a>双系统八小时时间差</h2><span id="more"></span>
-<p>原因：<br>硬件时钟是存储在主板CMOS的时间，关机后该时钟仍然运行，主板电池为其供电。<br>系统时间：软件系统的时钟。系统启动后读取硬件时间，然后独立运行。</p>
-<ul>
-<li>localtime:本地时间，只有Windows使用，Windows把硬件时间当作本地时间，或同步时间后把本地时间写入主板，即当地时间与硬件时间一致</li>
-<li>UTC:世界标准时间，Unix-like系统多数会使用，UTC时间经过加减时区后得到本地时间，操作系统中显示的时间与硬件时钟相差相应的时区，如北京时间是UTC+8，系统中的时间是硬件时间加上8小时</li>
-</ul>
-<p>当安装双系统后，两者同步时间后都会对主板时钟进行写入，而操作系统一般不会在开机时自动同步时间</p>
+        <h1 id="Install-Chinese-Input-Method"><a href="#Install-Chinese-Input-Method" class="headerlink" title="Install Chinese Input Method"></a>Install Chinese Input Method</h1><p>If you choose English when you install ubuntu, there is not a Chinese input method installed, but you can install it with commands in the terminal.</p>
+<h2 id="Update-Your-System"><a href="#Update-Your-System" class="headerlink" title="Update Your System"></a>Update Your System</h2><p>Before you install input method, you should update your software.</p>
+<span id="more"></span>
 
+<p>If you want to stay in 20.04(or what you are using), <strong>DON’T</strong> upgrade your system. Just update the software.<br><img src="https://raw.githubusercontent.com/Jccc-l/Images/main/Ubuntu_Input_Method/not_upgrade_1.png" style="max-width=100%"><br><img src="https://raw.githubusercontent.com/Jccc-l/Images/main/Ubuntu_Input_Method/not_upgrade_2.png" style="max-width=100%"></p>
+<p>Update your software repository and upgrade your software<br>Use <code>ctrl</code>+<code>alt</code>+<code>t</code> to start a terminal, and run the command to update</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Update the software repository</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo apt update</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Update the software</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo apt upgrade</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">If failed, <span class="built_in">type</span> `sudo apt upgrade --fix-missing` to try again.</span>  </span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Restart your computer.</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">reboot</span></span><br></pre></td></tr></table></figure>
+
+<p>Or just click <code>Install Now</code> when the window pop up.<br><img src="https://github.com/Jccc-l/Images/blob/main/Ubuntu_Input_Method/update_1.png?raw=true" style="max-width=100%"></p>
+<p>If you don’t see the pop-up window, you still have 2 ways to start the update.</p>
+<p><img src="https://github.com/Jccc-l/Images/blob/main/Ubuntu_Input_Method/update_2.png?raw=true" style="max-width=30%"> or <img src="https://github.com/Jccc-l/Images/blob/main/Ubuntu_Input_Method/Software_update.png?raw=true" style="max-width=30%"></p>
+<h2 id="Install-the-Pinyin-Input-Method"><a href="#Install-the-Pinyin-Input-Method" class="headerlink" title="Install the Pinyin Input Method"></a>Install the Pinyin Input Method</h2><p>Install ibus-pinyin</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo apt install ibus-pinyin</span></span><br></pre></td></tr></table></figure>
+<p>You’d better restart your system or log out and log in again for the ibus to load its profile again.</p>
+<h2 id="Setup-IBus"><a href="#Setup-IBus" class="headerlink" title="Setup IBus"></a>Setup IBus</h2><p>So what is <strong>IBus</strong>?</p>
+<h2 id="IBus"><a href="#IBus" class="headerlink" title="IBus"></a><a target="_blank" rel="noopener" href="https://help.ubuntu.com/community/ibus">IBus</a></h2><p>The Intelligent Input Bus (IBus) is an input method framework for multilingual input in Unix-like operating systems. It’s called “Bus” because it has a bus-like architecture.</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">ibus-setup</span></span><br></pre></td></tr></table></figure>
+<p>Click <code>Input Method</code>-<code>Add</code> and choose Pinyin(or Bopomofo if you like to).<br><img src="https://github.com/Jccc-l/Images/blob/main/Ubuntu_Input_Method/Add_Chinese_Input_Method.png?raw=true" style="max-width=10%"><br><img src="https://github.com/Jccc-l/Images/blob/main/Ubuntu_Input_Method/Add_Chinese_Input_Method_2.png?raw=true" style="max-width=10%"><br><img src="https://github.com/Jccc-l/Images/blob/main/Ubuntu_Input_Method/Add_Chinese_Input_Method_3.png?raw=true" style="max-width=10%"></p>
+<h2 id="Add-Input-Source"><a href="#Add-Input-Source" class="headerlink" title="Add Input Source"></a>Add Input Source</h2><p>Add input source in system settings by <code>Settings</code>-<code>Region &amp; Language</code>-<code>Input Sources</code>, click the <code>+</code> and add Chinese input method.</p>
+<figure class="half">
+    <img src="https://github.com/Jccc-l/Images/blob/main/Ubuntu_Input_Method/settings.png?raw=true" style="max-width=30%">
+    <img src="https://github.com/Jccc-l/Images/blob/main/Ubuntu_Input_Method/Region_and_Language.png?raw=true" style="max-width=30%">
+    <img src="https://github.com/Jccc-l/Images/blob/main/Ubuntu_Input_Method/Region_and_Language_3.png?raw=true" style="max-width=30%">
+</figure>
+Click Super(Win)+Space to switch your input method to Chinese and you can happily type Chinese.
     </div>
 
     
@@ -244,8 +270,11 @@
       <footer class="post-footer">
           
           <div class="post-tags">
+              <a href="/tags/Ubuntu/" rel="tag"><i class="fa fa-tag"></i> Ubuntu</a>
               <a href="/tags/Linux/" rel="tag"><i class="fa fa-tag"></i> Linux</a>
-              <a href="/tags/Windows/" rel="tag"><i class="fa fa-tag"></i> Windows</a>
+              <a href="/tags/IBus/" rel="tag"><i class="fa fa-tag"></i> IBus</a>
+              <a href="/tags/Input-Method/" rel="tag"><i class="fa fa-tag"></i> Input Method</a>
+              <a href="/tags/Pinyin/" rel="tag"><i class="fa fa-tag"></i> Pinyin</a>
           </div>
 
         
@@ -254,13 +283,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2023/05/26/linux%E4%B8%8B%E8%85%BE%E8%AE%AF%E7%B3%BB%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/" rel="prev" title="linux下腾讯系软件使用">
-      <i class="fa fa-chevron-left"></i> linux下腾讯系软件使用
+    <a href="/2023/05/31/Windows%E4%B8%8ELinux%E5%8F%8C%E7%B3%BB%E7%BB%9F%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/" rel="prev" title="Windows与Linux双系统常见问题解决">
+      <i class="fa fa-chevron-left"></i> Windows与Linux双系统常见问题解决
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2023/09/18/IBus-in-Ubuntu/" rel="next" title="IBus_in_Ubuntu">
-      IBus_in_Ubuntu <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -319,7 +345,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%8C%E7%B3%BB%E7%BB%9F%E5%85%AB%E5%B0%8F%E6%97%B6%E6%97%B6%E9%97%B4%E5%B7%AE"><span class="nav-text">双系统八小时时间差</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Install-Chinese-Input-Method"><span class="nav-text">Install Chinese Input Method</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Update-Your-System"><span class="nav-text">Update Your System</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Install-the-Pinyin-Input-Method"><span class="nav-text">Install the Pinyin Input Method</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Setup-IBus"><span class="nav-text">Setup IBus</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IBus"><span class="nav-text">IBus</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Add-Input-Source"><span class="nav-text">Add Input Source</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
