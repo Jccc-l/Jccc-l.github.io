@@ -75,7 +75,21 @@ git push origin hexo
 
 那么如果本地博客没了，要怎么恢复呢？
 
-只需要将Github仓库里的`hexo`分支（即备份分支）克隆下来
+首先要把[node](https://nodejs.org)、[npm](https://www.npmjs.com)、[hexo](https://hexo.io)这些基础软件像第一次搭建那样安装好
+
+然后只需要将Github仓库里的`hexo`分支（即备份分支）克隆下来，进入克隆下来的目录
+
+```sh
+$ git clone -b hexo https://github.com/Jccc-l/Jccc-l.github.io.git
+```
+
+执行以下命令安装`packages.json`文件所记录的node模块
+
+```sh
+$ npm install
+```
+
+恢复完成，可以像以前那样写博客了
 
 Reference
 ---
