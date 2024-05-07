@@ -26,7 +26,7 @@ mathjax: false
 
 在`_config.yml`配置文件中配置以下内容
 
-```yml blog/_config.yml
+```yml [Blogroot]/_config.yml
 post_asset_folder: true
 marked:
   prependRoot: true

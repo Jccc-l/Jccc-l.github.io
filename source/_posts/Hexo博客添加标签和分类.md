@@ -25,7 +25,7 @@ $ hexo new page tags
 
 在创建的文章中添加页面类型，如下：
 
-```md blog/source/tags/index.md
+```md [Blogroot]/source/tags/index.md
 ---
 title: tags
 date: 2024-05-07 08:53:57
@@ -35,7 +35,7 @@ type: "tags"
 
 在博客中添加标签，比如这篇博客的标签：
 
-```md blog/source/_posts/搭建我的Hexo博客.md
+```md [Blogroot]/source/_posts/搭建我的Hexo博客.md
 ---
 title: 搭建我的Hexo博客
 date: 2024-01-17 13:35:13
@@ -47,7 +47,7 @@ tags:
 
 部分主题需要取消注释开启tags页面，比如NexT主题：
 
-```yml blog/themes/next/_config.yml
+```yml [Blogroot]/themes/next/_config.yml
 menu:
   #home: / || fa fa-home
   #about: /about/ || fa fa-user
@@ -65,7 +65,7 @@ menu:
 
 `categories/index.md`文件内容如下
 
-```md blog/source/categories/index.md
+```md [Blogroot]/source/categories/index.md
 ---
 title: categories
 date: 2024-05-07 09:04:59
@@ -75,7 +75,7 @@ type: "categories"
 
 博客信息部分如下：
 
-```md blog/source/_posts/搭建我的Hexo博客.md
+```md [Blogroot]/source/_posts/搭建我的Hexo博客.md
 ---
 title: 搭建我的Hexo博客
 date: 2024-01-17 13:35:13

@@ -465,7 +465,7 @@ $ man -L zh_CN [文档]
 
 <!-- ## Minecraft服务器搭建-->
 
-## 参考文献
+## Reference
 
 [Arch Linux Installation Guide](https://wiki.archlinux.org/title/Installation_guide)
 

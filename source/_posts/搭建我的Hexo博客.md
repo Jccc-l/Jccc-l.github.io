@@ -220,7 +220,7 @@ $ cnpm install hexo-deployer-git --save
 
 编辑博客目录下的_config.yml文件，添加以下内容
 
-```yml blog/_config.yml
+```yml [Blogroot]/_config.yml
 # You can use this:
 deploy:
   type: git

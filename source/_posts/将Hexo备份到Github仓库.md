@@ -36,7 +36,7 @@ $ git checkout -b hexo
 然后将.git整个文件夹移动到你的博客根目录
 
 ```sh
-$ mv .git ~/Blog/
+$ mv .git [Blogroot]
 ```
 
 ## 配置gitignore
@@ -62,7 +62,7 @@ $ git commit -m "Add .gitignore"
 
 ## 开始备份
 
-> 如果对主题进行了修改，要删除主题目录下的`.git`文件夹，比如`Blog/theme/next/.git`
+> 如果对主题进行了修改，要删除主题目录下的`.git`文件夹，比如`[Blogroot]/theme/next/.git`
 
 依次执行添加暂存区、提交本地库、推送至Github
 
