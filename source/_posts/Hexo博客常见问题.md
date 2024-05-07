@@ -6,6 +6,8 @@ categories:
 tags:
 - Hexo
 - Blog
+katex: true
+mathjax: false
 ---
 
 # Hexo博客常见问题
@@ -74,3 +76,30 @@ tags:
 
 安装插件[hexo-math](https://github.com/hexojs/hexo-math)，通过标签插件支持[KaTeX](https://katex.org/)和[MathJax](https://www.mathjax.org/)
 
+在文章信息部分启用katex和mathjax选项
+
+```md
+---
+title: Hexo博客常见问题
+date: 2024-05-06 15:39:50
+categories:
+- Blog
+tags:
+- Hexo
+- Blog
+katex: true
+mathjax: false
+---
+```
+
+然后就可以数学公式就可以用CSS格式进行渲染了，像这样
+
+```css
+{% katex %}
+c = \pm\sqrt{a^2 + b^2}
+{% endkatex %}
+```
+
+{% katex %}
+c = \pm\sqrt{a^2 + b^2}
+{% endkatex %}
