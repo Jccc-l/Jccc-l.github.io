@@ -74,6 +74,8 @@ tags:
 
 ## Hexo的Katex支持
 
+### 方案一
+
 安装插件[hexo-math](https://github.com/hexojs/hexo-math)，通过标签插件支持[KaTeX](https://katex.org/)和[MathJax](https://www.mathjax.org/)
 
 在文章信息部分启用katex和mathjax选项
@@ -100,6 +102,25 @@ c = \pm\sqrt{a^2 + b^2}
 {% endkatex %}
 ```
 
-{% katex %}
-c = \pm\sqrt{a^2 + b^2}
-{% endkatex %}
+### NexT主题方案
+
+用另一个渲染内核代替默认内核
+
+```sh
+$ npm un hexo-renderer-marked --save
+$ npm i hexo-renderer-markdown-it-plus --save
+```
+
+修改NexT主题配置
+
+```yml [Blogroot]/_config.next.yml
+math:
+  ...
+  katex:
+    # See: https://github.com/KaTeX/KaTeX/tree/master/contrib/copy-tex
+    copy_tex: true
+```
+
+## Preference
+
+[Math Equations - NexT](https://theme-next.js.org/docs/third-party-services/math-equations.html?highlight=math)

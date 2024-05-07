@@ -85,12 +85,12 @@ int main(void)
 
 ## 数学公式
 
-{% katex '{}' %}
+$$
 \displaystyle
 f(x) = \int_{-\infty}^{\infty} e^{-x^2} dx\\
 \sum_{n=1}^{\infty} \frac{1}{n^2} = \frac{\pi^2}{6}\\
 \lim_{x \to \infty} \left(1 + \frac{1}{x}\right)^x = e\\
-{% endkatex %}
+$$
 
 ## 图片测试
 

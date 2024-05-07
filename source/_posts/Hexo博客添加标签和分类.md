@@ -86,3 +86,7 @@ categories:
 - Blog
 ---
 ```
+
+## Preference
+
+[Hexo使用攻略-添加分类及标签](https://www.jianshu.com/p/e17711e44e00)
