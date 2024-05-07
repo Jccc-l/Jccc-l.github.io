@@ -13,6 +13,7 @@ tags:
 
 在另一篇文章中，我示范了如何利用[hexo-deployer-git](https://github.com/hexojs/hexo-deployer-git)插件将博客推送到GitHub。使用这个插件，我们能够将已编译的博客文件推送到名为`<username>.github.io`的Github仓库。  
 在这个仓库中，只有public目录下的文件会被上传，而其他的源文件，比如source、scaffolds，以及node模块等，则不会被包含在上传的内容中。  
+<!--more-->
 <img src="未备份1.png" style="max_width:100%">
 <img src="未备份2.png" style="max_width:100%">
 因此我们需要通过git创建分支，将我们的源文件进行备份。
