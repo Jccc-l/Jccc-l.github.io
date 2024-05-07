@@ -104,7 +104,7 @@ theme: next
 deploy:
   type: git
   repo: https://github.com/Jccc-l/Jccc-l.github.io.git
-  branch: 
+  branch: main
 
 
 # Image
