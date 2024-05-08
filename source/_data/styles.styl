@@ -28,9 +28,52 @@ body {
 }
 
 /* 侧边框透明度设置 */
-.sidebar {
-    opacity: 0.9;
+.sidebar-inner {
+    background: rgba(245, 245, 245, 0.6); /* 背景色透明度设置 */
+	color: #3d788e; /* 字体、图标颜色 */
 }
+
+.sidebar .fa, .sidebar .fab {
+    color: #3d788e; /* 示例颜色，针对Font Awesome或其他图标集的图标颜色 */
+}
+
+/* 侧边栏描述部分字体颜色 */
+.site-description {
+    color: #555555;
+}
+
+/* 侧边栏数字的颜色 */
+.site-state-item-count {
+    color: #3d788e;
+}
+
+/* 调整“日志”，“分类”，“标签”这些文本的颜色 */
+.site-state-item-name {
+    color: #555555;
+	font-weight: bold; /* 将字体加粗 */
+}
+
+/* 目录字体 */
+.nav-text {
+	//color: /* 颜色设置 */
+}
+
+.post-toc .nav .active > a {
+	border-bottom-color: #3d788e;
+	color: #3d788e;
+}
+
+.post-toc .nav .active > a:hover {
+	border-bottom-color: #fc6423;
+	color: #fc6423;
+}
+
+.sidebar-toc-active .sidebar-nav-toc, .sidebar-overview-active .sidebar-nav-overview {
+	border-bottom-color: #3d788e;
+    color: #3d788e;
+    transition-delay: 0.2s;
+}
+
 
 /* 菜单栏颜色设置 */
 .header-inner {

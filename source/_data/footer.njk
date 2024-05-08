@@ -3,7 +3,6 @@
         <!-- 时间统计部分 -->
         <span id="timeDate">载入天数...</span>
         <span id="times">载入时分秒...</span>
-		<br>
         <script>
             var now = new Date();
             function createtime() {
@@ -25,16 +24,15 @@
             }
             setInterval("createtime()", 250);
         </script>
-        
         <!-- 版权信息与联系信息部分 -->
 		<br>
-<!--&copy; 2010-<span id="currentYearPlaceholder">YYYY</span>->
+<!--&copy; 2023-<span id="currentYearPlaceholder">YYYY</span>-->
 		<span id="copyright"> 路过的即是风景. All rights reserved. Non-commercial use allowed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>.</span>
 		<br>
-		<span id="disclaimer">Disclaimer: Content provided for reference only. Accuracy, completeness, suitability not guaranteed. Not liable for any loss or damage.</span>
+		<span id="disclaimer">Disclaimer: Content provided for reference only. Accuracy, completeness, suitability not guaranteed.<br>Not liable for any loss or damage.</span>
 		<br>
 		<!--联系信息部分-->
-		<span id="Contact">Contact Us: <a href="mailto:1216550215Jc@gmail.com">GMail</a> | Address: Guangdong, China</span>
+		<span id="Contact">Contact Me: <a href="mailto:1216550215Jc@gmail.com">GMail</a> | Address: Guangdong, China</span>
 		<script>
 			// 使用JavaScript获取当前年份并更新到页面上
 			document.getElementById('currentYearPlaceholder').innerText = new Date().getFullYear();
