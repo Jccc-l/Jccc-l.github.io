@@ -6,7 +6,6 @@ categories:
 tags:
 - Linux
 - Ubuntu
-- 输入法
 - Input Method
 ---
 

@@ -5,7 +5,7 @@ categories:
 - 深度学习
 tags:
 - Linux
-- 深度学习
+- Deep Learning
 - Pytorch
 - AMD
 ---

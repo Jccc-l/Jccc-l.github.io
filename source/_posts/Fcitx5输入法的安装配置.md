@@ -6,7 +6,6 @@ categories:
 tags:
 - Linux
 - Input Method
-- 输入法
 - Fcitx5
 ---
 
