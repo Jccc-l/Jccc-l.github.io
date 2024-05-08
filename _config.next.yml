@@ -180,7 +180,6 @@ links_settings:
 
 links:
   #Title: https://example.com
-  Bilibili: https://space.bilibili.com/30138186?spm_id_from=333.337.0.0
 
 # Table of Contents in the Sidebar
 # Front-matter variable (nonsupport wrap expand_all).
