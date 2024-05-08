@@ -1,7 +1,13 @@
 ---
 title: 基于NexT主题的Hexo博客美化
+categories:
+  - null
+mathjax: false
+katex: true
+date: 2024-05-08 23:22:01
 tags:
 ---
+
 
 ## 主题安装
 
@@ -142,3 +148,59 @@ type: "about"
 
 ## 侧栏内容设置
 
+## 添加网站运行时间
+
+修改NexT主题配置，自定义footer
+
+```yml [Blogroot]/_config.next.yml
+custom_file_path:
+  footer: source/_data/footer.njk
+  style: source/_data/styles.styl
+```
+
+编辑`footer.njk`文件
+
+```njk [Blogroot]/source/_data/footer.njk
+<div>
+<span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+<script>
+    var now = new Date();
+    function createtime() {
+        var grt= new Date("05/04/2023 00:00:00");
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 ";
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+    }
+setInterval("createtime()",250);
+</script>
+</div>
+```
+
+时间改为网站的起始时间
+
+## 添加版权信息
+
+```njk [Blogroot]/source/_data/footer.njk
+<!-- 版权信息与联系信息部分 -->
+<br>
+<span id="copyright">&copy; 2010-<span id="currentYearPlaceholder">YYYY</span> 路过的即是风景. All rights reserved. Non-commercial use allowed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>.</span>
+<br>
+<span id="disclaimer">Disclaimer: Content provided for reference only. Accuracy, completeness, suitability not guaranteed. Not liable for any loss or damage.</span>
+<br>
+<!--联系信息部分-->
+<span id="Contact">Contact Us: <a href="mailto:1216550215Jc@gmail.com">GMail</a> | Address: Guangdong, China</span>
+<script>
+    // 使用JavaScript获取当前年份并更新到页面上
+    document.getElementById('currentYearPlaceholder').innerText = new Date().getFullYear();
+</script>
+```
+
+## Preference
+
+[【个人网站搭建】hexo框架Next主题下添加网站运行时间](https://blog.csdn.net/wangqingchuan92/article/details/126346205)
