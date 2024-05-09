@@ -78,6 +78,10 @@ Arch Linux中常用的软件包
 | wmname                | 修改窗口管理器名称，用于修复部分应用在小众窗口管理器的运行问题                               |
 | pactl                 | pulseaudio控制软件                                                                           |
 | remmina               | 远程控制软件                                                                                 |
+| calibre               | 书库软件                                                                                     |
+| okular                | 浏览pdf文档等                                                                                |
+| pinta                 | 图片编辑工具、画图工具                                                                       |
+| feh                   | 图片浏览、背景设置                                                                           |
 
 AUR包
 
