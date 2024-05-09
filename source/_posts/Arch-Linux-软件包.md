@@ -7,13 +7,12 @@ tags:
 - Linux
 - Arch Linux
 - pacman
+description: 一些我使用的Arch Linux软件包和AUR包
 ---
 
 # Arch Linux 软件包
 
 Arch Linux中常用的软件包
-
-<!-- more-->
 
 | 包名                  | 解释                                                                                         |
 |-----------------------|----------------------------------------------------------------------------------------------|
@@ -85,11 +84,14 @@ Arch Linux中常用的软件包
 
 AUR包
 
-| 包名               | 解释                                                       |
-|--------------------|------------------------------------------------------------|
-| optimus-manager    | Intel/AMD+Nvidia双显卡管理                                 |
-| optimus-manager-qt | optimus-manager的图形界面以及配置文件自动生成(GNOME不可用) |
-| gdm-prime          | GDM\:加上Prime补丁以支持Optimus                            |
-| python310          | Python3.10版本                                             |
-| google-chrome-dev  | Google Chrome浏览器Dev通道测试版                           |
-| hmcl-stable-bin    | 我的世界HMCL启动器（文字有问题）                           |
+| 包名                | 解释                                                       |
+|---------------------|------------------------------------------------------------|
+| optimus-manager     | Intel/AMD+Nvidia双显卡管理                                 |
+| optimus-manager-qt  | optimus-manager的图形界面以及配置文件自动生成(GNOME不可用) |
+| gdm-prime           | GDM\:加上Prime补丁以支持Optimus                            |
+| python310           | Python3.10版本                                             |
+| google-chrome-dev   | Google Chrome浏览器Dev通道测试版                           |
+| hmcl-stable-bin     | 我的世界HMCL启动器（文字有问题）                           |
+| youdao-dict         | 有道词典                                                   |
+| python-pyqt5-webkit | youdao-dict的依赖                                          |
+| qt5-webkit          | python-pyqt5-webkit的依赖                                  |

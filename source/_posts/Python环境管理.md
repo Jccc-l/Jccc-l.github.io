@@ -1,6 +1,7 @@
 ---
 title: Python环境管理
 date: 2024-05-06 15:40:54
+description: Python多版本管理难？版本冲突？看看这里！
 categories:
 - Python
 tags:
@@ -8,10 +9,6 @@ tags:
 ---
 
 # Python环境管理
-
-在开发过程中，难免会遇到多版本Python的冲突问题，接下来看一下怎么对这些不同版本的Python进行管理。
-
-<!--more-->
 
 由于Arch Linux是一个滚动更新的发行版，官方源只提供最新的稳定版本（现在是Python3.12），如果想安装以前的版本或者预览版本，可以通过AUR进行安装
 

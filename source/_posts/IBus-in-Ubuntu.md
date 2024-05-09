@@ -1,6 +1,7 @@
 ---
-title: IBus in Ubuntu
+title: IBus on Ubuntu
 date: 2024-05-06 20:45:13
+description: How to install IBus input method on Ubuntu?
 categories:
 - Linux
 tags:
@@ -16,8 +17,6 @@ If you choose English when you install ubuntu, there is not a Chinese input meth
 ## Update Your System
 
 Before you install input method, you should update your software.
-
-<!--more-->
 
 If you want to stay in 20.04(or what you are using), **DON'T** upgrade your system. Just update the software.
 

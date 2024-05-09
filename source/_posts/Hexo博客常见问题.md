@@ -1,6 +1,7 @@
 ---
 title: Hexo博客常见问题
 date: 2024-05-06 15:39:50
+description: 在用Hexo的时候遇到的一些坑
 categories:
 - Blog
 tags:
@@ -15,8 +16,6 @@ mathjax: false
 ## 图片存储方案
 
 在上一章中，我们配置了在创建博客同时创建一个同名文件夹存储图片等文件，但是当我们在博客的Markdown文件中引用图片文件，图片并不能显示出来
-
-<!--more-->
 
 <img src="Image_Reference_Failed.png" style="max-width:100%;">
 

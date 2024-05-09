@@ -6,6 +6,7 @@ tags:
 - Linux
 categories:
 - Linux
+description: Arch Linux的基础安装过程
 ---
 
 # Archlinux
@@ -13,8 +14,6 @@ categories:
 ## 基础系统安装
 
 ArchLinux是一个流行的GNU/Linux滚动发行
-
-<!--more-->
 
 ### 基础配置
 

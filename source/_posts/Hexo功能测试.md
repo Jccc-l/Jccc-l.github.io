@@ -1,6 +1,7 @@
 ---
 title: Hexo功能测试
 date: 2024-05-07 13:55:07
+description: 这个是一篇用来测试Hexo博客功能的文章
 categories:
 - Blog
 tags:
@@ -11,8 +12,6 @@ mathjax: false
 ---
 
 # Hexo功能测试
-
-<!--more-->
 
 ## 引用
 

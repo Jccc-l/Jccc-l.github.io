@@ -1,6 +1,7 @@
 ---
 title: Hexo自定义CSS
 date: 2024-05-07 09:35:47
+description: Hexo的css自定义设置
 categories:
 - Blog
 tags:
@@ -14,8 +15,6 @@ tags:
 ## 创建CSS文件
 
 首先创建`[Blogroot]/source/_data/style.css`文件
-
-<!--more-->
 
 在这个文件里编写自定义的CSS样式
 

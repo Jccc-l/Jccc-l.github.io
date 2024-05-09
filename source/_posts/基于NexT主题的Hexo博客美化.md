@@ -1,11 +1,15 @@
 ---
 title: 基于NexT主题的Hexo博客美化
-categories:
-  - null
+date: 2024-05-08 23:22:01
+description: 记录如何基于NexT主题对Hexo博客进行美化
 mathjax: false
 katex: true
-date: 2024-05-08 23:22:01
+categories:
+  - Blog
 tags:
+- Blog
+- Hexo
+- NexT
 ---
 
 
@@ -17,7 +21,6 @@ tags:
 $ cd [Blogroot]
 $ git clone https://github.com/next-theme/hexo-theme-next themes/next
 ```
-<!--more-->
 
 修改博客主配置文件
 

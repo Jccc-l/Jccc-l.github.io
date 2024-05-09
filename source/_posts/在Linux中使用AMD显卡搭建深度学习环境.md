@@ -1,6 +1,7 @@
 ---
 title: 在Linux中搭建AMD的深度学习环境
 date: 2024-05-06 16:00:21
+description: 记录在Arch Linux中搭建AMD显卡的Pytorch深度学习环境
 categories:
 - 深度学习
 tags:
@@ -12,7 +13,7 @@ tags:
 
 # AMD GPU运行Pytorch
 
-<!-- more-->
+## 配置过程
 
 以下命令**配置环境变量**
 
@@ -52,3 +53,7 @@ True
 <img src="torch_available.png" style="max-width:100%">
 
 可以看到ROCm可用
+
+## Reference
+
+- [AMD显卡满血Stable Diffusion无脑部署笔记(ROCm6.1)(SD+Fooocus+ComfyUI)\[长期更新\]](https://zhuanlan.zhihu.com/p/656480759?utm_psn=1710569878971547648)

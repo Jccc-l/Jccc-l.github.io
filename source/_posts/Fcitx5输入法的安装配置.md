@@ -1,6 +1,7 @@
 ---
 title: Fcitx5输入法的安装配置
 date: 2024-05-03 11:00:00
+description: Fcitx5——小企鹅输入法（Fcitx 读作[ˈfaɪtɪks]）是一个支持扩展的输入法框架
 categories:
 - Linux
 tags:
@@ -15,8 +16,6 @@ tags:
 ## 安装Fcitx5
 
 在Arch Linux中，推荐使用Fcitx5输入法
-
-<!-- more-->
 
 安装以下必要库
 

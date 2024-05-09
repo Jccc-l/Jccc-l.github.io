@@ -1,6 +1,7 @@
 ---
 title: 使用PicGo和Github仓库搭建图床
 date: 2024-05-06 16:01:56
+description: 记录一下搭建图床（非原创）
 categories:
 - Blog
 tags:
@@ -13,10 +14,6 @@ tags:
 # 搭建图床
 
 图床是储存图片的服务器，允许把外部网站链接到图片，方便我们编写博客和网站
-
-参考视频<https://www.bilibili.com/video/BV1Ua4y1D7Li/?spm_id_from=333.337.search-card.all.click>
-
-<!--more-->
 
 ## 安装PicGO
 
@@ -84,3 +81,7 @@ https://cdn.jsdelivr.net/gh/<username>/<repo>
 ```
 https://cdn.jsdelivr.net/gh/Jccc-l/Image-Bed
 ```
+
+## Reference
+
+- [通过GitHub+PicGo+CDN搭建自己的图床](https://www.bilibili.com/video/BV1Ua4y1D7Li/?spm_id_from=333.337.search-card.all.click)

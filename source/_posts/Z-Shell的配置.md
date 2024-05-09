@@ -1,6 +1,9 @@
 ---
 title: Z-Shell的配置
 date: 2024-05-06 15:46:27
+description: Z-Shell的配置过程记录
+categories:
+- Linux
 tags:
 - Linux
 - Z-Shell
@@ -8,8 +11,6 @@ tags:
 ---
 
 # Z-Shell配置
-
-<!--more-->
 
 ## 前置准备
 

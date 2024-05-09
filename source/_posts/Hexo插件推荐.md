@@ -1,6 +1,7 @@
 ---
 title: Hexo插件推荐
 date: 2023-05-24 21:53:55
+description: 插件推荐和安装配置
 categories:
 - Blog
 tags:

@@ -1,7 +1,7 @@
 ---
 title: 搭建我的Hexo博客
 date: 2024-01-17 13:35:13
-<!-- description: 本文记录了我通过hexo搭建博客的过程 -->
+description: 记录了我通过hexo搭建博客的过程
 tags:
 - Hexo
 - Blog
@@ -15,8 +15,6 @@ categories:
 Hexo是一个快速、简洁高效的博客框架，部署步骤简单，编写支持Markdown
 
 这次记录一下我的博客搭建过程，搭配[Hexo官方文档](https://hexo.io/zh-cn/docs/index.html)食用更佳
-
-<!-- more -->
 
 ## 基础安装
 
