@@ -1,107 +1,222 @@
-/* Body背景设置 */
+/* 设置背景图片 */
 body {
     background: url(/images/background.jpg) no-repeat fixed;
     background-size: cover;
     background-position: center;
 }
 
-/* 文章背板颜色设置 */
+/* 设置主要区域的背景颜色和透明度 */
 .main-inner > .sub-menu,
 .main-inner > .post-block,
 .main-inner > .tabs-comment,
 .main-inner > .comments,
 .main-inner > .pagination {
-    background: rgba(245, 245, 245, 0.8); /* 背景色透明度设置 */
+    background: rgba(245, 245, 245, 0.8);
 }
 
-/* 文字颜色设置 */
+/* 设置文字颜色 */
 body {
-    color: #000; /* 主体字体颜色为纯黑 */
+    color: #000;
 }
 
+/* 设置文章标题颜色 */
 .posts-expand .post-title-link {
-    color: #222; /* 首页文章标题颜色 */
+    color: #222;
 }
 
+/* 设置文章元数据颜色 */
 .posts-expand .post-meta-container {
-    color: #62a7b6; /* 文章日期颜色 */
+    color: #62a7b6;
 }
 
-/* 侧边框透明度设置 */
-.sidebar-inner {
-    background: rgba(245, 245, 245, 0.6); /* 背景色透明度设置 */
-	color: #3d788e; /* 字体、图标颜色 */
+/* 设置图片透明度 */
+img {
+    opacity: 1;
 }
 
-.sidebar .fa, .sidebar .fab {
-    color: #3d788e; /* 示例颜色，针对Font Awesome或其他图标集的图标颜色 */
+/* 设置表格容器透明度 */
+.table-container {
+    opacity: 1;
 }
 
-/* 侧边栏描述部分字体颜色 */
-.site-description {
-    color: #555555;
+/* 大屏幕设备样式 */
+@media (min-width: 768px) {
+    /* 设置侧边栏背景颜色和文字颜色 */
+    .sidebar-inner {
+        background: rgba(245, 245, 245, 0.7);
+        color: #3d788e;
+    }
+
+    /* 设置侧边栏图标颜色 */
+    .sidebar .fa, .sidebar .fab {
+        color: #3d788e;
+    }
+
+    /* 设置网站描述文字颜色 */
+    .site-description {
+        color: #555555;
+    }
+
+    /* 设置站点状态项数量颜色 */
+    .site-state-item-count {
+        color: #3d788e;
+    }
+
+    /* 设置站点状态项名称颜色和加粗 */
+    .site-state-item-name {
+        color: #555555;
+        font-weight: bold;
+    }
+
+    /* 设置导航链接样式 */
+    .nav-text {
+    }
+
+    /* 设置导航链接的下划线 */
+    .nav-link {
+        border-bottom: none;
+		color: #888888;
+    }
+
+    /* 设置导航链接悬停时的下划线 */
+    .nav-link:hover {
+        border-bottom: 1px solid currentColor;
+        color: #fc6423;
+    }
+
+    /* 设置文章目录链接颜色 */
+    .post-toc .nav > a {
+        color: #3d788e;
+    }
+
+    /* 设置文章目录激活状态下的链接颜色 */
+    .post-toc .nav .active > a {
+        border-bottom-color: #3d788e;
+        color: #20b2aa;
+    }
+
+    /* 设置文章目录激活状态下链接悬停时的颜色 */
+    .post-toc .nav .active > a:hover {
+        border-bottom-color: #fc6423;
+        color: #fc6423;
+    }
+
+    /* 设置侧边栏目录激活状态下的颜色 */
+    .sidebar-toc-active .sidebar-nav-toc, .sidebar-overview-active .sidebar-nav-overview {
+        border-bottom-color: #20b2aa;
+        color: #20b2aa;
+        transition-delay: 0.2s;
+    }
 }
 
-/* 侧边栏数字的颜色 */
-.site-state-item-count {
-    color: #3d788e;
+/* 小屏幕设备样式 */
+@media (max-width: 768px) {
+    /* 设置小屏幕下侧边栏内部背景颜色和文字颜色 */
+    .sidebar-inner {
+        background: rgba(245, 245, 245, 0);
+        color: #3d788e;
+    }
+    
+    /* 设置小屏幕下侧边栏背景颜色 */
+    .sidebar {
+        background: rgba(245, 245, 245, 1);
+    }
+
+    /* 设置小屏幕下侧边栏遮罩层背景颜色 */
+    .sidebar-dimmer{
+        background: rgba(0, 0, 0, 0)
+    }
+
+    /* 设置小屏幕下侧边栏图标颜色 */
+    .sidebar .fa, .sidebar .fab {
+        color: #3d788e;
+    }
+
+    /* 设置小屏幕下网站描述文字颜色 */
+    .site-description {
+        color: #555555;
+    }
+
+    /* 设置小屏幕下站点状态项数量颜色 */
+    .site-state-item-count {
+        color: #3d788e;
+    }
+
+    /* 设置小屏幕下站点状态项名称颜色和加粗 */
+    .site-state-item-name {
+        color: #555555;
+        font-weight: bold;
+    }
+
+    /* 设置小屏幕下导航链接样式 */
+    .nav-text {
+        /* color: ; */
+    }
+
+    /* 设置小屏幕下导航链接悬停时的下划线 */
+    .nav-link {
+        border-bottom: none;
+    }
+
+    /* 设置小屏幕下导航链接悬停时的下划线 */
+    .nav-link:hover {
+        border-bottom: 1px solid currentColor;
+    }
+
+    /* 设置小屏幕下文章目录链接颜色 */
+    .post-toc .nav > a {
+        color: #3d788e;
+    }
+
+    /* 设置小屏幕下文章目录激活状态下的链接颜色 */
+    .post-toc .nav .active > a {
+        border-bottom-color: #3d788e;
+        color: #3d788e;
+    }
+
+    /* 设置小屏幕下文章目录激活状态下链接悬停时的颜色 */
+    .post-toc .nav .active > a:hover {
+        border-bottom: 1px solid currentColor;
+        border-bottom-color: #fc6423;
+        color: #fc6423;
+    }
+
+    /* 设置小屏幕下侧边栏目录激活状态下的颜色 */
+    .sidebar-toc-active .sidebar-nav-toc, .sidebar-overview-active .sidebar-nav-overview {
+        border-bottom-color: #3d788e;
+        color: #3d788e;
+        transition-delay: 0.2s;
+    }
 }
 
-/* 调整“日志”，“分类”，“标签”这些文本的颜色 */
-.site-state-item-name {
-    color: #555555;
-	font-weight: bold; /* 将字体加粗 */
-}
-
-/* 目录字体 */
-.nav-text {
-	//color: /* 颜色设置 */
-}
-
-.post-toc .nav .active > a {
-	border-bottom-color: #3d788e;
-	color: #3d788e;
-}
-
-.post-toc .nav .active > a:hover {
-	border-bottom-color: #fc6423;
-	color: #fc6423;
-}
-
-.sidebar-toc-active .sidebar-nav-toc, .sidebar-overview-active .sidebar-nav-overview {
-	border-bottom-color: #3d788e;
-    color: #3d788e;
-    transition-delay: 0.2s;
-}
-
-
-/* 菜单栏颜色设置 */
-.header-inner {
-    background: rgba(255, 255, 255, 0.7); /* 菜单栏背景色透明度设置 */
-}
-
-/* 搜索框透明度设置 */
+/* 设置弹出框透明度 */
 .popup {
     opacity: 0.5;
 }
 
-/* 主体背景设置 */
-.main-inner {
-    background-color: rgba(255, 255, 255, 0); /* 主体背景透明 */
-    padding: 0 40px; /* 调整组件位置 */
+/* 设置头部区域背景颜色和透明度 */
+.header-inner {
+	background: rgba(255, 255, 255, 0.7);
 }
 
-/* 底部字体颜色设置 */
+/* 设置页脚文字颜色 */
 .footer-inner {
     color: #555555;
 }
 
-/* 图片和table-container不透明设置 */
-img {
-    opacity: 1; /* 设置图片不透明 */
+.box {
+    width: 100%;
+    /* 因为 content 会另起一行，影响样式的话，height 设置为具体的值可以避免高度变高的情况 */
+    height: 100%;
+    /* 设置元素两端对齐 */
+    text-align: justify;
 }
-
-.table-container {
-    opacity: 1; /* 设置 table-container 不透明 */
+ 
+/* 这里的伪元素一定要加上，不然span元素不能两端对齐 */			
+.box:after {
+    content: "";
+    display: inline-block;
+    overflow: hidden;
+    width: 100%;
 }
 

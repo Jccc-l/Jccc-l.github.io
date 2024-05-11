@@ -1,0 +1,106 @@
+# see https://github.com/ning0818/hexo-theme-ning
+
+
+#################################个人信息#################################
+
+infor:
+  logo: https://static.wixstatic.com/media/7ac599_7f89d584113846db885a008b5c7b9f6b~mv2.jpg/v1/fill/w_761,h_761,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/7ac599_7f89d584113846db885a008b5c7b9f6b~mv2.jpg #徽标
+    #qexourl: https://admin.ning0818.top # qexo链接
+  xieyi: 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0)
+  qexokey: #人机验证秘钥，没有的不填
+
+    #friends:
+    #  name: 阳光下的小宁宁
+    #  url: https://ning0818.top
+    #  logo: https://jsd.onmicrosoft.cn/gh/ning0818/cdn-files@blogcdn/logo.webp
+    #  describe: 一个少年的博客
+
+#################################TianliGPT#################################
+plugins:
+  TianliGPT:
+    enable: false
+    key: 5Q5mpqRK5DkwT1X9Gi5e
+    wordLimit: 1000 # 摘要字数限制 (⚠️危险：更改此变量损失已消耗过的key，因为你提交的内容发生了变化。)
+    typewriter: true # 打字机效果
+  NingGPT:
+    enable: true
+    link: https://ai.ning0818.top
+    key: 
+
+#################################顶部导航栏#################################
+
+#顶部导航栏-左侧
+menu:
+  首页: /
+  标签: /tags/
+
+#顶部导航栏-右侧小图标
+menuright:
+  首页:
+    url: /
+    icon: bi bi-house-door
+  Github:
+    url: https://github.com/ning0818/
+    icon: bi bi-github
+
+#################################侧边栏#################################
+
+#侧边-左侧-上部
+sidetag:
+  首页:
+    url: /
+    icon: bi bi-house-door
+  rss:
+    url: /atom.xml
+    icon: bi bi-rss
+  朋友圈:
+    url: /moments/
+    icon: bi bi-share
+
+#侧边-左侧-下部
+classification:
+  友人帐:
+    url: /link/
+    icon: bi bi-people-fill
+  rss:
+    url: /atom.xml
+    icon: bi bi-rss
+  朋友圈:
+    url: /moments/
+    icon: bi bi-share
+  文坛:
+    url: /fcircle/
+    icon: bi bi-people
+
+#侧边-右侧-个人卡片-下方
+sidenav:
+  关于:
+    url: /about/
+    icon: bi bi-file-earmark-person-fill
+  Github:
+    url: /about/
+    icon: bi bi-github
+
+#侧边栏
+sidenavmain:
+  公告:
+    icon: bi bi-bell-fill
+    word: 这是一个公告
+
+#################################评论#################################
+artalk:
+  url: https://artalk.ning0818.top
+waline:
+  url: https://waline.ning0818.top
+twikoo:
+  envid:  #腾讯云环境填 envId；Vercel 环境填地址（https://xxx.vercel.app）
+  region:  #环境地域，默认为 ap-shanghai，腾讯云环境填 ap-shanghai 或 ap-guangzhou；Vercel 环境不填
+valine:
+  appid: qwuyxtzv7f93q86g9836gz9f
+  appkey: q9z8634gnf98yg43qn64n9gf68gq9f84
+
+#################################CDN#################################
+cdn:
+  github: https://cdn2.chuqis.com/gh/
+  npm: https://npm.elemecdn.com/
+  cdnjs: https://cdn.bootcdn.net/ajax/libs/
