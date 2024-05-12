@@ -8,6 +8,8 @@ tags:
 - Linux
 - Ubuntu
 - Input Method
+mathjax: false
+katex: false
 ---
 
 # Install Chinese Input Method

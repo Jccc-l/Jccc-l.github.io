@@ -112,3 +112,13 @@ marked:
   prependRoot: true
   postAsset: true
 
+
+# Security
+encrypt: # hexo-blog-encrypt
+  abstract: 这里有东西被加密了
+  message: 这里需要验证身份
+  tags:
+  - {name: 加密, password: jccc}
+  wrong_pass_message: 前面的区域，以后再来探索吧~
+  wrong_hash_message: Oh, these decrypted content cannot be verified, but you can still have a look.
+  theme: up

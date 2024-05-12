@@ -9,6 +9,8 @@ tags:
 - Deep Learning
 - Pytorch
 - AMD
+mathjax: false
+katex: false
 ---
 
 # AMD GPU运行Pytorch

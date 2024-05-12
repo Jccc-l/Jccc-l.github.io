@@ -2,12 +2,14 @@
 title: Hexo博客添加标签和分类
 date: 2024-05-07 14:18:52
 description: 标签和分类是博客的一个重要功能，方便我们进行快速索引。 
+categories:
+- Blog
 tags:
 - Hexo
 - Blog
 - 标签
-categories:
-- Blog
+mathjax: false
+katex: false
 ---
 
 # Hexo博客添加标签和分类

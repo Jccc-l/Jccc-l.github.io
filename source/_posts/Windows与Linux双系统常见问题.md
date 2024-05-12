@@ -7,6 +7,8 @@ categories:
 tags:
 - Windows
 - Linux
+mathjax: false
+katex: false
 ---
 
 # Windows与Linux双系统常见问题解决

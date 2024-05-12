@@ -7,6 +7,8 @@ categories:
 tags:
 - Hexo
 - Blog
+mathjax: false
+katex: false
 ---
 
 # Hexo插件推荐

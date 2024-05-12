@@ -8,7 +8,7 @@ tags:
 - Docker
 - Container
 mathjax: false
-katex: true
+katex: false
 ---
 
 # Docker学习

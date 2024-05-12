@@ -1,14 +1,15 @@
 ---
 title: Windows清除、关闭备用内存
+date: 2024-05-12 18:50:43
+description: 如何释放、关闭备用内存
 categories:
   - Windows
-mathjax: false
-katex: true
-date: 2024-05-12 18:50:43
 tags:
 - Windows
 - Memory
-description: 如何释放、关闭备用内存
+- 加密
+mathjax: false
+katex: false
 ---
 
 # Windows清除、关闭备用内存

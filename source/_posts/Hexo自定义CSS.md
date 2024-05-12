@@ -8,6 +8,8 @@ tags:
 - Blog
 - Hexo
 - CSS
+mathjax: false
+katex: false
 ---
 
 # Hexo自定义CSS

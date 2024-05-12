@@ -9,6 +9,8 @@ tags:
 - 图床
 - Github
 - PicGo
+mathjax: false
+katex: false
 ---
 
 # 搭建图床

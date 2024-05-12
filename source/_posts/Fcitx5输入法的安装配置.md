@@ -8,6 +8,8 @@ tags:
 - Linux
 - Input Method
 - Fcitx5
+mathjax: false
+katex: false
 ---
 
 

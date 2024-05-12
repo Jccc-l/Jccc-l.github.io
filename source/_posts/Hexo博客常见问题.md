@@ -7,8 +7,8 @@ categories:
 tags:
 - Hexo
 - Blog
-katex: true
 mathjax: false
+katex: false
 ---
 
 # Hexo博客常见问题

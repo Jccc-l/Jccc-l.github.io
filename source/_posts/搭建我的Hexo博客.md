@@ -2,12 +2,14 @@
 title: 搭建我的Hexo博客
 date: 2024-01-17 13:35:13
 description: 记录了我通过hexo搭建博客的过程
+categories:
+- Blog
 tags:
 - Hexo
 - Blog
 - Github
-categories:
-- Blog
+mathjax: false
+katex: false
 ---
 
 # 搭建我的Hexo博客

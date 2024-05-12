@@ -1,13 +1,15 @@
 ---
 title: Arch Linux 软件包
 date: 2024-05-06 21:45:51
+description: 一些我使用的Arch Linux软件包和AUR包
 categories:
 - Linux
 tags:
 - Linux
 - Arch Linux
 - pacman
-description: 一些我使用的Arch Linux软件包和AUR包
+mathjax: false
+katex: false
 ---
 
 # Arch Linux 软件包

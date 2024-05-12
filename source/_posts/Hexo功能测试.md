@@ -7,8 +7,8 @@ categories:
 tags:
 - Hexo
 - blog
-katex: true
 mathjax: false
+katex: true
 ---
 
 # Hexo功能测试

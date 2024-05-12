@@ -1,12 +1,14 @@
 ---
 title: Archlinux基本安装
 date: 2024-05-06 18:54:51
+description: Arch Linux的基础安装过程
+categories:
+- Linux
 tags:
 - Arch Linux
 - Linux
-categories:
-- Linux
-description: Arch Linux的基础安装过程
+mathjax: false
+katex: false
 ---
 
 # Archlinux

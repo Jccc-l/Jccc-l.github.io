@@ -8,6 +8,8 @@ tags:
 - Linux
 - Z-Shell
 - Shell
+mathjax: false
+katex: false
 ---
 
 # Z-Shell配置

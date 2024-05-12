@@ -2,14 +2,14 @@
 title: 基于NexT主题的Hexo博客美化
 date: 2024-05-08 23:22:01
 description: 记录如何基于NexT主题对Hexo博客进行美化
-mathjax: false
-katex: true
 categories:
   - Blog
 tags:
 - Blog
 - Hexo
 - NexT
+mathjax: false
+katex: false
 ---
 
 

@@ -6,6 +6,8 @@ categories:
 - Python
 tags:
 - Python
+mathjax: false
+katex: false
 ---
 
 # Python环境管理

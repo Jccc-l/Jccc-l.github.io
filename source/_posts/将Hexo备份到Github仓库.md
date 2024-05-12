@@ -8,6 +8,8 @@ tags:
 - Hexo
 - Blog
 - Github
+mathjax: false
+katex: false
 ---
 
 # 将Hexo博客备份到Github仓库

@@ -10,6 +10,8 @@ tags:
 - Mariadb
 - Linux
 - Arch Linux
+mathjax: false
+katex: false
 ---
 
 # Mariadb安装配置
