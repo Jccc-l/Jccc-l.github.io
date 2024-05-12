@@ -120,6 +120,6 @@ math:
     copy_tex: true
 ```
 
-## Preference
+## Reference
 
 [Math Equations - NexT](https://theme-next.js.org/docs/third-party-services/math-equations.html?highlight=math)

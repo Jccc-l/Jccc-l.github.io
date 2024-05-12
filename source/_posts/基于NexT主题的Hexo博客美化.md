@@ -314,6 +314,6 @@ img {
 ```
 
 
-## Preference
+## Reference
 
 [【个人网站搭建】hexo框架Next主题下添加网站运行时间](https://blog.csdn.net/wangqingchuan92/article/details/126346205)

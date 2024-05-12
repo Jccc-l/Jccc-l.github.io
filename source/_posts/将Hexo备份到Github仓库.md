@@ -93,6 +93,6 @@ $ npm install
 
 恢复完成，可以像以前那样写博客了
 
-Reference
----
-[【Hexo】Hexo博客备份到Github](https://ayshansu.github.io/%E3%80%90Hexo%E3%80%91Hexo%E5%8D%9A%E5%AE%A2%E5%A4%87%E4%BB%BD%E5%88%B0Github/)
+## Reference
+
+- [【Hexo】Hexo博客备份到Github](https://ayshansu.github.io/%E3%80%90Hexo%E3%80%91Hexo%E5%8D%9A%E5%AE%A2%E5%A4%87%E4%BB%BD%E5%88%B0Github/)
