@@ -23,15 +23,39 @@ katex: false
 
 当安装双系统后，两者同步时间后都会对主板时钟进行写入，而操作系统一般不会在开机时自动同步时间
 
-解决方法有：
+
+### 解决方法
+
+#### 修改系统的计时方式
+
 - 将Windows的计时方式改为`UTC`
     - 在`PowerShell`中运行以下命令：
     ```ps1
     reg add “HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\TimeZoneInformation” /v RealTimeIsUniversal /d 1 /t REG_QWORD /f
     ```
-- 将Linux的计时方式改为`Local Time`
+- 将Linux的计时方式改为`Local Time`（这个方法好像没有生效）
     - 以`root`用户运行以下命令（如果想改回`UTC`，则将`--localtime`改为`--utc`）
     ```sh
     hwclock -s --localtime
     ```
-- 开机使用ntp手动校正时间
+
+#### 系统启动联网后自动同步时间
+
+##### Linux系统
+
+在Linux中，联网后一段时间，`systemd-timesyncd`服务会自动同步时间，不需要额外的操作设置
+
+##### Windows系统
+
+
+`Win+r`运行`services.msc`，打开服务管理页面
+
+找到`Windows Time`服务，将启动类型修改为**自动（延迟启动）**
+<img src="Windows时间服务.png" style="max-width:50%">
+
+打开控制面板，找到**时钟和区域**，点击**日期和时间**
+
+切换到`Internet时间`标签，点击**更改设置**，将服务器修改为可用的NTP服务器，比如这里我选择了阿里云的服务器`ntp2.aliyun.com`，并勾选上**与Internet时间服务器同步**
+<img src="修改NTP服务器.png" style="max-width:50%">
+
+以后启动电脑并联网后，时间将会自动同步
