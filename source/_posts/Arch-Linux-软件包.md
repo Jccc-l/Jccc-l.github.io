@@ -23,6 +23,7 @@ Arch Linux中常用的软件包
 | linux-zen-headers     | 内核对应的系统头文件                                                                         |
 | linux-firmware        | 系统固件                                                                                     |
 | intel-ucode/amd-ucode | CPU微码更新文件，根据CPU进行选择                                                             |
+| linux-tools           | 一些Linux中的有用工具包                                                                      |
 | btrfs-progs           | btrfs文件系统的重要工具                                                                      |
 | ntfs-3g               | Linux访问ntfs分区                                                                            |
 | zsh                   | Z-Shell                                                                                      |
