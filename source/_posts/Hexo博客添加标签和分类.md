@@ -12,7 +12,9 @@ mathjax: false
 katex: false
 ---
 
-# Hexo博客添加标签和分类
+# Hexo博客添加标签和分类[^1]
+
+[^1]: [Hexo使用攻略-添加分类及标签](https://www.jianshu.com/p/e17711e44e00)
 
 ## 配置博客标签
 
@@ -85,7 +87,3 @@ categories:
 - Blog
 ---
 ```
-
-## Reference
-
-[Hexo使用攻略-添加分类及标签](https://www.jianshu.com/p/e17711e44e00)

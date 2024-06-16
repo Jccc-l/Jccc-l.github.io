@@ -211,7 +211,9 @@ toc:
 
 ## 页脚
 
-### 添加网站运行时间
+### 添加网站运行时间[^1]
+
+[^1]: [【个人网站搭建】hexo框架Next主题下添加网站运行时间](https://blog.csdn.net/wangqingchuan92/article/details/126346205)
 
 修改NexT主题配置，自定义footer
 
@@ -313,7 +315,3 @@ img {
 }
 ```
 
-
-## Reference
-
-[【个人网站搭建】hexo框架Next主题下添加网站运行时间](https://blog.csdn.net/wangqingchuan92/article/details/126346205)
