@@ -3,9 +3,15 @@ title: Ubuntu安装配置Waydroid
 mathjax: false
 katex: false
 date: 2024-06-17 12:17:52
-description:
+description: Ubuntu下Waydroid的安装与配置
 categories:
+- Linux
 tags:
+- Ubuntu
+- Android
+- Linux
+- Waydroid
+- Container
 ---
 
 # Ubuntu安装配置Waydroid
