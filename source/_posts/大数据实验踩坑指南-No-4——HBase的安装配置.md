@@ -40,7 +40,7 @@ $ sudo chown -R hadoop:hadoop ./hbase							# 将目录以及目录内的所有�
 
 ```sh /home/hadoop/.bashrc
 export HBASE_HOME=/usr/local/hbase
-export PATH=$PATH
+export PATH=$PATH:$HBASE_HOME/bin
 ```
 
 ```sh $HBASE_HOME/conf/hbase-env.sh

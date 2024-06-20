@@ -8,7 +8,6 @@ categories:
 - Big Data
 tags:
 - Big Data
-- Hive
 - MySQL
 - Database
 ---
@@ -257,9 +256,9 @@ $ cp hive-default.xml.template hive-default.xml
 ```
 
 
-配置Hive的环境变量`hive-site.env`
+配置Hive的环境变量`hive-env.sh`
 
-```sh $HIVE_HOME/conf/hive-site.env
+```sh $HIVE_HOME/conf/hive-env.sh
 export HADOOP_HOME=/usr/local/hadoop
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 export HIVE_CONF_DIR=/usr/local/hive/conf

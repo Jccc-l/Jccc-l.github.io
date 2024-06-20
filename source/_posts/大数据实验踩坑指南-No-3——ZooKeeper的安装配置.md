@@ -41,7 +41,7 @@ $ sudo chown -R hadoop:hadoop ./zookeeper
 
 ```sh /home/hadoop/.bashrc
 export ZOOKEEPER_HOME=/usr/local/zookeeper
-export PATH=$PATH:ZOOKEEPER_HOME/bin
+export PATH=$PATH:$ZOOKEEPER_HOME/bin
 ```
 
 加载配置
