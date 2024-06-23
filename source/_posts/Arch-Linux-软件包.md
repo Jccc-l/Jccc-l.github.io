@@ -98,3 +98,6 @@ AUR包
 | youdao-dict         | 有道词典                                                   |
 | python-pyqt5-webkit | youdao-dict的依赖                                          |
 | qt5-webkit          | python-pyqt5-webkit的依赖                                  |
+| java-openjfx        | Java OpenJFX客户端应用平台(JavaFX的开源实现)               |
+| amdgpu_top          | AMD显卡监控软件                                            |
+| qqmusic-electron    | QQ音乐                                                     |
