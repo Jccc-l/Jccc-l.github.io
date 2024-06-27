@@ -1596,6 +1596,9 @@ Use <code>ctrl</code>+<code>alt</code>+<code>t</code> to start a terminal, and r
 <p>然后重新生成博客即可</p>
 <p>如果想在切换页面时仍然保持音乐的播放，需要开启<code>pjax</code></p>
 <figure class="highlight yml"><figcaption><span>[Blogroot]/_config.next.yml</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="attr">pjax:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>自动播放用不了，暂时不知道怎么解决</p>
+</blockquote>
 <h2 id="页脚"><a class="markdownIt-Anchor" href="#页脚"></a> 页脚</h2>
 <h3 id="添加网站运行时间"><a class="markdownIt-Anchor" href="#添加网站运行时间"></a> 添加网站运行时间<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup></h3>
 <p>修改NexT主题配置，自定义footer</p>
