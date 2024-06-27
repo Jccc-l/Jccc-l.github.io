@@ -1507,6 +1507,41 @@ Use <code>ctrl</code>+<code>alt</code>+<code>t</code> to start a terminal, and r
       </tags>
   </entry>
   <entry>
+    <title>在Linux中使用锐捷登录校园网</title>
+    <url>/2024/06/27/%E5%9C%A8Linux%E4%B8%AD%E4%BD%BF%E7%94%A8%E9%94%90%E6%8D%B7%E7%99%BB%E5%BD%95%E6%A0%A1%E5%9B%AD%E7%BD%91/</url>
+    <content><![CDATA[<h1 id="在linux中使用锐捷登录校园网"><a class="markdownIt-Anchor" href="#在linux中使用锐捷登录校园网"></a> 在Linux中使用锐捷登录校园网</h1>
+<blockquote>
+<p><strong>注</strong>：不知为何现在脚本会报错<em>不允许的接入方式</em></p>
+</blockquote>
+<p>本文以Ubuntu20.04为例</p>
+<h2 id="下载配置锐捷客户端"><a class="markdownIt-Anchor" href="#下载配置锐捷客户端"></a> 下载配置锐捷客户端</h2>
+<p>如果通过网线连接，在访问网页时，浏览器将会自动导航至<code>客户端管理中心</code>，可直接下载Linux系统客户端。若未自动转到该网页，可通过<a href="http://10.10.232.51:8012/Setup/index.htm">链接</a>下载<strong>RG Supplicant For Linux</strong>。</p>
+<p>下载完成后，在<code>下载</code>文件夹中找到<code>RG_Supplicant_For_Linux_V1.31.zip</code>文件，将其解压，进入<code>rjsupplicant</code>文件夹</p>
+<p>在<code>rjsupplicant</code>文件夹中打开终端，输出以下命令，为<code>rjsupplicant.sh</code>文件添加执行权限</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo chmod +x rjsupplicant.sh</span><br></pre></td></tr></table></figure>
+<h2 id="登录校园网"><a class="markdownIt-Anchor" href="#登录校园网"></a> 登录校园网</h2>
+<p>首次登录需要输入学号、密码，输入以下命令以登录校园网</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo ./rjsupplicant.sh -a 1 -d 1 -u xxx -p *** -S 1</span><br></pre></td></tr></table></figure>
+<p>上述命令各参数的作用可通过<code>./rjsupplicant --help</code>查看，<code>xxx</code>改为你的学号，<code>***</code>改为你的密码，其中<code>-S 1</code>是为了保存帐号密码，保存以后再次登录不需要手动输入学号和密码，即：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo ./rjsupplicant.sh -a 1 -d 1</span><br></pre></td></tr></table></figure>
+<h2 id="开机自动登录"><a class="markdownIt-Anchor" href="#开机自动登录"></a> 开机自动登录</h2>
+<p>如果需要开机运行这条命令，需要将这条命令写入一个shell脚本，例如将其保存到<code>connect.sh</code>文件中，其中<code>./jsupplicant.sh</code>需要改成文件的绝对路径，比如我的文件目录为<code>/home/jccc/Downloads/RG_Supplicant_For_Linux_V1.31/rjsupplicant.sh</code>，我的<code>connect.sh</code>文件应写为：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo /home/jccc/Downloads/RG_Supplicant_For_Linux_V1.31/rjsupplicant.sh -a 1 -d 1</span><br></pre></td></tr></table></figure>
+<p>将文件保存后，在文件当前目录进入终端，通过以下命令为该文件添加超级用户执行权限</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo chmod +x connect.sh</span><br></pre></td></tr></table></figure>
+<p>然后在<strong>全部应用</strong>中找到<strong>启动应用程序首选项</strong>(Startup Applicantions Preferences)，将<code>connect.sh</code>添加到开机启动程序中，即可实现开机自动登录</p>
+<img src="startup_apps.png" style="max-width:80%">
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>Ubuntu</tag>
+        <tag>Network</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>在Wayland环境下的Electron应用中使用Fcitx5输入法</title>
     <url>/2024/06/23/%E5%9C%A8Wayland%E7%8E%AF%E5%A2%83%E4%B8%8B%E7%9A%84Electron%E5%BA%94%E7%94%A8%E4%B8%AD%E4%BD%BF%E7%94%A8Fcitx5%E8%BE%93%E5%85%A5%E6%B3%95/</url>
     <content><![CDATA[<h1 id="在wayland环境下的electron应用中使用fcitx5输入法"><a class="markdownIt-Anchor" href="#在wayland环境下的electron应用中使用fcitx5输入法"></a> 在Wayland环境下的Electron应用中使用Fcitx5输入法</h1>

@@ -21,31 +21,32 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"jccc-l.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"hide","padding":18,"offset":12},"copycode":{"enable":true,"style":"default"},"fold":{"enable":true,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="解决Wayland下Fcitx5在Electron应用中不可用的问题">
+    <meta name="description" content="在Linux中使用锐界客户端进行校园网连接">
 <meta property="og:type" content="article">
-<meta property="og:title" content="在Wayland环境下的Electron应用中使用Fcitx5输入法">
-<meta property="og:url" content="https://jccc-l.github.io/2024/06/23/%E5%9C%A8Wayland%E7%8E%AF%E5%A2%83%E4%B8%8B%E7%9A%84Electron%E5%BA%94%E7%94%A8%E4%B8%AD%E4%BD%BF%E7%94%A8Fcitx5%E8%BE%93%E5%85%A5%E6%B3%95/index.html">
+<meta property="og:title" content="在Linux中使用锐捷登录校园网">
+<meta property="og:url" content="https://jccc-l.github.io/2024/06/27/%E5%9C%A8Linux%E4%B8%AD%E4%BD%BF%E7%94%A8%E9%94%90%E6%8D%B7%E7%99%BB%E5%BD%95%E6%A0%A1%E5%9B%AD%E7%BD%91/index.html">
 <meta property="og:site_name" content="璐濄のβlòɡ">
-<meta property="og:description" content="解决Wayland下Fcitx5在Electron应用中不可用的问题">
+<meta property="og:description" content="在Linux中使用锐界客户端进行校园网连接">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-06-23T05:47:23.000Z">
-<meta property="article:modified_time" content="2024-06-27T06:17:44.688Z">
+<meta property="og:image" content="https://jccc-l.github.io/2024/06/27/%E5%9C%A8Linux%E4%B8%AD%E4%BD%BF%E7%94%A8%E9%94%90%E6%8D%B7%E7%99%BB%E5%BD%95%E6%A0%A1%E5%9B%AD%E7%BD%91/startup_apps.png">
+<meta property="article:published_time" content="2024-06-27T06:32:39.000Z">
+<meta property="article:modified_time" content="2024-06-27T06:39:35.383Z">
 <meta property="article:author" content="Jccc">
 <meta property="article:tag" content="Linux">
-<meta property="article:tag" content="Fcitx5">
-<meta property="article:tag" content="Electron">
-<meta property="article:tag" content="Wayland">
+<meta property="article:tag" content="Ubuntu">
+<meta property="article:tag" content="Network">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://jccc-l.github.io/2024/06/27/%E5%9C%A8Linux%E4%B8%AD%E4%BD%BF%E7%94%A8%E9%94%90%E6%8D%B7%E7%99%BB%E5%BD%95%E6%A0%A1%E5%9B%AD%E7%BD%91/startup_apps.png">
 
 
-<link rel="canonical" href="https://jccc-l.github.io/2024/06/23/%E5%9C%A8Wayland%E7%8E%AF%E5%A2%83%E4%B8%8B%E7%9A%84Electron%E5%BA%94%E7%94%A8%E4%B8%AD%E4%BD%BF%E7%94%A8Fcitx5%E8%BE%93%E5%85%A5%E6%B3%95/">
+<link rel="canonical" href="https://jccc-l.github.io/2024/06/27/%E5%9C%A8Linux%E4%B8%AD%E4%BD%BF%E7%94%A8%E9%94%90%E6%8D%B7%E7%99%BB%E5%BD%95%E6%A0%A1%E5%9B%AD%E7%BD%91/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://jccc-l.github.io/2024/06/23/%E5%9C%A8Wayland%E7%8E%AF%E5%A2%83%E4%B8%8B%E7%9A%84Electron%E5%BA%94%E7%94%A8%E4%B8%AD%E4%BD%BF%E7%94%A8Fcitx5%E8%BE%93%E5%85%A5%E6%B3%95/","path":"2024/06/23/在Wayland环境下的Electron应用中使用Fcitx5输入法/","title":"在Wayland环境下的Electron应用中使用Fcitx5输入法"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://jccc-l.github.io/2024/06/27/%E5%9C%A8Linux%E4%B8%AD%E4%BD%BF%E7%94%A8%E9%94%90%E6%8D%B7%E7%99%BB%E5%BD%95%E6%A0%A1%E5%9B%AD%E7%BD%91/","path":"2024/06/27/在Linux中使用锐捷登录校园网/","title":"在Linux中使用锐捷登录校园网"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>在Wayland环境下的Electron应用中使用Fcitx5输入法 | 璐濄のβlòɡ</title>
+<title>在Linux中使用锐捷登录校园网 | 璐濄のβlòɡ</title>
   
 
 
@@ -145,7 +146,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9C%A8wayland%E7%8E%AF%E5%A2%83%E4%B8%8B%E7%9A%84electron%E5%BA%94%E7%94%A8%E4%B8%AD%E4%BD%BF%E7%94%A8fcitx5%E8%BE%93%E5%85%A5%E6%B3%95"><span class="nav-text"> 在Wayland环境下的Electron应用中使用Fcitx5输入法</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9C%A8linux%E4%B8%AD%E4%BD%BF%E7%94%A8%E9%94%90%E6%8D%B7%E7%99%BB%E5%BD%95%E6%A0%A1%E5%9B%AD%E7%BD%91"><span class="nav-text"> 在Linux中使用锐捷登录校园网</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD%E9%85%8D%E7%BD%AE%E9%94%90%E6%8D%B7%E5%AE%A2%E6%88%B7%E7%AB%AF"><span class="nav-text"> 下载配置锐捷客户端</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%99%BB%E5%BD%95%E6%A0%A1%E5%9B%AD%E7%BD%91"><span class="nav-text"> 登录校园网</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%80%E6%9C%BA%E8%87%AA%E5%8A%A8%E7%99%BB%E5%BD%95"><span class="nav-text"> 开机自动登录</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -223,7 +224,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://jccc-l.github.io/2024/06/23/%E5%9C%A8Wayland%E7%8E%AF%E5%A2%83%E4%B8%8B%E7%9A%84Electron%E5%BA%94%E7%94%A8%E4%B8%AD%E4%BD%BF%E7%94%A8Fcitx5%E8%BE%93%E5%85%A5%E6%B3%95/">
+    <link itemprop="mainEntityOfPage" href="https://jccc-l.github.io/2024/06/27/%E5%9C%A8Linux%E4%B8%AD%E4%BD%BF%E7%94%A8%E9%94%90%E6%8D%B7%E7%99%BB%E5%BD%95%E6%A0%A1%E5%9B%AD%E7%BD%91/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://static.wixstatic.com/media/7ac599_2e792bfa812140c898f6c3a78e4ab78f~mv2.png/v1/fill/w_951,h_1046,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/7ac599_2e792bfa812140c898f6c3a78e4ab78f~mv2.png">
@@ -236,12 +237,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="在Wayland环境下的Electron应用中使用Fcitx5输入法 | 璐濄のβlòɡ">
-      <meta itemprop="description" content="解决Wayland下Fcitx5在Electron应用中不可用的问题">
+      <meta itemprop="name" content="在Linux中使用锐捷登录校园网 | 璐濄のβlòɡ">
+      <meta itemprop="description" content="在Linux中使用锐界客户端进行校园网连接">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          在Wayland环境下的Electron应用中使用Fcitx5输入法
+          在Linux中使用锐捷登录校园网
         </h1>
 
         <div class="post-meta-container">
@@ -251,15 +252,9 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
+      
 
-      <time title="创建时间：2024-06-23 13:47:23" itemprop="dateCreated datePublished" datetime="2024-06-23T13:47:23+08:00">2024-06-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-06-27 14:17:44" itemprop="dateModified" datetime="2024-06-27T14:17:44+08:00">2024-06-27</time>
+      <time title="创建时间：2024-06-27 14:32:39 / 修改时间：14:39:35" itemprop="dateCreated datePublished" datetime="2024-06-27T14:32:39+08:00">2024-06-27</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -278,7 +273,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>253</span>
+      <span>903</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -289,25 +284,35 @@
     </span>
 </div>
 
-            <div class="post-description">解决Wayland下Fcitx5在Electron应用中不可用的问题</div>
+            <div class="post-description">在Linux中使用锐界客户端进行校园网连接</div>
         </div>
       </header>
 
     
     
     
-    <div class="post-body" itemprop="articleBody"><h1 id="在wayland环境下的electron应用中使用fcitx5输入法"><a class="markdownIt-Anchor" href="#在wayland环境下的electron应用中使用fcitx5输入法"></a> 在Wayland环境下的Electron应用中使用Fcitx5输入法</h1>
-<p>为Electron添加以下配置<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup><sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup></p>
-<figure class="highlight plaintext"><figcaption><span>$HOME/.config/electron-flags.conf</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">--enable-features=WaylandWindowDecorations</span><br><span class="line">--ozone-platform-hint=wayland</span><br><span class="line">--enable-wayland-ime</span><br></pre></td></tr></table></figure>
-<hr class="footnotes-sep" />
-<section class="footnotes">
-<ol class="footnotes-list">
-<li id="fn1" class="footnote-item"><p><a target="_blank" rel="noopener" href="https://wiki.archlinux.org/title/Wayland#Electron">Wayland#Electron - ArchWiki</a> <a href="#fnref1" class="footnote-backref">↩︎</a></p>
-</li>
-<li id="fn2" class="footnote-item"><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1aL41117kc/?spm_id_from=333.1007.top_right_bar_window_history.content.click&amp;vd_source=e2a73086fbc135c64d40acbe84e65505">Linux Wayland进展+1——Electron应用可以使用fcitx5输入法了</a> <a href="#fnref2" class="footnote-backref">↩︎</a></p>
-</li>
-</ol>
-</section>
+    <div class="post-body" itemprop="articleBody"><h1 id="在linux中使用锐捷登录校园网"><a class="markdownIt-Anchor" href="#在linux中使用锐捷登录校园网"></a> 在Linux中使用锐捷登录校园网</h1>
+<blockquote>
+<p><strong>注</strong>：不知为何现在脚本会报错<em>不允许的接入方式</em></p>
+</blockquote>
+<p>本文以Ubuntu20.04为例</p>
+<h2 id="下载配置锐捷客户端"><a class="markdownIt-Anchor" href="#下载配置锐捷客户端"></a> 下载配置锐捷客户端</h2>
+<p>如果通过网线连接，在访问网页时，浏览器将会自动导航至<code>客户端管理中心</code>，可直接下载Linux系统客户端。若未自动转到该网页，可通过<a target="_blank" rel="noopener" href="http://10.10.232.51:8012/Setup/index.htm">链接</a>下载<strong>RG Supplicant For Linux</strong>。</p>
+<p>下载完成后，在<code>下载</code>文件夹中找到<code>RG_Supplicant_For_Linux_V1.31.zip</code>文件，将其解压，进入<code>rjsupplicant</code>文件夹</p>
+<p>在<code>rjsupplicant</code>文件夹中打开终端，输出以下命令，为<code>rjsupplicant.sh</code>文件添加执行权限</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chmod +x rjsupplicant.sh</span><br></pre></td></tr></table></figure>
+<h2 id="登录校园网"><a class="markdownIt-Anchor" href="#登录校园网"></a> 登录校园网</h2>
+<p>首次登录需要输入学号、密码，输入以下命令以登录校园网</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ./rjsupplicant.sh -a 1 -d 1 -u xxx -p *** -S 1</span><br></pre></td></tr></table></figure>
+<p>上述命令各参数的作用可通过<code>./rjsupplicant --help</code>查看，<code>xxx</code>改为你的学号，<code>***</code>改为你的密码，其中<code>-S 1</code>是为了保存帐号密码，保存以后再次登录不需要手动输入学号和密码，即：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ./rjsupplicant.sh -a 1 -d 1</span><br></pre></td></tr></table></figure>
+<h2 id="开机自动登录"><a class="markdownIt-Anchor" href="#开机自动登录"></a> 开机自动登录</h2>
+<p>如果需要开机运行这条命令，需要将这条命令写入一个shell脚本，例如将其保存到<code>connect.sh</code>文件中，其中<code>./jsupplicant.sh</code>需要改成文件的绝对路径，比如我的文件目录为<code>/home/jccc/Downloads/RG_Supplicant_For_Linux_V1.31/rjsupplicant.sh</code>，我的<code>connect.sh</code>文件应写为：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo /home/jccc/Downloads/RG_Supplicant_For_Linux_V1.31/rjsupplicant.sh -a 1 -d 1</span><br></pre></td></tr></table></figure>
+<p>将文件保存后，在文件当前目录进入终端，通过以下命令为该文件添加超级用户执行权限</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chmod +x connect.sh</span><br></pre></td></tr></table></figure>
+<p>然后在<strong>全部应用</strong>中找到<strong>启动应用程序首选项</strong>(Startup Applicantions Preferences)，将<code>connect.sh</code>添加到开机启动程序中，即可实现开机自动登录</p>
+<img src="startup_apps.png" style="max-width:80%">
 
     </div>
 
@@ -325,7 +330,7 @@
   </li>
   <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://jccc-l.github.io/2024/06/23/%E5%9C%A8Wayland%E7%8E%AF%E5%A2%83%E4%B8%8B%E7%9A%84Electron%E5%BA%94%E7%94%A8%E4%B8%AD%E4%BD%BF%E7%94%A8Fcitx5%E8%BE%93%E5%85%A5%E6%B3%95/" title="在Wayland环境下的Electron应用中使用Fcitx5输入法">https://jccc-l.github.io/2024/06/23/在Wayland环境下的Electron应用中使用Fcitx5输入法/</a>
+      <a href="https://jccc-l.github.io/2024/06/27/%E5%9C%A8Linux%E4%B8%AD%E4%BD%BF%E7%94%A8%E9%94%90%E6%8D%B7%E7%99%BB%E5%BD%95%E6%A0%A1%E5%9B%AD%E7%BD%91/" title="在Linux中使用锐捷登录校园网">https://jccc-l.github.io/2024/06/27/在Linux中使用锐捷登录校园网/</a>
   </li>
   <li class="post-copyright-license">
       <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/en" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -335,23 +340,19 @@
 
           <div class="post-tags">
               <a href="/tags/Linux/" rel="tag"><i class="fa fa-tag"></i> Linux</a>
-              <a href="/tags/Fcitx5/" rel="tag"><i class="fa fa-tag"></i> Fcitx5</a>
-              <a href="/tags/Electron/" rel="tag"><i class="fa fa-tag"></i> Electron</a>
-              <a href="/tags/Wayland/" rel="tag"><i class="fa fa-tag"></i> Wayland</a>
+              <a href="/tags/Ubuntu/" rel="tag"><i class="fa fa-tag"></i> Ubuntu</a>
+              <a href="/tags/Network/" rel="tag"><i class="fa fa-tag"></i> Network</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2024/06/20/Ubuntu%E4%B8%8BQQ%E9%9F%B3%E4%B9%90%E6%97%A0%E6%B3%95%E5%90%AF%E5%8A%A8/" rel="prev" title="Ubuntu下QQ音乐无法启动">
-                  <i class="fa fa-angle-left"></i> Ubuntu下QQ音乐无法启动
+                <a href="/2024/06/27/Appimage%E8%BF%90%E8%A1%8C%E5%A4%B1%E8%B4%A5/" rel="prev" title="Appimage运行失败">
+                  <i class="fa fa-angle-left"></i> Appimage运行失败
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2024/06/27/Appimage%E8%BF%90%E8%A1%8C%E5%A4%B1%E8%B4%A5/" rel="next" title="Appimage运行失败">
-                  Appimage运行失败 <i class="fa fa-angle-right"></i>
-                </a>
             </div>
           </div>
     </footer>
