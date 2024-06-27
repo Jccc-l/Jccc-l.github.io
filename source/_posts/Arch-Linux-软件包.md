@@ -87,17 +87,20 @@ Arch Linux中常用的软件包
 
 AUR包
 
-| 包名                | 解释                                                       |
-|---------------------|------------------------------------------------------------|
-| optimus-manager     | Intel/AMD+Nvidia双显卡管理                                 |
-| optimus-manager-qt  | optimus-manager的图形界面以及配置文件自动生成(GNOME不可用) |
-| gdm-prime           | GDM\:加上Prime补丁以支持Optimus                            |
-| python310           | Python3.10版本                                             |
-| google-chrome-dev   | Google Chrome浏览器Dev通道测试版                           |
-| hmcl-stable-bin     | 我的世界HMCL启动器（文字有问题）                           |
-| youdao-dict         | 有道词典                                                   |
-| python-pyqt5-webkit | youdao-dict的依赖                                          |
-| qt5-webkit          | python-pyqt5-webkit的依赖                                  |
-| java-openjfx        | Java OpenJFX客户端应用平台(JavaFX的开源实现)               |
-| amdgpu_top          | AMD显卡监控软件                                            |
-| qqmusic-electron    | QQ音乐                                                     |
+| 包名                   | 解释                                                       |
+|------------------------|------------------------------------------------------------|
+| optimus-manager        | Intel/AMD+Nvidia双显卡管理                                 |
+| optimus-manager-qt     | optimus-manager的图形界面以及配置文件自动生成(GNOME不可用) |
+| gdm-prime              | GDM\:加上Prime补丁以支持Optimus                            |
+| python310              | Python3.10版本                                             |
+| google-chrome-dev      | Google Chrome浏览器Dev通道测试版                           |
+| hmcl-stable-bin        | 我的世界HMCL启动器（文字有问题）                           |
+| youdao-dict            | 有道词典                                                   |
+| python-pyqt5-webkit    | youdao-dict的依赖                                          |
+| qt5-webkit             | python-pyqt5-webkit的依赖                                  |
+| java-openjfx           | Java OpenJFX客户端应用平台(JavaFX的开源实现)               |
+| amdgpu_top             | AMD显卡监控软件                                            |
+| qqmusic-electron       | QQ音乐                                                     |
+| amdgpu-pro-installer   | AMD PRO 显卡驱动                                           |
+| python-huggingface-hub | Huggingface终端工具                                        |
+| visual-studio-code-bin | 宇宙最强编辑器Visual Studio Code                           |

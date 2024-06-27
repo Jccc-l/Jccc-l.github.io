@@ -70,7 +70,7 @@ $ unzip /home/hadoop/Downloads/user.zip -d /usr/local/bigdatacase/dataset
 $ cd /usr/local/bigdatacase/dataset
 ```
 
-现在可以看到`dataset`目录下有两个文件：`raw_user.csv`和`small_user.csv`。执行以下命令查看前5条命令
+现在可以看到`dataset`目录下有两个文件：`raw_user.csv`和`small_user.csv`。执行以下命令查看前5条数据
 
 ```sh
 $ head -5 raw_user.csv
@@ -120,7 +120,7 @@ srand();
 
 ```sh
 $ cd /usr/local/bigdatacase/dataset
-$ bash ./pre_deal.sh small.user.csv user_table.txt
+$ bash ./pre_deal.sh raw_user.csv user_table.txt
 ```
 
 可以使用head命令查看前10行数据

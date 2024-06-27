@@ -209,11 +209,37 @@ toc:
 
 还可以在侧栏添加知识共享许可信息，在[网页信息](#许可信息)部分有提到
 
+### 网易云音乐播放器
+
+打开网易云音乐的一首音乐的页面，点击生成外链播放器
+
+<img src="Outside_link.png" style="max-width:80%">
+
+复制HTML代码
+
+<img src="Copy_link.png" style="max-width:80%">
+
+编辑`[Blogroot]/themes/next/layout/_macro/sidebar.njk`文件，在其中合适的位置添加代码，并将iframe改为embed[^1]
+
+[^1]: [为博客添加网易云音乐播放器外链](https://www.cnblogs.com/roccoshi/p/13057664.html)
+
+```njk [Blogroot]/themes/next/layout/_macro/sidebar.njk
+    <embed id="musicplayer" frameborder="no" border="0" marginwidth="0" marginheight="0" width=400 height=86 src="//music.163.com/outchain/player?type=2&id=407450660&auto=1&height=66"></embed>
+```
+
+然后重新生成博客即可
+
+如果想在切换页面时仍然保持音乐的播放，需要开启`pjax`
+
+```yml [Blogroot]/_config.next.yml
+pjax: true
+```
+
 ## 页脚
 
-### 添加网站运行时间[^1]
+### 添加网站运行时间[^2]
 
-[^1]: [【个人网站搭建】hexo框架Next主题下添加网站运行时间](https://blog.csdn.net/wangqingchuan92/article/details/126346205)
+[^2]: [【个人网站搭建】hexo框架Next主题下添加网站运行时间](https://blog.csdn.net/wangqingchuan92/article/details/126346205)
 
 修改NexT主题配置，自定义footer
 
@@ -256,7 +282,9 @@ footer:
   copyright: <span id="copyright"> 路过的即是风景. All rights reserved. Non-commercial use allowed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>.</span>
 ```
 
-## 浏览进度条
+## 正文形式配置
+
+### 浏览进度条
 
 配置以下内容，可以在页面顶部或底部添加浏览进度条
 
@@ -271,6 +299,30 @@ reading_progress:
   # 进度条高度
   height: 3px
 ```
+
+### 代码块
+
+```yml [Blogroot]/_config.next.yml
+codeblock:
+  # 高亮主题
+  # All available themes: https://theme-next.js.org/highlight/
+  theme:
+    light: github
+    dark: github-dark
+  prism:
+    light: prism
+    dark: prism-dark
+  # 在代码块处添加复制按钮
+  copy_button:
+    enable: true
+    # Available values: default | flat | mac
+    style: flat
+  # 折叠代码块
+  fold:
+    enable: true
+    height: 500
+```
+
 
 ## 配置背景图
 
