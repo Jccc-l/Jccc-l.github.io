@@ -1055,12 +1055,30 @@ Use <code>ctrl</code>+<code>alt</code>+<code>t</code> to start a terminal, and r
     <title>Python环境管理</title>
     <url>/2024/05/06/Python%E7%8E%AF%E5%A2%83%E7%AE%A1%E7%90%86/</url>
     <content><![CDATA[<h1 id="python环境管理"><a class="markdownIt-Anchor" href="#python环境管理"></a> Python环境管理</h1>
+<h2 id="python不同版本安装"><a class="markdownIt-Anchor" href="#python不同版本安装"></a> Python不同版本安装</h2>
+<p>以下举两个例子，其他Linux发行版大同小异</p>
+<h2 id="arch-linux"><a class="markdownIt-Anchor" href="#arch-linux"></a> Arch Linux</h2>
 <p>由于Arch Linux是一个滚动更新的发行版，官方源只提供最新的稳定版本（现在是Python3.12），如果想安装以前的版本或者预览版本，可以通过AUR进行安装</p>
 <p>AUR安装Python3.10可以使用以下命令，其它版本同理（或者如果你喜欢，可以使用AUR助手）</p>
 <figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://aur.archlinux.org/python310</span><br><span class="line"><span class="built_in">cd</span> python310</span><br><span class="line">makepkg -si</span><br></pre></td></tr></table></figure>
+<h2 id="ubuntu"><a class="markdownIt-Anchor" href="#ubuntu"></a> Ubuntu</h2>
+<p>首先需要输入以下命令添加deadsnakes PPA<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup></p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">$ sudo add-apt-repository ppa:deadsnakes/ppa</span><br><span class="line">$ sudo apt update</span><br></pre></td></tr></table></figure>
+<p>然后安装自己需要的版本</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">$ sudo apt-get install python3.10 python3.10-venv</span><br></pre></td></tr></table></figure>
+<h2 id="虚拟环境创建"><a class="markdownIt-Anchor" href="#虚拟环境创建"></a> 虚拟环境创建</h2>
 <p>对多版本的Python进行管理，一般使用虚拟环境</p>
-<p>创建虚拟环境可以通过<code>python3.10 -m venv venv</code>命令进行。</p>
-<p>创建好虚拟环境以后，通过<code>source venv/bin/activate</code>命令将虚拟环境激活，随后即可使用<code>pip</code>命令在虚拟环境中管理第三方库文件。如果想退出虚拟环境，输入<code>deactivate</code>命令。</p>
+<p>创建虚拟环境可以通过<code>python3.x -m venv venv</code>（<code>python3.x</code>替换为你所需的Python版本）命令进行。</p>
+<p>创建好虚拟环境以后，通过<code>source venv/bin/activate</code>命令将虚拟环境激活</p>
+<p>随后即可使用<code>pip</code>命令在虚拟环境中管理第三方库文件。</p>
+<p>如果想退出虚拟环境，输入<code>deactivate</code>命令。</p>
+<hr class="footnotes-sep" />
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p><a href="https://launchpad.net/~deadsnakes/+archive/ubuntu/ppa">“deadsnakes” team</a> <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
 ]]></content>
       <categories>
         <category>Python</category>
