@@ -955,6 +955,66 @@ Use <code>ctrl</code>+<code>alt</code>+<code>t</code> to start a terminal, and r
       </tags>
   </entry>
   <entry>
+    <title>Linux下腾讯系软件使用</title>
+    <url>/2023/05/26/Linux%E4%B8%8B%E8%85%BE%E8%AE%AF%E7%B3%BB%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<h1 id="linux下腾讯系软件使用"><a class="markdownIt-Anchor" href="#linux下腾讯系软件使用"></a> Linux下腾讯系软件使用</h1>
+<h2 id="linux-qq"><a class="markdownIt-Anchor" href="#linux-qq"></a> Linux QQ</h2>
+<p>在2022年年末，腾讯推出了全新的Linux QQ 3.0并<a href="https://im.qq.com/linuxqq/download.html">上线官网</a><sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>，经过几天使用，体验还不错</p>
+<h3 id="arch-linux下的安装"><a class="markdownIt-Anchor" href="#arch-linux下的安装"></a> Arch Linux下的安装</h3>
+<p>linuxqq已经被打包上传至<a href="https://aur.archlinux.org/packages/linuxqq">AUR</a>，安装可通过AUR helper进行</p>
+<p>paur安装：</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">$ paru -S linuxqq</span><br></pre></td></tr></table></figure>
+<p>yay安装：</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">$ yay -S linuxqq</span><br></pre></td></tr></table></figure>
+<p>不使用AUR helper，手动构建安装</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 克隆linuxqq仓库</span></span><br><span class="line">$ git <span class="built_in">clone</span> https://aur.archlinux.org/linuxqq.git</span><br><span class="line"><span class="comment"># 进入linuxqq目录</span></span><br><span class="line">$ <span class="built_in">cd</span> linuxqq</span><br><span class="line"><span class="comment"># 构建安装linuxqq</span></span><br><span class="line">$ makepkg -si</span><br><span class="line"><span class="comment"># 或者makepkg --syncdeps --install</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>说明：</p>
+<p><code>s for syncdeps</code></p>
+<p>s选项表示构建软件包并安装所需要的依赖包</p>
+<p>当满足依赖包关系且软件包被构建成功时，将会在工作目录下生成一个包文件<code>pkgname-pkgver.pkg.tar.zst</code></p>
+<p><code>i for install</code></p>
+<p>使用<code>--install</code>进行安装</p>
+</blockquote>
+<h3 id="使用过程问题"><a class="markdownIt-Anchor" href="#使用过程问题"></a> 使用过程问题</h3>
+<p>可能会发生闪退的现象，需要删除<code>~/.config/QQ/crash_files/</code>目录中的所有文件然后删除该目录的读写权限</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">chmod</span> -rw ~/.config/QQ/crash_files</span><br></pre></td></tr></table></figure>
+<p>随后(也许)不会在出现闪退现象</p>
+<h2 id="微信"><a class="markdownIt-Anchor" href="#微信"></a> 微信</h2>
+<p>微信在Linux中有很多解决方案，比如Wine兼容层、虚拟机等，首选的是微信Linux原生版的重构<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup></p>
+<h3 id="原生重构版微信"><a class="markdownIt-Anchor" href="#原生重构版微信"></a> 原生重构版微信</h3>
+<p>微信的原生版已被打包到AUR包<a href="https://aur.archlinux.org/packages/wechat-uos-qt">wechat-uos-qt</a>中</p>
+<h3 id="统信uos魔改版"><a class="markdownIt-Anchor" href="#统信uos魔改版"></a> 统信UOS魔改版</h3>
+<p>安装<a href="https://aur.archlinux.org/packages/wechat-uos/">wechat-uos</a>AUR包即可，但是这个魔改版功能有所阉割</p>
+<h3 id="wine"><a class="markdownIt-Anchor" href="#wine"></a> Wine</h3>
+<p>在Arch Linux中有几种兼容层安装微信的方案</p>
+<ul>
+<li>depin-wine-wechat，为Arch Linux运行微信的Wine容器，版本为最新官方版</li>
+<li>Deepin官网配置的Wine应用，<a href="https://aur.archlinux.org/packages/com.qq.weixin.deepin/">com.qq.weixin.deepin</a>，版本比较旧</li>
+<li>archlinuxcn仓库的wine-for-wechat</li>
+<li><a href="https://github.com/huan/docker-wechat">Docker容器</a></li>
+</ul>
+<hr class="footnotes-sep" />
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p><a href="https://wiki.archlinux.org/title/Tencent_QQ">Tencent QQ - ArchWiki</a> <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn2" class="footnote-item"><p><a href="https://wiki.archlinuxcn.org/wiki/%E5%BE%AE%E4%BF%A1">微信 - ArchWiki</a> <a href="#fnref2" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>QQ</tag>
+        <tag>WeChat</tag>
+        <tag>Tencent</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Mariadb数据库安装配置</title>
     <url>/2024/05/03/Mariadb%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/</url>
     <content><![CDATA[<h1 id="mariadb安装配置"><a class="markdownIt-Anchor" href="#mariadb安装配置"></a> Mariadb安装配置</h1>
