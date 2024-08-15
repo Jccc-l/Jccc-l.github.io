@@ -19,7 +19,7 @@ katex: false
 创建一个文件夹来存放zsh的配置
 
 ```sh
-$ mkdir ~/.config/zsh/plugins
+mkdir ~/.config/zsh/plugins
 ```
 
 ## 基础配置
@@ -555,8 +555,8 @@ Type:
 配置完后可以将~/.zshrc移动到~/.config/zsh/目录中方便管理，建立一个链接即可
 
 ```sh
-$ mv ~/.zshrc ~/.config/zsh/zshrc
-$ ln -sf ~/.config/zsh/.zshrc ~/.zshrc
+mv ~/.zshrc ~/.config/zsh/zshrc
+ln -sf ~/.config/zsh/.zshrc ~/.zshrc
 ```
 
 ### 命令纠正
@@ -572,7 +572,7 @@ setopt correct
 效果如下，把sudo输入成了`sudi`
 
 ```sh
-$ sudi pacman -Syyu
+sudi pacman -Syyu
 zsh: correct 'sudi' to 'sudo' [nyae]? y
 ```
 
@@ -696,15 +696,15 @@ zle -N down-line-or-beginning-search
 安装方法：
 
 ```sh
-$ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.config/zsh/plugins/powerlevel10k
-$ echo 'source ~/.config/zsh/plugins/powerlevel10k/powerlevel10k.zsh-theme' >>~/.zshrc
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.config/zsh/plugins/powerlevel10k
+echo 'source ~/.config/zsh/plugins/powerlevel10k/powerlevel10k.zsh-theme' >>~/.zshrc
 ```
 
 如果速度慢可以使用Gitee上的官方镜像进行加速
 
 ```sh
-$ git clone --depth=1 https://gitee.com/romkatv/powerlevel10k.git ~/.config/zsh/plugins/powerlevel10k
-$ echo 'source ~/.config/zsh/plugins/powerlevel10k/powerlevel10k.zsh-theme' >>~/.zshrc
+git clone --depth=1 https://gitee.com/romkatv/powerlevel10k.git ~/.config/zsh/plugins/powerlevel10k
+echo 'source ~/.config/zsh/plugins/powerlevel10k/powerlevel10k.zsh-theme' >>~/.zshrc
 ```
 
 在终端中输入`source ~/.zshrc`，就会出现初始配置提示，按照提示进行操作
@@ -712,8 +712,8 @@ $ echo 'source ~/.config/zsh/plugins/powerlevel10k/powerlevel10k.zsh-theme' >>~/
 将配置文件移动到`~/.config/zsh`中方便管理，创建链接
 
 ```sh
-$ mv ~/.p10k.zsh ~/.config/zsh/
-$ ln -sf ~/.config/zsh/.p10k.zsh ~/.p10k.zsh
+mv ~/.p10k.zsh ~/.config/zsh/
+ln -sf ~/.config/zsh/.p10k.zsh ~/.p10k.zsh
 ```
 
 配置效果如下：
@@ -729,7 +729,7 @@ $ ln -sf ~/.config/zsh/.p10k.zsh ~/.p10k.zsh
 安装[zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)插件实现ghost text提示和补全
 
 ```sh
-$ git clone https://github.com/zsh-users/zsh-autosuggestions ~/.config/zsh/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-autosuggestions ~/.config/zsh/plugins/zsh-autosuggestions
 ```
 加载插件
 
@@ -744,7 +744,7 @@ source ~/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 通过插件[zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)实现命令行的高亮效果
 
 ```sh
-$ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.config/zsh/plugins/zsh-syntax-highlighting
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.config/zsh/plugins/zsh-syntax-highlighting
 ```
 
 加载插件
@@ -770,7 +770,7 @@ zstyle ':completion:*' list-colors ''
 [You Should Use](https://github.com/MichaelAquilina/zsh-you-should-use) 
 
 ```sh
-$ git clone https://github.com/MichaelAquilina/zsh-you-should-use.git ~/.config/zsh/plugins/zsh-you-should-use
+git clone https://github.com/MichaelAquilina/zsh-you-should-use.git ~/.config/zsh/plugins/zsh-you-should-use
 ```
 
 加载插件

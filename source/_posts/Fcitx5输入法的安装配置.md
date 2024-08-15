@@ -22,7 +22,7 @@ katex: false
 安装以下必要库
 
 ```sh
-$ sudo pacman -S fcitx5-im fcitx5-chinese-addons fcitx5-chinese-addons fcitx5-pinyin-zhwiki   # 输入法框架      输入法中文组件      词库
+sudo pacman -S fcitx5-im fcitx5-chinese-addons fcitx5-chinese-addons fcitx5-pinyin-zhwiki   # 输入法框架      输入法中文组件      词库
 ```
 
 设置环境变量。如果使用X11，则全局设置以下环境变量（可在/etc/environment中添加）。如果使用支持文本输入的Wayland合成器，则为每一个Xwayland应用程序设置此环境变量。

@@ -30,10 +30,10 @@ tags:
 解压文件到`/usr/local`目录
 
 ```sh
-$ sudo tar -zxvf /home/hadoop/Downloads/hbase-2.5.8-hadoop3-bin.tar.gz -C /usr/local/
-$ cd /usr/local													# 进入安装目录
-$ sudo mv hbase-2.5.8-hadoop3 hbase								# 将文件明改为hadoop
-$ sudo chown -R hadoop:hadoop ./hbase							# 将目录以及目录内的所有子目录、文件的拥有者改为hadoop用户组的hadoop用户
+sudo tar -zxvf /home/hadoop/Downloads/hbase-2.5.8-hadoop3-bin.tar.gz -C /usr/local/
+cd /usr/local													# 进入安装目录
+sudo mv hbase-2.5.8-hadoop3 hbase								# 将文件明改为hadoop
+sudo chown -R hadoop:hadoop ./hbase							# 将目录以及目录内的所有子目录、文件的拥有者改为hadoop用户组的hadoop用户
 ```
 
 配置hbase的环境变量
@@ -88,14 +88,14 @@ export HBASE_MANAGES_ZK=false								# 因为我们使用自己安装的ZooKeepe
 启动HBase之前先启动HDFS和ZooKeeper
 
 ```sh
-$ start-dfs.sh
-$ zkServer.sh start
+start-dfs.sh
+zkServer.sh start
 ```
 
 然后启动HBase
 
 ```sh
-$ start-hbase.sh
+start-hbase.sh
 ```
 
 输入`jps`可以看到`HRegionServer`、`HMaster`、进程已经启动
@@ -113,13 +113,17 @@ $ start-hbase.sh
 进入HBase Shell：
 
 ```sh
-$ hbase shell
+hbase shell
+```
+输出如下：
+
+```
 HBase Shell
 Use "help" to get list of supported commands.
 Use "exit" to quit this interactive shell.
 For Reference, please visit: http://hbase.apache.org/2.0/book.html#shell
 Version 2.5.8-hadoop3, r37444de6531b1bdabf2e445c83d0268ab1a6f919, Thu Feb 29 15:55:21 PST 2024
-Took 0.0017 seconds                                                                                                                     
+Took 0.0017 seconds
 hbase:001:0>
 ```
 
@@ -128,15 +132,15 @@ hbase:001:0>
 停止HBase的运行：
 
 ```sh
-$ stop-hbase.sh
+stop-hbase.sh
 ```
 
 如果无法停止，先通过`hbase-daemon.sh`把`master`和`religionserver`停止
 
 ```sh
-$ hbase-daemon.sh stop religionserver
-$ hbase-daemon.sh stop master
-$ stop-hbase.sh
+hbase-daemon.sh stop religionserver
+hbase-daemon.sh stop master
+stop-hbase.sh
 ```
 
 输入`jps`可以看到`HMaster`和`HRegionServer`已经不见了
@@ -148,10 +152,14 @@ $ stop-hbase.sh
 
 ## HBase试用和排错
 
+启动Hbase Shell
+```sh
+hbase shell
+```
+
 尝试创建并列出表
 
-```sh
-$ hbase shell
+```
 HBase Shell
 Use "help" to get list of supported commands.
 Use "exit" to quit this interactive shell.
@@ -188,7 +196,7 @@ ERROR: org.apache.hadoop.hbase.ipc.ServerNotRunningYetException: Server is not r
 **原因一**：可能是因为hadoop还处于安全模式，输入以下命令查看
 
 ```sh
-$ hdfs dfsadmin -safemode get
+hdfs dfsadmin -safemode get
 ```
 
 如果输出如下，等待一段时间，Hadoop会自动退出安全模式，`ON`会变为`OFF`
@@ -204,15 +212,15 @@ Safe mode is ON
 首先停止HBase
 
 ```sh
-$ stop-hbase.sh
+stop-hbase.sh
 ```
 
 如果无法停止，先通过`hbase-daemon.sh`把`master`和`religionserver`停止
 
 ```sh
-$ hbase-daemon.sh stop religionserver
-$ hbase-daemon.sh stop master
-$ stop-hbase.sh
+hbase-daemon.sh stop religionserver
+hbase-daemon.sh stop master
+stop-hbase.sh
 ```
 
 修改HBase的以下配置，将注释符号`#`去掉，然后重启HBase

@@ -18,8 +18,8 @@ katex: false
 通过`git`安装主题
 
 ```sh
-$ cd [Blogroot]
-$ git clone https://github.com/next-theme/hexo-theme-next themes/next
+cd [Blogroot]
+git clone https://github.com/next-theme/hexo-theme-next themes/next
 ```
 
 修改博客主配置文件
@@ -31,8 +31,8 @@ theme: next
 备份NexT主题的配置文件
 
 ```sh
-$ cp [Blogroot]/theme/next/_config.yml [Blogroot]/_config.next.yml
-$ mv [Blogroot]/theme/next/_config.yml [Blogroot]/theme/next/_config.yml.template
+cp [Blogroot]/theme/next/_config.yml [Blogroot]/_config.next.yml
+mv [Blogroot]/theme/next/_config.yml [Blogroot]/theme/next/_config.yml.template
 ```
 
 安装完成，重新生成博客就能直接用了
@@ -47,7 +47,7 @@ scheme: Gemini
 
 ### 黑暗模式
 
-NexT主题支持黑暗~~黑化~~模式
+NexT主题支持~~黑化~~黑暗模式
 
 ```yml [Blogroot]/_config.next.yml
 darkmode: true
@@ -116,9 +116,9 @@ menu:
 建立页面
 
 ```sh
-$ hexo n page categories
-$ hexo n page about
-$ hexo n page tags
+hexo n page categories
+hexo n page about
+hexo n page tags
 ```
 
 编辑添加的页面，主要是要设置好`type`，让主题能够找到这个页面

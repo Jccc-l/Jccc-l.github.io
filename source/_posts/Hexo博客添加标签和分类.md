@@ -20,8 +20,8 @@ katex: false
 
 首先要创建一个标签页面，在博客根目录输入
 
-```shell
-$ hexo new page tags
+```sh
+hexo new page tags
 ```
 
 在创建的文章中添加页面类型，如下：

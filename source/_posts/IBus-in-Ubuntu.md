@@ -28,13 +28,9 @@ If you want to stay in 20.04(or what you are using), **DON'T** upgrade your syst
 Update your software repository and upgrade your software  
 Use `ctrl`+`alt`+`t` to start a terminal, and run the command to update
 ```sh
-# Update the software repository
-$ sudo apt update
-# Update the software
-$ sudo apt upgrade
-# If failed, type `sudo apt upgrade --fix-missing` to try again.  
-# Restart your computer.
-$ reboot
+sudo apt update     # Update the software repository
+sudo apt upgrade    # Update the software. If failed, type `sudo apt upgrade --fix-missing` to try again.  
+reboot              # Restart your computer.
 ```
 
 Or just click `Install Now` when the window pop up.
@@ -48,7 +44,7 @@ If you don't see the pop-up window, you still have 2 ways to start the update.
 
 Install ibus-pinyin
 ```sh
-$ sudo apt install ibus-pinyin
+sudo apt install ibus-pinyin
 ```
 You'd better restart your system or log out and log in again for the ibus to load its profile again.
 
@@ -61,7 +57,7 @@ So what is **IBus**?
 The Intelligent Input Bus (IBus) is an input method framework for multilingual input in Unix-like operating systems. It's called "Bus" because it has a bus-like architecture.
 
 ```sh
-$ ibus-setup
+ibus-setup
 ```
 Click `Input Method`-`Add` and choose Pinyin (or Bopomofo if you like to).
 

@@ -19,19 +19,22 @@ tags:
 通过`apt`安装MySQL
 
 ```sh
-$ sudo apt-get install mysql-server
+sudo apt-get install mysql-server
 ```
 
 启动MySQL服务
 
 ```sh
-$ sudo service mysql start
+sudo service mysql start
 ```
 
 配置MySQL开机自动启动
 
 ```sh
-$ sudo systemctl enable mysql
+sudo systemctl enable mysql
+```
+
+```
 Synchronizing state of mysql.service with SysV service script with /lib/systemd/systemd-sysv-install.
 Executing: /lib/systemd/systemd-sysv-install enable mysql
 Created symlink /etc/systemd/system/multi-user.target.wants/mysql.service → /lib/systemd/system/mysql.service.
@@ -40,7 +43,7 @@ Created symlink /etc/systemd/system/multi-user.target.wants/mysql.service → /l
 登录MySQl Shell
 
 ```sh
-$ sudo mysql -u root
+sudo mysql -u root
 ```
 
 > 在Ubuntu中，MySQL的root用户登录验证方式为`auth_socket`，允许Linux的同名用户`root`免密登录，而不能使用密码登录

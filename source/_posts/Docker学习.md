@@ -30,7 +30,7 @@ sudo systemctl restart docker
 ## 命令解读
 
 ```sh
-$ docker -run -d \
+docker -run -d \
     --name mysql \
     -p 3306:3306 \
     -e TZ=Asia/Shanghai \
@@ -52,58 +52,58 @@ $ docker -run -d \
 
 > 所有docker命令都可以通过`--help`参数查看说明，比如
 > 
-> `$ docker run --help`
+> `docker run --help`
 
 ## 常见命令
 
 - 查看本地镜像
     ```sh
-    $ docker images
+    docker images
     ```
 - 删除本地镜像
     ```sh
-    $ docker rmi
+    docker rmi
     ```
 - 构建镜像
     ```sh
-    $ docker build
+    docker build
     ```
 - 保存镜像文件
     ```sh
-    $ docker save
+    docker save
     ```
 - 加载镜像文件
     ```sh
-    $ docker load
+    docker load
     ```
 - 从仓库拉取镜像
     ```sh
-    $ docker pull
+    docker pull
     ```
 - 创建并运行镜像：每次运行都会创建一个新的容器并运行
     ```sh
-    $ docker run
+    docker run
     ```
 - 停止容器：将容器停止，但是容器还在，下次不用重复创建
     ```sh
-    $ docker stop
+    docker stop
     ```
 - 启动容器：将存在的容器启动
     ```sh
-    $ docker start
+    docker start
     ```
 - 查看容器进程
     ```sh
-    $ docker ps
+    docker ps
     ```
     - 查看所有容器，包括已经停止的
         ```sh
-        $ docker ps -a
+        docker ps -a
         ```
 - 进入容器内部：使用bash进入mysql容器（或者直接进入mysql的root用户）
     ```sh
-    $ docker exec -it mysql bash
-    $ docker exec -it mysql mysql -u root -p
+    docker exec -it mysql bash
+    docker exec -it mysql mysql -u root -p
     ```
 
 ## 数据卷
@@ -117,16 +117,16 @@ $ docker -run -d \
 在创建容器的同时完成数据卷的挂载：
 
 ```sh
-$ docker run -d ... -v 数据卷名称:容器内目录
+docker run -d ... -v 数据卷名称:容器内目录
 ```
 
 - 查看数据卷
     ```sh
-    $ docker volume ls
+    docker volume ls
     ```
 - 查看某个数据卷的详细信息
     ```sh
-    $ docker volume inspect [volume name]
+    docker volume inspect [volume name]
     ```
 
 `docker inspect Blog`输出信息：

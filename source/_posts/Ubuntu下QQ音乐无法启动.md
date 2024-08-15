@@ -40,7 +40,7 @@ zsh: trace trap (core dumped)  qqmusic
 打开启动项文件
 
 ```sh
-$ sudo nano /usr/share/applications/qqmusic.desktop
+sudo nano /usr/share/applications/qqmusic.desktop
 ```
 
 以下是文件内容

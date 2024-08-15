@@ -61,19 +61,16 @@ IDE可以自选IntelliJ IDEA[^1]或Eclipse[^2]
 创建一个存储数据集的目录，将`user.zip`进行解压缩
 
 ```sh
-$ sudo mkdir /usr/local/bigdatacase/dataset
-#下面给hadoop用户赋予针对bigdatacase目录的各种操作权限
-$ sudo chown -R hadoop:hadoop ./bigdatacase
-$ mkdir 
-#下面就可以解压缩user.zip文件
-$ unzip /home/hadoop/Downloads/user.zip -d /usr/local/bigdatacase/dataset
-$ cd /usr/local/bigdatacase/dataset
+sudo mkdir -p /usr/local/bigdatacase/dataset
+sudo chown -R hadoop:hadoop ./bigdatacase # 修改bigdatacase目录权限
+unzip /home/hadoop/Downloads/user.zip -d /usr/local/bigdatacase/dataset # 解压缩数据文件user.zip
+cd /usr/local/bigdatacase/dataset
 ```
 
 现在可以看到`dataset`目录下有两个文件：`raw_user.csv`和`small_user.csv`。执行以下命令查看前5条数据
 
 ```sh
-$ head -5 raw_user.csv
+head -5 raw_user.csv
 ```
 
 ### 数据集的预处理
@@ -81,10 +78,10 @@ $ head -5 raw_user.csv
 删除文件的第一行记录（字段名称）
 
 ```sh
-$ sed -i '1d' raw_user.csv
-$ sed -i '1d' small_user.csv
-$ head -5 raw_user.csv
-$ head -5 small_user.csv
+sed -i '1d' raw_user.csv
+sed -i '1d' small_user.csv
+head -5 raw_user.csv
+head -5 small_user.csv
 ```
 
 查看到已经看不到字段名成这一行
@@ -119,14 +116,14 @@ srand();
 下面就可以执行pre_deal.sh脚本文件，来对raw_user.csv进行数据预处理，命令如下：
 
 ```sh
-$ cd /usr/local/bigdatacase/dataset
-$ bash ./pre_deal.sh raw_user.csv user_table.txt
+cd /usr/local/bigdatacase/dataset
+bash ./pre_deal.sh raw_user.csv user_table.txt
 ```
 
 可以使用head命令查看前10行数据
 
 ```sh
-$ head -10 user_table
+head -10 user_table.txt
 ```
 
 ### 导入数据库
@@ -136,7 +133,7 @@ $ head -10 user_table
 执行下面的命令启动Hadoop：
 
 ```sh
-$ start-dfs.sh
+start-dfs.sh
 ```
 
 然后输入jps命令查看当前的进程：
@@ -153,19 +150,19 @@ $ start-dfs.sh
 在HDFS的根目录下创建一个新的目录bigdatacase并在这个目录下创建一个子目录`dataset`
 
 ```sh
-$ hdfs dfs -mkdir -p /bigdatacase/dataset
+hdfs dfs -mkdir -p /bigdatacase/dataset
 ```
 
 然后把本地的user_table.txt上传到分布式文件系统HDFS的`/bigdatacase/dataset`目录下
 
 ```sh
-$ hdfs dfs -put /usr/local/bigdatacase/dataset/user_table.txt /bigdatacase/dataset
+hdfs dfs -put /usr/local/bigdatacase/dataset/user_table.txt /bigdatacase/dataset
 ```
 
 可以查看以下HDFS中`user_table.txt`的前10条记录
 
 ```sh
-$ hdfs dfs -cat /bigdatacase/dataset/user_table.txt | head -10
+hdfs dfs -cat /bigdatacase/dataset/user_table.txt | head -10
 ```
 
 **在Hive上创建数据库**
@@ -173,19 +170,19 @@ $ hdfs dfs -cat /bigdatacase/dataset/user_table.txt | head -10
 首先启动MySQL数据库
 
 ```sh
-$ service mysql start
+service mysql start
 ```
 
 启动hive的元数据
 
 ```sh
-$ hive --service metastore
+hive --service metastore
 ```
 
 在新的终端下进入Hive
 
 ```sh
-$ hive
+hive
 ```
 
 在Hive中创建一个数据库dblab
@@ -865,7 +862,12 @@ Time taken: 0.277 seconds
 现在可以新建一个终端，执行命令查看一下，确认这个数据文件在HDFS中确实已经被创建，在新建的终端中执行下面命令
 
 ```sh
-$ hdfs dfs -ls /user/hive/warehouse/dblab.db/
+hdfs dfs -ls /user/hive/warehouse/dblab.db/
+```
+
+可以看到目录内容：
+
+```
 Found 2 items
 drwxr-xr-x   - hadoop supergroup          0 2024-06-16 02:14 /user/hive/warehouse/dblab.db/scan
 drwxr-xr-x   - hadoop supergroup          0 2024-06-16 02:18 /user/hive/warehouse/dblab.db/user_action
@@ -929,7 +931,7 @@ Time taken: 0.081 seconds, Fetched: 10 row(s)
 登录MySQL
 
 ```sh
-$ sudo mysql -u root
+sudo mysql -u root
 ```
 
 创建数据库并授权给`hadoop`用户
@@ -1006,8 +1008,9 @@ mysql> show variables like "char%";
 > ```
 > 
 > 然后重启MySQL服务
+> 
 > ```sh
-> $ sudo service mysql restart
+> sudo service mysql restart
 > ```
 
 创建表
@@ -1043,13 +1046,13 @@ Query OK, 0 rows affected, 1 warning (0.03 sec)
 启动HDFS以后，在终端中启动`metastore`
 
 ```sh
-$ hive --service metastore
+hive --service metastore
 ```
 
 在另一个终端中执行以下命令开启`hiveserver2`，并设置默认端口为10000
 
 ```sh
-$ hive --service hiveserver2 -hiveconf hive.server2.thrift.port=10000
+hive --service hiveserver2 -hiveconf hive.server2.thrift.port=10000
 ```
 
 启动时，当屏幕上出现“Hive Session ID = 6bd1726e-37c5-41fc-93ea-ef7e176b24f2”信息时，会停留较长的时间，需要出现几个“Hive Session ID=...”以后，Hive才会真正启动。启动成功以后，会出现如下信息
@@ -1064,7 +1067,12 @@ Hive Session ID = 0e577e34-83c1-40de-9fb6-917be3d5e022
 在新的终端下运行以下命令查看10000号和10002号端口是否已经被占用，如果被占用，说明启动成功，可以在浏览器访问`127.0.0.1:10002`打开hiveserver2的网页接口
 
 ```sh
-$ sudo netstat -anp |grep "10000\|10002"
+sudo netstat -anp |grep "10000\|10002"
+```
+
+端口信息如下
+
+```
 tcp6       0      0 :::10000                :::*                    LISTEN      76077/java          
 tcp6       0      0 :::10002                :::*                    LISTEN      76077/java
 ```
@@ -1289,24 +1297,22 @@ public class ImportHBase extends Thread {
 将生成的jar包复制到`/usr/local/bigdatacase/hbase`目录
 
 ```sh
-$ mkdir /usr/local/bigdatacase/hbase
-$ cp ImportHBase.jar /usr/local/bigdatacase/hbase
+mkdir /usr/local/bigdatacase/hbase
+cp ImportHBase.jar /usr/local/bigdatacase/hbase
 ```
 
 启动HDFS、ZooKeeper和HBase
 
 ```sh
-$ start-dfs.sh
-$ zkServer.sh start
-$ start-hbase.sh
-running master, logging to /usr/local/hbase/logs/hbase-hadoop-master-jccc-MS-7D48.out
-: running regionserver, logging to /usr/local/hbase/logs/hbase-hadoop-regionserver-jccc-MS-7D48.out
+start-dfs.sh
+zkServer.sh start
+start-hbase.sh
 ```
 
 启动HBase Shell
 
 ```sh
-$ hbase shell
+hbase shell
 ```
 
 启动成功后，进入"hbase>"命令提示符状态
@@ -1333,7 +1339,7 @@ Took 2.9350 seconds
 通过hadoop jar命令运行上面的Java程序
 
 ```sh
-$ hadoop jar /usr/local/bigdatacase/hbase/ImportHBase ImportHBase /usr/local/bigdatacase/dataset/user_action.output
+hadoop jar /usr/local/bigdatacase/hbase/ImportHBase ImportHBase /usr/local/bigdatacase/dataset/user_action.output
 ```
 
 然后就是漫长的等待时间（相较于上面的Hive导入MySQL，已经是非常非常快了）

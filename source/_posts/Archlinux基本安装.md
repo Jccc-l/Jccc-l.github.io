@@ -24,7 +24,7 @@ ArchLinux是一个流行的GNU/Linux滚动发行
 通过检查UEFI的位数来验证启动模式
 
 ```sh
-$ cat /sys/firmware/efi/fw_platform_size
+cat /sys/firmware/efi/fw_platform_size
 ```
 
 如果命令结果为`64`，则系统是以`UEFI`模式引导且使用`64`位`x64 UEFI`。如果命令结果为`32`，则系统是以`UEFI`模式引导且使用`32`位`IA32 UEFI`，虽然其受支持，但引导加载程序只能使用`systemd-boot`和`GRUB`。如果文件不存在，则系统可能是以`BIOS`模式（或`CSM`模式）引导。确保系统以UEFI模式启动。
@@ -34,13 +34,13 @@ $ cat /sys/firmware/efi/fw_platform_size
 禁用reflector服务，避免将需要的镜像源删除
 
 ```sh
-$ systemctl stop reflector
+systemctl stop reflector
 ```
 
 查看系统时间
 
 ```sh
-$ timedatectl
+timedatectl
 ```
 
 #### 连接网络
@@ -50,11 +50,11 @@ $ timedatectl
 无线连接使用iwctl进行认证连接
 
 ```sh
-$ iwctl
-$ device list
-$ station wlan0 scan
-$ station wlan0 connect [essid]
-$ exit
+iwctl
+device list
+station wlan0 scan
+station wlan0 connect [essid]
+exit
 ```
 
 ##### 有线连接
@@ -64,7 +64,7 @@ $ exit
 #### 测试网络
 
 ```sh
-$ ping baidu.com
+ping baidu.com
 ```
 
 稍等片刻，如果能看到数据返回，即说明已经联网，`ctrl+c`终止当前命令。若无法连接，使用`ip link set [device name] up`来激活对应网卡后再重新网络连接与测试。
@@ -72,8 +72,8 @@ $ ping baidu.com
 #### 更新系统时钟
 
 ```sh
-$ timedatectl set-ntp true    # 将系统时间与网络事件进行同步
-$ timedatectl status          # 查看服务状态
+timedatectl set-ntp true    # 将系统时间与网络事件进行同步
+timedatectl status          # 查看服务状态
 ```
 
 > 在Live环境中`systemd-timesyncd`默认启用，系统连接网络后，系统时间会自动同步
@@ -82,7 +82,7 @@ $ timedatectl status          # 查看服务状态
 #### 配置pacman
 
 ```sh
-$ vim /etc/pacman.conf
+vim /etc/pacman.conf
 ```
 
 开启pacman输出颜色和多线程下载
@@ -105,7 +105,7 @@ ParallelDownloads = 8
 使用`fdisk`分区，`p`输出分区表，`n`创建新的分区，`t`设置分区类型，`w`保存并退出，`q`不保存退出，`h`输出帮助信息
 
 ```sh
-$ fdisk /dev/nvme0n1
+fdisk /dev/nvme0n1
 ```
 
 分为两个区：
@@ -116,36 +116,36 @@ $ fdisk /dev/nvme0n1
 ##### 格式化分区
 
 ```sh
-$ mkfs.fat -F32 /dev/nvme0n1p1
-$ mkfs.btrfs /dev/nvme0n1p2
+mkfs.fat -F32 /dev/nvme0n1p1
+mkfs.btrfs /dev/nvme0n1p2
 ```
 
 ##### 创建子卷
 
 ```sh
-$ mount /dev/nvme0n1p2 /mnt/Arch --mkdir
-$ cd /mnt/Arch
-$ btrfs subvolume create @
-$ btrfs subvolume create @boot
-$ btrfs subvolume create @home
-$ btrfs subvolume create @var
-$ btrfs subvolume create @pkg
-$ btrfs subvolume create @log
-$ btrfs subvolume create @swapfile
-$ umount /mnt/Arch
+mount /dev/nvme0n1p2 /mnt/Arch --mkdir
+cd /mnt/Arch
+btrfs subvolume create @
+btrfs subvolume create @boot
+btrfs subvolume create @home
+btrfs subvolume create @var
+btrfs subvolume create @pkg
+btrfs subvolume create @log
+btrfs subvolume create @swapfile
+umount /mnt/Arch
 ```
 
 ##### 挂载目录
 
 ```sh
-$ mount /dev/nvme0n1p2 -o compress=zstd,noatime,ssd,discard=async,space_cache=v2,subvol=@  /mnt/Arch --mkdir
-$ mount /dev/nvme0n1p2 -o compress=zstd,noatime,ssd,discard=async,space_cache=v2,subvol=@boot  /mnt/Arch/boot --mkdir
-$ mount /dev/nvme0n1p2 -o compress=zstd,noatime,ssd,discard=async,space_cache=v2,subvol=@home  /mnt/Arch/home --mkdir
-$ mount /dev/nvme0n1p2 -o compress=zstd,noatime,ssd,discard=async,space_cache=v2,subvol=@var  /mnt/Arch/var --mkdir
-$ mount /dev/nvme0n1p2 -o compress=zstd,noatime,ssd,discard=async,space_cache=v2,subvol=@log  /mnt/Arch/var/log --mkdir
-$ mount /dev/nvme0n1p2 -o compress=zstd,noatime,ssd,discard=async,space_cache=v2,subvol=@pkg  /mnt/Arch/var/cache/pacman/pkg --mkdir
-$ mount /dev/nvme0n1p2 -o compress=zstd,noatime,ssd,discard=async,space_cache=v2,subvol=@swapfile  /mnt/Arch/swapfile --mkdirfilelight site:archlinux.org
-$ mount /dev/nvme0n1p1 /mnt/Arch/boot/efi --mkdir
+mount /dev/nvme0n1p2 -o compress=zstd,noatime,ssd,discard=async,space_cache=v2,subvol=@  /mnt/Arch --mkdir
+mount /dev/nvme0n1p2 -o compress=zstd,noatime,ssd,discard=async,space_cache=v2,subvol=@boot  /mnt/Arch/boot --mkdir
+mount /dev/nvme0n1p2 -o compress=zstd,noatime,ssd,discard=async,space_cache=v2,subvol=@home  /mnt/Arch/home --mkdir
+mount /dev/nvme0n1p2 -o compress=zstd,noatime,ssd,discard=async,space_cache=v2,subvol=@var  /mnt/Arch/var --mkdir
+mount /dev/nvme0n1p2 -o compress=zstd,noatime,ssd,discard=async,space_cache=v2,subvol=@log  /mnt/Arch/var/log --mkdir
+mount /dev/nvme0n1p2 -o compress=zstd,noatime,ssd,discard=async,space_cache=v2,subvol=@pkg  /mnt/Arch/var/cache/pacman/pkg --mkdir
+mount /dev/nvme0n1p2 -o compress=zstd,noatime,ssd,discard=async,space_cache=v2,subvol=@swapfile  /mnt/Arch/swapfile --mkdir
+mount /dev/nvme0n1p1 /mnt/Arch/boot/efi --mkdir
 ```
 
 ### 安装系统和必要工具
@@ -153,19 +153,19 @@ $ mount /dev/nvme0n1p1 /mnt/Arch/boot/efi --mkdir
 安装基础系统
 
 ```sh
-$ pacstrap -K /mnt/Arch base linux linux-firmware     # -K选项在安装软件包时在目标中初始化一个空的pacman密钥
+pacstrap -K /mnt/Arch base linux linux-firmware     # -K选项在安装软件包时在目标中初始化一个空的pacman密钥
 ```
 
 如果使用linux-zen内核，则使用以下命令
 
 ```sh
-$ pacstrap -K /mnt/Arch base linux-zen linux-zen-headers linux-firmware
+pacstrap -K /mnt/Arch base linux-zen linux-zen-headers linux-firmware
 ```
 
 安装必要软件
 
 ```sh
-$ pacstrap /mnt/Arch networkmanager sudo neovim
+pacstrap /mnt/Arch networkmanager sudo neovim
 ```
 
 ### 配置系统
@@ -175,13 +175,13 @@ $ pacstrap /mnt/Arch networkmanager sudo neovim
 生成目录配置文件fstab：
 
 ```sh
-$ genfstab -U /mnt/Arch >> /mnt/Arch/etc/fstab
+genfstab -U /mnt/Arch >> /mnt/Arch/etc/fstab
 ```
 
 检查`fstab`文件
 
 ```sh
-$ cat /mnt/Arch/fstab
+cat /mnt/Arch/fstab
 ```
 
 #### Chroot
@@ -189,7 +189,7 @@ $ cat /mnt/Arch/fstab
 切换根系统
 
 ```sh
-$ arch-chroot /mnt/Arch
+arch-chroot /mnt/Arch
 ```
 
 #### 配置系统时间
@@ -197,13 +197,13 @@ $ arch-chroot /mnt/Arch
 设置时区
 
 ```sh
-$ ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 ```
 
 设置硬件时间，生成/etc/adjtime
 
 ```sh
-$ hwclock --systohc
+hwclock --systohc
 ```
 
 #### 地区设置
@@ -225,7 +225,7 @@ LANG=en_US.UTF-8
 生成区域设置
 
 ```sh
-$ locale-gen
+locale-gen
 ```
 
 #### 网络配置
@@ -257,7 +257,7 @@ Hosts文件(也称为etc/ Hosts)是Windows(和其他操作系统)用于将IP地�
 创建Initramfs
 
 ```sh
-$ mkinitcpio -P
+mkinitcpio -P
 ```
 
 #### 启动加载器
@@ -265,21 +265,21 @@ $ mkinitcpio -P
 安装grub和efi管理器等
 
 ```sh
-$ sudo pacman -S grub efibootmgr os-prober
-$ grub-install --target=x86_64-efi --efi-directory /boot/efi --bootloader-id=GRUB     # 安装grub，命名为GRUB
+sudo pacman -S grub efibootmgr os-prober
+grub-install --target=x86_64-efi --efi-directory /boot/efi --bootloader-id=GRUB     # 安装grub，命名为GRUB
 ```
 
 有些电脑的UEFI系统需要在一个特定位置上有一个可启动的文件，才会显示你想要的启动选项。但是有时候，即使你用grub-install命令安装了GRUB引导程序，它在VisualBIOS启动顺序里也可能看不到。解决方法就是用以下命令，把GRUB安装在一个默认的启动路径上：
 
 ```sh
-$ grub-install --target=x86_64-efi --efi-directory /boot/efi --removable 
+grub-install --target=x86_64-efi --efi-directory /boot/efi --removable 
 ```
 
 另一种方法是将已安装的GRUB EFI可执行文件移动到默认/回退路径：
 
 ```sh
-$ mv /boot/efi/grub /boot/efi/BOOT
-$ mv /boot/efi/EFI/BOOT/grubx64.efi /boot/efi/EFI/BOOT/BOOTX64.EFI
+mv /boot/efi/grub /boot/efi/BOOT
+mv /boot/efi/EFI/BOOT/grubx64.efi /boot/efi/EFI/BOOT/BOOTX64.EFI
 ```
 
 [参考Arch Linux官方文档](https://wiki.archlinux.org/title/GRUB#Default/fallback_boot_path)
@@ -296,7 +296,7 @@ GRUB_DISABLE_OS_PROBER=false                        # false为启用os-prober，
 生成Grub配置文件
 
 ```sh
-$ grub-mkconfig /boot/grub/grub.cfg
+grub-mkconfig /boot/grub/grub.cfg
 ```
 
 当输出类似以下信息，则生成成功
@@ -310,7 +310,7 @@ $ grub-mkconfig /boot/grub/grub.cfg
 #### 设置密码
 
 ```sh
-$ passwd
+passwd
 ```
 
 #### 安装完成
@@ -324,13 +324,13 @@ $ passwd
 创建一个普通用户jack并为他创建home目录
 
 ```sh
-$ useradd -m jack
+useradd -m jack
 ```
 
 给jack赋予sudo提权的能力
 
 ```sh
-$ EDITOR=nvim visudo
+EDITOR=nvim visudo
 ```
 
 找到对应位置并添加一行
@@ -361,19 +361,19 @@ jack ALL=(ALL:ALL) ALL
 关闭交换文件存储目录的写时复制（CoW）功能
 
 ```sh
-$ chattr +C /swapfile
+chattr +C /swapfile
 ```
 
 创建交换文件
 
 ```sh
-$ btrfs filesystem mkswapfile --size 16g --uuid clear /swapfile/swapfile
+btrfs filesystem mkswapfile --size 16g --uuid clear /swapfile/swapfile
 ```
 
 激活交换文件
 
 ```sh
-$ swapon /swapfile/swapfile
+swapon /swapfile/swapfile
 ```
 
 编辑fstab文件，添加一个交换文件的条目
@@ -387,7 +387,7 @@ $ swapon /swapfile/swapfile
 启用`NetworkManager.service`服务
 
 ```sh
-$ sudo systemctl start NetworkManager.service
+sudo systemctl start NetworkManager.service
 ```
 
 输入`nmtui`打开网络管理器的TUI界面，使用方向键、回车键和ESC键进行网络连接配置
@@ -395,7 +395,7 @@ $ sudo systemctl start NetworkManager.service
 设置NetworkManager开机自启
 
 ```sh
-$ sudo systemctl enable NetworkManager.service
+sudo systemctl enable NetworkManager.service
 ```
 
 #### 启用ssh
@@ -405,13 +405,13 @@ $ sudo systemctl enable NetworkManager.service
 安装`openssh`，这个软件包包含了服务端和客户端
 
 ```sh
-$ sudo pacman -S openssh
+sudo pacman -S openssh
 ```
 
 启用`sshd`服务
 
 ```sh
-$ sudo systemctl start sshd
+sudo systemctl start sshd
 ```
 
 ##### 设置ssh免密登陆
@@ -419,7 +419,7 @@ $ sudo systemctl start sshd
 在客户端生成ssh密钥
 
 ```sh
-$ ssh-keygen -t rsa
+ssh-keygen -t rsa
 ```
 
 在`/home/jack/.ssh/`（Windows的目录在C:/Users/Username/.ssh）中可以看到两个文件`id_rsa`、`id_rsa.pub`，将id_rsa.pub文件的内容复制到远程服务器的/home/jack/.ssh/authorized_keys文件中
@@ -427,13 +427,13 @@ $ ssh-keygen -t rsa
 Linux使用以下命令自动复制
 
 ```sh
-$ ssh-copy-id jack@remote_host
+ssh-copy-id jack@remote_host
 ```
 
 尝试SSH连接：
 
 ```sh
-$ ssh jack@remote_host
+ssh jack@remote_host
 ```
 
 若设置正确，即可免密登陆
@@ -451,7 +451,7 @@ $ ssh jack@remote_host
 安装AUR包需要两个重要工具
 
 ```sh
-$ sudo pacman -S git base-devel       # 版本管理工具  基础编译包组
+sudo pacman -S git base-devel       # 版本管理工具  基础编译包组
 ```
 
 ### man手册分页显示工具
@@ -461,7 +461,7 @@ man命令指定语言
 > 需要安装语言包`man-pages-zh_cn`
 
 ```sh
-$ man -L zh_CN [文档]
+man -L zh_CN [文档]
 ```
 
 <!-- ## Minecraft服务器搭建-->

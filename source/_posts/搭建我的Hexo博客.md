@@ -58,20 +58,19 @@ Windows可以通过官网进行下载和安装[Git](https://git-scm.com/)，[Nod
 通过以下命令查看是否安装成功
 
 ```sh
-$ git -v
-git version 2.45.0
-$ node -v
-v21.7.3
-$ npm -v
-10.5.2
+git -v
+node -v
+npm -v
 ```
+
+如果全都正确显示软件版本，则安装成功，如果显示`Command not found`说明安装失败
 
 ### 安装Hexo
 
 然后通过`npm`安装`hexo`，由于在npm的服务器在国外，在国内访问的速度比较慢，可以通过`cnpm`使用[国内的镜像站](https://npmmirror.com/)进行安装
 
 ```sh
-$ sudo npm install -g cnpm --registry=https://registry.npmmirror.com
+sudo npm install -g cnpm --registry=https://registry.npmmirror.com
 ```
 
 输入`npm list --global`可以看到`hexo`已经被安装
@@ -85,14 +84,14 @@ $ sudo npm install -g cnpm --registry=https://registry.npmmirror.com
 创建一个文件夹blog用于存储我的博客文件
 
 ```sh
-$ mkdir ~/Documents/blog
-$ cd ~/Documents/blog
+mkdir ~/Documents/blog
+cd ~/Documents/blog
 ```
 
 在文件夹中进行初始化
 
 ```sh
-$ hexo init
+hexo init
 ```
 
 等待初始化完成
@@ -123,7 +122,7 @@ $ hexo init
 初始化Hexo以后，可以直接构建
 
 ```sh
-$ hexo generate       # 或者hexo g
+hexo generate       # 或者hexo g
 ```
 
 随后会生成一个public目录，里面放置着根据配置生成的博客文件
@@ -135,7 +134,7 @@ $ hexo generate       # 或者hexo g
 启动hexo内建服务器，然后就可以使用浏览器通过本地IP进行访问了
 
 ```sh
-$ hexo server         # 或者hexo s
+hexo server         # 或者hexo s
 ```
 
 <img src="Hexo_Server.png" style="max-width:75%;">
@@ -163,8 +162,8 @@ $ hexo server         # 或者hexo s
 这些信息可以是虚拟的，会显示在git commit信息中
 
 ```sh
-$ git config --global user.email "you@example.com"          # 配置邮箱
-$ git config --global user.name "Your Name"                 # 配置kkk名字
+git config --global user.email "you@example.com"          # 配置邮箱
+git config --global user.name "Your Name"                 # 配置kkk名字
 ```
 
 在 Git 中缓存 GitHub 凭据，这样在推送博客时，不需要输入账号密码
@@ -174,13 +173,13 @@ $ git config --global user.name "Your Name"                 # 配置kkk名字
 ArchLinux：
 
 ```sh
-$ sudo pacman -S github-cli
+sudo pacman -S github-cli
 ```
 
 **缓存凭据**
 
 ```sh
-$ gh auth login
+gh auth login
 ```
 
 <img src="GH_Auth_Login.png" style="max-width:100%;">
@@ -213,7 +212,7 @@ $ gh auth login
 安装命令如下，在博客目录下执行：
 
 ```sh
-$ cnpm install hexo-deployer-git --save
+cnpm install hexo-deployer-git --save
 ```
 
 #### 修改主配置文件
@@ -254,11 +253,11 @@ deploy:
 以后如果需要对博客进行增删改，通过以下步骤进行：
 
 ```sh
-$ hexo new "Hello World"      # 或者hexo n "Hello World"      创建一篇叫做"Hello World"的博客
-$ hexo clean                  # 或者hexo cl                   清除缓存文件
-$ hexo generate               # 或者hexo g                    生成博客
-$ hexo server                 # 或者hexo s                    启用内建服务器本地预览博客
-$ hexo deploy                 # 或者hexo d                    推送博客到Github
+hexo new "Hello World"      # 或者hexo n "Hello World"      创建一篇叫做"Hello World"的博客
+hexo clean                  # 或者hexo cl                   清除缓存文件
+hexo generate               # 或者hexo g                    生成博客
+hexo server                 # 或者hexo s                    启用内建服务器本地预览博客
+hexo deploy                 # 或者hexo d                    推送博客到Github
 ```
 
 以后就可以开心地写你的博客了。

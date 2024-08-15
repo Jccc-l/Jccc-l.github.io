@@ -106,8 +106,8 @@ c = \pm\sqrt{a^2 + b^2}
 用另一个渲染内核代替默认内核
 
 ```sh
-$ npm un hexo-renderer-marked --save
-$ npm i hexo-renderer-markdown-it-plus --save
+npm un hexo-renderer-marked --save
+npm i hexo-renderer-markdown-it-plus --save
 ```
 
 修改NexT主题配置
@@ -173,7 +173,7 @@ $$
 请注意，由于Markdown和KaTeX的解析方式，确保你的Markdown编辑器或渲染器支持这种语法。在一些场景下，你可能需要直接嵌入HTML来包裹KaTeX的标签以确保正确解析。
 
 ### 分别显示多个公式
-如果不需要对齐，只是简单地想在两个公式之间换行，可以将它们分别放在两个$$...$$块中：
+如果不需要对齐，只是简单地想在两个公式之间换行，可以将它们分别放在两个\$\$...\$\$块中：
 
 ```Markdown
 $$

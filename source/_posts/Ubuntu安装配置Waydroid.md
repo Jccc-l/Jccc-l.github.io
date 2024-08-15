@@ -23,25 +23,25 @@ tags:
 安装前置软件
 
 ```sh
-$ sudo apt-get install curl ca-certificates -y
+sudo apt-get install curl ca-certificates -y
 ```
 
 添加软件源
 
 ```sh
-$ curl https://repo.waydro.id | sudo bash
+curl https://repo.waydro.id | sudo bash
 ```
 
 安装Waydroid
 
 ```sh
-$ sudo apt-get install -y waydroid
+sudo apt-get install -y waydroid
 ```
 
 启动Waydroid服务
 
 ```sh
-$ systemctl start waydroid-container.service
+systemctl start waydroid-container.service
 ```
 
 启动Waydroid以后显示“Intialize Waydroid”，点击Download下载安桌内核

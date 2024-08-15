@@ -25,20 +25,20 @@ tags:
 将文件解压到`/usr/local`目录内
 
 ```sh
-$ sudo tar -zxvf /home/hadoop/Downloads/apache-hive-3.1.3-bin.tar.gz -C /usr/local/
+sudo tar -zxvf /home/hadoop/Downloads/apache-hive-3.1.3-bin.tar.gz -C /usr/local/
 ```
 
 进入该目录并将Hive的主目录改名
 
 ```sh
-$ cd /usr/local
-$ sudo mv apache-hive-3.1.3-bin hive
+cd /usr/local
+sudo mv apache-hive-3.1.3-bin hive
 ```
 
 修改目录拥有者
 
 ```sh
-$ sudo chown -R hadoop:hadoop hive
+sudo chown -R hadoop:hadoop hive
 ```
 
 配置Hive相关的环境变量
@@ -51,7 +51,7 @@ export PATH=$PATH:$HIVE_HOME/bin
 加载配置文件
 
 ```sh
-$ source /home/hadoop/.bashrc
+source /home/hadoop/.bashrc
 ```
 
 ## MySQL配置
@@ -59,13 +59,13 @@ $ source /home/hadoop/.bashrc
 启动MySQL服务
 
 ```sh
-$ sudo service mysql start
+sudo service mysql start
 ```
 
 登录MySQl Shell
 
 ```sh
-$ sudo mysql -u root
+sudo mysql -u root
 ```
 
 创建`hadoop`用户，密码为`hadoop`
@@ -100,13 +100,13 @@ mysql -u hadoop -p
 通过`apt`工具安装驱动
 
 ```sh
-$ sudo apt-get install /home/hadoop/Downloads/mysql-connector-j_8.0.33-1ubuntu22.04_all.deb
+sudo apt-get install /home/hadoop/Downloads/mysql-connector-j_8.0.33-1ubuntu22.04_all.deb
 ```
 
 然后将安装好的驱动复制到Hive的lib目录下
 
 ```sh
-$ cp /usr/share/java/mysql-connector-j-8.0.33.jar $HIVE_HOME/lib/
+cp /usr/share/java/mysql-connector-j-8.0.33.jar $HIVE_HOME/lib/
 ```
 
 ## MySQL注意事项
@@ -198,9 +198,9 @@ mysql> ALTER USER jccc@% IDENTIFIED BY 'newpasswd3';
 进入Hive的目录，复制几个配置文件的模板
 
 ```sh
-$ cd $HIVE_HOME
-$ cp hive-env.sh.template hive-env.sh
-$ cp hive-default.xml.template hive-default.xml
+cd $HIVE_HOME
+cp hive-env.sh.template hive-env.sh
+cp hive-default.xml.template hive-default.xml
 ```
 
 配置`hive-site.xml`文件，跟使用TiDB[^3]的配置类似
@@ -268,7 +268,7 @@ export HIVE_AUX_JARS_PATH=/usr/local/hive/lib
 运行下面的命令初始化MySQL元数据
 
 ```sh
-$ schematool -dbType mysql -initSchema --verbose
+schematool -dbType mysql -initSchema --verbose
 ```
 
 ## 启动Metastore并测试
@@ -276,19 +276,19 @@ $ schematool -dbType mysql -initSchema --verbose
 首先启动Hadoop集群
 
 ```sh
-$ start-all.sh
+start-all.sh
 ```
 
 启动Metastore
 
 ```sh
-$ hive --service metastore
+hive --service metastore
 ```
 
 启动Hive客户端并进行测试
 
 ```sh
-$ hive
+hive
 ```
 
 在里面可以输入SQL语句，如果要退出Hive交互式执行环境，可以输入如下命令：
@@ -329,13 +329,13 @@ mysql> create database hive;
 然后删除HDFS中的`/tmp`目录
 
 ```sh
-$ hdfs dfs -rm -r /tmp
+hdfs dfs -rm -r /tmp
 ```
 
 再重新升级元数据
 
 ```sh
-$ schematool -initSchema -dbType mysql --verbose
+schematool -initSchema -dbType mysql --verbose
 ```
 
 ### 格式化失败

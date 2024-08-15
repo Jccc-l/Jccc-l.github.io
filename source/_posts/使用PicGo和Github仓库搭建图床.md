@@ -24,7 +24,7 @@ katex: false
 赋予执行权限
 
 ```sh
-$ chmod +x PicGo-2.3.1.AppImage
+chmod +x PicGo-2.3.1.AppImage
 ```
 
 ## 创建并配置Github仓库

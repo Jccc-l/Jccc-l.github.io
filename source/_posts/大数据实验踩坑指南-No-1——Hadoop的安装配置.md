@@ -64,13 +64,13 @@ NVIDIA显卡在安装的过程中可能会有显示不正常或者黑屏的问�
 安装好`ssh`软件后，通过以下命令启动ssh服务
 
 ```sh
-$ sudo service ssh start
+sudo service ssh start
 ```
 
 然后通过以下命令登录本机
 
 ```sh
-$ ssh localhost
+ssh localhost
 ```
 
 此时会有如下提示，输入yes。然后按照提示输入用户密码`hadoop`，即可登录到本机
@@ -89,7 +89,7 @@ hadoop@localhost's password:
 但是这样每次登录都需要输入密码，接下来配置无密码登录。首先输入`exit`退出ssh，回到原先的终端窗口，通过`ssh-keygen`生成密钥
 
 ```sh
-$ ssh-keygen
+ssh-keygen
 ```
 ```
 Generating public/private rsa key pair.
@@ -107,7 +107,7 @@ The key's randomart image is:
 通过`ssh-copy-id`命令将公钥安装到远程主机上，按照提示输入密码`hadoop`
 
 ```sh
-$ ssh-copy-id localhost
+ssh-copy-id localhost
 ```
 
 ```
@@ -125,7 +125,7 @@ and check to make sure that only the key(s) you wanted were added.
 接下来尝试登录本机
 
 ```sh
-$ ssh localhost
+ssh localhost
 ```
 
 可以看到不需要密码就能登陆了
@@ -135,13 +135,13 @@ $ ssh localhost
 通过命令安装jdk
 
 ```sh
-$ sudo apt-get install openjdk-8-jdk
+sudo apt-get install openjdk-8-jdk
 ```
 
 查看`/usr/lib/jvm`目录的内容
 
 ```sh
-$ ls /usr/lib/jvm
+ls /usr/lib/jvm
 ```
 
 可以看到`/usr/lib/jvm`内有两个目录`java-1.8.0-openjdk-amd64`和`java-8-openjdk-amd64`，其中`java-1.8.0-openjdk-amd64`是`java-8-openjdk-amd64`链接，相当于一个快捷方式（说法不太准确，但是先这样理解）
@@ -149,7 +149,7 @@ $ ls /usr/lib/jvm
 然后用你熟悉的编辑器（比如vim、nano，其中nano用法比较简单，也可以使用gedit，gedit是ubuntu中的一个GUI的编辑器，类似Windows的记事本）来打开`/home/hadoop/.bashrc`文件
 
 ```sh
-$ gedit /home/hadoop/.bashrc
+gedit /home/hadoop/.bashrc
 ```
 
 在这个文件中添加以下内容（林子雨老师的教程中写的是在文件的开头添加，实际上配置的先后没有影响，除非前面的配置出现问题，导致配置文件加载失败，错误行以后的内容都不会进行加载）
@@ -170,10 +170,10 @@ export PATH=${JAVA_HOME}/bin:$PATH		# 通过apt安装的jdk好像不需要这一
 将Hadoop解压到`/usr/local/`目录下
 
 ```sh
-$ sudo tar -zxvf /home/hadoop/Downloads/hadoop-3.3.6.tar.gz -C /usr/local/	# 如果系统语言为中文，则文件路径应当是/home/hadoop/下载/hadoop-3.3.6.tar.gz，或者你下载到其他目录，就改为对应的路径
-$ cd /usr/local													# 进入安装目录
-$ sudo mv ./hadoop-3.3.6 hadoop									# 将文件明改为hadoop
-$ sudo chown -R hadoop:hadoop ./hadoop							# 将目录以及目录内的所有子目录、文件的拥有者改为hadoop用户组的hadoop用户
+sudo tar -zxvf /home/hadoop/Downloads/hadoop-3.3.6.tar.gz -C /usr/local/	# 如果系统语言为中文，则文件路径应当是/home/hadoop/下载/hadoop-3.3.6.tar.gz，或者你下载到其他目录，就改为对应的路径
+cd /usr/local													# 进入安装目录
+sudo mv ./hadoop-3.3.6 hadoop									# 将文件明改为hadoop
+sudo chown -R hadoop:hadoop ./hadoop							# 将目录以及目录内的所有子目录、文件的拥有者改为hadoop用户组的hadoop用户
 ```
 
 编辑Hadoop的环境变量，找到文件对应的行进行修改，需要将`#`删掉，每一项的说明都可以在文件里查看
@@ -188,8 +188,8 @@ export HADOOP_PID_DIR=/usr/local/hadoop/pids
 输入以下命令来检查Hadoop是否可用，成功则会显示版本信息
 
 ```sh
-$ cd $HADOOP_HOME			# 进入Hadoop的目录
-$ ./bin/hadoop version		# 查看Hadoop版本
+cd $HADOOP_HOME			    # 进入Hadoop的目录
+./bin/hadoop version        # 查看Hadoop版本
 ```
 
 为了可以在任何目录下执行hadoop的命令，我们在.bashrc中配置环境变量
@@ -204,13 +204,13 @@ export PATH=$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin
 配置完成后，通过以下命令加载配置
 
 ```sh
-$ source /home/hadoop/.bashrc
+source /home/hadoop/.bashrc
 ```
 
 执行以下命令，如果显示版本信息，则配置成功
 
 ```sh
-$ hadoop version
+hadoop version
 ```
 
 ## 伪分布式配置
@@ -253,7 +253,7 @@ Hadoop可以在单节点以一个伪分布式的模式机型运行。不同的Ha
 格式化hdfs文件系统<a id="namenodeformat"></a>
 
 ```sh
-$ hdfs namenode -format
+hdfs namenode -format
 ```
 
 在倒数第十二行左右可以看到格式化成功的信息
@@ -275,7 +275,7 @@ SHUTDOWN_MSG: Shutting down NameNode at jccc-MS-7D48/127.0.1.1
 启动`NameNode`守护进程和`DataNode`守护进程
 
 ```sh
-$ start-dfs.sh
+start-dfs.sh
 ```
 
 启动完成后，通过`jps`命令可以查看到相应的进程

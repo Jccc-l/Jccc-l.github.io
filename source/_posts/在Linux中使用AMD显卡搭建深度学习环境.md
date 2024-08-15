@@ -17,7 +17,9 @@ katex: false
 
 ## 配置过程
 
-以下命令**配置环境变量**
+以下命令**配置环境变量**[^1]
+
+[^1]: [AMD显卡满血Stable Diffusion无脑部署笔记(ROCm6.1)(SD+Fooocus+ComfyUI)\[长期更新\]](https://zhuanlan.zhihu.com/p/656480759?utm_psn=1710569878971547648)
 
 ```zsh $HOME/.zshrc
 export HSA_OVERRIDE_GFX_VERSION=10.3.0
@@ -33,17 +35,19 @@ export LD_LIBRARY_PATH=/opt/rocm/lib
 创建并激活虚拟环境
 
 ```sh
-$ python -m venv venv
-$ source venv/bin/activate
+python -m venv venv
+source venv/bin/activate
 ```
 
 通过[Pytorch主页](pytorch.org)的方法安装好ROCm版本的PyTorch
 
 ```sh
-$ pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/rocm6.0
+pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/rocm6.0
 ```
 
-```sh
+测试ROCm是否可用
+
+```
 $ python
 Python 3.10.14 (main, Apr 28 2024, 15:11:45) [GCC 13.2.1 20240417] on linux
 Type "help", "copyright", "credits" or "license" for more information.
@@ -56,6 +60,3 @@ True
 
 可以看到ROCm可用
 
-## Reference
-
-- [AMD显卡满血Stable Diffusion无脑部署笔记(ROCm6.1)(SD+Fooocus+ComfyUI)\[长期更新\]](https://zhuanlan.zhihu.com/p/656480759?utm_psn=1710569878971547648)

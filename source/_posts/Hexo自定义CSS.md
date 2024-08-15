@@ -133,6 +133,6 @@ img {
 设定完成后，重新生成博客即可
 
 ```sh
-$ hexo generate
-$ hexo deploy
+hexo generate
+hexo deploy
 ```

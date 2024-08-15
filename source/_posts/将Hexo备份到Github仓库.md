@@ -26,20 +26,20 @@ katex: false
 首先克隆我们的`<username>.github.io`仓库
 
 ```sh
-$ git clone https://github.com/<username>/<username>.github.io
-$ cd <username>.github.io
+git clone https://github.com/<username>/<username>.github.io
+cd <username>.github.io
 ```
 
 创建一个新分支`hexo`并切换到这个分支
 
 ```sh
-$ git checkout -b hexo
+git checkout -b hexo
 ```
 
 然后将.git整个文件夹移动到你的博客根目录
 
 ```sh
-$ mv .git [Blogroot]
+mv .git [Blogroot]
 ```
 
 ## 配置gitignore
@@ -59,8 +59,8 @@ public/
 提交`.gitignore`文件
 
 ```sh
-$ git add .gitignore
-$ git commit -m "Add .gitignore"
+git add .gitignore
+git commit -m "Add .gitignore"
 ```
 
 ## 开始备份
@@ -84,13 +84,13 @@ git push origin hexo
 然后只需要将Github仓库里的`hexo`分支（即备份分支）克隆下来，进入克隆下来的目录
 
 ```sh
-$ git clone -b hexo https://github.com/Jccc-l/Jccc-l.github.io.git
+git clone -b hexo https://github.com/Jccc-l/Jccc-l.github.io.git
 ```
 
 执行以下命令安装`packages.json`文件所记录的node模块
 
 ```sh
-$ npm install
+npm install
 ```
 
 恢复完成，可以像以前那样写博客了

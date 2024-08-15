@@ -16,15 +16,15 @@ tags:
 
 ## 安装R
 
-安装R的步骤可以在CRAN[^3]上查看，这里不赘述
-[^3]: [Ubuntu Packages For R - Brief Instructions](https://cran.r-project.org/bin/linux/ubuntu/)
+安装R的步骤可以在CRAN[^1]上查看，这里不赘述
+[^1]: [Ubuntu Packages For R - Brief Instructions](https://cran.r-project.org/bin/linux/ubuntu/)
 
 ## 安装依赖
 
 由于在Ubuntu上不支持通过二进制包进行安装R包，需要安装`r-base-dev`软件包来编译R包
 
 ```sh
-$ sudo apt-get install r-base-dev
+sudo apt-get install r-base-dev
 ```
 
 安装完成后，为了后续能顺利安装好所需的R包，首先需要用`apt`安装以下一些依赖<a id="RDependencies"></a>
@@ -77,13 +77,13 @@ sudo apt-get install make autoconf automake libtool texinfo pkg-config build-ess
 安装完成后，为了顺利下载，需要把软件源换为国内的镜像源，输入以下命令写入配置文件，设置`hadoop`用户的R镜像
 
 ```sh
-$ echo 'options(repos=c(USTC="https://mirrors.ustc.edu.cn/CRAN/"))' >> ~/.Rprofile
+echo 'options(repos=c(USTC="https://mirrors.ustc.edu.cn/CRAN/"))' >> ~/.Rprofile
 ```
 
 在终端下运行以下命令启动R
 
 ```sh
-$ R
+R
 ```
 
 可以执行下面的命令退出R：

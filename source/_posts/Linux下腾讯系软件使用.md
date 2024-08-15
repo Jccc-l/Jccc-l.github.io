@@ -26,24 +26,23 @@ tags:
 linuxqq已经被打包上传至[AUR](https://aur.archlinux.org/packages/linuxqq)，安装可通过AUR helper进行
 
 paur安装：
+
 ```sh
-$ paru -S linuxqq
+paru -S linuxqq
 ```
 
 yay安装：
+
 ```sh
-$ yay -S linuxqq
+yay -S linuxqq
 ```
 
 不使用AUR helper，手动构建安装
+
 ```sh
-# 克隆linuxqq仓库
-$ git clone https://aur.archlinux.org/linuxqq.git
-# 进入linuxqq目录
-$ cd linuxqq
-# 构建安装linuxqq
-$ makepkg -si
-# 或者makepkg --syncdeps --install
+git clone https://aur.archlinux.org/linuxqq.git # 克隆linuxqq仓库
+cd linuxqq                                      # 进入linuxqq目录
+makepkg -si                                     # 构建安装linuxqq 或者使用参数全称makepkg --syncdeps --install
 ```
 
 > 说明：
@@ -63,8 +62,9 @@ $ makepkg -si
 可能会发生闪退的现象，需要删除`~/.config/QQ/crash_files/`目录中的所有文件然后删除该目录的读写权限
 
 ```sh
-$ chmod -rw ~/.config/QQ/crash_files
+chmod -rw ~/.config/QQ/crash_files
 ```
+
 随后(也许)不会在出现闪退现象
 
 ## 微信

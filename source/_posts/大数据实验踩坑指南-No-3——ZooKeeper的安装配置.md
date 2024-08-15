@@ -16,25 +16,37 @@ tags:
 
 ## ZooKeeper基础安装
 
-到[ZooKeeper官网](https://zookeeper.apache.org)下载[apache-zookeeper-3.9.2-bin.tar.gz](https://www.apache.org/dyn/closer.lua/zookeeper/zookeeper-3.9.2/apache-zookeeper-3.9.2-bin.tar.gz)
+### 下载并解压ZooKeeper
 
-将其解压到`/usr/local`目录
+首先确保你已经从官方网站下载了正确版本的ZooKeeper压缩文件，这里假设你已经下载了`apache-zookeeper-3.9.2-bin.tar.gz`文件到`/home/hadoop/Downloads/BG`目录。
 
 ```sh
-$ sudo tar -zxvf /home/hadoop/Downloads/BG/apache-zookeeper-3.9.2-bin.tar.gz -C /usr/local/
+mkdir /home/hadoop/Downloads/BG
+cd /home/hadoop/Downloads/BG
+wget https://dlcdn.apache.org/zookeeper/zookeeper-3.9.2/apache-zookeeper-3.9.2-bin.tar.gz
 ```
 
-进入该目录并将ZooKeeper的主目录改名
+接下来，解压这个文件到`/usr/local`目录
 
 ```sh
-$ cd /usr/local/
-$ sudo mv ./apache-zookeeper-3.9.2-bin ./zookeeper
+sudo tar -zxvf /home/hadoop/Downloads/BG/apache-zookeeper-3.9.2-bin.tar.gz -C /usr/local/
 ```
 
-修改目录拥有者
+### 进入解压目录并将ZooKeeper的主目录重命名
+
+进入`/usr/local`目录，对解压后的目录重命名
 
 ```sh
-$ sudo chown -R hadoop:hadoop ./zookeeper
+cd /usr/local/
+sudo mv ./apache-zookeeper-3.9.2-bin ./zookeeper
+```
+
+### 修改目录拥有者
+
+然后更改目录的所有权
+
+```sh
+sudo chown -R hadoop:hadoop ./zookeeper
 ```
 
 配置环境变量
@@ -47,16 +59,18 @@ export PATH=$PATH:$ZOOKEEPER_HOME/bin
 加载配置
 
 ```sh
-$ source /home/hadoop/.bashrc
+source /home/hadoop/.bashrc
 ```
 
-## ZooKeeper配置
+## ZooKeeper配置启动
+
+### 添加并修改配置文件
 
 进入ZooKeeper的配置目录，并复制一份配置的模板
 
 ```sh
-$ cd $ZOOKEEPER_HOME/conf
-$ cp $ZOOKEEPER_HOME/conf/zoo_sample.cfg $ZOOKEEPER_HOME/conf/zoo.cfg
+cd $ZOOKEEPER_HOME/conf
+cp $ZOOKEEPER_HOME/conf/zoo_sample.cfg $ZOOKEEPER_HOME/conf/zoo.cfg
 ```
 
 修改`zoo.cfg`文件内容
@@ -69,10 +83,12 @@ dataDir=/usr/local/zookeeper/data			# 修改这个数据目录，以免数据被
 clientPort=2181
 ```
 
+### 启动并测试ZooKeeper是否正确运行
+
 输入以下命令启动ZooKeeper服务
 
 ```sh
-$ zkServer.sh start
+zkServer.sh start
 ```
 
 输入`jps`，可以看到ZooKeeper的进程
@@ -84,7 +100,7 @@ $ zkServer.sh start
 连接ZooKeeper
 
 ``` sh
-$ zkCli.sh -server 127.0.0.1:2181
+zkCli.sh -server 127.0.0.1:2181
 ```
 
 连接成功会看到以下信息：
@@ -103,5 +119,5 @@ JLine support is enabled
 退出后，输入以下命令停止ZooKeeper服务
 
 ```sh
-$ zkServer.sh stop
+zkServer.sh stop
 ```

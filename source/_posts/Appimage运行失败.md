@@ -27,6 +27,6 @@ open dir error: No such file or directory
 运行以下命令即可
 
 ```sh
-$ sudo chmod u+s `which fusermount`
+sudo chmod u+s `which fusermount`
 ```
 

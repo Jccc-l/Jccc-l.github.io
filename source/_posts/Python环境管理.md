@@ -37,14 +37,14 @@ Ubuntu
 [^1]: ["deadsnakes" team](https://launchpad.net/~deadsnakes/+archive/ubuntu/ppa)
 
 ```sh
-$ sudo add-apt-repository ppa:deadsnakes/ppa
-$ sudo apt update
+sudo add-apt-repository ppa:deadsnakes/ppa
+sudo apt update
 ```
 
 然后安装自己需要的版本
 
 ```sh
-$ sudo apt-get install python3.10 python3.10-venv
+sudo apt-get install python3.10 python3.10-venv
 ```
 
 ## 虚拟环境创建

@@ -21,15 +21,15 @@ katex: false
 创建`/var/lib/mysql`目录并关闭目录的写时复制(CoW)
 
 ```sh
-$ sudo mkdir /var/lib/mysql
-$ chattr +C /var/lib/mysql
+sudo mkdir /var/lib/mysql
+chattr +C /var/lib/mysql
 ```
 
 运行以下命令安装`mariadb`包并初始化
 
 ```sh
-$ sudo pacman -S mariadb
-$ mariadb-install-db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
+sudo pacman -S mariadb
+mariadb-install-db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
 ```
 
 命令创建了两个具有所有特权的帐户。
