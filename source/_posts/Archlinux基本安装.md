@@ -37,12 +37,6 @@ cat /sys/firmware/efi/fw_platform_size
 systemctl stop reflector
 ```
 
-查看系统时间
-
-```sh
-timedatectl
-```
-
 #### 连接网络
 
 ##### 无线连接
@@ -72,11 +66,11 @@ ping baidu.com
 #### 更新系统时钟
 
 ```sh
-timedatectl set-ntp true    # 将系统时间与网络事件进行同步
+# timedatectl set-ntp true    # 将系统时间与网络事件进行同步
 timedatectl status          # 查看服务状态
 ```
 
-> 在Live环境中`systemd-timesyncd`默认启用，系统连接网络后，系统时间会自动同步
+> 在Live环境中`systemd-timesyncd`默认启用，系统连接网络后，系统时间会自动同步，不用使用set-ntp来开启
 > 使用`timedatectl`确认系统时间准确
 
 #### 配置pacman
@@ -204,6 +198,18 @@ ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 
 ```sh
 hwclock --systohc
+```
+
+开启时间同步
+
+```sh
+timedatectl set-ntp true
+```
+
+把硬件时钟（RCT）以本地时间来保存时间（Windows保存硬件时钟的方式，实现两者的时间同步，而不是相差8小时）
+
+```sh
+timedatectl set-local-rtc true
 ```
 
 #### 地区设置
@@ -471,6 +477,7 @@ ssh jack@remote_host
 编辑`/etc/systemd/logind.conf`，在`Login`下方添加`HandleLidSwitch=ignore`
 
 重启`systemd-logind`服务使配置生效
+
 
 ## 常用工具配置
 
