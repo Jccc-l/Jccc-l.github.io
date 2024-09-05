@@ -390,8 +390,6 @@
 <h4 id="禁用reflector服务"><a class="markdownIt-Anchor" href="#禁用reflector服务"></a> 禁用reflector服务</h4>
 <p>禁用reflector服务，避免将需要的镜像源删除</p>
 <figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">systemctl stop reflector</span><br></pre></td></tr></table></figure>
-<p>查看系统时间</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">timedatectl</span><br></pre></td></tr></table></figure>
 <h4 id="连接网络"><a class="markdownIt-Anchor" href="#连接网络"></a> 连接网络</h4>
 <h5 id="无线连接"><a class="markdownIt-Anchor" href="#无线连接"></a> 无线连接</h5>
 <p>无线连接使用iwctl进行认证连接</p>
@@ -402,9 +400,9 @@
 <figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">ping baidu.com</span><br></pre></td></tr></table></figure>
 <p>稍等片刻，如果能看到数据返回，即说明已经联网，<code>ctrl+c</code>终止当前命令。若无法连接，使用<code>ip link set [device name] up</code>来激活对应网卡后再重新网络连接与测试。</p>
 <h4 id="更新系统时钟"><a class="markdownIt-Anchor" href="#更新系统时钟"></a> 更新系统时钟</h4>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">timedatectl set-ntp <span class="literal">true</span>    <span class="comment"># 将系统时间与网络事件进行同步</span></span><br><span class="line">timedatectl status          <span class="comment"># 查看服务状态</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="comment"># timedatectl set-ntp true    # 将系统时间与网络事件进行同步</span></span><br><span class="line">timedatectl status          <span class="comment"># 查看服务状态</span></span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>在Live环境中<code>systemd-timesyncd</code>默认启用，系统连接网络后，系统时间会自动同步<br />
+<p>在Live环境中<code>systemd-timesyncd</code>默认启用，系统连接网络后，系统时间会自动同步，不用使用set-ntp来开启<br />
 使用<code>timedatectl</code>确认系统时间准确</p>
 </blockquote>
 <h4 id="配置pacman"><a class="markdownIt-Anchor" href="#配置pacman"></a> 配置pacman</h4>
@@ -451,6 +449,10 @@
 <figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="built_in">ln</span> -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime</span><br></pre></td></tr></table></figure>
 <p>设置硬件时间，生成/etc/adjtime</p>
 <figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">hwclock --systohc</span><br></pre></td></tr></table></figure>
+<p>开启时间同步</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">timedatectl set-ntp <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<p>把硬件时钟（RCT）以本地时间来保存时间（Windows保存硬件时钟的方式，实现两者的时间同步，而不是相差8小时）</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">timedatectl set-local-rtc <span class="literal">true</span></span><br></pre></td></tr></table></figure>
 <h4 id="地区设置"><a class="markdownIt-Anchor" href="#地区设置"></a> 地区设置</h4>
 <p>设置系统语言，编辑<code>/etc/locale.gen</code>和<code>/etc/locale.conf</code></p>
 <p><code>/etc/locale.gen</code>删除<code>en_US.UTF-8 UTF-8</code>前面的<code>#</code></p>
