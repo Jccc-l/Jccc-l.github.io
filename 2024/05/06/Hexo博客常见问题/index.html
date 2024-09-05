@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha256-XOqroi11tY4EFQMR9ZYwZWKj5ZXiftSx36RRuC3anlA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-minimal.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"jccc-l.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"hide","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"fold":{"enable":true,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="在用Hexo的时候遇到的一些坑">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo博客常见问题">
+<meta property="og:url" content="https://jccc-l.github.io/2024/05/06/Hexo%E5%8D%9A%E5%AE%A2%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/index.html">
+<meta property="og:site_name" content="璐濄のβlòɡ">
+<meta property="og:description" content="在用Hexo的时候遇到的一些坑">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://jccc-l.github.io/2024/05/06/Hexo%E5%8D%9A%E5%AE%A2%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/Image_Reference_Failed.png">
+<meta property="og:image" content="https://jccc-l.github.io/2024/05/06/Hexo%E5%8D%9A%E5%AE%A2%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/Image_Displayed.png">
+<meta property="article:published_time" content="2024-05-06T07:39:50.000Z">
+<meta property="article:modified_time" content="2024-09-05T11:28:04.434Z">
+<meta property="article:author" content="Jccc">
+<meta property="article:tag" content="Hexo">
+<meta property="article:tag" content="Blog">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://jccc-l.github.io/2024/05/06/Hexo%E5%8D%9A%E5%AE%A2%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/Image_Reference_Failed.png">
+
+
+<link rel="canonical" href="https://jccc-l.github.io/2024/05/06/Hexo%E5%8D%9A%E5%AE%A2%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://jccc-l.github.io/2024/05/06/Hexo%E5%8D%9A%E5%AE%A2%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/","path":"2024/05/06/Hexo博客常见问题/","title":"Hexo博客常见问题"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Hexo博客常见问题 | 璐濄のβlòɡ</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">璐濄のβlòɡ</p>
+      <i class="logo-line"></i>
+    </a>
+      <img class="custom-logo-image" src="https://static.wixstatic.com/media/7ac599_2e792bfa812140c898f6c3a78e4ab78f~mv2.png/v1/fill/w_951,h_1046,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/7ac599_2e792bfa812140c898f6c3a78e4ab78f~mv2.png" alt="璐濄のβlòɡ">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#hexo%E5%8D%9A%E5%AE%A2%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98"><span class="nav-text"> Hexo博客常见问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%BE%E7%89%87%E5%AD%98%E5%82%A8%E6%96%B9%E6%A1%88"><span class="nav-text"> 图片存储方案</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%98%E6%96%B9%E6%96%B9%E6%A1%88"><span class="nav-text"> 官方方案</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%BE%E5%BA%8A"><span class="nav-text"> 图床</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A8%A1%E6%9D%BF"><span class="nav-text"> 模板</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hexo%E7%9A%84katex%E6%94%AF%E6%8C%81"><span class="nav-text"> Hexo的Katex支持</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E6%A1%88%E4%B8%80"><span class="nav-text"> 方案一</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#next%E4%B8%BB%E9%A2%98%E6%96%B9%E6%A1%88"><span class="nav-text"> NexT主题方案</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#punycode%E6%A8%A1%E5%9D%97%E6%8A%A5%E8%AD%A6%E5%91%8A"><span class="nav-text"> punycode模块报警告</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#latex%E8%AD%A6%E5%91%8A"><span class="nav-text"> LaTex警告</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8align%E7%8E%AF%E5%A2%83"><span class="nav-text"> 使用align环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E5%88%AB%E6%98%BE%E7%A4%BA%E5%A4%9A%E4%B8%AA%E5%85%AC%E5%BC%8F"><span class="nav-text"> 分别显示多个公式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reference"><span class="nav-text"> Reference</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Jccc"
+      src="https://static.wixstatic.com/media/7ac599_2e792bfa812140c898f6c3a78e4ab78f~mv2.png/v1/fill/w_951,h_1046,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/7ac599_2e792bfa812140c898f6c3a78e4ab78f~mv2.png">
+  <p class="site-author-name" itemprop="name">Jccc</p>
+  <div class="site-description" itemprop="description">Jccc的胡言乱语</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">35</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">47</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Jccc-l" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Jccc-l" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:1216550215Jc@gmail.com" title="E-Mail → mailto:1216550215Jc@gmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="返回顶部">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+    
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+          链接
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="https://julintongxue.github.io/" title="https:&#x2F;&#x2F;julintongxue.github.io" rel="noopener" target="_blank">orangeの博客</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+    <embed id="musicplayer" frameborder="no" border="0" marginwidth="0" marginheight="0" width=400 height=86 src="//music.163.com/outchain/player?type=2&id=407450660&auto=1&height=66"></embed>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://jccc-l.github.io/2024/05/06/Hexo%E5%8D%9A%E5%AE%A2%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://static.wixstatic.com/media/7ac599_2e792bfa812140c898f6c3a78e4ab78f~mv2.png/v1/fill/w_951,h_1046,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/7ac599_2e792bfa812140c898f6c3a78e4ab78f~mv2.png">
+      <meta itemprop="name" content="Jccc">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="璐濄のβlòɡ">
+      <meta itemprop="description" content="Jccc的胡言乱语">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Hexo博客常见问题 | 璐濄のβlòɡ">
+      <meta itemprop="description" content="在用Hexo的时候遇到的一些坑">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Hexo博客常见问题
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-05-06 15:39:50" itemprop="dateCreated datePublished" datetime="2024-05-06T15:39:50+08:00">2024-05-06</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-09-05 19:28:04" itemprop="dateModified" datetime="2024-09-05T19:28:04+08:00">2024-09-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Blog/" itemprop="url" rel="index"><span itemprop="name">Blog</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>2.9k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>3 分钟</span>
+    </span>
+</div>
+
+            <div class="post-description">在用Hexo的时候遇到的一些坑</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="hexo博客常见问题"><a class="markdownIt-Anchor" href="#hexo博客常见问题"></a> Hexo博客常见问题</h1>
+<h2 id="图片存储方案"><a class="markdownIt-Anchor" href="#图片存储方案"></a> 图片存储方案</h2>
+<p>在上一章中，我们配置了在创建博客同时创建一个同名文件夹存储图片等文件，但是当我们在博客的Markdown文件中引用图片文件，图片并不能显示出来</p>
+<img src="Image_Reference_Failed.png" style="max-width:100%;">
+<h3 id="官方方案"><a class="markdownIt-Anchor" href="#官方方案"></a> 官方方案</h3>
+<p><a target="_blank" rel="noopener" href="https://hexo.io/docs/asset-folders.html">官方</a>给出了一些解决方案，这里我用一个最简单的方法</p>
+<p>在<code>_config.yml</code>配置文件中配置以下内容</p>
+<figure class="highlight yml"><figcaption><span>[Blogroot]/_config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">post_asset_folder:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">marked:</span></span><br><span class="line">  <span class="attr">prependRoot:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">postAsset:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<p>如果创建了一篇博客&quot;Hello&quot;，则会在<code>source/_posts</code>文件夹中同时创建一个同名的<code>Hello</code>文件夹，将<code>PicGo.png</code>图片文件放置于<code>Hello</code>文件夹中，在&quot;<a target="_blank" rel="noopener" href="http://Hello.md">Hello.md</a>&quot;使用Markdown格式引用图片文件即可</p>
+<figure class="highlight md"><figcaption><span>source/_posts/first_blog.md</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: first<span class="emphasis">_blog</span></span><br><span class="line"><span class="emphasis">date: 2024-05-03 18:20:08</span></span><br><span class="line"><span class="emphasis">tags:</span></span><br><span class="line"><span class="emphasis">---</span></span><br><span class="line"><span class="emphasis"></span></span><br><span class="line"><span class="emphasis"># first blog</span></span><br><span class="line"><span class="emphasis"></span></span><br><span class="line"><span class="emphasis">![](<span class="link">PicGo.png</span>)</span></span><br></pre></td></tr></table></figure>
+<p>可以看到图片成功显示出来</p>
+<img src="Image_Displayed.png" style="max-width:100%;">
+<blockquote>
+<p>在博客主页的图片似乎还是不能显示，只有打开具体某篇博客的页面才能显示出来。。。</p>
+</blockquote>
+<h3 id="图床"><a class="markdownIt-Anchor" href="#图床"></a> 图床</h3>
+<p>另一个方案可以使用图床，我在另一篇博客中有教怎么用Github搭建图床</p>
+<h2 id="模板"><a class="markdownIt-Anchor" href="#模板"></a> 模板</h2>
+<p>在执行<code>hexo new</code>命令时，Hexo会在对应的目录根据模板文件生成一个新的文件，可以对模板进行自定义</p>
+<figure class="highlight md"><figcaption><span>scaffolds/post.md</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: &#123;&#123; title &#125;&#125;</span><br><span class="line">date: &#123;&#123; date &#125;&#125;</span><br><span class="line">categories: </span><br><span class="line"><span class="bullet">-</span> </span><br><span class="line">tags: </span><br><span class="line"><span class="bullet">-</span> </span><br></pre></td></tr></table></figure>
+<h2 id="hexo的katex支持"><a class="markdownIt-Anchor" href="#hexo的katex支持"></a> Hexo的Katex支持</h2>
+<h3 id="方案一"><a class="markdownIt-Anchor" href="#方案一"></a> 方案一</h3>
+<p>安装插件<a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo-math">hexo-math</a>，通过标签插件支持<a target="_blank" rel="noopener" href="https://katex.org/">KaTeX</a>和<a target="_blank" rel="noopener" href="https://www.mathjax.org/">MathJax</a></p>
+<p>在文章信息部分启用katex和mathjax选项</p>
+<figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: Hexo博客常见问题</span><br><span class="line">date: 2024-05-06 15:39:50</span><br><span class="line">categories:</span><br><span class="line"><span class="bullet">-</span> Blog</span><br><span class="line">tags:</span><br><span class="line"><span class="bullet">-</span> Hexo</span><br><span class="line"><span class="bullet">-</span> Blog</span><br><span class="line">katex: true</span><br><span class="line"><span class="section">mathjax: false</span></span><br><span class="line"><span class="section">---</span></span><br></pre></td></tr></table></figure>
+<p>然后就可以数学公式就可以用CSS格式进行渲染了，像这样</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;% katex %&#125;</span><br><span class="line">c = \pm\sqrt&#123;<span class="selector-tag">a</span>^<span class="number">2</span> + <span class="selector-tag">b</span>^<span class="number">2</span>&#125;</span><br><span class="line">&#123;% endkatex %&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="next主题方案"><a class="markdownIt-Anchor" href="#next主题方案"></a> NexT主题方案</h3>
+<p>用另一个渲染内核代替默认内核</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm un hexo-renderer-marked --save</span><br><span class="line">npm i hexo-renderer-markdown-it-plus --save</span><br></pre></td></tr></table></figure>
+<p>修改NexT主题配置</p>
+<figure class="highlight yml"><figcaption><span>[Blogroot]/_config.next.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">math:</span></span><br><span class="line">  <span class="string">...</span></span><br><span class="line">  <span class="attr">katex:</span></span><br><span class="line">    <span class="comment"># See: https://github.com/KaTeX/KaTeX/tree/master/contrib/copy-tex</span></span><br><span class="line">    <span class="attr">copy_tex:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<h2 id="punycode模块报警告"><a class="markdownIt-Anchor" href="#punycode模块报警告"></a> punycode模块报警告</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(node:7616) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.</span><br><span class="line">(Use `node --trace-deprecation ...` to show where the warning was created)</span><br></pre></td></tr></table></figure>
+<p>安装<code>punycode</code>模块</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install punycode --save</span><br></pre></td></tr></table></figure>
+<p>在node_modules目录中找到包含<code>require('punycode')</code>的文件，在<code>punycode</code>的后面添加上<code>/</code></p>
+<p>我使用的markdown-it模块中，<code>index.js</code>文件使用了这个模块，修改文件内容</p>
+<figure class="highlight js"><figcaption><span>[Blogroot]/node_modules/markdown-it/lib/index.js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> punycode     = <span class="built_in">require</span>(<span class="string">&#x27;punycode/&#x27;</span>);</span><br></pre></td></tr></table></figure>
+<h2 id="latex警告"><a class="markdownIt-Anchor" href="#latex警告"></a> LaTex警告</h2>
+<p>使用<code>\\</code>或<code>\newline</code>进行<span class='katex-error' title='ParseError: KaTeX parse error: Undefined control sequence: \Latex at position 1: \̲L̲a̲t̲e̲x̲'>\Latex</span>中的换行时，会有以下警告，但是能正常换行</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LaTeX-incompatible input and strict mode is set to &#x27;warn&#x27;: In LaTeX, \\ or \newline does nothing in display mode [newLineInDisplayMode]</span><br></pre></td></tr></table></figure>
+<p>通义千问的解释如下</p>
+<blockquote>
+<p>显示模式与文本模式：LaTeX中有两种基本的数学模式，一种是文本模式（text mode），用于正文中的小公式；另一种是显示模式（display mode），用于独立于正文、通常居中的大块数学公式。在文本模式中，\或\newline可以用来实现换行，但在显示模式下，这些命令不用于控制换行，因为数学公式的布局是由LaTeX自动管理的。</p>
+<p>严格模式的影响：如果你的系统或编译器设置了严格的模式（比如，strict选项被设置为warn），它会更加仔细地检查潜在的错误或不当用法，并给出警告而不是直接忽略。这样的警告机制有助于开发者或作者发现并修正可能的排版问题。</p>
+</blockquote>
+<p>解决方法：避免直接在数学模式中使用换行符</p>
+<h3 id="使用align环境"><a class="markdownIt-Anchor" href="#使用align环境"></a> 使用align环境</h3>
+<p>对于较为复杂的数学公式，尤其是那些需要对齐的多行公式，可以使用align环境。在Markdown中插入KaTeX公式时，你需要使用\begin{align}…\end{align}环境。每个等式行末尾使用\来换行，并且可以使用&amp;符号来指定对齐点。</p>
+<p>例如：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$$</span><br><span class="line">\begin&#123;align&#125;</span><br><span class="line">\cos^2(x) + \sin^2(x) &amp;= 1 \\</span><br><span class="line">\frac&#123;d&#125;&#123;dx&#125;\sin(x) &amp;= \cos(x)</span><br><span class="line">\end&#123;align&#125;</span><br><span class="line">$$</span><br></pre></td></tr></table></figure>
+<p>请注意，由于Markdown和KaTeX的解析方式，确保你的Markdown编辑器或渲染器支持这种语法。在一些场景下，你可能需要直接嵌入HTML来包裹KaTeX的标签以确保正确解析。</p>
+<h3 id="分别显示多个公式"><a class="markdownIt-Anchor" href="#分别显示多个公式"></a> 分别显示多个公式</h3>
+<p>如果不需要对齐，只是简单地想在两个公式之间换行，可以将它们分别放在两个$$…$$块中：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$$</span><br><span class="line">\cos^2(x) + \sin^2(x) = 1</span><br><span class="line">$$</span><br><span class="line"></span><br><span class="line">$$</span><br><span class="line">\frac&#123;d&#125;&#123;dx&#125;\sin(x) = \cos(x)</span><br><span class="line">$$</span><br></pre></td></tr></table></figure>
+<p>这种方法虽然简单，但不会像align那样提供对齐功能。</p>
+<p>注意事项<br />
+确保你的Markdown处理器或所用的KaTeX插件支持这些高级数学环境的解析。<br />
+在实际应用中，根据你的Markdown编辑器或平台的具体配置（如是否支持拓展的数学环境），可能需要进行适当调整。</p>
+<h2 id="reference"><a class="markdownIt-Anchor" href="#reference"></a> Reference</h2>
+<p><a target="_blank" rel="noopener" href="https://theme-next.js.org/docs/third-party-services/math-equations.html?highlight=math">Math Equations - NexT</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/u014378628/article/details/134555420">DeprecationWarning: The <code>punycode</code> module is deprecated. Please use a userland alternative instead.</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Jccc
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://jccc-l.github.io/2024/05/06/Hexo%E5%8D%9A%E5%AE%A2%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/" title="Hexo博客常见问题">https://jccc-l.github.io/2024/05/06/Hexo博客常见问题/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/en" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/Hexo/" rel="tag"><i class="fa fa-tag"></i> Hexo</a>
+              <a href="/tags/Blog/" rel="tag"><i class="fa fa-tag"></i> Blog</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/05/03/Mariadb%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/" rel="prev" title="Mariadb数据库安装配置">
+                  <i class="fa fa-angle-left"></i> Mariadb数据库安装配置
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2024/05/06/Python%E7%8E%AF%E5%A2%83%E7%AE%A1%E7%90%86/" rel="next" title="Python环境管理">
+                  Python环境管理 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2023 – 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder"><span id="copyright"> 路过的即是风景. All rights reserved. Non-commercial use allowed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>.</span></span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">115k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">1:45</span>
+  </span>
+</div><footer>
+    <div>
+        <!-- 时间统计部分 -->
+        <span id="timeDate">载入天数...</span>
+        <span id="times">载入时分秒...</span>
+        <script>
+            var now = new Date();
+            function createtime() {
+                var grt = new Date("05/04/2023 00:00:00");
+                now.setTime(now.getTime() + 250);
+                days = (now - grt) / 1000 / 60 / 60 / 24; 
+                dnum = Math.floor(days);
+                hours = (now - grt) / 1000 / 60 / 60 - (24 * dnum); 
+                hnum = Math.floor(hours);
+                if(String(hnum).length == 1) {hnum = "0" + hnum;}
+                minutes = (now - grt) / 1000 / 60 - (24 * 60 * dnum) - (60 * hnum);
+                mnum = Math.floor(minutes);
+                if(String(mnum).length == 1) {mnum = "0" + mnum;}
+                seconds = (now - grt) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+                snum = Math.round(seconds);
+                if(String(snum).length == 1) {snum = "0" + snum;}
+                document.getElementById("timeDate").innerHTML = "本站已安全运行 " + dnum + " 天 ";
+                document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+            }
+            setInterval("createtime()", 250);
+        </script>
+        <!-- 版权信息与联系信息部分 -->
+<!--
+		&copy; 2023-<span id="currentYearPlaceholder">YYYY</span>
+		<span id="copyright"> 路过的即是风景. All rights reserved. Non-commercial use allowed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>.</span>
+-->
+<!--
+		<span id="disclaimer" style="text-align: left;">disclaimer: <br>content provided for reference only. <br>accuracy, completeness, suitability not guaranteed. <br>not liable for any loss or damage.</span>
+-->
+
+		<br>
+		<!--联系信息部分-->
+		<span id="Contact">Contact Me: <a href="mailto:1216550215Jc@gmail.com">GMail</a> | Address: Guangdong, China</span>
+		<script>
+			// 使用JavaScript获取当前年份并更新到页面上
+			document.getElementById('currentYearPlaceholder').innerText = new Date().getFullYear();
+		</script>
+    </div>
+</footer>
+
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  <script src="/js/third-party/pace.js"></script>
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" integrity="sha256-UF1fgpAiu3tPJN/uCqEUHNe7pnr+QR0SQDNfgglgtcM=" crossorigin="anonymous">
+
+
+
+</body>
+</html>

@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha256-XOqroi11tY4EFQMR9ZYwZWKj5ZXiftSx36RRuC3anlA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-minimal.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"jccc-l.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"hide","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"fold":{"enable":true,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Z-Shell的配置过程记录">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Z-Shell的配置">
+<meta property="og:url" content="https://jccc-l.github.io/2024/05/06/Z-Shell%E7%9A%84%E9%85%8D%E7%BD%AE/index.html">
+<meta property="og:site_name" content="璐濄のβlòɡ">
+<meta property="og:description" content="Z-Shell的配置过程记录">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://raw.githubusercontent.com/romkatv/powerlevel10k-media/master/prompt-styles-high-contrast.png">
+<meta property="og:image" content="https://jccc-l.github.io/2024/05/06/Z-Shell%E7%9A%84%E9%85%8D%E7%BD%AE/P10K.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/zsh-users/zsh-syntax-highlighting/master/images/after2.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/MichaelAquilina/zsh-you-should-use/master/img/alias.png">
+<meta property="og:image" content="https://jccc-l.github.io/2024/05/06/Z-Shell%E7%9A%84%E9%85%8D%E7%BD%AE/zsh-screenshot.png">
+<meta property="article:published_time" content="2024-05-06T07:46:27.000Z">
+<meta property="article:modified_time" content="2024-09-05T11:28:04.498Z">
+<meta property="article:author" content="Jccc">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="Z-Shell">
+<meta property="article:tag" content="Shell">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/romkatv/powerlevel10k-media/master/prompt-styles-high-contrast.png">
+
+
+<link rel="canonical" href="https://jccc-l.github.io/2024/05/06/Z-Shell%E7%9A%84%E9%85%8D%E7%BD%AE/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://jccc-l.github.io/2024/05/06/Z-Shell%E7%9A%84%E9%85%8D%E7%BD%AE/","path":"2024/05/06/Z-Shell的配置/","title":"Z-Shell的配置"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Z-Shell的配置 | 璐濄のβlòɡ</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">璐濄のβlòɡ</p>
+      <i class="logo-line"></i>
+    </a>
+      <img class="custom-logo-image" src="https://static.wixstatic.com/media/7ac599_2e792bfa812140c898f6c3a78e4ab78f~mv2.png/v1/fill/w_951,h_1046,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/7ac599_2e792bfa812140c898f6c3a78e4ab78f~mv2.png" alt="璐濄のβlòɡ">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#z-shell%E9%85%8D%E7%BD%AE"><span class="nav-text"> Z-Shell配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E7%BD%AE%E5%87%86%E5%A4%87"><span class="nav-text"> 前置准备</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE"><span class="nav-text"> 基础配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%86%E5%8F%B2%E8%AE%BE%E7%BD%AE"><span class="nav-text"> 历史设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E8%A1%A5%E5%85%A8%E7%B3%BB%E7%BB%9F"><span class="nav-text"> 配置补全系统</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#compliter%E9%85%8D%E7%BD%AE"><span class="nav-text"> Compliter配置</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AEcompletion%E9%80%89%E9%A1%B9"><span class="nav-text"> 设置:completion:*选项</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%A8%A1%E7%B3%8A%E5%92%8C%E4%BF%AE%E6%AD%A3%E8%A1%A5%E5%85%A8"><span class="nav-text"> 模糊和修正补全</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%89%A9%E5%B1%95%E9%80%89%E9%A1%B9"><span class="nav-text"> 扩展选项</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E5%A4%87%E7%94%A8completers"><span class="nav-text"> 设置备用completers</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8C%B9%E9%85%8D%E6%8E%A7%E5%88%B6"><span class="nav-text"> 匹配控制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E8%87%AA%E5%8A%A8%E5%AE%8C%E6%88%90%E6%98%BE%E7%A4%BA%E5%92%8C%E6%8F%92%E5%85%A5%E7%9A%84%E6%A0%B7%E5%BC%8F"><span class="nav-text"> 设置自动完成显示和插入的样式</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%87%AA%E5%8A%A8%E5%AE%8C%E6%88%90%E5%88%97%E8%A1%A8%E7%9A%84%E5%A4%96%E8%A7%82"><span class="nav-text"> 自动完成列表的外观</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%9B%B4%E6%94%B9%E8%87%AA%E5%8A%A8%E8%A1%A5%E5%85%A8%E7%9A%84%E6%8F%92%E5%85%A5%E6%96%B9%E5%BC%8F"><span class="nav-text"> 更改自动补全的插入方式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E5%BD%A9%E8%89%B2%E5%92%8C%E9%AB%98%E4%BA%AE%E6%98%BE%E7%A4%BA%E7%9A%84%E8%87%AA%E5%8A%A8%E5%AE%8C%E6%88%90%E5%88%97%E8%A1%A8%E5%85%89%E6%A0%87%E9%80%89%E6%8B%A9%E9%A1%B9%E7%9B%AE%E5%92%8C%E6%BB%9A%E5%8A%A8%E6%B5%8F%E8%A7%88%E5%88%97%E8%A1%A8"><span class="nav-text"> 配置彩色和高亮显示的自动完成列表，光标选择项目和滚动浏览列表</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-%E6%98%AF%E5%90%A6%E4%BD%BF%E7%94%A8%E6%97%A7%E5%BC%8F%E7%9A%84compctl%E9%85%8D%E7%BD%AE%E6%96%B9%E5%BC%8F"><span class="nav-text"> 4. 是否使用旧式的compctl配置方式</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%89%B9%E5%AE%9A%E8%A1%A5%E5%85%A8%E9%A1%B9%E7%9A%84%E6%A0%B7%E5%BC%8F"><span class="nav-text"> 特定补全项的样式</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E8%A1%A5%E5%85%A8%E9%80%89%E9%A1%B9"><span class="nav-text"> 文件补全选项</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%89%E6%8B%A9%E9%BB%98%E8%AE%A4%E7%9A%84%E7%BC%96%E8%BE%91%E9%85%8D%E7%BD%AE"><span class="nav-text"> 选择默认的编辑配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%91%BD%E4%BB%A4%E7%BA%A0%E6%AD%A3"><span class="nav-text"> 命令纠正</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E5%88%AB%E5%90%8D"><span class="nav-text"> 创建别名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%97%AE%E9%A2%98"><span class="nav-text"> 问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%9C%80%E8%A6%81%E6%8C%89%E4%B8%A4%E6%AC%A1tab%E6%89%8D%E8%83%BD%E8%A1%A5%E5%85%A8%E6%97%A0%E6%AD%A7%E4%B9%89%E7%9A%84%E5%86%85%E5%AE%B9"><span class="nav-text"> 需要按两次tab才能补全无歧义的内容</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vi-mode"><span class="nav-text"> Vi-Mode</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%94%AE%E4%BD%8D%E9%85%8D%E7%BD%AE"><span class="nav-text"> 键位配置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E5%8E%86%E5%8F%B2%E8%AE%B0%E5%BD%95"><span class="nav-text"> 输入历史记录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8F%92%E4%BB%B6"><span class="nav-text"> 插件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BB%E9%A2%98%E6%8F%92%E4%BB%B6"><span class="nav-text"> 主题插件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%91%BD%E4%BB%A4%E8%A1%A5%E5%85%A8"><span class="nav-text"> 命令补全</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%91%BD%E4%BB%A4%E8%A1%8C%E9%AB%98%E4%BA%AE%E6%98%BE%E7%A4%BA"><span class="nav-text"> 命令行高亮显示</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8F%90%E7%A4%BA%E6%98%BE%E7%A4%BA%E5%88%AB%E5%90%8D"><span class="nav-text"> 提示显示别名</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%98%BE%E7%A4%BA%E6%95%88%E6%9E%9C"><span class="nav-text"> 显示效果</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Jccc"
+      src="https://static.wixstatic.com/media/7ac599_2e792bfa812140c898f6c3a78e4ab78f~mv2.png/v1/fill/w_951,h_1046,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/7ac599_2e792bfa812140c898f6c3a78e4ab78f~mv2.png">
+  <p class="site-author-name" itemprop="name">Jccc</p>
+  <div class="site-description" itemprop="description">Jccc的胡言乱语</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">35</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">47</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Jccc-l" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Jccc-l" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:1216550215Jc@gmail.com" title="E-Mail → mailto:1216550215Jc@gmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="返回顶部">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+    
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+          链接
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="https://julintongxue.github.io/" title="https:&#x2F;&#x2F;julintongxue.github.io" rel="noopener" target="_blank">orangeの博客</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+    <embed id="musicplayer" frameborder="no" border="0" marginwidth="0" marginheight="0" width=400 height=86 src="//music.163.com/outchain/player?type=2&id=407450660&auto=1&height=66"></embed>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://jccc-l.github.io/2024/05/06/Z-Shell%E7%9A%84%E9%85%8D%E7%BD%AE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://static.wixstatic.com/media/7ac599_2e792bfa812140c898f6c3a78e4ab78f~mv2.png/v1/fill/w_951,h_1046,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/7ac599_2e792bfa812140c898f6c3a78e4ab78f~mv2.png">
+      <meta itemprop="name" content="Jccc">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="璐濄のβlòɡ">
+      <meta itemprop="description" content="Jccc的胡言乱语">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Z-Shell的配置 | 璐濄のβlòɡ">
+      <meta itemprop="description" content="Z-Shell的配置过程记录">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Z-Shell的配置
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-05-06 15:46:27" itemprop="dateCreated datePublished" datetime="2024-05-06T15:46:27+08:00">2024-05-06</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-09-05 19:28:04" itemprop="dateModified" datetime="2024-09-05T19:28:04+08:00">2024-09-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>19k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>17 分钟</span>
+    </span>
+</div>
+
+            <div class="post-description">Z-Shell的配置过程记录</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="z-shell配置"><a class="markdownIt-Anchor" href="#z-shell配置"></a> Z-Shell配置</h1>
+<h2 id="前置准备"><a class="markdownIt-Anchor" href="#前置准备"></a> 前置准备</h2>
+<p>创建一个文件夹来存放zsh的配置</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> ~/.config/zsh/plugins</span><br></pre></td></tr></table></figure>
+<h2 id="基础配置"><a class="markdownIt-Anchor" href="#基础配置"></a> 基础配置</h2>
+<p>在第一次使用Z-Shell时，由于配置文件.zshrc不存在，会出现提示，按<code>1</code>进入配置选项</p>
+<p>Please pick one of the following options:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">(1)  Configure settings for history, i.e. command lines remembered</span><br><span class="line">     and saved by the shell.  (Recommended.)</span><br><span class="line"></span><br><span class="line">(2)  Configure the new completion system.  (Recommended.)</span><br><span class="line"></span><br><span class="line">(3)  Configure how keys behave when editing command lines.  (Recommended.)</span><br><span class="line"></span><br><span class="line">(4)  Pick some of the more common shell options.  These are simple &quot;on&quot;</span><br><span class="line">     or &quot;off&quot; switches controlling the shell&#x27;s features.  </span><br><span class="line"></span><br><span class="line">(0)  Exit, creating a blank ~/.zshrc file.</span><br><span class="line"></span><br><span class="line">(a)  Abort all settings and start from scratch.  Note this will overwrite</span><br><span class="line">     any settings from zsh-newuser-install already in the startup file.</span><br><span class="line">     It will not alter any of your other settings, however.</span><br><span class="line"></span><br><span class="line">(q)  Quit and do nothing else.  The function will be run again next time.</span><br><span class="line">--- Type one of the keys in parentheses --- </span><br></pre></td></tr></table></figure>
+<h3 id="历史设置"><a class="markdownIt-Anchor" href="#历史设置"></a> 历史设置</h3>
+<p>按1进入历史选项设置，我的设置如下</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">History configuration</span><br><span class="line">=====================</span><br><span class="line"></span><br><span class="line"># (1) Number of lines of history kept within the shell.</span><br><span class="line">HISTSIZE=100000                                                                      (set but not saved)</span><br><span class="line"># (2) File where history is saved.</span><br><span class="line">HISTFILE=~/.zsh_history                                                              (set but not saved)</span><br><span class="line"># (3) Number of lines of history to save to $HISTFILE.</span><br><span class="line">SAVEHIST=100000                                                                      (set but not saved)</span><br><span class="line"></span><br><span class="line"># (0)  Remember edits and return to main menu (does not save file yet)</span><br><span class="line"># (q)  Abandon edits and return to main menu</span><br><span class="line"></span><br><span class="line">--- Type one of the keys in parentheses ---</span><br></pre></td></tr></table></figure>
+<h3 id="配置补全系统"><a class="markdownIt-Anchor" href="#配置补全系统"></a> 配置补全系统</h3>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">The new completion system (compsys) allows you to complete</span><br><span class="line">commands, arguments and special shell syntax such as variables.  It provides</span><br><span class="line">completions for a wide range of commonly used commands in most cases simply</span><br><span class="line">by typing the TAB key.  Documentation is in the zshcompsys manual page.</span><br><span class="line">If it is not turned on, only a few simple completions such as filenames</span><br><span class="line">are available but the time to start the shell is slightly shorter.</span><br><span class="line"></span><br><span class="line">You can:</span><br><span class="line">  (1)  Turn on completion with the default options.</span><br><span class="line"></span><br><span class="line">  (2)  Run the configuration tool (compinstall).  You can also run</span><br><span class="line">       this from the command line with the following commands:</span><br><span class="line">        autoload -Uz compinstall</span><br><span class="line">        compinstall</span><br><span class="line">       if you don&#x27;t want to configure completion now.</span><br><span class="line"></span><br><span class="line">  (0)  Don&#x27;t turn on completion.</span><br><span class="line"></span><br><span class="line">--- Type one of the keys in parentheses ---</span><br></pre></td></tr></table></figure>
+<p>按<code>2</code>进行自动补全功能的自定义</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">If you have some already defined by compinstall, edit the name of the</span><br><span class="line">file where these can be found.  Note that this will only work if they</span><br><span class="line">are exactly the form in which compinstall inserted them.  If you leave</span><br><span class="line">the line as it is, or empty, I won&#x27;t search.</span><br><span class="line">file&gt; /home/user/.zshrc</span><br></pre></td></tr></table></figure>
+<p>直接回车即可</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">               *** compinstall: main menu ***</span><br><span class="line">Note that hitting `q&#x27; in menus does not abort the set of changes from</span><br><span class="line">lower level menus.  However, quitting at top level will ensure that nothing</span><br><span class="line">at all is actually written out.</span><br><span class="line"></span><br><span class="line">1.  Completers:  choose completion behaviour for tasks such as</span><br><span class="line">    approximation, spell-checking, expansion.</span><br><span class="line"></span><br><span class="line">2.  Matching control: set behaviour for case-insensitive matching,</span><br><span class="line">    extended (partial-word) matching and substring matching.</span><br><span class="line"></span><br><span class="line">3.  Styles for changing the way completions are displayed and inserted.</span><br><span class="line"></span><br><span class="line">4.  Styles for particular completions.</span><br><span class="line"></span><br><span class="line">c.  Change context (plus more information on contexts).</span><br><span class="line"></span><br><span class="line">q.  Return without saving.</span><br><span class="line">0.  Save and exit.</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h4 id="compliter配置"><a class="markdownIt-Anchor" href="#compliter配置"></a> Compliter配置</h4>
+<p>按<code>1</code>，进入completers配置</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">Current context: :completion:*</span><br><span class="line"></span><br><span class="line">The following completers are available.  Those marked `(*)&#x27; are already</span><br><span class="line">set for the context shown above.  If none are selected, the completers will</span><br><span class="line">not be set for this context at all.</span><br><span class="line"></span><br><span class="line">1. (*) Basic completion.</span><br><span class="line">2. (*) Approximate completion:  completion with correction of existing word.</span><br><span class="line">3. (*) Correction:  correct existing word, no completion.</span><br><span class="line">4. (*) Expansion: use globbing and parameter substitution, if possible.</span><br><span class="line"></span><br><span class="line">o.     Set options for the completers above.</span><br><span class="line">m.     Set completers that modify the behaviour of the four main ones above.</span><br><span class="line">q.     Return without saving.</span><br><span class="line">0.     Done setting completers.</span><br></pre></td></tr></table></figure>
+<p>按<code>1</code>,<code>2</code>,<code>3</code>,<code>4</code>选择四个completer的选项，然后按<code>o</code></p>
+<h5 id="设置completion选项"><a class="markdownIt-Anchor" href="#设置completion选项"></a> 设置:completion:*选项</h5>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Current context: :completion:*</span><br><span class="line"></span><br><span class="line">The following options are available.  Note that these require the relevant</span><br><span class="line">completers to be present, as set in the menu above this one.</span><br><span class="line"></span><br><span class="line">a.     Set options for approximation or correction.</span><br><span class="line">e.     Set options for expansion.</span><br><span class="line">q.     Return without saving.</span><br><span class="line"></span><br><span class="line">0.     Done setting options.</span><br></pre></td></tr></table></figure>
+<h6 id="模糊和修正补全"><a class="markdownIt-Anchor" href="#模糊和修正补全"></a> 模糊和修正补全</h6>
+<p>按a，进入模糊和改正匹配的设置</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">Approximation and correction can correct the errors in what you have typed,</span><br><span class="line">up to a maximum number of errors which you can specify.  Each `error&#x27;</span><br><span class="line">is the omission of a character, the addition of a superfluous character,</span><br><span class="line">the substitution of one character by an incorrect one, or transposition of</span><br><span class="line">two different characters.</span><br><span class="line"></span><br><span class="line">Current context: :completion:*</span><br><span class="line"></span><br><span class="line">To have different values for approximation and correction, you should</span><br><span class="line">change the context appropriately.  For approximation, use</span><br><span class="line">`:completion:*:approximate:*&#x27; and for correction use</span><br><span class="line">`:completion:*:correct:*&#x27;.</span><br><span class="line"></span><br><span class="line">Enter maximum number of errors allowed:</span><br><span class="line"></span><br><span class="line">number&gt;3</span><br></pre></td></tr></table></figure>
+<p>输入修正的错误字符个数</p>
+<p>然后设置数字前缀行为的选项，用于指定在自动补全或近似补全时如何处理数字前缀：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Select behaviour of numeric prefix.</span><br><span class="line"></span><br><span class="line">1.     Numeric prefix is not used by approximation or completion.</span><br><span class="line">2.     Numeric prefix, if provided, gives max number of errors allowed,</span><br><span class="line">       replacing the number you just typed for that one completion.</span><br><span class="line">3.     Numeric prefix, if provided, prevents approximation or completion</span><br><span class="line">       from taking place at all for that one completion.</span><br><span class="line"></span><br><span class="line">--- Hit selection ---</span><br></pre></td></tr></table></figure>
+<p>我选择的是2，可以在前面输入前缀表明允许的错误个数</p>
+<h6 id="扩展选项"><a class="markdownIt-Anchor" href="#扩展选项"></a> 扩展选项</h6>
+<p>按<code>e</code>进入扩展选项，选项：</p>
+<ul>
+<li>通配符扩展</li>
+<li>替换功能</li>
+<li>显示所有补全选项</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">The _expand completer can be tuned to perform any of globbing (filename</span><br><span class="line">generation), substitution (anything with a `$&#x27; or backquote), or</span><br><span class="line">normal completion (which is useful for inserting all possible completions</span><br><span class="line">into the command line).  For each feature, a 1 turns it on, while a 0 turns</span><br><span class="line">it off; if the feature is unset, that expansion will *not* be performed.</span><br><span class="line"></span><br><span class="line">You can also give more complicated mathematical expressions, which can use</span><br><span class="line">the parameter NUMERIC to refer to the numeric argument.  For example, the</span><br><span class="line">expression `NUMERIC == 2&#x27; means that the expansion takes effect if you</span><br><span class="line">type ESC-2 (Emacs mode) or 2 (Vi command mode) before the expansion.</span><br><span class="line">Quotes will be added automatically as needed.</span><br><span class="line"></span><br><span class="line">g.     Set condition to perform globbing: 1</span><br><span class="line">s.     Set condition to perform substitution: 1</span><br><span class="line">c.     Set condition to perform completion: 1</span><br><span class="line">0.     Done setting conditions (will not be saved until you leave options)</span><br><span class="line"></span><br><span class="line">--- Enter selection ---</span><br></pre></td></tr></table></figure>
+<p>然后返回这个界面</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">              *** compinstall: completer menu ***</span><br><span class="line"></span><br><span class="line">Current context: :completion:*</span><br><span class="line"></span><br><span class="line">The following completers are available.  Those marked `(*)&#x27; are already</span><br><span class="line">set for the context shown above.  If none are selected, the completers will</span><br><span class="line">not be set for this context at all.</span><br><span class="line"></span><br><span class="line">1. (*) Basic completion.</span><br><span class="line">2. (*) Approximate completion:  completion with correction of existing word.</span><br><span class="line">3. (*) Correction:  correct existing word, no completion.</span><br><span class="line">4. (*) Expansion: use globbing and parameter substitution, if possible.</span><br><span class="line"></span><br><span class="line">o.     Set options for the completers above.</span><br><span class="line">m.     Set completers that modify the behaviour of the four main ones above.</span><br><span class="line">q.     Return without saving.</span><br><span class="line">0.     Done setting completers.</span><br></pre></td></tr></table></figure>
+<h5 id="设置备用completers"><a class="markdownIt-Anchor" href="#设置备用completers"></a> 设置备用completers</h5>
+<p>选择<code>m</code>设置备用Completers</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">              *** compinstall: minor completer menu ***</span><br><span class="line"></span><br><span class="line">Current context: :completion:*</span><br><span class="line"></span><br><span class="line">The following completers are available.  Those marked `(*)&#x27; are already</span><br><span class="line">set for the context shown above.  Note none of these are required for</span><br><span class="line">normal completion behaviour.</span><br><span class="line"></span><br><span class="line">1. (*) _ignored: Use patterns that were previously ignored if no matches so far.</span><br><span class="line">2. (*) _list:    Only list matches until the second time you hit TAB.</span><br><span class="line">3.     _oldlist: Keep matches generated by special completion functions.</span><br><span class="line">4. (*) _match:   If completion fails, retry with pattern matching.</span><br><span class="line">5.     _prefix:  If completion fails, retry ignoring the part after the cursor.</span><br><span class="line"></span><br><span class="line">o.     Set options for the completers above.</span><br><span class="line">q.     Return without saving.</span><br><span class="line">0.     Done setting minor completers.</span><br></pre></td></tr></table></figure>
+<p>按<code>0</code>退出备用completer设置</p>
+<h4 id="匹配控制"><a class="markdownIt-Anchor" href="#匹配控制"></a> 匹配控制</h4>
+<p>设置了四个匹配器，按优先顺序：</p>
+<ol>
+<li>不匹配</li>
+<li>小写匹配大写</li>
+<li>大小写相互匹配</li>
+<li>部分单词匹配，用三个字符<code>.</code>、<code>_</code>、<code>-</code>来表示省略部分进行匹配。实现这个功能需要在匹配的单词后面加上.，比如输入<code>c.u</code>不会匹配<code>comp.source.unix</code>，而输入<code>c.u.</code>会匹配。</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">              *** compinstall: matcher menu ***</span><br><span class="line"></span><br><span class="line">`Matchers&#x27; compare the completion code with the possible matches in some</span><br><span class="line">special way.  Numbers in parentheses show matchers to be tried and the order.</span><br><span class="line">The same number can be assigned to different matchers, meaning apply at the</span><br><span class="line">same time.  Omit a sequence number to try normal matching at that point.</span><br><span class="line">A `+&#x27; in the first line indicates the element is added to preceding matchers</span><br><span class="line">instead of replacing them; toggle this with `t&#x27;.  You don&#x27;t need to set</span><br><span class="line">all four, or indeed any matchers --- then the style will not be set.</span><br><span class="line"></span><br><span class="line">   (    )   `+&#x27; indicates add to previous matchers, else replace</span><br><span class="line">n. (1   ) No matchers; you may want to try this as the first choice.</span><br><span class="line">c. ( 2  ) Case-insensitive completion (lowercase matches uppercase)</span><br><span class="line">C. (  3 ) Case-insensitive completion (lower/uppercase match each other)</span><br><span class="line">p. (   4) Partial-word completion:  expand &#x27;f.b&#x27; to &#x27;foo.bar&#x27;, etc., in one go.</span><br><span class="line">          You can choose the separators (here `.&#x27;) used each time.</span><br><span class="line">s. (    ) Substring completion:  complete on substrings, not just initial</span><br><span class="line">          strings.  Warning: it is recommended this not be used for element 1.</span><br><span class="line"></span><br><span class="line">t.        Toggle replacing previous matchers (` &#x27; at top) or add (`+&#x27;)</span><br><span class="line">q.        Return without saving.</span><br><span class="line">0.        Done setting matchers.</span><br><span class="line"></span><br><span class="line">--- Hit selection --- p</span><br><span class="line">Set/unset for element number (1234)? 4</span><br><span class="line">Edit the set of characters which terminate partial words.  Typically</span><br><span class="line">these are punctuation characters, such as `.&#x27;, `_&#x27; and `-&#x27;.</span><br><span class="line">The expression will automatically be quoted.</span><br><span class="line"></span><br><span class="line">characters&gt; ._-</span><br><span class="line"></span><br><span class="line">You can allow the partial-word terminators to be matched in the pattern,</span><br><span class="line">too:  then  for example `c.u&#x27; would expand to `comp.source.unix&#x27;, whereas</span><br><span class="line">usually you would need to type an extra intervening dot.  Do you wish the</span><br><span class="line">terminators to be matched in this way? (y/n) [n] y</span><br></pre></td></tr></table></figure>
+<h4 id="设置自动完成显示和插入的样式"><a class="markdownIt-Anchor" href="#设置自动完成显示和插入的样式"></a> 设置自动完成显示和插入的样式</h4>
+<p>Styles for changing the way completions are displayed and inserted.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">         *** compinstall: display and insertion options ***</span><br><span class="line"></span><br><span class="line">1.  Change appearance of completion lists:  allows descriptions of</span><br><span class="line">    completions to appear and sorting of different types of completions.</span><br><span class="line"></span><br><span class="line">2.  Change how completions are inserted: includes options for sorting,</span><br><span class="line">    and keeping the original or an unambiguous prefix with correction etc.</span><br><span class="line"></span><br><span class="line">3.  Configure coloured/highlighted completion lists, selection of items</span><br><span class="line">    and scrolling.</span><br><span class="line"></span><br><span class="line">4.  Change whether old-style `compctl&#x27; completions will be used.</span><br><span class="line"></span><br><span class="line">q.  Return without saving.</span><br><span class="line">0.  Done setting display and insertion options.</span><br><span class="line"></span><br><span class="line">--- Hit selection --- </span><br></pre></td></tr></table></figure>
+<h5 id="自动完成列表的外观"><a class="markdownIt-Anchor" href="#自动完成列表的外观"></a> 自动完成列表的外观</h5>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">       *** compinstall: order and descriptions in completion lists ***</span><br><span class="line">Type the appropriate number for more information on how this would affect</span><br><span class="line">listings.</span><br><span class="line"></span><br><span class="line">1.  Print a message above completion lists describing what is being</span><br><span class="line">    completed.</span><br><span class="line"></span><br><span class="line">2.  Make different types of completion appear in separate lists.</span><br><span class="line"></span><br><span class="line">3.  Make completion verbose, using option descriptions etc. (on by default).</span><br><span class="line"></span><br><span class="line">4.  Make single-valued options display the value&#x27;s description as</span><br><span class="line">    part of the option&#x27;s description.</span><br><span class="line"></span><br><span class="line">q.  Return without saving.</span><br><span class="line">0.  Done setting options for formatting of completion lists.</span><br></pre></td></tr></table></figure>
+<ol>
+<li>输出正在进行的补全操作</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">You can set a string which is displayed on a line above the list of matches</span><br><span class="line">for completions.  A `%d&#x27; in this string will be replaced by a brief</span><br><span class="line">description of the type of completion.  For example, if you set the</span><br><span class="line">string to `Completing %d&#x27;, and type ^D to show a list of files, the line</span><br><span class="line">`Completing files&#x27; will appear above that list.  Enter an empty line to</span><br><span class="line">turn this feature off.  If you enter something which doesn&#x27;t include `%d&#x27;,</span><br><span class="line">then `%d&#x27; will be appended.  Quotation will be added automatically.</span><br><span class="line"></span><br><span class="line">description&gt; Compliting %d</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>不同类型的补全出现在单独的列表中</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Normally, all possible completions are listed together in a single list, and</span><br><span class="line">if you have set a description with 1) above, the descriptions are listed</span><br><span class="line">together above that.  However, you can specify that different types of</span><br><span class="line">completion appear in separate lists; any description appears above its</span><br><span class="line">own list.  For example, external commands and shell functions would appear</span><br><span class="line">in separate lists when you are completing a command name.  Do you</span><br><span class="line">want to turn this on?</span><br><span class="line"></span><br><span class="line">[y]es, [n]o, [k]eep old setting? y</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>自动补全显示详细信息，比如选项描述</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">By default, completion uses a `verbose&#x27; setting.  This</span><br><span class="line">affects different completions in different ways.  For example,  many</span><br><span class="line">well-known commands have short, uninformative option names; in some cases,</span><br><span class="line">completion will indicate what the options do when offering to complete them.</span><br><span class="line">If you prefer shorter listings you can turn this off.  What setting to</span><br><span class="line">you want?</span><br><span class="line"></span><br><span class="line">[v]erbose, [n]ot verbose, [k]eep old setting? </span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>当选项的值是单一的时候，使值的描述显示在选项的描述中。</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">Many commands have options which take a single argument.  In some cases,</span><br><span class="line">completion is not set up to describe the option even though it has a</span><br><span class="line">description for the argument.  You can enter a string containing `%d&#x27;,</span><br><span class="line">which will be replaced by the description for the option.  For</span><br><span class="line">example, if you enter the string `specify: %d&#x27;, and an option -ifile</span><br><span class="line">exists which has an argument whose description is `input file&#x27;, then the</span><br><span class="line">description `specify: input file&#x27; will appear when the option itself</span><br><span class="line">is listed.  As this long explanation suggests, this is only occasionally</span><br><span class="line">useful.  Enter an empty line to turn this feature off.  If you enter</span><br><span class="line">something which doesn&#x27;t include `%d&#x27;, then `%d&#x27; will be appended.</span><br><span class="line">Quotation will be added automatically.</span><br><span class="line"></span><br><span class="line">auto-description&gt; %d</span><br></pre></td></tr></table></figure>
+<h5 id="更改自动补全的插入方式"><a class="markdownIt-Anchor" href="#更改自动补全的插入方式"></a> 更改自动补全的插入方式</h5>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">          *** compinstall: options for inserting completions ***</span><br><span class="line"></span><br><span class="line">1.   In completers that change what you have already typed, insert any</span><br><span class="line">     unambiguous prefix rather than go straight to menu completion.</span><br><span class="line"></span><br><span class="line">2.   In completers which correct what you have typed, keep what you</span><br><span class="line">     originally typed as one of the list of possible completions.</span><br><span class="line"></span><br><span class="line">q.   Return without saving.</span><br><span class="line">0.   Done setting options for insertion.</span><br></pre></td></tr></table></figure>
+<ol>
+<li>在你已经输入一部分内容后，如果系统能够确定你输入的内容在自动完成列表中有一个明确的前缀，那么系统会直接将这个前缀插入到你的输入中。这样你就不需要再从自动完成列表中选择完整的选项了。(启用)</li>
+<li>当系统纠正你输入的内容后，它会将你最初输入的内容保留在自动完成列表中，作为一个备选选项。这样，即使系统纠正了你的输入，你还是可以选择保留原始输入的内容。(启用)</li>
+</ol>
+<h5 id="配置彩色和高亮显示的自动完成列表光标选择项目和滚动浏览列表"><a class="markdownIt-Anchor" href="#配置彩色和高亮显示的自动完成列表光标选择项目和滚动浏览列表"></a> 配置彩色和高亮显示的自动完成列表，光标选择项目和滚动浏览列表</h5>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">     *** compinstall: options for colouring and selecting in lists ***</span><br><span class="line"></span><br><span class="line">1.   Use coloured lists for listing completions.</span><br><span class="line"></span><br><span class="line">2.   Use cursor keys to select completions from completion lists.</span><br><span class="line"></span><br><span class="line">3.   Allow scrolling of long selection lists and set the prompt.</span><br><span class="line"></span><br><span class="line">q.   Return without saving.</span><br><span class="line">0.   Done setting options for insertion.</span><br></pre></td></tr></table></figure>
+<ol>
+<li>设置补全列表的颜色 <a id="section1"></a>
+<ul>
+<li>默认颜色</li>
+<li>通过<code>$LS_COLORS</code>环境变量已经设定好的颜色</li>
+<li>关闭颜色(*)</li>
+</ul>
+</li>
+<li>使用光标键(方向键)在自动补全菜单中选择补全项
+<ul>
+<li>无条件启用该功能</li>
+<li>补全项超过指定数量时启用该功能(*, 3）
+<ul>
+<li><code>Edit a prompt below. It can contain '%l' to show the number of matches as 'current_number/total_number', '%p' to show the fraction of the way down the list, or font-control sequences such as %B, %U, %S and the corresponding %b, %u, %s; quotes will be added automatically. Delete the whole line to turn it off. Hit return to keep the current value. prompt&gt; %SMatches: %l, Progress: %p%</code></li>
+<li>显示效果：<code>Matches: [当前匹配项数量]/[总匹配项数量], Progress: [当前列表位置的百分比]%</code></li>
+</ul>
+</li>
+<li>列表无法完全显示在屏幕上时启用此功能</li>
+<li>对于只进行补全项立标的命令，也会在列表无法完全显示在屏幕上时启用此功能。</li>
+</ul>
+</li>
+<li>允许选择列表很长时使用滚动条浏览列表并设置提示信息(关闭这个功能，保持空白即可）
+<ul>
+<li>显示提示：prompt&gt; %SAt %p: Hit TAB for more, or the character to insert</li>
+</ul>
+</li>
+</ol>
+<h5 id="4-是否使用旧式的compctl配置方式"><a class="markdownIt-Anchor" href="#4-是否使用旧式的compctl配置方式"></a> 4. 是否使用旧式的compctl配置方式</h5>
+<p>不使用旧式<code>compctl</code>方式，直接跳过不用管</p>
+<h4 id="特定补全项的样式"><a class="markdownIt-Anchor" href="#特定补全项的样式"></a> 特定补全项的样式</h4>
+<h5 id="文件补全选项"><a class="markdownIt-Anchor" href="#文件补全选项"></a> 文件补全选项</h5>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">      *** compinstall: options for filename completion ***</span><br><span class="line"></span><br><span class="line">1.  Choose how to sort the displayed list of filename matches.(File Name)</span><br><span class="line"></span><br><span class="line">2.  In expressions with .., don&#x27;t include directories already implied.(p c d)</span><br><span class="line"></span><br><span class="line">3.  Allow completion of . and .. for the bone idle.(y 允许在自动补全时包括当前目录 . 和父目录 ..)</span><br><span class="line"></span><br><span class="line">4.  When expanding paths, `foo//bar&#x27; is treated as `foo/bar&#x27;.(y，把多于的斜杠合为一条)</span><br><span class="line"></span><br><span class="line">5.  Configure how multiple paths are expanded and displayed, </span><br><span class="line">    e.g. /f/b -&gt; /foo/bar</span><br><span class="line">    (1. y /f/b允许匹配/foo/bar、/foo/basket，也允许匹配/foo/test/bar（关闭后则不匹配）</span><br><span class="line">     2. n 匹配到不含歧义的部分，如果存在/foo/bar和/food/basket，只补全到/foo，然后进行选择/foo还是/food，而不是显示所有匹配/f/b的项，比如列出/foo/bar和/food/basket</span><br><span class="line">     3. y</span><br><span class="line">        对于目录/foo/bar /foo/bad /failed/bag，第三个功能如果选y 则会显示</span><br><span class="line">        /foo/bar</span><br><span class="line">        /foo/bad</span><br><span class="line">        /failed/bag</span><br><span class="line">        如果选n，则会显示</span><br><span class="line">        /foo</span><br><span class="line">        /foo</span><br><span class="line">        /failed</span><br><span class="line">     )</span><br><span class="line"></span><br><span class="line">6.  Keep certain prefixes unchanged, such as `//resource/&#x27;.</span><br><span class="line"></span><br><span class="line">q.  Return without saving.</span><br><span class="line">0.  Done setting options for filename completion.</span><br></pre></td></tr></table></figure>
+<h3 id="选择默认的编辑配置"><a class="markdownIt-Anchor" href="#选择默认的编辑配置"></a> 选择默认的编辑配置</h3>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">Default editing configuration</span><br><span class="line">=============================</span><br><span class="line"></span><br><span class="line">The keys in the shell&#x27;s line editor can be made to behave either</span><br><span class="line">like Emacs or like Vi, two common Unix editors.  If you have no</span><br><span class="line">experience of either, Emacs is recommended.  If you don&#x27;t pick one,</span><br><span class="line">the shell will try to guess based on the EDITOR environment variable.</span><br><span class="line">Usually it&#x27;s better to pick one explicitly.</span><br><span class="line"></span><br><span class="line"># (1) Change default editing configuration</span><br><span class="line">bindkey -e                                                                         (set but not saved)</span><br><span class="line"></span><br><span class="line"># (0)  Remember edits and return to main menu (does not save file yet)</span><br><span class="line"># (q)  Abandon edits and return to main menu</span><br><span class="line"></span><br><span class="line">--- Type one of the keys in parentheses --- 1</span><br><span class="line">Pick a keymap (set of keys) to use when editing.</span><br><span class="line">Type:</span><br><span class="line">  (e) for Emacs keymap (recommended unless you are vi user)</span><br><span class="line">  (v) for Vi keymap</span><br><span class="line">  (n) not to set a keymap (allow shell to choose)</span><br><span class="line">  (k) to keep the current setting, (e):</span><br><span class="line">--- Type one of the keys in parentheses --- </span><br></pre></td></tr></table></figure>
+<p>这里我选择v，即Vi的键位设置</p>
+<p>终于，一些基础配置和compinstall已经完善了</p>
+<p>配置完后可以将<sub>/.zshrc移动到</sub>/.config/zsh/目录中方便管理，建立一个链接即可</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mv</span> ~/.zshrc ~/.config/zsh/zshrc</span><br><span class="line"><span class="built_in">ln</span> -sf ~/.config/zsh/.zshrc ~/.zshrc</span><br></pre></td></tr></table></figure>
+<h3 id="命令纠正"><a class="markdownIt-Anchor" href="#命令纠正"></a> 命令纠正</h3>
+<p>配置功能：当输入错误命令时，询问是否为某一个命令</p>
+<p>添加下列配置</p>
+<figure class="highlight zsh"><figcaption><span>$HOME/.zshrc</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">setopt</span> correct</span><br></pre></td></tr></table></figure>
+<p>效果如下，把sudo输入成了<code>sudi</code></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudi pacman -Syyu</span><br><span class="line">zsh: correct <span class="string">&#x27;sudi&#x27;</span> to <span class="string">&#x27;sudo&#x27;</span> [nyae]? y</span><br></pre></td></tr></table></figure>
+<p>输入<code>y</code>以后就会执行这个命令</p>
+<h3 id="创建别名"><a class="markdownIt-Anchor" href="#创建别名"></a> 创建别名</h3>
+<p>通过<code>alias</code>指令设置别名</p>
+<p>创建<code>~/.config/zsh/alias.zsh</code>文件进行别名的配置</p>
+<figure class="highlight zsh"><figcaption><span>$HOME/.config/zsh/alias.zsh</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">alias</span> cnpm=<span class="string">&quot;npm --registry=https://registry.npmmirror.com --cache=<span class="variable">$HOME</span>/.npm/.cache/cnpm --disturl=https://npmmirror.com/mirrors/node --userconfig=<span class="variable">$HOME</span>/.cnpmrc&quot;</span></span><br><span class="line"><span class="built_in">alias</span> e=<span class="string">&quot;exit&quot;</span></span><br><span class="line"><span class="built_in">alias</span> <span class="built_in">ls</span>=<span class="string">&quot;lsd&quot;</span></span><br><span class="line"><span class="built_in">alias</span> la=<span class="string">&quot;ls -a&quot;</span></span><br><span class="line"><span class="built_in">alias</span> ll=<span class="string">&quot;ls -llha&quot;</span></span><br><span class="line"><span class="built_in">alias</span> gia=<span class="string">&quot;git add&quot;</span></span><br><span class="line"><span class="built_in">alias</span> gic=<span class="string">&quot;git commit&quot;</span></span><br><span class="line"><span class="built_in">alias</span> gicfg=<span class="string">&quot;git config&quot;</span></span><br></pre></td></tr></table></figure>
+<p>加载配置</p>
+<figure class="highlight zsh"><figcaption><span>$HOME/.zshrc</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> ~/.config/zsh/alias.zsh</span><br></pre></td></tr></table></figure>
+<h3 id="问题"><a class="markdownIt-Anchor" href="#问题"></a> 问题</h3>
+<h4 id="需要按两次tab才能补全无歧义的内容"><a class="markdownIt-Anchor" href="#需要按两次tab才能补全无歧义的内容"></a> 需要按两次tab才能补全无歧义的内容</h4>
+<p>原因：</p>
+<p>与下面这行配置后面选项的配置有关，要把<code>_complete</code>放在第一个</p>
+<figure class="highlight zsh"><figcaption><span>$HOME/.zshrc</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">zstyle</span> <span class="string">&#x27;:completion:*&#x27;</span> completer _complete _list _expand _ignored _match _correct _approximate</span><br></pre></td></tr></table></figure>
+<h2 id="vi-mode"><a class="markdownIt-Anchor" href="#vi-mode"></a> Vi-Mode</h2>
+<p>在上面的<a href="#%E9%80%89%E6%8B%A9%E9%BB%98%E8%AE%A4%E7%9A%84%E7%BC%96%E8%BE%91%E9%85%8D%E7%BD%AE">基础配置</a>部分，已经设置了Vi-Mode键位，现在需要设置Vi-Mode的光标，可以将Vi-Mode相关的配置从<code>.zshrc</code>移动到<code>vi.zsh</code>，方便管理</p>
+<p><code>~/.config/zsh/vi.zsh</code>配置如下，主要配置了Inserte Mode和Common Mode的光标显示效果：</p>
+<figure class="highlight zsh"><figcaption><span>$HOME/.config/zsh/vi.zsh</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">bindkey</span> -v</span><br><span class="line"><span class="keyword">function</span> zle-keymap-select &#123;</span><br><span class="line">	<span class="keyword">if</span> [[ <span class="variable">$&#123;KEYMAP&#125;</span> == vicmd ]] || [[ <span class="variable">$1</span> = <span class="string">&#x27;block&#x27;</span> ]]; <span class="keyword">then</span></span><br><span class="line">		<span class="built_in">echo</span> -ne <span class="string">&#x27;\e[1 q&#x27;</span></span><br><span class="line">	<span class="keyword">elif</span> [[ <span class="variable">$&#123;KEYMAP&#125;</span> == main ]] || [[ <span class="variable">$&#123;KEYMAP&#125;</span> == viins ]] || [[ <span class="variable">$&#123;KEYMAP&#125;</span> = <span class="string">&#x27;&#x27;</span> ]] || [[ <span class="variable">$1</span> = <span class="string">&#x27;beam&#x27;</span> ]]; <span class="keyword">then</span></span><br><span class="line">		<span class="built_in">echo</span> -ne <span class="string">&#x27;\e[5 q&#x27;</span></span><br><span class="line">  <span class="keyword">fi</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">zle</span> -N zle-keymap-select</span><br><span class="line"></span><br><span class="line"><span class="comment"># Use beam shape cursor on startup.</span></span><br><span class="line"><span class="built_in">echo</span> -ne <span class="string">&#x27;\e[5 q&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Use beam shape cursor for each new prompt.</span></span><br><span class="line"><span class="function"><span class="title">preexec</span></span>() &#123;</span><br><span class="line">	<span class="built_in">echo</span> -ne <span class="string">&#x27;\e[5 q&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">_fix_cursor</span></span>() &#123;</span><br><span class="line">	<span class="built_in">echo</span> -ne <span class="string">&#x27;\e[5 q&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line">precmd_functions+=(_fix_cursor)</span><br><span class="line"></span><br><span class="line">KEYTIMEOUT=1</span><br></pre></td></tr></table></figure>
+<p>加载配置</p>
+<figure class="highlight zsh"><figcaption><span>$HOME/.zshrc</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> ~/.config/zsh/vi.zsh</span><br></pre></td></tr></table></figure>
+<h3 id="键位配置"><a class="markdownIt-Anchor" href="#键位配置"></a> 键位配置</h3>
+<p>键位配置的语法如下：</p>
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Set keymaps for Vi-Mode</span></span><br><span class="line"><span class="built_in">bindkey</span> -M vicmd keys action</span><br><span class="line"><span class="comment"># &#x27;keys&#x27; is the key combination to bind, and &#x27;action&#x27; is the corresponding action or command.</span></span><br></pre></td></tr></table></figure>
+<p>具体可以查看 <a target="_blank" rel="noopener" href="https://zsh.sourceforge.io/Doc/Release/Zsh-Line-Editor.html#Movement">Zsh Line Editor - Movements</a></p>
+<p>例如</p>
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Map &#x27;k&#x27; to backward-char</span></span><br><span class="line"><span class="built_in">bindkey</span> -M vicmd <span class="string">&#x27;k&#x27;</span> backward-char</span><br></pre></td></tr></table></figure>
+<h2 id="输入历史记录"><a class="markdownIt-Anchor" href="#输入历史记录"></a> 输入历史记录</h2>
+<p>将上下方向键绑定到历史记录搜索功能。按上下方向键时，zsh 将会显示与当前输入行匹配的过去命令，直到当前光标位置为止。</p>
+<figure class="highlight zsh"><figcaption><span>$HOME/.zshrc</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">autoload</span> -Uz up-line-or-beginning-search down-line-or-beginning-search</span><br><span class="line"><span class="built_in">zle</span> -N up-line-or-beginning-search</span><br><span class="line"><span class="built_in">zle</span> -N down-line-or-beginning-search</span><br><span class="line"></span><br><span class="line">[[ -n <span class="string">&quot;<span class="variable">$&#123;key[Up]&#125;</span>&quot;</span>   ]] &amp;&amp; <span class="built_in">bindkey</span> -- <span class="string">&quot;<span class="variable">$&#123;key[Up]&#125;</span>&quot;</span>   up-line-or-beginning-search</span><br><span class="line">[[ -n <span class="string">&quot;<span class="variable">$&#123;key[Down]&#125;</span>&quot;</span> ]] &amp;&amp; <span class="built_in">bindkey</span> -- <span class="string">&quot;<span class="variable">$&#123;key[Down]&#125;</span>&quot;</span> down-line-or-beginning-search</span><br></pre></td></tr></table></figure>
+<h2 id="插件"><a class="markdownIt-Anchor" href="#插件"></a> 插件</h2>
+<h3 id="主题插件"><a class="markdownIt-Anchor" href="#主题插件"></a> 主题插件</h3>
+<p>这次选择了<a target="_blank" rel="noopener" href="https://github.com/romkatv/powerlevel10k">Powerlevel10k</a>主题，通过手动方式安装</p>
+<p>主题样式如下：<br />
+<img src="https://raw.githubusercontent.com/romkatv/powerlevel10k-media/master/prompt-styles-high-contrast.png" style="max-width:50%"></p>
+<p>安装方法：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.config/zsh/plugins/powerlevel10k</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;source ~/.config/zsh/plugins/powerlevel10k/powerlevel10k.zsh-theme&#x27;</span> &gt;&gt;~/.zshrc</span><br></pre></td></tr></table></figure>
+<p>如果速度慢可以使用Gitee上的官方镜像进行加速</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> --depth=1 https://gitee.com/romkatv/powerlevel10k.git ~/.config/zsh/plugins/powerlevel10k</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;source ~/.config/zsh/plugins/powerlevel10k/powerlevel10k.zsh-theme&#x27;</span> &gt;&gt;~/.zshrc</span><br></pre></td></tr></table></figure>
+<p>在终端中输入<code>source ~/.zshrc</code>，就会出现初始配置提示，按照提示进行操作</p>
+<p>将配置文件移动到<code>~/.config/zsh</code>中方便管理，创建链接</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mv</span> ~/.p10k.zsh ~/.config/zsh/</span><br><span class="line"><span class="built_in">ln</span> -sf ~/.config/zsh/.p10k.zsh ~/.p10k.zsh</span><br></pre></td></tr></table></figure>
+<p>配置效果如下：</p>
+<img src="P10K.png" style="max-width:50%">
+<h3 id="命令补全"><a class="markdownIt-Anchor" href="#命令补全"></a> 命令补全</h3>
+<p>在<a href="#%E9%85%8D%E7%BD%AE%E8%A1%A5%E5%85%A8%E7%B3%BB%E7%BB%9F">基础配置</a>部分已经配置了大部分的补全功能，而这个插件提供了补全的扩展功能</p>
+<p><strong>ghost text提示和补全</strong></p>
+<p>安装<a target="_blank" rel="noopener" href="https://github.com/zsh-users/zsh-autosuggestions">zsh-autosuggestions</a>插件实现ghost text提示和补全</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/zsh-users/zsh-autosuggestions ~/.config/zsh/plugins/zsh-autosuggestions</span><br></pre></td></tr></table></figure>
+<p>加载插件</p>
+<figure class="highlight zsh"><figcaption><span>$HOME/.zshrc</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> ~/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh</span><br></pre></td></tr></table></figure>
+<p>在输入命令时，会在光标的后面以柔和的灰色显示补全，可以在配置中用<code>ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE</code>变量来更改颜色，如果按右方向键<code>⇒</code>或<code>end</code>键，会补全灰色部分的内容。</p>
+<h3 id="命令行高亮显示"><a class="markdownIt-Anchor" href="#命令行高亮显示"></a> 命令行高亮显示</h3>
+<p>通过插件<a target="_blank" rel="noopener" href="https://github.com/zsh-users/zsh-syntax-highlighting">zsh-syntax-highlighting</a>实现命令行的高亮效果</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.config/zsh/plugins/zsh-syntax-highlighting</span><br></pre></td></tr></table></figure>
+<p>加载插件</p>
+<figure class="highlight zsh"><figcaption><span>$HOME/.zshrc</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> ~/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh</span><br></pre></td></tr></table></figure>
+<p><strong>注意</strong></p>
+<p>这个插件好像跟<a href="#section1">列表颜色的配置</a>有冲突，建议把颜色选项关闭，<code>zshrc</code>对应的配置如下，在前面添加<code>#</code>注释掉该配置</p>
+<figure class="highlight zsh"><figcaption><span>$HOME/.zshrc</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">zstyle</span> <span class="string">&#x27;:completion:*&#x27;</span> list-colors <span class="string">&#x27;&#x27;</span></span><br></pre></td></tr></table></figure>
+<p>效果如下：<br />
+<img src="https://raw.githubusercontent.com/zsh-users/zsh-syntax-highlighting/master/images/after2.png" style="max-width:50%"></p>
+<h3 id="提示显示别名"><a class="markdownIt-Anchor" href="#提示显示别名"></a> 提示显示别名</h3>
+<p>接下来这个插件在你输入了一个命令，而这个命令有对应存在的别名时，提醒你应当去使用别名</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/MichaelAquilina/zsh-you-should-use">You Should Use</a></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/MichaelAquilina/zsh-you-should-use.git ~/.config/zsh/plugins/zsh-you-should-use</span><br></pre></td></tr></table></figure>
+<p>加载插件</p>
+<figure class="highlight zsh"><figcaption><span>$HOME/.zshrc</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> ~/.config/zsh/plugins/zsh-you-should-use/you-should-use.plugin.zsh</span><br></pre></td></tr></table></figure>
+<img src="https://raw.githubusercontent.com/MichaelAquilina/zsh-you-should-use/master/img/alias.png" style="max-width:50%">
+<h2 id="显示效果"><a class="markdownIt-Anchor" href="#显示效果"></a> 显示效果</h2>
+<img src="zsh-screenshot.png" style="max-width:50%">
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Jccc
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://jccc-l.github.io/2024/05/06/Z-Shell%E7%9A%84%E9%85%8D%E7%BD%AE/" title="Z-Shell的配置">https://jccc-l.github.io/2024/05/06/Z-Shell的配置/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/en" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/Linux/" rel="tag"><i class="fa fa-tag"></i> Linux</a>
+              <a href="/tags/Z-Shell/" rel="tag"><i class="fa fa-tag"></i> Z-Shell</a>
+              <a href="/tags/Shell/" rel="tag"><i class="fa fa-tag"></i> Shell</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/05/06/Python%E7%8E%AF%E5%A2%83%E7%AE%A1%E7%90%86/" rel="prev" title="Python环境管理">
+                  <i class="fa fa-angle-left"></i> Python环境管理
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2024/05/06/%E5%9C%A8Linux%E4%B8%AD%E4%BD%BF%E7%94%A8AMD%E6%98%BE%E5%8D%A1%E6%90%AD%E5%BB%BA%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%8E%AF%E5%A2%83/" rel="next" title="在Linux中搭建AMD的深度学习环境">
+                  在Linux中搭建AMD的深度学习环境 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2023 – 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder"><span id="copyright"> 路过的即是风景. All rights reserved. Non-commercial use allowed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>.</span></span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">115k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">1:45</span>
+  </span>
+</div><footer>
+    <div>
+        <!-- 时间统计部分 -->
+        <span id="timeDate">载入天数...</span>
+        <span id="times">载入时分秒...</span>
+        <script>
+            var now = new Date();
+            function createtime() {
+                var grt = new Date("05/04/2023 00:00:00");
+                now.setTime(now.getTime() + 250);
+                days = (now - grt) / 1000 / 60 / 60 / 24; 
+                dnum = Math.floor(days);
+                hours = (now - grt) / 1000 / 60 / 60 - (24 * dnum); 
+                hnum = Math.floor(hours);
+                if(String(hnum).length == 1) {hnum = "0" + hnum;}
+                minutes = (now - grt) / 1000 / 60 - (24 * 60 * dnum) - (60 * hnum);
+                mnum = Math.floor(minutes);
+                if(String(mnum).length == 1) {mnum = "0" + mnum;}
+                seconds = (now - grt) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+                snum = Math.round(seconds);
+                if(String(snum).length == 1) {snum = "0" + snum;}
+                document.getElementById("timeDate").innerHTML = "本站已安全运行 " + dnum + " 天 ";
+                document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+            }
+            setInterval("createtime()", 250);
+        </script>
+        <!-- 版权信息与联系信息部分 -->
+<!--
+		&copy; 2023-<span id="currentYearPlaceholder">YYYY</span>
+		<span id="copyright"> 路过的即是风景. All rights reserved. Non-commercial use allowed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>.</span>
+-->
+<!--
+		<span id="disclaimer" style="text-align: left;">disclaimer: <br>content provided for reference only. <br>accuracy, completeness, suitability not guaranteed. <br>not liable for any loss or damage.</span>
+-->
+
+		<br>
+		<!--联系信息部分-->
+		<span id="Contact">Contact Me: <a href="mailto:1216550215Jc@gmail.com">GMail</a> | Address: Guangdong, China</span>
+		<script>
+			// 使用JavaScript获取当前年份并更新到页面上
+			document.getElementById('currentYearPlaceholder').innerText = new Date().getFullYear();
+		</script>
+    </div>
+</footer>
+
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  <script src="/js/third-party/pace.js"></script>
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" integrity="sha256-UF1fgpAiu3tPJN/uCqEUHNe7pnr+QR0SQDNfgglgtcM=" crossorigin="anonymous">
+
+
+
+</body>
+</html>

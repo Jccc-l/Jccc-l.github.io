@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha256-XOqroi11tY4EFQMR9ZYwZWKj5ZXiftSx36RRuC3anlA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-minimal.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"jccc-l.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"hide","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"fold":{"enable":true,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="记录了我通过hexo搭建博客的过程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="搭建我的Hexo博客">
+<meta property="og:url" content="https://jccc-l.github.io/2024/01/17/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84Hexo%E5%8D%9A%E5%AE%A2/index.html">
+<meta property="og:site_name" content="璐濄のβlòɡ">
+<meta property="og:description" content="记录了我通过hexo搭建博客的过程">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://jccc-l.github.io/2024/01/17/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84Hexo%E5%8D%9A%E5%AE%A2/Hexo_Installed.png">
+<meta property="og:image" content="https://jccc-l.github.io/2024/01/17/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84Hexo%E5%8D%9A%E5%AE%A2/Hexo_init.png">
+<meta property="og:image" content="https://jccc-l.github.io/2024/01/17/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84Hexo%E5%8D%9A%E5%AE%A2/Hexo_Generate.png">
+<meta property="og:image" content="https://jccc-l.github.io/2024/01/17/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84Hexo%E5%8D%9A%E5%AE%A2/Hexo_Server.png">
+<meta property="og:image" content="https://jccc-l.github.io/2024/01/17/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84Hexo%E5%8D%9A%E5%AE%A2/Hexo_Local_Server.png">
+<meta property="og:image" content="https://jccc-l.github.io/2024/01/17/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84Hexo%E5%8D%9A%E5%AE%A2/Github_Sign_Up.png">
+<meta property="og:image" content="https://jccc-l.github.io/2024/01/17/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84Hexo%E5%8D%9A%E5%AE%A2/GH_Auth_Login.png">
+<meta property="og:image" content="https://jccc-l.github.io/2024/01/17/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84Hexo%E5%8D%9A%E5%AE%A2/GH_Auth_Web.png">
+<meta property="og:image" content="https://jccc-l.github.io/2024/01/17/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84Hexo%E5%8D%9A%E5%AE%A2/GH_Auth_Success.png">
+<meta property="og:image" content="https://jccc-l.github.io/2024/01/17/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84Hexo%E5%8D%9A%E5%AE%A2/Github_Repo_Name.png">
+<meta property="og:image" content="https://jccc-l.github.io/2024/01/17/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84Hexo%E5%8D%9A%E5%AE%A2/Create_Repo.png">
+<meta property="og:image" content="https://jccc-l.github.io/2024/01/17/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84Hexo%E5%8D%9A%E5%AE%A2/Copy_Repo_URL.png">
+<meta property="article:published_time" content="2024-01-17T05:35:13.000Z">
+<meta property="article:modified_time" content="2024-09-05T11:28:04.505Z">
+<meta property="article:author" content="Jccc">
+<meta property="article:tag" content="Hexo">
+<meta property="article:tag" content="Blog">
+<meta property="article:tag" content="Github">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://jccc-l.github.io/2024/01/17/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84Hexo%E5%8D%9A%E5%AE%A2/Hexo_Installed.png">
+
+
+<link rel="canonical" href="https://jccc-l.github.io/2024/01/17/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84Hexo%E5%8D%9A%E5%AE%A2/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://jccc-l.github.io/2024/01/17/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84Hexo%E5%8D%9A%E5%AE%A2/","path":"2024/01/17/搭建我的Hexo博客/","title":"搭建我的Hexo博客"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>搭建我的Hexo博客 | 璐濄のβlòɡ</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">璐濄のβlòɡ</p>
+      <i class="logo-line"></i>
+    </a>
+      <img class="custom-logo-image" src="https://static.wixstatic.com/media/7ac599_2e792bfa812140c898f6c3a78e4ab78f~mv2.png/v1/fill/w_951,h_1046,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/7ac599_2e792bfa812140c898f6c3a78e4ab78f~mv2.png" alt="璐濄のβlòɡ">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2"><span class="nav-text"> 搭建我的Hexo博客</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E5%AE%89%E8%A3%85"><span class="nav-text"> 基础安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85"><span class="nav-text"> 基础软件安装</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#linux"><span class="nav-text"> Linux</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#arch%E7%B3%BB"><span class="nav-text"> Arch系</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#debian%E7%B3%BB"><span class="nav-text"> Debian系</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#fedora%E7%B3%BB"><span class="nav-text"> Fedora系</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#centos"><span class="nav-text"> CentOS</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#windows"><span class="nav-text"> Windows</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85hexo"><span class="nav-text"> 安装Hexo</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hexo%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%BB%BA%E7%AB%8B%E4%B8%8E%E7%AE%A1%E7%90%86"><span class="nav-text"> Hexo博客的建立与管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hexo%E7%9A%84%E6%9E%84%E5%BB%BA"><span class="nav-text"> Hexo的构建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8%E5%86%85%E5%BB%BA%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="nav-text"> 启动内建服务器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hexo%E9%83%A8%E7%BD%B2%E8%BF%9C%E7%A8%8B%E5%B9%B3%E5%8F%B0"><span class="nav-text"> Hexo部署远程平台</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%83%A8%E7%BD%B2%E5%88%B0github"><span class="nav-text"> 部署到Github</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AAgithub%E8%B4%A6%E5%8F%B7"><span class="nav-text"> 创建一个Github账号</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%85%8D%E7%BD%AEgit"><span class="nav-text"> 配置Git</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%9B%E5%BB%BAgithub%E4%BB%93%E5%BA%93"><span class="nav-text"> 创建Github仓库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E6%8E%A8%E9%80%81%E6%8F%92%E4%BB%B6"><span class="nav-text"> 安装推送插件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E4%B8%BB%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="nav-text"> 修改主配置文件</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%8C%E6%88%90%E5%9F%BA%E6%9C%AC%E6%90%AD%E5%BB%BA"><span class="nav-text"> 完成基本搭建</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Jccc"
+      src="https://static.wixstatic.com/media/7ac599_2e792bfa812140c898f6c3a78e4ab78f~mv2.png/v1/fill/w_951,h_1046,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/7ac599_2e792bfa812140c898f6c3a78e4ab78f~mv2.png">
+  <p class="site-author-name" itemprop="name">Jccc</p>
+  <div class="site-description" itemprop="description">Jccc的胡言乱语</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">35</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">47</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Jccc-l" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Jccc-l" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:1216550215Jc@gmail.com" title="E-Mail → mailto:1216550215Jc@gmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="返回顶部">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+    
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+          链接
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="https://julintongxue.github.io/" title="https:&#x2F;&#x2F;julintongxue.github.io" rel="noopener" target="_blank">orangeの博客</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+    <embed id="musicplayer" frameborder="no" border="0" marginwidth="0" marginheight="0" width=400 height=86 src="//music.163.com/outchain/player?type=2&id=407450660&auto=1&height=66"></embed>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://jccc-l.github.io/2024/01/17/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84Hexo%E5%8D%9A%E5%AE%A2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://static.wixstatic.com/media/7ac599_2e792bfa812140c898f6c3a78e4ab78f~mv2.png/v1/fill/w_951,h_1046,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/7ac599_2e792bfa812140c898f6c3a78e4ab78f~mv2.png">
+      <meta itemprop="name" content="Jccc">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="璐濄のβlòɡ">
+      <meta itemprop="description" content="Jccc的胡言乱语">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="搭建我的Hexo博客 | 璐濄のβlòɡ">
+      <meta itemprop="description" content="记录了我通过hexo搭建博客的过程">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          搭建我的Hexo博客
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-01-17 13:35:13" itemprop="dateCreated datePublished" datetime="2024-01-17T13:35:13+08:00">2024-01-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-09-05 19:28:04" itemprop="dateModified" datetime="2024-09-05T19:28:04+08:00">2024-09-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Blog/" itemprop="url" rel="index"><span itemprop="name">Blog</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>2.7k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>2 分钟</span>
+    </span>
+</div>
+
+            <div class="post-description">记录了我通过hexo搭建博客的过程</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="搭建我的hexo博客"><a class="markdownIt-Anchor" href="#搭建我的hexo博客"></a> 搭建我的Hexo博客</h1>
+<p>Hexo是一个快速、简洁高效的博客框架，部署步骤简单，编写支持Markdown</p>
+<p>这次记录一下我的博客搭建过程，搭配<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/index.html">Hexo官方文档</a>食用更佳</p>
+<h2 id="基础安装"><a class="markdownIt-Anchor" href="#基础安装"></a> 基础安装</h2>
+<h3 id="基础软件安装"><a class="markdownIt-Anchor" href="#基础软件安装"></a> 基础软件安装</h3>
+<p>安装Hexo需要安装以下程序</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://nodejs.org/en">Node.js</a></li>
+<li><a target="_blank" rel="noopener" href="https://git-scm.com/">Git</a></li>
+</ul>
+<h4 id="linux"><a class="markdownIt-Anchor" href="#linux"></a> Linux</h4>
+<h5 id="arch系"><a class="markdownIt-Anchor" href="#arch系"></a> Arch系</h5>
+<ul>
+<li>安装
+<ul>
+<li>sudo pacman -S nodejs npm git</li>
+</ul>
+</li>
+</ul>
+<h5 id="debian系"><a class="markdownIt-Anchor" href="#debian系"></a> Debian系</h5>
+<ol>
+<li>更新本地apt索引
+<ul>
+<li><code>sudo apt-get update</code></li>
+</ul>
+</li>
+<li>安装
+<ul>
+<li><code>sudo apt-get install nodejs npm git</code></li>
+</ul>
+</li>
+</ol>
+<h5 id="fedora系"><a class="markdownIt-Anchor" href="#fedora系"></a> Fedora系</h5>
+<ul>
+<li>安装
+<ul>
+<li><code>sudo dnf install nodejs npm git</code></li>
+</ul>
+</li>
+</ul>
+<h5 id="centos"><a class="markdownIt-Anchor" href="#centos"></a> CentOS</h5>
+<ul>
+<li>安装
+<ul>
+<li><code>sudo yum install nodejs npm git</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="windows"><a class="markdownIt-Anchor" href="#windows"></a> Windows</h4>
+<p>Windows可以通过官网进行下载和安装<a target="_blank" rel="noopener" href="https://git-scm.com/">Git</a>，<a target="_blank" rel="noopener" href="https://nodejs.org/en/download/current">Node.js</a>，<a target="_blank" rel="noopener" href="https://www.npmjs.com/">npm</a></p>
+<p>通过以下命令查看是否安装成功</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git -v</span><br><span class="line">node -v</span><br><span class="line">npm -v</span><br></pre></td></tr></table></figure>
+<p>如果全都正确显示软件版本，则安装成功，如果显示<code>Command not found</code>说明安装失败</p>
+<h3 id="安装hexo"><a class="markdownIt-Anchor" href="#安装hexo"></a> 安装Hexo</h3>
+<p>然后通过<code>npm</code>安装<code>hexo</code>，由于在npm的服务器在国外，在国内访问的速度比较慢，可以通过<code>cnpm</code>使用<a target="_blank" rel="noopener" href="https://npmmirror.com/">国内的镜像站</a>进行安装</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> npm install -g cnpm --registry=https://registry.npmmirror.com</span><br></pre></td></tr></table></figure>
+<p>输入<code>npm list --global</code>可以看到<code>hexo</code>已经被安装</p>
+<img src="Hexo_Installed.png" style="max-width:50%">
+<h2 id="hexo博客的建立与管理"><a class="markdownIt-Anchor" href="#hexo博客的建立与管理"></a> Hexo博客的建立与管理</h2>
+<p>创建一个文件夹blog用于存储我的博客文件</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> ~/Documents/blog</span><br><span class="line"><span class="built_in">cd</span> ~/Documents/blog</span><br></pre></td></tr></table></figure>
+<p>在文件夹中进行初始化</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure>
+<p>等待初始化完成</p>
+<img src="Hexo_init.png" style="max-width:100%;">
+<p>新建完成，得到这样的目录结构</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── _config.landscape.yml</span><br><span class="line">├── _config.yml</span><br><span class="line">├── node_modules</span><br><span class="line">├── package.json</span><br><span class="line">├── scaffolds</span><br><span class="line">├── source</span><br><span class="line">│   └── _posts</span><br><span class="line">├── themes</span><br><span class="line">└── yarn.lock</span><br></pre></td></tr></table></figure>
+<p>博客的源文件会储存在<code>source</code>目录内，</p>
+<p>编辑<code>_config.yml</code>文件，将post_asset_folder:false中的false改为true，该设置使hexo在创建一篇博客同时创建一个文件夹以存储这个博客的图片等有用的文件</p>
+<h2 id="hexo的构建"><a class="markdownIt-Anchor" href="#hexo的构建"></a> Hexo的构建</h2>
+<p>初始化Hexo以后，可以直接构建</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo generate       <span class="comment"># 或者hexo g</span></span><br></pre></td></tr></table></figure>
+<p>随后会生成一个public目录，里面放置着根据配置生成的博客文件</p>
+<img src="Hexo_Generate.png" style="max-width:100%">
+<h2 id="启动内建服务器"><a class="markdownIt-Anchor" href="#启动内建服务器"></a> 启动内建服务器</h2>
+<p>启动hexo内建服务器，然后就可以使用浏览器通过本地IP进行访问了</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo server         <span class="comment"># 或者hexo s</span></span><br></pre></td></tr></table></figure>
+<img src="Hexo_Server.png" style="max-width:75%;">
+<p>在浏览器中输入<code>127.0.0.1:4000</code>即可查看本地博客</p>
+<img src="Hexo_Local_Server.png" style="max-width:100%;">
+<h2 id="hexo部署远程平台"><a class="markdownIt-Anchor" href="#hexo部署远程平台"></a> Hexo部署远程平台</h2>
+<p>在上述操作中已经把博客部署到本地，现在需要部署到远程平台</p>
+<h3 id="部署到github"><a class="markdownIt-Anchor" href="#部署到github"></a> 部署到Github</h3>
+<h4 id="创建一个github账号"><a class="markdownIt-Anchor" href="#创建一个github账号"></a> 创建一个Github账号</h4>
+<p>在<a target="_blank" rel="noopener" href="https://github.com">Github官网</a>上创建一个账号，点击左上角的<code>Sign up</code>根据提示进行操作即可（相信你们会的≖‿≖✧）</p>
+<img src="Github_Sign_Up.png" style="max-width:100%;">
+<h4 id="配置git"><a class="markdownIt-Anchor" href="#配置git"></a> 配置Git</h4>
+<p><strong>配置Git本地信息</strong></p>
+<p>这些信息可以是虚拟的，会显示在git commit信息中</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.email <span class="string">&quot;you@example.com&quot;</span>          <span class="comment"># 配置邮箱</span></span><br><span class="line">git config --global user.name <span class="string">&quot;Your Name&quot;</span>                 <span class="comment"># 配置kkk名字</span></span><br></pre></td></tr></table></figure>
+<p>在 Git 中缓存 GitHub 凭据，这样在推送博客时，不需要输入账号密码</p>
+<p><strong>安装gh-cli</strong></p>
+<p>ArchLinux：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> pacman -S github-cli</span><br></pre></td></tr></table></figure>
+<p><strong>缓存凭据</strong></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gh auth login</span><br></pre></td></tr></table></figure>
+<img src="GH_Auth_Login.png" style="max-width:100%;">
+<p>复制这串验证码，按<code>Enter</code>打开浏览器，粘贴验证码认证即可</p>
+<img src="GH_Auth_Web.png" style="max-width:100%;">
+<img src="GH_Auth_Success.png" style="max-width:100%;">
+<h4 id="创建github仓库"><a class="markdownIt-Anchor" href="#创建github仓库"></a> 创建Github仓库</h4>
+<p>创建一个仓库，用于部署我们的博客</p>
+<p><strong>注意</strong>：将新仓库的名字设置为<code>&lt;用户名&gt;.github.io</code></p>
+<p>比如：你的用户名是Jack</p>
+<p>那么创建一个叫做<code>Jack.github.io</code>的仓库</p>
+<img src="Github_Repo_Name.png" style="max-width:100%;">
+<p>点击创建即可</p>
+<img src="Create_Repo.png" style="max-width:100%;">
+<h4 id="安装推送插件"><a class="markdownIt-Anchor" href="#安装推送插件"></a> 安装推送插件</h4>
+<p><a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo-deployer-git">hexo-deployer-git</a>为我们提供了将hexo博客推送到Github的功能</p>
+<p>安装命令如下，在博客目录下执行：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+<h4 id="修改主配置文件"><a class="markdownIt-Anchor" href="#修改主配置文件"></a> 修改主配置文件</h4>
+<p>编辑博客目录下的_config.yml文件，添加以下内容</p>
+<figure class="highlight yml"><figcaption><span>[Blogroot]/_config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># You can use this:</span></span><br><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">https://github.com/Jccc-l/Jccc-l.github.io.git</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">main</span></span><br><span class="line"><span class="comment"># token: &#x27;&#x27;</span></span><br><span class="line"><span class="comment"># message: [message]</span></span><br><span class="line"><span class="comment"># name: [git user]</span></span><br><span class="line"><span class="comment"># email: [git email]</span></span><br><span class="line"><span class="comment"># extend_dirs: [extend directory]</span></span><br><span class="line"><span class="comment"># ignore_hidden: false # default is true</span></span><br><span class="line"><span class="comment"># ignore_pattern: regexp  # whatever file that matches the regexp will be ignored when deploying</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>repo</code>：仓库的链接，复制HTTPS或SSH链接<br />
+<img src="Copy_Repo_URL.png" style="max-width:50%;"></li>
+<li><code>branch</code>：博客推送的仓库分支，Github创建的主分支默认是<code>main</code>，检查一下是否一致</li>
+<li><code>token</code>：Github生成的token用于访问仓库身份认证，但是之前已经用github-cli缓存了凭据，可以删掉这个选项</li>
+<li><code>message</code>：commit信息，默认：<code>Site updated: &#123;&#123; now("yyyy-MM-dd HH:mm:ss") &#125;&#125;</code></li>
+<li><code>name</code>和<code>email</code>：commit信息中的名字和邮箱，前面用<code>git config</code>已经设置了全局的信息，可以删掉</li>
+<li><code>ignore_hidden</code>：在发布博客时是否忽略隐藏文件</li>
+</ul>
+<p>还有其他配置选项可以在<a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo-deployer-git">插件的仓库</a>中查询</p>
+<p>配置完成后，输入<code>hexo deploy</code>或（<code>hexo d</code>）进行博客推送</p>
+<p>然后访问&lt;用户名&gt;.github.io就可以访问到你的hexo博客网站了</p>
+<h2 id="完成基本搭建"><a class="markdownIt-Anchor" href="#完成基本搭建"></a> 完成基本搭建</h2>
+<p>以后如果需要对博客进行增删改，通过以下步骤进行：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">hexo new <span class="string">&quot;Hello World&quot;</span>      <span class="comment"># 或者hexo n &quot;Hello World&quot;      创建一篇叫做&quot;Hello World&quot;的博客</span></span><br><span class="line">hexo clean                  <span class="comment"># 或者hexo cl                   清除缓存文件</span></span><br><span class="line">hexo generate               <span class="comment"># 或者hexo g                    生成博客</span></span><br><span class="line">hexo server                 <span class="comment"># 或者hexo s                    启用内建服务器本地预览博客</span></span><br><span class="line">hexo deploy                 <span class="comment"># 或者hexo d                    推送博客到Github</span></span><br></pre></td></tr></table></figure>
+<p>以后就可以开心地写你的博客了。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Jccc
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://jccc-l.github.io/2024/01/17/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84Hexo%E5%8D%9A%E5%AE%A2/" title="搭建我的Hexo博客">https://jccc-l.github.io/2024/01/17/搭建我的Hexo博客/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/en" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/Hexo/" rel="tag"><i class="fa fa-tag"></i> Hexo</a>
+              <a href="/tags/Blog/" rel="tag"><i class="fa fa-tag"></i> Blog</a>
+              <a href="/tags/Github/" rel="tag"><i class="fa fa-tag"></i> Github</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/05/31/Windows%E4%B8%8ELinux%E5%8F%8C%E7%B3%BB%E7%BB%9F%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/" rel="prev" title="Windows与Linux双系统常见问题">
+                  <i class="fa fa-angle-left"></i> Windows与Linux双系统常见问题
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2024/02/01/SCNU%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%862024%E5%B9%B41%E6%9C%88/" rel="next" title="SCNU编译原理2024年1月">
+                  SCNU编译原理2024年1月 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2023 – 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder"><span id="copyright"> 路过的即是风景. All rights reserved. Non-commercial use allowed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>.</span></span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">115k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">1:45</span>
+  </span>
+</div><footer>
+    <div>
+        <!-- 时间统计部分 -->
+        <span id="timeDate">载入天数...</span>
+        <span id="times">载入时分秒...</span>
+        <script>
+            var now = new Date();
+            function createtime() {
+                var grt = new Date("05/04/2023 00:00:00");
+                now.setTime(now.getTime() + 250);
+                days = (now - grt) / 1000 / 60 / 60 / 24; 
+                dnum = Math.floor(days);
+                hours = (now - grt) / 1000 / 60 / 60 - (24 * dnum); 
+                hnum = Math.floor(hours);
+                if(String(hnum).length == 1) {hnum = "0" + hnum;}
+                minutes = (now - grt) / 1000 / 60 - (24 * 60 * dnum) - (60 * hnum);
+                mnum = Math.floor(minutes);
+                if(String(mnum).length == 1) {mnum = "0" + mnum;}
+                seconds = (now - grt) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+                snum = Math.round(seconds);
+                if(String(snum).length == 1) {snum = "0" + snum;}
+                document.getElementById("timeDate").innerHTML = "本站已安全运行 " + dnum + " 天 ";
+                document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+            }
+            setInterval("createtime()", 250);
+        </script>
+        <!-- 版权信息与联系信息部分 -->
+<!--
+		&copy; 2023-<span id="currentYearPlaceholder">YYYY</span>
+		<span id="copyright"> 路过的即是风景. All rights reserved. Non-commercial use allowed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>.</span>
+-->
+<!--
+		<span id="disclaimer" style="text-align: left;">disclaimer: <br>content provided for reference only. <br>accuracy, completeness, suitability not guaranteed. <br>not liable for any loss or damage.</span>
+-->
+
+		<br>
+		<!--联系信息部分-->
+		<span id="Contact">Contact Me: <a href="mailto:1216550215Jc@gmail.com">GMail</a> | Address: Guangdong, China</span>
+		<script>
+			// 使用JavaScript获取当前年份并更新到页面上
+			document.getElementById('currentYearPlaceholder').innerText = new Date().getFullYear();
+		</script>
+    </div>
+</footer>
+
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  <script src="/js/third-party/pace.js"></script>
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" integrity="sha256-UF1fgpAiu3tPJN/uCqEUHNe7pnr+QR0SQDNfgglgtcM=" crossorigin="anonymous">
+
+
+
+</body>
+</html>
