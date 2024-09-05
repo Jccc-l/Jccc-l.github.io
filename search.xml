@@ -491,7 +491,7 @@ Found fallback initrd image(s) in /boot:  intel-ucode.img initramfs-linux-zen-fa
 Adding boot menu entry for UEFI Firmware Settings …<br />
 done</p>
 </blockquote>
-<p>如果使用了<code>--removable</code>参数，但是又想自定义Bootload的ID，可以使用efibootmgr进行重命名</p>
+<p>如果使用了<code>--removable</code>参数，但是又想自定义Bootloader的ID，可以使用efibootmgr进行重命名</p>
 <p>首先使用efibootmgr命令找到对应的启动项</p>
 <figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">efibootmgr</span><br></pre></td></tr></table></figure>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">BootCurrent: 0002</span><br><span class="line">Timeout: 0 seconds</span><br><span class="line">BootOrder: 0002,0000,0007,0008</span><br><span class="line">Boot0000* Windows Boot Manager	HD(1,GPT,08b3ed34-07fe-4e11-b9cd-44509ff2c405,0x800,0x32000)/\EFI\Microsoft\Boot\bootmgfw.efi57494e444f5753000100000088000000780000004200430044004f0042004a004500430054003d007b00390064006500610038003600320063002d0035006300640064002d0034006500370030002d0061006300630031002d006600330032006200330034003400640034003700390035007d00000061000100000010000000040000007fff0400</span><br><span class="line">Boot0002* UEFI OS	HD(1,GPT,b17d053f-31c1-4aed-b5d5-f00c2397f26c,0x800,0x96000)/\EFI\BOOT\BOOTX64.EFI</span><br></pre></td></tr></table></figure>
