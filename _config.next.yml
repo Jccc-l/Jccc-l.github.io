@@ -159,6 +159,7 @@ site_state: true
 social:
   GitHub: https://github.com/Jccc-l || fab fa-github
   E-Mail: mailto:1216550215Jc@gmail.com || fa fa-envelope
+  Hugging Face: https://huggingface.co/Jccc-l || fa fa-code
   #Weibo: https://weibo.com/yourname || fab fa-weibo
   #Twitter: https://twitter.com/yourname || fab fa-twitter
   #FB Page: https://www.facebook.com/yourname || fab fa-facebook
@@ -181,6 +182,7 @@ links_settings:
 links:
   #Title: https://example.com
   orangeの博客: https://julintongxue.github.io
+  George Nong's Blog: https://georgenhj.github.io/
 
 # Table of Contents in the Sidebar
 # Front-matter variable (nonsupport wrap expand_all).
