@@ -295,6 +295,7 @@ GRUB_DISABLE_OS_PROBER=false                        # false为启用os-prober，
 
 生成Grub配置文件
 
+
 ```sh
 grub-mkconfig /boot/grub/grub.cfg
 ```
@@ -306,6 +307,33 @@ grub-mkconfig /boot/grub/grub.cfg
 > Found fallback initrd image(s) in /boot:  intel-ucode.img initramfs-linux-zen-fallback.img
 > Adding boot menu entry for UEFI Firmware Settings ...
 > done
+
+
+如果使用了`--removable`参数，但是又想自定义Bootloader的ID，可以使用efibootmgr进行重命名
+
+首先使用efibootmgr命令找到对应的启动项
+
+```sh
+efibootmgr
+```
+
+```
+BootCurrent: 0002
+Timeout: 0 seconds
+BootOrder: 0002,0000,0007,0008
+Boot0000* Windows Boot Manager	HD(1,GPT,08b3ed34-07fe-4e11-b9cd-44509ff2c405,0x800,0x32000)/\EFI\Microsoft\Boot\bootmgfw.efi57494e444f5753000100000088000000780000004200430044004f0042004a004500430054003d007b00390064006500610038003600320063002d0035006300640064002d0034006500370030002d0061006300630031002d006600330032006200330034003400640034003700390035007d00000061000100000010000000040000007fff0400
+Boot0002* UEFI OS	HD(1,GPT,b17d053f-31c1-4aed-b5d5-f00c2397f26c,0x800,0x96000)/\EFI\BOOT\BOOTX64.EFI
+```
+
+我这里的启动项是`Boot0002`，记住后面的`\EFI\BOOT\BOOTX64.EFI`，以及你的EFI分区（我的分区是/dev/nvme0n1p1）
+
+然后执行以下命令：
+
+```sh
+efibootmgr -c -d '/dev/nvme0n1p1' -L "Arch Linux" -l \\EFI\\BOOT\\BOOTX64.EFI
+```
+
+这样就会把UEFI启动项命名为`Arch Linux`
 
 #### 设置密码
 
