@@ -159,7 +159,9 @@ site_state: true
 social:
   GitHub: https://github.com/Jccc-l || fab fa-github
   E-Mail: mailto:1216550215Jc@gmail.com || fa fa-envelope
-  Hugging Face: https://huggingface.co/Jccc-l || fas fa-box-archive
+  🤗 Hg Face: https://huggingface.co/Jccc-l || #fas fa-box-archive
+  WeChat: /contact/WeChat || fab fa-weixin
+  QQ: https://qm.qq.com/q/ZOA0HXIwU0 || fab fa-qq
   #Weibo: https://weibo.com/yourname || fab fa-weibo
   #Twitter: https://twitter.com/yourname || fab fa-twitter
   #FB Page: https://www.facebook.com/yourname || fab fa-facebook
@@ -272,12 +274,12 @@ tag_icon: true
 # Front-matter variable (nonsupport animation).
 reward_settings:
   # If true, a donate button will be displayed in every article by default.
-  enable: false
-  animation: false
+  enable: true
+  animation: true
 
 reward:
-  #wechatpay: /images/wechatpay.png
-  #alipay: /images/alipay.png
+  wechatpay: /images/wechatpay.jpg
+  alipay: /images/alipay.jpg
   #paypal: /images/paypal.png
   #bitcoin: /images/bitcoin.png
 
