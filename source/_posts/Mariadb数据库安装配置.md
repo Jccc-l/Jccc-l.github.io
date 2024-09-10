@@ -3,7 +3,7 @@ title: Mariadb数据库安装配置
 date: 2024-05-03 13:50:09
 description: Mariadb数据库的安装配置记录
 categories:
-- 数据库
+- Database
 tags:
 - 数据库
 - MySQL

@@ -5,7 +5,7 @@ katex: false
 date: 2024-06-16 16:10:35
 description: 简单记录一下安装MySQL
 categories:
-- MySQL
+- Database
 tags:
 - Linux
 - MySQL
