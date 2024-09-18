@@ -30,7 +30,7 @@ sudo systemctl restart docker
 ## 命令解读
 
 ```sh
-docker -run -d \
+docker run -d \
     --name mysql \
     -p 3306:3306 \
     -e TZ=Asia/Shanghai \
