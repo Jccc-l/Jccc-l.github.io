@@ -198,7 +198,7 @@ mysql> ALTER USER jccc@% IDENTIFIED BY 'newpasswd3';
 进入Hive的目录，复制几个配置文件的模板
 
 ```sh
-cd $HIVE_HOME
+cd $HIVE_HOME/conf
 cp hive-env.sh.template hive-env.sh
 cp hive-default.xml.template hive-default.xml
 ```
