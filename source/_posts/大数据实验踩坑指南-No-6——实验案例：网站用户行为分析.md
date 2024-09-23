@@ -62,7 +62,7 @@ IDE可以自选IntelliJ IDEA[^1]或Eclipse[^2]
 
 ```sh
 sudo mkdir -p /usr/local/bigdatacase/dataset
-sudo chown -R hadoop:hadoop ./bigdatacase # 修改bigdatacase目录权限
+sudo chown -R hadoop:hadoop /usr/local/bigdatacase # 修改bigdatacase目录权限
 unzip /home/hadoop/Downloads/user.zip -d /usr/local/bigdatacase/dataset # 解压缩数据文件user.zip
 cd /usr/local/bigdatacase/dataset
 ```
@@ -1040,6 +1040,8 @@ Query OK, 0 rows affected, 1 warning (0.03 sec)
     <value>*</value>
 </property>
 ```
+
+> **注意**！！！：这里的hadoop.proxyuser.xxx.hosts和hadoop.proxy.xxx.groups要把中间的xxx换成你的用户名，就是你终端username@host中的username（折腾几天才发现hiveserver2启动不起来是这里的问题(≖_≖ )）
 
 修改配置后记得重启HDFS。
 
