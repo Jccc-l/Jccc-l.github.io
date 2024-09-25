@@ -156,7 +156,7 @@ gedit /home/hadoop/.bashrc
 
 ```sh /home/hadoop/.bashrc
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
-export JRE_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+export JRE_HOME=/usr/lib/jvm/java-8-openjdk-amd64/jre
 export CLASSPATH=.:${JAVA_HOME}/lib:${JRE_HOME}/lib
 export PATH=${JAVA_HOME}/bin:$PATH		# 通过apt安装的jdk好像不需要这一行，因为/usr/bin是被包含在PATH里的，而里面的java、javac等程序都是JAVA_HOME内程序的链接
 ```
@@ -229,7 +229,6 @@ Hadoop可以在单节点以一个伪分布式的模式机型运行。不同的Ha
 		<name>hadoop.tmp.dir</name>
 		<value>/usr/local/hadoop/tmp</value>
 	</property>
-
 </configuration>
 ```
 

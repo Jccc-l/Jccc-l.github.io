@@ -1028,30 +1028,13 @@ Query OK, 0 rows affected, 1 warning (0.03 sec)
 
 通过JDBC连接Hive和MySQL，将数据从Hive导入MySQL。通过JDBC连接Hive，需要通过Hive的thrift服务实现跨语言访问Hive，实现thrift服务需要开启hiveserver2。
 
-在Hadoop的`core-site.xml`文件中添加以下配置
-
-```xml $HADOOP_HOME/etc/hadoop/core-site.xml
-<property>
-    <name>hadoop.proxyuser.hadoop.hosts</name>
-    <value>*</value>
-</property>
-<property>
-    <name>hadoop.proxyuser.hadoop.groups</name>
-    <value>*</value>
-</property>
-```
-
-> **注意**！！！：这里的hadoop.proxyuser.xxx.hosts和hadoop.proxy.xxx.groups要把中间的xxx换成你的用户名，就是你终端username@host中的username（折腾几天才发现hiveserver2启动不起来是这里的问题(≖_≖ )）
-
-修改配置后记得重启HDFS。
-
 启动HDFS以后，在终端中启动`metastore`
 
 ```sh
 hive --service metastore
 ```
 
-在另一个终端中执行以下命令开启`hiveserver2`，并设置默认端口为10000
+在另一个终端中执行以下命令开启`HiveServer2`，并设置默认端口为10000（如果按照前面教程配置了hiveserver2的端口，这里的`-hiveconf`选项不需要添加
 
 ```sh
 hive --service hiveserver2 -hiveconf hive.server2.thrift.port=10000

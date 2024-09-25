@@ -14,6 +14,8 @@ tags:
 
 # 大数据实验踩坑指南_No.2——Hive的安装配置
 
+> 事先说明，Beeline还有很多坑没有处理好，暂时先跳过，只使用传统Hive Cli
+
 ## Hive基础安装
 
 通过[官网](https://hive.apache.org)下载[apache-hive-3.1.3-bin.tar.gz](https://dlcdn.apache.org/hive/hive-3.1.3/apache-hive-3.1.3-bin.tar.gz)
@@ -195,6 +197,8 @@ mysql> ALTER USER jccc@% IDENTIFIED BY 'newpasswd3';
 
 ## Hive配置
 
+### Hive自身配置
+
 进入Hive的目录，复制几个配置文件的模板
 
 ```sh
@@ -205,6 +209,8 @@ cp hive-default.xml.template hive-default.xml
 
 配置`hive-site.xml`文件，跟使用TiDB[^3]的配置类似
 [^3]: [Using TiDB as the Hive Metastore database](https://cwiki.apache.org/confluence/display/Hive/Using+TiDB+as+the+Hive+Metastore+database)
+
+各个选项的说明可以在[这里](https://cwiki.apache.org/confluence/display/Hive/Configuration+Properties?spm=5176.28103460.0.0.7d815d27rIvLt1#ConfigurationProperties-AuthenticationandAuthorization)看到
 
 > **注意**：
 > 
@@ -220,6 +226,7 @@ cp hive-default.xml.template hive-default.xml
 
 ```xml $HIVE_HOME/conf/hive-site.xml
 <configuration>
+	<!-- MySQL连接配置 -->
 	<property>
 		<name>javax.jdo.option.ConnectionURL</name>
 		<value>jdbc:mysql://localhost:3306/hive</value>
@@ -243,6 +250,7 @@ cp hive-default.xml.template hive-default.xml
 		<value>com.mysql.cj.jdbc.Driver</value>
 	</property>
 
+	<!-- Metastore配置 -->
 	<property>
 		<name>hive.metastore.uris</name>
 		<value>thrift://localhost:9083</value>
@@ -251,6 +259,34 @@ cp hive-default.xml.template hive-default.xml
 	<property>
 		<name>hive.metastore.schema.verification</name>
 		<value>false</value>
+	</property>
+
+	<!-- 
+		新版本（4.0）使用Beeline代替了传统的hive cli
+		Beeline需要通过HiveServer2网络服务对Hive进行访问
+		如果使用3.x的版本，可以直接在hive cli中输入SQL语句，hive cli并不依赖于HivesServer2
+		（但是即使你使用的是3.x的版本，在实验后面把数据从Hive导入MySQL时
+		仍然需要使用到HiveServer2）
+		下面是hiveserver2的配置
+	-->
+	<property>
+		<name>hive.server2.thrift.port</name>
+		<value>10000</value>
+	</property>
+
+	<property>
+		<name>hive.server2.thrift.bind.host</name>
+		<value>127.0.0.1</value>
+	</property>
+
+	<!-- 这里为了方便，我们将HiveServer2设置为无需认证（也可以省略这个配置，默认值即为NONE）
+	任何客户端可直接连接到HiveServer2
+	安全的认证方式有简单用户名/密码认证、Kerberos 认证、LDAP 认证、PAM认证等
+	如有需要，自行进行配置
+	-->
+	<property>
+		<name>hive.server2.authentication</name>
+		<value>NONE</value>
 	</property>
 </configuration>
 ```
@@ -271,7 +307,28 @@ export HIVE_AUX_JARS_PATH=/usr/local/hive/lib
 schematool -dbType mysql -initSchema --verbose
 ```
 
-## 启动Metastore并测试
+### 配置Hadoop的代理用户
+
+HiveServer2的使用需要用到Hadoop的代理用户，使用以下配置允许hadoop用户代理所有主机中和所有用户
+
+```xml $HADOOP_HOME/etc/hadoop/core-site.xml
+<property>
+    <name>hadoop.proxyuser.hadoop.hosts</name>
+    <value>*</value>
+</property>
+<property>
+    <name>hadoop.proxyuser.hadoop.groups</name>
+    <value>*</value>
+</property>
+```
+
+> **注意**：这里的hadoop.proxyuser.xxx.hosts和hadoop.proxy.xxx.groups要把中间的xxx换成你的用户名[^4]，也就是允许xxx代理所有主机所有用户（折腾几天才发现hiveserver2启动不起来是这里的问题(≖_≖ )）
+
+[^4]: [Proxy user - Superusers Acting On Behalf Of Other Users](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/Superusers.html)
+
+
+
+### 启动并试用Hive
 
 首先启动Hadoop集群
 
@@ -279,7 +336,7 @@ schematool -dbType mysql -initSchema --verbose
 start-all.sh
 ```
 
-启动Metastore
+启动Metastore（传统Hive Cli不需要HiveServer2）
 
 ```sh
 hive --service metastore
@@ -296,6 +353,25 @@ hive
 ```hive
 hive> exit;
 ```
+
+> （Beeline部分待完善）
+> 如果使用的是4.0版本，Beeline代替了传统的hive cli，需要先启动HiveServer2再进入Beeline，大部分Hive的SQL语句也是可以用于Beeline的
+> 
+> 启动HiveServer2：
+> 
+> ```sh
+> hive --service hiveserver2
+> ```
+> 
+> Beeline连接HiveServer2。为了拥有访问hadoop目录的权限，把`username`改为你的系统用户名
+> 
+> > 如果不指定用户，使用的是匿名用户，没有权限访问/user/hive/warehouse，无法创建数据库
+> 
+> ```sh
+> beeline -u jdbc:hive2://localhost:10000 -n username
+> ```
+
+使用`!quit`或`!exit`退出Beeline
 
 ## Hive排错
 
@@ -315,7 +391,7 @@ FAILED: HiveException java.lang.RuntimeException: Unable to instantiate org.apac
 hive --service metastore &
 ```
 
-然后在运行`hive`即可正常使用
+然后再运行`hive`即可正常使用
 
 如果还是不行，就重新初始化`hive`
 
