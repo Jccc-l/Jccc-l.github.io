@@ -14,6 +14,66 @@ tags:
 
 # 大数据实验踩坑指南_No.1——Hadoop的安装配置
 
+<!--
+```sh
+#!/bin/bash
+
+# 检查是否以 root 权限运行
+if [ "$EUID" -ne 0 ]; then
+  echo "Please run as root"
+  exit 1
+fi
+
+rm -rf /usr/local/hadoop
+rm -rf /usr/local/hive
+rm -rf /usr/local/hbase
+rm -rf /usr/local/zookeeper
+
+# 获取原始用户的用户名和组名
+original_user=$(id -un $SUDO_UID)
+original_group=$(id -gn $SUDO_GID)
+
+# 解压文件
+tar -zxvf ./hadoop*.tar.gz -C /usr/local/
+tar -zxvf ./apache-hive*.tar.gz -C /usr/local/
+tar -zxvf ./apache-zookeeper*.tar.gz -C /usr/local/
+tar -zxvf ./hbase*.tar.gz -C /usr/local/
+
+# 移动解压后的目录
+mv /usr/local/hadoop* /usr/local/hadoop
+mv /usr/local/apache-hive* /usr/local/hive
+mv /usr/local/apache-zookeeper* /usr/local/zookeeper
+mv /usr/local/hbase* /usr/local/hbase
+
+echo "Directories have been extracted and ownership changed to $original_user:$original_group"
+
+# 配置环境变量
+echo "export HADOOP_HOME=/usr/local/hadoop">> /home/$original_user/.bashrc
+echo "export HIVE_HOME=/usr/local/hive">> /home/$original_user/.bashrc
+echo "export ZOOKEEPER_HOME=/usr/local/zookeeper">> /home/$original_user/.bashrc
+echo "export HBASE_HOME=/usr/local/hbase">> /home/$original_user/.bashrc
+echo "export JAVA_HOME=$(readlink -f $(which javac)|sed 's#/bin/javac##')">> /home/$original_user/.bashrc
+echo "export JRE_HOME=/usr/lib/jvm/java-8-openjdk-amd64/jre">> /home/$original_user/.bashrc
+echo "export CLASSPATH=.:\${JAVA_HOME}/lib:\${JRE_HOME}/lib">> /home/$original_user/.bashrc
+echo "export PATH=\$PATH:\$HADOOP_HOME/bin:\$HADOOP_HOME/sbin:\$HIVE_HOME/bin:\$ZOOKEEPER_HOME/bin:\$HBASE_HOME/bin">>/home/$original_user/.bashrc
+
+
+# 安装JDBC驱动
+cp ./mysql-connector*.deb /tmp/
+apt install /tmp/mysql-connector*.deb -y
+cp /usr/share/java/mysql-connector-j-*.jar /usr/local/hive/lib/
+
+# 更改目录拥有者
+chown -R $original_user:$original_group /usr/local/hadoop
+chown -R $original_user:$original_group /usr/local/hive
+chown -R $original_user:$original_group /usr/local/hbase
+chown -R $original_user:$original_group /usr/local/zookeeper
+chown -R $original_user:$original_group /usr/local/bigdatacase
+
+```
+
+-->
+
 ## 前置准备
 
 ### 系统安装
