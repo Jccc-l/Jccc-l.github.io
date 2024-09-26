@@ -1034,7 +1034,7 @@ Query OK, 0 rows affected, 1 warning (0.03 sec)
 hive --service metastore
 ```
 
-在另一个终端中执行以下命令开启`HiveServer2`，并设置默认端口为10000（如果按照前面教程配置了hiveserver2的端口，这里的`-hiveconf`选项不需要添加
+在另一个终端中执行以下命令开启`HiveServer2`，并设置默认端口为10000（如果按照前面教程配置了hiveserver2的端口，这里的`-hiveconf`选项不需要添加）
 
 ```sh
 hive --service hiveserver2 -hiveconf hive.server2.thrift.port=10000
