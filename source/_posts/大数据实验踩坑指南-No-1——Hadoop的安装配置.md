@@ -232,7 +232,7 @@ Hadoop可以在单节点以一个伪分布式的模式机型运行。不同的Ha
 </configuration>
 ```
 
-```xml $HADOOP_HOME/hdfs-site.xml
+```xml $HADOOP_HOME/etc/hadoop/hdfs-site.xml
 <configuration>
 	<property>
 		<name>dfs.replication</name>

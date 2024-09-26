@@ -98,6 +98,7 @@ mysql -u hadoop -p
 ```
 
 下载JDBC连接驱动的[deb安装包](https://downloads.mysql.com/archives/c-j/)，我的MySQL版本为8.0.37，网站上写的Product Version只有8.0.33，不过也是兼容的，选择好MySQL版本和Ubuntu版本，即可下载[deb安装包](https://downloads.mysql.com/archives/get/p/3/file/mysql-connector-j_8.0.33-1ubuntu22.04_all.deb)
+> 现在MySQL版本更新到了9，可以直接使用MySQL 9和对应的JDBC驱动
 
 通过`apt`工具安装驱动
 
