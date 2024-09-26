@@ -370,8 +370,8 @@ hive> exit;
 > ```sh
 > beeline -u jdbc:hive2://localhost:10000 -n username
 > ```
-
-使用`!quit`或`!exit`退出Beeline
+> 
+> 使用`!quit`或`!exit`退出Beeline
 
 ## Hive排错
 
