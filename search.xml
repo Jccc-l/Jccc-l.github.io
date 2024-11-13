@@ -1292,6 +1292,62 @@ Use <code>ctrl</code>+<code>alt</code>+<code>t</code> to start a terminal, and r
       </tags>
   </entry>
   <entry>
+    <title>使用PicGo和Github仓库搭建图床</title>
+    <url>/2024/05/06/%E4%BD%BF%E7%94%A8PicGo%E5%92%8CGithub%E4%BB%93%E5%BA%93%E6%90%AD%E5%BB%BA%E5%9B%BE%E5%BA%8A/</url>
+    <content><![CDATA[<h1 id="搭建图床"><a class="markdownIt-Anchor" href="#搭建图床"></a> 搭建图床</h1>
+<p>图床是储存图片的服务器，允许把外部网站链接到图片，方便我们编写博客和网站</p>
+<h2 id="安装picgo"><a class="markdownIt-Anchor" href="#安装picgo"></a> 安装PicGO</h2>
+<p>从<a href="https://github.com/Molunerfinn/PicGo/releases/">PicGo的仓库</a>中下载PicGo的AppImage</p>
+<p>赋予执行权限</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="built_in">chmod</span> +x PicGo-2.3.1.AppImage</span><br></pre></td></tr></table></figure>
+<h2 id="创建并配置github仓库"><a class="markdownIt-Anchor" href="#创建并配置github仓库"></a> 创建并配置Github仓库</h2>
+<p>创建一个公开的Github仓库用于存储我们的图片</p>
+<p>在终端输入PicGo-2.3.1.AppImage的路径，启动PicGo，就会看到它的图标</p>
+<img src="https://pic.molunerfinn.com/picgo/docs/logo-150.png" style="max-width:100%">
+<p>右键图标打开主窗口</p>
+<p>图床设置选择Github，设置好仓库名</p>
+<p>将分支名从master改为main</p>
+<p>生成token</p>
+<table>
+    <tr>
+        <td ><center><img src="Generate_token_1.png" style="max-width:100%">
+        <td ><center><img src="Generate_token_2.png" style="max-width:100%">
+    </tr>
+</table>
+<table>
+    <tr>
+        <td ><center><img src="Generate_token_3.png" style="max-width:100%">
+        <td ><center><img src="Generate_token_4.png" style="max-width:100%">
+    </tr>
+</table>
+<p>选择期限和权限</p>
+<img src="Generate_token_5.png" style="max-width:100%">
+<p>复制这个token，粘贴到PicGo的<code>设定Token</code>中</p>
+<img src="Copy_Token.png" style="max-width:100%">
+<p>PicGo的设置如图所示，将Github设置为默认图床</p>
+<img src="PicGo_Settings.png" style="max-width:100%">
+<h2 id="配置cdn加速"><a class="markdownIt-Anchor" href="#配置cdn加速"></a> 配置CDN加速</h2>
+<p>使用<a href="https://www.jsdelivr.com/github">JSDELIVR</a>进行CND配置</p>
+<p>只需要在<code>设定自定义域名</code>这一项中添加网址，后面跟着你的仓库链接。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">https://cdn.jsdelivr.net/gh/&lt;username&gt;/&lt;repo&gt;</span><br></pre></td></tr></table></figure>
+<p>我的仓库是<code>Jccc-l/Image-Bed</code>，就写成</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">https://cdn.jsdelivr.net/gh/Jccc-l/Image-Bed</span><br></pre></td></tr></table></figure>
+<h2 id="reference"><a class="markdownIt-Anchor" href="#reference"></a> Reference</h2>
+<ul>
+<li><a href="https://www.bilibili.com/video/BV1Ua4y1D7Li/?spm_id_from=333.337.search-card.all.click">通过GitHub+PicGo+CDN搭建自己的图床</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>Blog</category>
+      </categories>
+      <tags>
+        <tag>Blog</tag>
+        <tag>图床</tag>
+        <tag>Github</tag>
+        <tag>PicGo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Z-Shell的配置</title>
     <url>/2024/05/06/Z-Shell%E7%9A%84%E9%85%8D%E7%BD%AE/</url>
     <content><![CDATA[<h1 id="z-shell配置"><a class="markdownIt-Anchor" href="#z-shell配置"></a> Z-Shell配置</h1>
@@ -1496,62 +1552,6 @@ Use <code>ctrl</code>+<code>alt</code>+<code>t</code> to start a terminal, and r
         <tag>Linux</tag>
         <tag>Z-Shell</tag>
         <tag>Shell</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>使用PicGo和Github仓库搭建图床</title>
-    <url>/2024/05/06/%E4%BD%BF%E7%94%A8PicGo%E5%92%8CGithub%E4%BB%93%E5%BA%93%E6%90%AD%E5%BB%BA%E5%9B%BE%E5%BA%8A/</url>
-    <content><![CDATA[<h1 id="搭建图床"><a class="markdownIt-Anchor" href="#搭建图床"></a> 搭建图床</h1>
-<p>图床是储存图片的服务器，允许把外部网站链接到图片，方便我们编写博客和网站</p>
-<h2 id="安装picgo"><a class="markdownIt-Anchor" href="#安装picgo"></a> 安装PicGO</h2>
-<p>从<a href="https://github.com/Molunerfinn/PicGo/releases/">PicGo的仓库</a>中下载PicGo的AppImage</p>
-<p>赋予执行权限</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="built_in">chmod</span> +x PicGo-2.3.1.AppImage</span><br></pre></td></tr></table></figure>
-<h2 id="创建并配置github仓库"><a class="markdownIt-Anchor" href="#创建并配置github仓库"></a> 创建并配置Github仓库</h2>
-<p>创建一个公开的Github仓库用于存储我们的图片</p>
-<p>在终端输入PicGo-2.3.1.AppImage的路径，启动PicGo，就会看到它的图标</p>
-<img src="https://pic.molunerfinn.com/picgo/docs/logo-150.png" style="max-width:100%">
-<p>右键图标打开主窗口</p>
-<p>图床设置选择Github，设置好仓库名</p>
-<p>将分支名从master改为main</p>
-<p>生成token</p>
-<table>
-    <tr>
-        <td ><center><img src="Generate_token_1.png" style="max-width:100%">
-        <td ><center><img src="Generate_token_2.png" style="max-width:100%">
-    </tr>
-</table>
-<table>
-    <tr>
-        <td ><center><img src="Generate_token_3.png" style="max-width:100%">
-        <td ><center><img src="Generate_token_4.png" style="max-width:100%">
-    </tr>
-</table>
-<p>选择期限和权限</p>
-<img src="Generate_token_5.png" style="max-width:100%">
-<p>复制这个token，粘贴到PicGo的<code>设定Token</code>中</p>
-<img src="Copy_Token.png" style="max-width:100%">
-<p>PicGo的设置如图所示，将Github设置为默认图床</p>
-<img src="PicGo_Settings.png" style="max-width:100%">
-<h2 id="配置cdn加速"><a class="markdownIt-Anchor" href="#配置cdn加速"></a> 配置CDN加速</h2>
-<p>使用<a href="https://www.jsdelivr.com/github">JSDELIVR</a>进行CND配置</p>
-<p>只需要在<code>设定自定义域名</code>这一项中添加网址，后面跟着你的仓库链接。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">https://cdn.jsdelivr.net/gh/&lt;username&gt;/&lt;repo&gt;</span><br></pre></td></tr></table></figure>
-<p>我的仓库是<code>Jccc-l/Image-Bed</code>，就写成</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">https://cdn.jsdelivr.net/gh/Jccc-l/Image-Bed</span><br></pre></td></tr></table></figure>
-<h2 id="reference"><a class="markdownIt-Anchor" href="#reference"></a> Reference</h2>
-<ul>
-<li><a href="https://www.bilibili.com/video/BV1Ua4y1D7Li/?spm_id_from=333.337.search-card.all.click">通过GitHub+PicGo+CDN搭建自己的图床</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>Blog</category>
-      </categories>
-      <tags>
-        <tag>Blog</tag>
-        <tag>图床</tag>
-        <tag>Github</tag>
-        <tag>PicGo</tag>
       </tags>
   </entry>
   <entry>
