@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha256-XOqroi11tY4EFQMR9ZYwZWKj5ZXiftSx36RRuC3anlA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-minimal.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"jccc-l.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"hide","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"fold":{"enable":true,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="分布式数据库HBase的安装与配置过程记录">
+<meta property="og:type" content="article">
+<meta property="og:title" content="大数据实验踩坑指南_No.4——HBase的安装配置.md">
+<meta property="og:url" content="https://jccc-l.github.io/2024/06/16/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%9E%E9%AA%8C%E8%B8%A9%E5%9D%91%E6%8C%87%E5%8D%97-No-4%E2%80%94%E2%80%94HBase%E7%9A%84%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/index.html">
+<meta property="og:site_name" content="璐濄のβlòɡ">
+<meta property="og:description" content="分布式数据库HBase的安装与配置过程记录">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-06-16T08:28:01.000Z">
+<meta property="article:modified_time" content="2024-11-13T03:19:05.408Z">
+<meta property="article:author" content="Jccc">
+<meta property="article:tag" content="Database">
+<meta property="article:tag" content="Big Data">
+<meta property="article:tag" content="Hadoop">
+<meta property="article:tag" content="ZooKeeper">
+<meta property="article:tag" content="HBase">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://jccc-l.github.io/2024/06/16/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%9E%E9%AA%8C%E8%B8%A9%E5%9D%91%E6%8C%87%E5%8D%97-No-4%E2%80%94%E2%80%94HBase%E7%9A%84%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://jccc-l.github.io/2024/06/16/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%9E%E9%AA%8C%E8%B8%A9%E5%9D%91%E6%8C%87%E5%8D%97-No-4%E2%80%94%E2%80%94HBase%E7%9A%84%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/","path":"2024/06/16/大数据实验踩坑指南-No-4——HBase的安装配置/","title":"大数据实验踩坑指南_No.4——HBase的安装配置.md"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>大数据实验踩坑指南_No.4——HBase的安装配置.md | 璐濄のβlòɡ</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">璐濄のβlòɡ</p>
+      <i class="logo-line"></i>
+    </a>
+      <img class="custom-logo-image" src="https://static.wixstatic.com/media/7ac599_2e792bfa812140c898f6c3a78e4ab78f~mv2.png/v1/fill/w_951,h_1046,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/7ac599_2e792bfa812140c898f6c3a78e4ab78f~mv2.png" alt="璐濄のβlòɡ">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%9E%E9%AA%8C%E8%B8%A9%E5%9D%91%E6%8C%87%E5%8D%97_no4hbase%E7%9A%84%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE"><span class="nav-text"> 大数据实验踩坑指南_No.4——HBase的安装配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E7%BD%AE%E5%87%86%E5%A4%87"><span class="nav-text"> 前置准备</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hbase%E5%9F%BA%E7%A1%80%E5%AE%89%E8%A3%85"><span class="nav-text"> HBase基础安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hbase%E9%85%8D%E7%BD%AE"><span class="nav-text"> HBase配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8hbase"><span class="nav-text"> 启动HBase</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hbase%E8%AF%95%E7%94%A8%E5%92%8C%E6%8E%92%E9%94%99"><span class="nav-text"> HBase试用和排错</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Jccc"
+      src="https://static.wixstatic.com/media/7ac599_2e792bfa812140c898f6c3a78e4ab78f~mv2.png/v1/fill/w_951,h_1046,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/7ac599_2e792bfa812140c898f6c3a78e4ab78f~mv2.png">
+  <p class="site-author-name" itemprop="name">Jccc</p>
+  <div class="site-description" itemprop="description">Jccc的胡言乱语</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">36</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">48</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Jccc-l" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Jccc-l" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:1216550215Jc@gmail.com" title="E-Mail → mailto:1216550215Jc@gmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://huggingface.co/Jccc-l" title="🤗 Hg Face → https:&#x2F;&#x2F;huggingface.co&#x2F;Jccc-l" rel="noopener me" target="_blank">🤗 Hg Face</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/contact/WeChat" title="WeChat → &#x2F;contact&#x2F;WeChat" rel="noopener me"><i class="fab fa-weixin fa-fw"></i>WeChat</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://qm.qq.com/q/ZOA0HXIwU0" title="QQ → https:&#x2F;&#x2F;qm.qq.com&#x2F;q&#x2F;ZOA0HXIwU0" rel="noopener me" target="_blank"><i class="fab fa-qq fa-fw"></i>QQ</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="返回顶部">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+    
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+          链接
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="https://julintongxue.github.io/" title="https:&#x2F;&#x2F;julintongxue.github.io" rel="noopener" target="_blank">orangeの博客</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://georgenhj.github.io/" title="https:&#x2F;&#x2F;georgenhj.github.io&#x2F;" rel="noopener" target="_blank">George Nong's Blog</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+    <embed id="musicplayer" frameborder="no" border="0" marginwidth="0" marginheight="0" width=400 height=86 src="//music.163.com/outchain/player?type=2&id=407450660&auto=1&height=66"></embed>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://jccc-l.github.io/2024/06/16/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%9E%E9%AA%8C%E8%B8%A9%E5%9D%91%E6%8C%87%E5%8D%97-No-4%E2%80%94%E2%80%94HBase%E7%9A%84%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://static.wixstatic.com/media/7ac599_2e792bfa812140c898f6c3a78e4ab78f~mv2.png/v1/fill/w_951,h_1046,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/7ac599_2e792bfa812140c898f6c3a78e4ab78f~mv2.png">
+      <meta itemprop="name" content="Jccc">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="璐濄のβlòɡ">
+      <meta itemprop="description" content="Jccc的胡言乱语">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="大数据实验踩坑指南_No.4——HBase的安装配置.md | 璐濄のβlòɡ">
+      <meta itemprop="description" content="分布式数据库HBase的安装与配置过程记录">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          大数据实验踩坑指南_No.4——HBase的安装配置.md
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-06-16 16:28:01" itemprop="dateCreated datePublished" datetime="2024-06-16T16:28:01+08:00">2024-06-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-11-13 11:19:05" itemprop="dateModified" datetime="2024-11-13T11:19:05+08:00">2024-11-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Big-Data/" itemprop="url" rel="index"><span itemprop="name">Big Data</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>3.6k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>3 分钟</span>
+    </span>
+</div>
+
+            <div class="post-description">分布式数据库HBase的安装与配置过程记录</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="大数据实验踩坑指南_no4hbase的安装配置"><a class="markdownIt-Anchor" href="#大数据实验踩坑指南_no4hbase的安装配置"></a> 大数据实验踩坑指南_No.4——HBase的安装配置</h1>
+<h2 id="前置准备"><a class="markdownIt-Anchor" href="#前置准备"></a> 前置准备</h2>
+<p>按照之前的内容配置好Hadoop和Zookeeper<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup></p>
+<h2 id="hbase基础安装"><a class="markdownIt-Anchor" href="#hbase基础安装"></a> HBase基础安装</h2>
+<p>到<a target="_blank" rel="noopener" href="https://hbase.apache.org">HBase官网</a>下载<a target="_blank" rel="noopener" href="https://dlcdn.apache.org/hbase/2.5.8/hbase-2.5.8-hadoop3-bin.tar.gz">hbase-2.5.8-hadoop3-bin.tar.gz</a></p>
+<p>解压文件到<code>/usr/local</code>目录</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> tar -zxvf /home/hadoop/Downloads/hbase-2.5.8-hadoop3-bin.tar.gz -C /usr/local/</span><br><span class="line"><span class="built_in">cd</span> /usr/local													<span class="comment"># 进入安装目录</span></span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">mv</span> hbase-2.5.8-hadoop3 hbase								<span class="comment"># 将文件明改为hadoop</span></span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">chown</span> -R hadoop:hadoop ./hbase							<span class="comment"># 将目录以及目录内的所有子目录、文件的拥有者改为hadoop用户组的hadoop用户</span></span><br></pre></td></tr></table></figure>
+<p>配置hbase的环境变量</p>
+<figure class="highlight sh"><figcaption><span>/home/hadoop/.bashrc</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> HBASE_HOME=/usr/local/hbase</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:<span class="variable">$HBASE_HOME</span>/bin</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><figcaption><span>$HBASE_HOME/conf/hbase-env.sh</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64</span><br><span class="line"><span class="built_in">export</span> HBASE_MANAGES_ZK=<span class="literal">false</span>								<span class="comment"># 因为我们使用自己安装的ZooKeeper，就禁用自带的ZooKeeper</span></span><br></pre></td></tr></table></figure>
+<h2 id="hbase配置"><a class="markdownIt-Anchor" href="#hbase配置"></a> HBase配置</h2>
+<p>参考<code>$HADOOP_HOME/etc/hadoop/core-site.xml</code>修改<code>hbase-site.xml</code></p>
+<figure class="highlight xml"><figcaption><span>$HADOOP_HOME/etc/hadoop/core-site.xml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>fs.defaultFS<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">value</span>&gt;</span>hdfs://localhost:9000<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><figcaption><span>$HBASE_HOME/conf/hbase-site.xml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span>hbase.cluster.distributed<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">value</span>&gt;</span>true<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span>hbase.tmp.dir<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">value</span>&gt;</span>/usr/local/hbase/tmp<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span>hbase.unsafe.stream.capability.enforce<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">value</span>&gt;</span>false<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span>hbase.rootdir<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">value</span>&gt;</span>hdfs://localhost:9000/hbase<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意<code>hbase.rootdir</code>的端口号要与<code>$HADOOP_HOME/etc/hadoop/core-site.xml</code>文件中<code>fs.defaultFS</code>的端口号要一致，这里是<code>9000</code>，HBase给出的端口号是<code>8020</code>，是不正确的</p>
+</blockquote>
+<h2 id="启动hbase"><a class="markdownIt-Anchor" href="#启动hbase"></a> 启动HBase</h2>
+<p>启动HBase之前先启动HDFS和ZooKeeper</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">start-dfs.sh</span><br><span class="line">zkServer.sh start</span><br></pre></td></tr></table></figure>
+<p>然后启动HBase</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">start-hbase.sh</span><br></pre></td></tr></table></figure>
+<p>输入<code>jps</code>可以看到<code>HRegionServer</code>、<code>HMaster</code>、进程已经启动</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">56532 HRegionServer</span><br><span class="line">56328 HMaster</span><br><span class="line">43529 NameNode</span><br><span class="line">43692 DataNode</span><br><span class="line">51900 QuorumPeerMain</span><br><span class="line">43901 SecondaryNameNode</span><br><span class="line">57310 Jps</span><br></pre></td></tr></table></figure>
+<p>进入HBase Shell：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hbase shell</span><br></pre></td></tr></table></figure>
+<p>输出如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">HBase Shell</span><br><span class="line">Use &quot;help&quot; to get list of supported commands.</span><br><span class="line">Use &quot;exit&quot; to quit this interactive shell.</span><br><span class="line">For Reference, please visit: http://hbase.apache.org/2.0/book.html#shell</span><br><span class="line">Version 2.5.8-hadoop3, r37444de6531b1bdabf2e445c83d0268ab1a6f919, Thu Feb 29 15:55:21 PST 2024</span><br><span class="line">Took 0.0017 seconds</span><br><span class="line">hbase:001:0&gt;</span><br></pre></td></tr></table></figure>
+<p>输入<code>exit</code>退出HBase Shell</p>
+<p>停止HBase的运行：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">stop-hbase.sh</span><br></pre></td></tr></table></figure>
+<p>如果无法停止，先通过<code>hbase-daemon.sh</code>把<code>master</code>和<code>religionserver</code>停止</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hbase-daemon.sh stop religionserver</span><br><span class="line">hbase-daemon.sh stop master</span><br><span class="line">stop-hbase.sh</span><br></pre></td></tr></table></figure>
+<p>输入<code>jps</code>可以看到<code>HMaster</code>和<code>HRegionServer</code>已经不见了</p>
+<blockquote>
+<p><strong>重要</strong>：<br />
+HBase和Hadoop的启动顺序一定是【启动HDFS<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\rightarrow</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">→</span></span></span></span>启动HBase】<br />
+关闭顺序一定是【关闭HBase<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\rightarrow</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">→</span></span></span></span>关闭HDFS】<br />
+ZooKeeper一定要在HBase之前启动</p>
+</blockquote>
+<h2 id="hbase试用和排错"><a class="markdownIt-Anchor" href="#hbase试用和排错"></a> HBase试用和排错</h2>
+<p>启动Hbase Shell</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hbase shell</span><br></pre></td></tr></table></figure>
+<p>尝试创建并列出表</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">HBase Shell</span><br><span class="line">Use &quot;help&quot; to get list of supported commands.</span><br><span class="line">Use &quot;exit&quot; to quit this interactive shell.</span><br><span class="line">For Reference, please visit: http://hbase.apache.org/2.0/book.html#shell</span><br><span class="line">Version 2.5.8-hadoop3, r37444de6531b1bdabf2e445c83d0268ab1a6f919, Thu Feb 29 15:55:21 PST 2024</span><br><span class="line">Took 0.0017 seconds                                                                                                                     </span><br><span class="line">hbase:001:0&gt; create &quot;test&quot;,&quot;cf&quot;</span><br><span class="line">Created table test</span><br><span class="line">Took 1.0771 seconds                                                                                                                     </span><br><span class="line">=&gt; Hbase::Table - test</span><br><span class="line">hbase:002:0&gt; list</span><br><span class="line">TABLE                                                                                                                                   </span><br><span class="line">test                                                                                                                                    </span><br><span class="line">1 row(s)</span><br><span class="line">Took 0.0303 seconds                                                                                                                     </span><br><span class="line">=&gt; [&quot;test&quot;]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>可以看到创建成功了</p>
+<p>其他HBase的操作请查看<a target="_blank" rel="noopener" href="https://dblab.xmu.edu.cn/blog/4252/">林老师的文档</a></p>
+<p><strong>如果没有创建成功并报错</strong>：<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ERROR: org.apache.hadoop.hbase.ipc.ServerNotRunningYetException: Server is not running yet</span><br></pre></td></tr></table></figure>
+<p>有两种原因</p>
+<p><strong>原因一</strong>：可能是因为hadoop还处于安全模式，输入以下命令查看</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hdfs dfsadmin -safemode get</span><br></pre></td></tr></table></figure>
+<p>如果输出如下，等待一段时间，Hadoop会自动退出安全模式，<code>ON</code>会变为<code>OFF</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Safe mode is ON</span><br></pre></td></tr></table></figure>
+<p><strong>原因二</strong>：jar包冲突</p>
+<p>在Hadoop和HBase中的jar包冲突了</p>
+<p>首先停止HBase</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">stop-hbase.sh</span><br></pre></td></tr></table></figure>
+<p>如果无法停止，先通过<code>hbase-daemon.sh</code>把<code>master</code>和<code>religionserver</code>停止</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hbase-daemon.sh stop religionserver</span><br><span class="line">hbase-daemon.sh stop master</span><br><span class="line">stop-hbase.sh</span><br></pre></td></tr></table></figure>
+<p>修改HBase的以下配置，将注释符号<code>#</code>去掉，然后重启HBase</p>
+<figure class="highlight sh"><figcaption><span>$HBASE_HOME/conf/hbase-env.sh</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> HBASE_DISABLE_HADOOP_CLASSPATH_LOOKUP=<span class="string">&quot;true&quot;</span></span><br></pre></td></tr></table></figure>
+<hr class="footnotes-sep" />
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><ul>
+<li>
+<a href="/2024/06/16/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%9E%E9%AA%8C%E8%B8%A9%E5%9D%91%E6%8C%87%E5%8D%97-No-1%E2%80%94%E2%80%94Hadoop%E7%9A%84%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/" title="大数据实验踩坑指南_No.1——Hadoop的安装配置">大数据实验踩坑指南_No.1——Hadoop的安装配置</a>
+</li>
+<li>
+<a href="/2024/06/16/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%9E%E9%AA%8C%E8%B8%A9%E5%9D%91%E6%8C%87%E5%8D%97-No-3%E2%80%94%E2%80%94ZooKeeper%E7%9A%84%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/" title="大数据实验踩坑指南_No.3——ZooKeeper的安装配置.md">大数据实验踩坑指南_No.3——ZooKeeper的安装配置.md</a>
+</li>
+</ul>
+ <a href="#fnref1" class="footnote-backref">↩︎</a></li>
+<li id="fn2" class="footnote-item"><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/zhangrui153169/p/15736700.html">Hbase正常启动，执行命令报错 Server is not running yet</a> <a href="#fnref2" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>Buy me a coffee</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.jpg" alt="Jccc 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.jpg" alt="Jccc 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Jccc
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://jccc-l.github.io/2024/06/16/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%9E%E9%AA%8C%E8%B8%A9%E5%9D%91%E6%8C%87%E5%8D%97-No-4%E2%80%94%E2%80%94HBase%E7%9A%84%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/" title="大数据实验踩坑指南_No.4——HBase的安装配置.md">https://jccc-l.github.io/2024/06/16/大数据实验踩坑指南-No-4——HBase的安装配置/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/en" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/Database/" rel="tag"><i class="fa fa-tag"></i> Database</a>
+              <a href="/tags/Big-Data/" rel="tag"><i class="fa fa-tag"></i> Big Data</a>
+              <a href="/tags/Hadoop/" rel="tag"><i class="fa fa-tag"></i> Hadoop</a>
+              <a href="/tags/ZooKeeper/" rel="tag"><i class="fa fa-tag"></i> ZooKeeper</a>
+              <a href="/tags/HBase/" rel="tag"><i class="fa fa-tag"></i> HBase</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/06/16/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%9E%E9%AA%8C%E8%B8%A9%E5%9D%91%E6%8C%87%E5%8D%97-No-3%E2%80%94%E2%80%94ZooKeeper%E7%9A%84%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/" rel="prev" title="大数据实验踩坑指南_No.3——ZooKeeper的安装配置.md">
+                  <i class="fa fa-angle-left"></i> 大数据实验踩坑指南_No.3——ZooKeeper的安装配置.md
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2024/06/16/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%9E%E9%AA%8C%E8%B8%A9%E5%9D%91%E6%8C%87%E5%8D%97-No-5%E2%80%94%E2%80%94R%E8%AF%AD%E8%A8%80%E5%92%8C%E8%BD%AF%E4%BB%B6%E5%8C%85%E7%9A%84%E5%AE%89%E8%A3%85/" rel="next" title="大数据实验踩坑指南_No.5——R语言和软件包的安装">
+                  大数据实验踩坑指南_No.5——R语言和软件包的安装 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2023 – 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder"><span id="copyright"> 路过的即是风景. All rights reserved. Non-commercial use allowed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>.</span></span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">116k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">1:45</span>
+  </span>
+</div><footer>
+    <div>
+        <!-- 时间统计部分 -->
+        <span id="timeDate">载入天数...</span>
+        <span id="times">载入时分秒...</span>
+        <script>
+            var now = new Date();
+            function createtime() {
+                var grt = new Date("05/04/2023 00:00:00");
+                now.setTime(now.getTime() + 250);
+                days = (now - grt) / 1000 / 60 / 60 / 24; 
+                dnum = Math.floor(days);
+                hours = (now - grt) / 1000 / 60 / 60 - (24 * dnum); 
+                hnum = Math.floor(hours);
+                if(String(hnum).length == 1) {hnum = "0" + hnum;}
+                minutes = (now - grt) / 1000 / 60 - (24 * 60 * dnum) - (60 * hnum);
+                mnum = Math.floor(minutes);
+                if(String(mnum).length == 1) {mnum = "0" + mnum;}
+                seconds = (now - grt) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+                snum = Math.round(seconds);
+                if(String(snum).length == 1) {snum = "0" + snum;}
+                document.getElementById("timeDate").innerHTML = "本站已安全运行 " + dnum + " 天 ";
+                document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+            }
+            setInterval("createtime()", 250);
+        </script>
+        <!-- 版权信息与联系信息部分 -->
+<!--
+		&copy; 2023-<span id="currentYearPlaceholder">YYYY</span>
+		<span id="copyright"> 路过的即是风景. All rights reserved. Non-commercial use allowed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>.</span>
+-->
+<!--
+		<span id="disclaimer" style="text-align: left;">disclaimer: <br>content provided for reference only. <br>accuracy, completeness, suitability not guaranteed. <br>not liable for any loss or damage.</span>
+-->
+
+		<br>
+		<!--联系信息部分-->
+		<span id="Contact">Contact Me: <a href="mailto:1216550215Jc@gmail.com">GMail</a> | Address: Guangdong, China</span>
+		<script>
+			// 使用JavaScript获取当前年份并更新到页面上
+			document.getElementById('currentYearPlaceholder').innerText = new Date().getFullYear();
+		</script>
+    </div>
+</footer>
+
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  <script src="/js/third-party/pace.js"></script>
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" integrity="sha256-UF1fgpAiu3tPJN/uCqEUHNe7pnr+QR0SQDNfgglgtcM=" crossorigin="anonymous">
+
+
+
+</body>
+</html>

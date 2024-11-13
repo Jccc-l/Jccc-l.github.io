@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha256-XOqroi11tY4EFQMR9ZYwZWKj5ZXiftSx36RRuC3anlA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-minimal.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"jccc-l.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"hide","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"fold":{"enable":true,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Arch Linux的基础安装过程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Archlinux基本安装">
+<meta property="og:url" content="https://jccc-l.github.io/2024/05/06/Archlinux%E5%9F%BA%E6%9C%AC%E5%AE%89%E8%A3%85/index.html">
+<meta property="og:site_name" content="璐濄のβlòɡ">
+<meta property="og:description" content="Arch Linux的基础安装过程">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-05-06T10:54:51.000Z">
+<meta property="article:modified_time" content="2024-11-13T03:19:05.368Z">
+<meta property="article:author" content="Jccc">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="Arch Linux">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://jccc-l.github.io/2024/05/06/Archlinux%E5%9F%BA%E6%9C%AC%E5%AE%89%E8%A3%85/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://jccc-l.github.io/2024/05/06/Archlinux%E5%9F%BA%E6%9C%AC%E5%AE%89%E8%A3%85/","path":"2024/05/06/Archlinux基本安装/","title":"Archlinux基本安装"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Archlinux基本安装 | 璐濄のβlòɡ</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">璐濄のβlòɡ</p>
+      <i class="logo-line"></i>
+    </a>
+      <img class="custom-logo-image" src="https://static.wixstatic.com/media/7ac599_2e792bfa812140c898f6c3a78e4ab78f~mv2.png/v1/fill/w_951,h_1046,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/7ac599_2e792bfa812140c898f6c3a78e4ab78f~mv2.png" alt="璐濄のβlòɡ">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#archlinux"><span class="nav-text"> Archlinux</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85"><span class="nav-text"> 基础系统安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE"><span class="nav-text"> 基础配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A3%80%E6%9F%A5%E6%98%AF%E5%90%A6%E4%BB%A5uefi%E5%90%AF%E5%8A%A8"><span class="nav-text"> 检查是否以UEFI启动</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A6%81%E7%94%A8reflector%E6%9C%8D%E5%8A%A1"><span class="nav-text"> 禁用reflector服务</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BF%9E%E6%8E%A5%E7%BD%91%E7%BB%9C"><span class="nav-text"> 连接网络</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%97%A0%E7%BA%BF%E8%BF%9E%E6%8E%A5"><span class="nav-text"> 无线连接</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%9C%89%E7%BA%BF%E8%BF%9E%E6%8E%A5"><span class="nav-text"> 有线连接</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95%E7%BD%91%E7%BB%9C"><span class="nav-text"> 测试网络</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9B%B4%E6%96%B0%E7%B3%BB%E7%BB%9F%E6%97%B6%E9%92%9F"><span class="nav-text"> 更新系统时钟</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%85%8D%E7%BD%AEpacman"><span class="nav-text"> 配置pacman</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%86%E5%8C%BA"><span class="nav-text"> 分区</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E5%88%86%E5%8C%BA"><span class="nav-text"> 设置分区</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%88%86%E5%8C%BA"><span class="nav-text"> 格式化分区</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E5%AD%90%E5%8D%B7"><span class="nav-text"> 创建子卷</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%8C%82%E8%BD%BD%E7%9B%AE%E5%BD%95"><span class="nav-text"> 挂载目录</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E7%B3%BB%E7%BB%9F%E5%92%8C%E5%BF%85%E8%A6%81%E5%B7%A5%E5%85%B7"><span class="nav-text"> 安装系统和必要工具</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E7%B3%BB%E7%BB%9F"><span class="nav-text"> 配置系统</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%86%E5%8C%BA%E4%BF%A1%E6%81%AF%E5%AF%BC%E5%85%A5"><span class="nav-text"> 分区信息导入</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#chroot"><span class="nav-text"> Chroot</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E7%B3%BB%E7%BB%9F%E6%97%B6%E9%97%B4"><span class="nav-text"> 配置系统时间</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9C%B0%E5%8C%BA%E8%AE%BE%E7%BD%AE"><span class="nav-text"> 地区设置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE"><span class="nav-text"> 网络配置</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E4%B8%BB%E6%9C%BA%E5%90%8D"><span class="nav-text"> 设置主机名</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AEhosts"><span class="nav-text"> 设置hosts</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#initramfs"><span class="nav-text"> Initramfs</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8%E5%8A%A0%E8%BD%BD%E5%99%A8"><span class="nav-text"> 启动加载器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E5%AF%86%E7%A0%81"><span class="nav-text"> 设置密码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E5%AE%8C%E6%88%90"><span class="nav-text"> 安装完成</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE"><span class="nav-text"> 常用系统配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E6%99%AE%E9%80%9A%E7%94%A8%E6%88%B7"><span class="nav-text"> 创建普通用户</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#swap-file%E9%85%8D%E7%BD%AE"><span class="nav-text"> Swap File配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%90%AF%E7%94%A8%E7%BD%91%E7%BB%9C"><span class="nav-text"> 启用网络</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%90%AF%E7%94%A8ssh"><span class="nav-text"> 启用ssh</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E5%90%AF%E7%94%A8"><span class="nav-text"> 安装启用</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AEssh%E5%85%8D%E5%AF%86%E7%99%BB%E9%99%86"><span class="nav-text"> 设置ssh免密登陆</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AC%94%E8%AE%B0%E6%9C%AC%E5%90%88%E7%9B%96%E4%B8%8D%E7%9D%A1%E7%9C%A0"><span class="nav-text"> 笔记本合盖不睡眠</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7%E9%85%8D%E7%BD%AE"><span class="nav-text"> 常用工具配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#aur%E4%BE%9D%E8%B5%96"><span class="nav-text"> AUR依赖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#man%E6%89%8B%E5%86%8C%E5%88%86%E9%A1%B5%E6%98%BE%E7%A4%BA%E5%B7%A5%E5%85%B7"><span class="nav-text"> man手册分页显示工具</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reference"><span class="nav-text"> Reference</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Jccc"
+      src="https://static.wixstatic.com/media/7ac599_2e792bfa812140c898f6c3a78e4ab78f~mv2.png/v1/fill/w_951,h_1046,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/7ac599_2e792bfa812140c898f6c3a78e4ab78f~mv2.png">
+  <p class="site-author-name" itemprop="name">Jccc</p>
+  <div class="site-description" itemprop="description">Jccc的胡言乱语</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">36</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">48</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Jccc-l" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Jccc-l" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:1216550215Jc@gmail.com" title="E-Mail → mailto:1216550215Jc@gmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://huggingface.co/Jccc-l" title="🤗 Hg Face → https:&#x2F;&#x2F;huggingface.co&#x2F;Jccc-l" rel="noopener me" target="_blank">🤗 Hg Face</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/contact/WeChat" title="WeChat → &#x2F;contact&#x2F;WeChat" rel="noopener me"><i class="fab fa-weixin fa-fw"></i>WeChat</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://qm.qq.com/q/ZOA0HXIwU0" title="QQ → https:&#x2F;&#x2F;qm.qq.com&#x2F;q&#x2F;ZOA0HXIwU0" rel="noopener me" target="_blank"><i class="fab fa-qq fa-fw"></i>QQ</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="返回顶部">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+    
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+          链接
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="https://julintongxue.github.io/" title="https:&#x2F;&#x2F;julintongxue.github.io" rel="noopener" target="_blank">orangeの博客</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://georgenhj.github.io/" title="https:&#x2F;&#x2F;georgenhj.github.io&#x2F;" rel="noopener" target="_blank">George Nong's Blog</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+    <embed id="musicplayer" frameborder="no" border="0" marginwidth="0" marginheight="0" width=400 height=86 src="//music.163.com/outchain/player?type=2&id=407450660&auto=1&height=66"></embed>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://jccc-l.github.io/2024/05/06/Archlinux%E5%9F%BA%E6%9C%AC%E5%AE%89%E8%A3%85/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://static.wixstatic.com/media/7ac599_2e792bfa812140c898f6c3a78e4ab78f~mv2.png/v1/fill/w_951,h_1046,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/7ac599_2e792bfa812140c898f6c3a78e4ab78f~mv2.png">
+      <meta itemprop="name" content="Jccc">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="璐濄のβlòɡ">
+      <meta itemprop="description" content="Jccc的胡言乱语">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Archlinux基本安装 | 璐濄のβlòɡ">
+      <meta itemprop="description" content="Arch Linux的基础安装过程">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Archlinux基本安装
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-05-06 18:54:51" itemprop="dateCreated datePublished" datetime="2024-05-06T18:54:51+08:00">2024-05-06</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-11-13 11:19:05" itemprop="dateModified" datetime="2024-11-13T11:19:05+08:00">2024-11-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>7k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>6 分钟</span>
+    </span>
+</div>
+
+            <div class="post-description">Arch Linux的基础安装过程</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="archlinux"><a class="markdownIt-Anchor" href="#archlinux"></a> Archlinux</h1>
+<h2 id="基础系统安装"><a class="markdownIt-Anchor" href="#基础系统安装"></a> 基础系统安装</h2>
+<p>ArchLinux是一个流行的GNU/Linux滚动发行</p>
+<h3 id="基础配置"><a class="markdownIt-Anchor" href="#基础配置"></a> 基础配置</h3>
+<h4 id="检查是否以uefi启动"><a class="markdownIt-Anchor" href="#检查是否以uefi启动"></a> 检查是否以UEFI启动</h4>
+<p>通过检查UEFI的位数来验证启动模式</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> /sys/firmware/efi/fw_platform_size</span><br></pre></td></tr></table></figure>
+<p>如果命令结果为<code>64</code>，则系统是以<code>UEFI</code>模式引导且使用<code>64</code>位<code>x64 UEFI</code>。如果命令结果为<code>32</code>，则系统是以<code>UEFI</code>模式引导且使用<code>32</code>位<code>IA32 UEFI</code>，虽然其受支持，但引导加载程序只能使用<code>systemd-boot</code>和<code>GRUB</code>。如果文件不存在，则系统可能是以<code>BIOS</code>模式（或<code>CSM</code>模式）引导。确保系统以UEFI模式启动。</p>
+<h4 id="禁用reflector服务"><a class="markdownIt-Anchor" href="#禁用reflector服务"></a> 禁用reflector服务</h4>
+<p>禁用reflector服务，避免将需要的镜像源删除</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl stop reflector</span><br></pre></td></tr></table></figure>
+<h4 id="连接网络"><a class="markdownIt-Anchor" href="#连接网络"></a> 连接网络</h4>
+<h5 id="无线连接"><a class="markdownIt-Anchor" href="#无线连接"></a> 无线连接</h5>
+<p>无线连接使用iwctl进行认证连接</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">iwctl</span><br><span class="line">device list</span><br><span class="line">station wlan0 scan</span><br><span class="line">station wlan0 connect [essid]</span><br><span class="line"><span class="built_in">exit</span></span><br></pre></td></tr></table></figure>
+<h5 id="有线连接"><a class="markdownIt-Anchor" href="#有线连接"></a> 有线连接</h5>
+<p>一般只要接上网线即可直接联网</p>
+<h4 id="测试网络"><a class="markdownIt-Anchor" href="#测试网络"></a> 测试网络</h4>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ping baidu.com</span><br></pre></td></tr></table></figure>
+<p>稍等片刻，如果能看到数据返回，即说明已经联网，<code>ctrl+c</code>终止当前命令。若无法连接，使用<code>ip link set [device name] up</code>来激活对应网卡后再重新网络连接与测试。</p>
+<h4 id="更新系统时钟"><a class="markdownIt-Anchor" href="#更新系统时钟"></a> 更新系统时钟</h4>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># timedatectl set-ntp true    # 将系统时间与网络事件进行同步</span></span><br><span class="line">timedatectl status          <span class="comment"># 查看服务状态</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>在Live环境中<code>systemd-timesyncd</code>默认启用，系统连接网络后，系统时间会自动同步，不用使用set-ntp来开启<br />
+使用<code>timedatectl</code>确认系统时间准确</p>
+</blockquote>
+<h4 id="配置pacman"><a class="markdownIt-Anchor" href="#配置pacman"></a> 配置pacman</h4>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/pacman.conf</span><br></pre></td></tr></table></figure>
+<p>开启pacman输出颜色和多线程下载</p>
+<figure class="highlight plaintext"><figcaption><span>/etc/pacman.conf</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Color</span><br><span class="line">ILoveCandy</span><br><span class="line"></span><br><span class="line">ParallelDownloads = 8</span><br></pre></td></tr></table></figure>
+<p>编辑<code>/etc/pacman.d/mirrorlist</code>文件，选择China的https镜像源放到最上</p>
+<h4 id="分区"><a class="markdownIt-Anchor" href="#分区"></a> 分区</h4>
+<h5 id="设置分区"><a class="markdownIt-Anchor" href="#设置分区"></a> 设置分区</h5>
+<blockquote>
+<p>注意：下面的nvmen1等分区修改为你对应的设备分区信息</p>
+</blockquote>
+<p>使用<code>fdisk</code>分区，<code>p</code>输出分区表，<code>n</code>创建新的分区，<code>t</code>设置分区类型，<code>w</code>保存并退出，<code>q</code>不保存退出，<code>h</code>输出帮助信息</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fdisk /dev/nvme0n1</span><br></pre></td></tr></table></figure>
+<p>分为两个区：</p>
+<ul>
+<li>/dev/nvme0n1p1: 300M</li>
+<li>/dev/nvme0n1p2: 剩余空间</li>
+</ul>
+<h5 id="格式化分区"><a class="markdownIt-Anchor" href="#格式化分区"></a> 格式化分区</h5>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkfs.fat -F32 /dev/nvme0n1p1</span><br><span class="line">mkfs.btrfs /dev/nvme0n1p2</span><br></pre></td></tr></table></figure>
+<h5 id="创建子卷"><a class="markdownIt-Anchor" href="#创建子卷"></a> 创建子卷</h5>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">mount /dev/nvme0n1p2 /mnt/Arch --<span class="built_in">mkdir</span></span><br><span class="line"><span class="built_in">cd</span> /mnt/Arch</span><br><span class="line">btrfs subvolume create @</span><br><span class="line">btrfs subvolume create @boot</span><br><span class="line">btrfs subvolume create @home</span><br><span class="line">btrfs subvolume create @var</span><br><span class="line">btrfs subvolume create @pkg</span><br><span class="line">btrfs subvolume create @<span class="built_in">log</span></span><br><span class="line">btrfs subvolume create @swapfile</span><br><span class="line">umount /mnt/Arch</span><br></pre></td></tr></table></figure>
+<h5 id="挂载目录"><a class="markdownIt-Anchor" href="#挂载目录"></a> 挂载目录</h5>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">mount /dev/nvme0n1p2 -o compress=zstd,noatime,ssd,discard=async,space_cache=v2,subvol=@  /mnt/Arch --<span class="built_in">mkdir</span></span><br><span class="line">mount /dev/nvme0n1p2 -o compress=zstd,noatime,ssd,discard=async,space_cache=v2,subvol=@boot  /mnt/Arch/boot --<span class="built_in">mkdir</span></span><br><span class="line">mount /dev/nvme0n1p2 -o compress=zstd,noatime,ssd,discard=async,space_cache=v2,subvol=@home  /mnt/Arch/home --<span class="built_in">mkdir</span></span><br><span class="line">mount /dev/nvme0n1p2 -o compress=zstd,noatime,ssd,discard=async,space_cache=v2,subvol=@var  /mnt/Arch/var --<span class="built_in">mkdir</span></span><br><span class="line">mount /dev/nvme0n1p2 -o compress=zstd,noatime,ssd,discard=async,space_cache=v2,subvol=@<span class="built_in">log</span>  /mnt/Arch/var/log --<span class="built_in">mkdir</span></span><br><span class="line">mount /dev/nvme0n1p2 -o compress=zstd,noatime,ssd,discard=async,space_cache=v2,subvol=@pkg  /mnt/Arch/var/cache/pacman/pkg --<span class="built_in">mkdir</span></span><br><span class="line">mount /dev/nvme0n1p2 -o compress=zstd,noatime,ssd,discard=async,space_cache=v2,subvol=@swapfile  /mnt/Arch/swapfile --<span class="built_in">mkdir</span></span><br><span class="line">mount /dev/nvme0n1p1 /mnt/Arch/boot/efi --<span class="built_in">mkdir</span></span><br></pre></td></tr></table></figure>
+<h3 id="安装系统和必要工具"><a class="markdownIt-Anchor" href="#安装系统和必要工具"></a> 安装系统和必要工具</h3>
+<p>安装基础系统</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacstrap -K /mnt/Arch base linux linux-firmware     <span class="comment"># -K选项在安装软件包时在目标中初始化一个空的pacman密钥</span></span><br></pre></td></tr></table></figure>
+<p>如果使用linux-zen内核，则使用以下命令</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacstrap -K /mnt/Arch base linux-zen linux-zen-headers linux-firmware</span><br></pre></td></tr></table></figure>
+<p>安装必要软件</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacstrap /mnt/Arch networkmanager <span class="built_in">sudo</span> neovim</span><br></pre></td></tr></table></figure>
+<h3 id="配置系统"><a class="markdownIt-Anchor" href="#配置系统"></a> 配置系统</h3>
+<h4 id="分区信息导入"><a class="markdownIt-Anchor" href="#分区信息导入"></a> 分区信息导入</h4>
+<p>生成目录配置文件fstab：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">genfstab -U /mnt/Arch &gt;&gt; /mnt/Arch/etc/fstab</span><br></pre></td></tr></table></figure>
+<p>检查<code>fstab</code>文件</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> /mnt/Arch/fstab</span><br></pre></td></tr></table></figure>
+<h4 id="chroot"><a class="markdownIt-Anchor" href="#chroot"></a> Chroot</h4>
+<p>切换根系统</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arch-chroot /mnt/Arch</span><br></pre></td></tr></table></figure>
+<h4 id="配置系统时间"><a class="markdownIt-Anchor" href="#配置系统时间"></a> 配置系统时间</h4>
+<p>设置时区</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ln</span> -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime</span><br></pre></td></tr></table></figure>
+<p>设置硬件时间，生成/etc/adjtime</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hwclock --systohc</span><br></pre></td></tr></table></figure>
+<p>开启时间同步</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">timedatectl set-ntp <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<p>把硬件时钟（RCT）以本地时间来保存时间（Windows保存硬件时钟的方式，实现两者的时间同步，而不是相差8小时）</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">timedatectl set-local-rtc <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<h4 id="地区设置"><a class="markdownIt-Anchor" href="#地区设置"></a> 地区设置</h4>
+<p>设置系统语言，编辑<code>/etc/locale.gen</code>和<code>/etc/locale.conf</code></p>
+<p><code>/etc/locale.gen</code>删除<code>en_US.UTF-8 UTF-8</code>前面的<code>#</code></p>
+<figure class="highlight plaintext"><figcaption><span>/etc/locale.gen</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">en_US.UTF-8 UTF-8</span><br></pre></td></tr></table></figure>
+<p>创建<code>/etc/locale.conf</code>，设置语言变量</p>
+<figure class="highlight plaintext"><figcaption><span>/etc/locale.conf</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LANG=en_US.UTF-8</span><br></pre></td></tr></table></figure>
+<p>生成区域设置</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">locale-gen</span><br></pre></td></tr></table></figure>
+<h4 id="网络配置"><a class="markdownIt-Anchor" href="#网络配置"></a> 网络配置</h4>
+<h5 id="设置主机名"><a class="markdownIt-Anchor" href="#设置主机名"></a> 设置主机名</h5>
+<p>创建<code>/etc/hostname</code>，设置为你想为主机取的主机名</p>
+<figure class="highlight plaintext"><figcaption><span>/etc/hostname</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yourhostname</span><br></pre></td></tr></table></figure>
+<h5 id="设置hosts"><a class="markdownIt-Anchor" href="#设置hosts"></a> 设置hosts</h5>
+<p>Hosts文件(也称为etc/ Hosts)是Windows(和其他操作系统)用于将IP地址映射到主机名或域名的文本文件。此文件充当本地计算机的本地DNS服务，它覆盖计算机通过网络连接到的DNS服务器的映射。<a target="_blank" rel="noopener" href="https://www.digitalcitizen.life/etc-hosts-file-windows/#google_vignette">^1</a></p>
+<p>编辑<code>/etc/hosts</code>，添加以下内容</p>
+<figure class="highlight plaintext"><figcaption><span>/etc/hosts</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1   localhost</span><br><span class="line">::1         localhost</span><br><span class="line">127.0.1.1   yourhostname.localdomain    yourhostname</span><br></pre></td></tr></table></figure>
+<p>两个文件中的<code>yourhostname</code>要保持一致</p>
+<h4 id="initramfs"><a class="markdownIt-Anchor" href="#initramfs"></a> Initramfs</h4>
+<p>创建Initramfs</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkinitcpio -P</span><br></pre></td></tr></table></figure>
+<h4 id="启动加载器"><a class="markdownIt-Anchor" href="#启动加载器"></a> 启动加载器</h4>
+<p>安装grub和efi管理器等</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> pacman -S grub efibootmgr os-prober</span><br><span class="line">grub-install --target=x86_64-efi --efi-directory /boot/efi --bootloader-id=GRUB     <span class="comment"># 安装grub，命名为GRUB</span></span><br></pre></td></tr></table></figure>
+<p>有些电脑的UEFI系统需要在一个特定位置上有一个可启动的文件，才会显示你想要的启动选项。但是有时候，即使你用grub-install命令安装了GRUB引导程序，它在VisualBIOS启动顺序里也可能看不到。解决方法就是用以下命令，把GRUB安装在一个默认的启动路径上：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grub-install --target=x86_64-efi --efi-directory /boot/efi --removable </span><br></pre></td></tr></table></figure>
+<p>另一种方法是将已安装的GRUB EFI可执行文件移动到默认/回退路径：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mv</span> /boot/efi/grub /boot/efi/BOOT</span><br><span class="line"><span class="built_in">mv</span> /boot/efi/EFI/BOOT/grubx64.efi /boot/efi/EFI/BOOT/BOOTX64.EFI</span><br></pre></td></tr></table></figure>
+<p><a target="_blank" rel="noopener" href="https://wiki.archlinux.org/title/GRUB#Default/fallback_boot_path">参考Arch Linux官方文档</a></p>
+<p>编辑<code>/etc/default/grub</code></p>
+<figure class="highlight plaintext"><figcaption><span>/etc/default/grub</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">GRUB_DEFAULT=0                                      # 默认启动项，默认为0，如果安装了Windows和Archlinux双系统，则0为Archlinux，2为Windows</span><br><span class="line">GRUB_CMDLINE_LINUX_DEFAULT=&quot;loglevel=5 nowatchdog&quot;  # 内核参数，删除quiet，将loglevel设置为5以显示更详细的日志信息，方便查看调试信息。添加nowatchdog关闭watchdog服务，加快开关机速度</span><br><span class="line">GRUB_SAVEDEFAULT=false                              # 将这次选择的启动项作为下次的默认启动项，由于grub无法写入btrfs文件系统，该选项无效，因此将其关闭</span><br><span class="line">GRUB_DISABLE_OS_PROBER=false                        # false为启用os-prober，使grub调用os-prober检测其他操作系统</span><br></pre></td></tr></table></figure>
+<p>生成Grub配置文件</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grub-mkconfig /boot/grub/grub.cfg</span><br></pre></td></tr></table></figure>
+<p>当输出类似以下信息，则生成成功</p>
+<blockquote>
+<p>Found linux image: /boot/vmlinuz-linux-zen<br />
+Found initrd image: /boot/intel-ucode.img /boot/initramfs-linux-zen.img<br />
+Found fallback initrd image(s) in /boot:  intel-ucode.img initramfs-linux-zen-fallback.img<br />
+Adding boot menu entry for UEFI Firmware Settings …<br />
+done</p>
+</blockquote>
+<p>如果使用了<code>--removable</code>参数，但是又想自定义Bootloader的ID，可以使用efibootmgr进行重命名</p>
+<p>首先使用efibootmgr命令找到对应的启动项</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">efibootmgr</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">BootCurrent: 0002</span><br><span class="line">Timeout: 0 seconds</span><br><span class="line">BootOrder: 0002,0000,0007,0008</span><br><span class="line">Boot0000* Windows Boot Manager	HD(1,GPT,08b3ed34-07fe-4e11-b9cd-44509ff2c405,0x800,0x32000)/\EFI\Microsoft\Boot\bootmgfw.efi57494e444f5753000100000088000000780000004200430044004f0042004a004500430054003d007b00390064006500610038003600320063002d0035006300640064002d0034006500370030002d0061006300630031002d006600330032006200330034003400640034003700390035007d00000061000100000010000000040000007fff0400</span><br><span class="line">Boot0002* UEFI OS	HD(1,GPT,b17d053f-31c1-4aed-b5d5-f00c2397f26c,0x800,0x96000)/\EFI\BOOT\BOOTX64.EFI</span><br></pre></td></tr></table></figure>
+<p>我这里的启动项是<code>Boot0002</code>，记住后面的<code>\EFI\BOOT\BOOTX64.EFI</code>，以及你的EFI分区（我的分区是/dev/nvme0n1p1）</p>
+<p>然后执行以下命令：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">efibootmgr -c -d <span class="string">&#x27;/dev/nvme0n1p1&#x27;</span> -L <span class="string">&quot;Arch Linux&quot;</span> -l \\EFI\\BOOT\\BOOTX64.EFI</span><br></pre></td></tr></table></figure>
+<p>这样就会把UEFI启动项命名为<code>Arch Linux</code></p>
+<h4 id="设置密码"><a class="markdownIt-Anchor" href="#设置密码"></a> 设置密码</h4>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">passwd</span><br></pre></td></tr></table></figure>
+<h4 id="安装完成"><a class="markdownIt-Anchor" href="#安装完成"></a> 安装完成</h4>
+<p>通过<code>exit</code>退出chroot环境，<code>umount -R /mnt/Arch</code>取消硬盘挂载（如果显示busy，则先cd到其他目录再取消），输入<code>reboot</code>重启电脑</p>
+<h3 id="常用系统配置"><a class="markdownIt-Anchor" href="#常用系统配置"></a> 常用系统配置</h3>
+<h4 id="创建普通用户"><a class="markdownIt-Anchor" href="#创建普通用户"></a> 创建普通用户</h4>
+<p>创建一个普通用户jack并为他创建home目录</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">useradd -m jack</span><br></pre></td></tr></table></figure>
+<p>给jack赋予sudo提权的能力</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">EDITOR=nvim visudo</span><br></pre></td></tr></table></figure>
+<p>找到对应位置并添加一行</p>
+<figure class="highlight plaintext"><figcaption><span>/etc/sudoers</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">## Uncomment to allow members of group wheel to execute any command</span><br><span class="line"># %wheel ALL=(ALL:ALL) ALL</span><br><span class="line">jack ALL=(ALL:ALL) ALL</span><br></pre></td></tr></table></figure>
+<p><code>:wq</code>保存退出</p>
+<p>随后第一次使用<code>sudo</code>命令时，会显示以下内容，根据提示输入密码即可</p>
+<blockquote>
+<p>We trust you have received the usual lecture from the local System<br />
+Administrator. It usually boils down to these three things:</p>
+<pre><code>#1) Respect the privacy of others.
+#2) Think before you type.
+#3) With great power comes great responsibility.
+</code></pre>
+<p>For security reasons, the password you type will not be visible.</p>
+<p>[sudo] password for jack:</p>
+</blockquote>
+<h4 id="swap-file配置"><a class="markdownIt-Anchor" href="#swap-file配置"></a> Swap File配置</h4>
+<p>关闭交换文件存储目录的写时复制（CoW）功能</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chattr +C /swapfile</span><br></pre></td></tr></table></figure>
+<p>创建交换文件</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">btrfs filesystem mkswapfile --size 16g --uuid clear /swapfile/swapfile</span><br></pre></td></tr></table></figure>
+<p>激活交换文件</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">swapon /swapfile/swapfile</span><br></pre></td></tr></table></figure>
+<p>编辑fstab文件，添加一个交换文件的条目</p>
+<figure class="highlight plaintext"><figcaption><span>/etc/fstab</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/swapfile/swapfile none swap defaults 0 0</span><br></pre></td></tr></table></figure>
+<h4 id="启用网络"><a class="markdownIt-Anchor" href="#启用网络"></a> 启用网络</h4>
+<p>启用<code>NetworkManager.service</code>服务</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> systemctl start NetworkManager.service</span><br></pre></td></tr></table></figure>
+<p>输入<code>nmtui</code>打开网络管理器的TUI界面，使用方向键、回车键和ESC键进行网络连接配置</p>
+<p>设置NetworkManager开机自启</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> systemctl <span class="built_in">enable</span> NetworkManager.service</span><br></pre></td></tr></table></figure>
+<h4 id="启用ssh"><a class="markdownIt-Anchor" href="#启用ssh"></a> 启用ssh</h4>
+<h5 id="安装启用"><a class="markdownIt-Anchor" href="#安装启用"></a> 安装启用</h5>
+<p>安装<code>openssh</code>，这个软件包包含了服务端和客户端</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> pacman -S openssh</span><br></pre></td></tr></table></figure>
+<p>启用<code>sshd</code>服务</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> systemctl start sshd</span><br></pre></td></tr></table></figure>
+<h5 id="设置ssh免密登陆"><a class="markdownIt-Anchor" href="#设置ssh免密登陆"></a> 设置ssh免密登陆</h5>
+<p>在客户端生成ssh密钥</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa</span><br></pre></td></tr></table></figure>
+<p>在<code>/home/jack/.ssh/</code>（Windows的目录在C:/Users/Username/.ssh）中可以看到两个文件<code>id_rsa</code>、<code>id_rsa.pub</code>，将id_rsa.pub文件的内容复制到远程服务器的/home/jack/.ssh/authorized_keys文件中</p>
+<p>Linux使用以下命令自动复制</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-copy-id jack@remote_host</span><br></pre></td></tr></table></figure>
+<p>尝试SSH连接：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh jack@remote_host</span><br></pre></td></tr></table></figure>
+<p>若设置正确，即可免密登陆</p>
+<h4 id="笔记本合盖不睡眠"><a class="markdownIt-Anchor" href="#笔记本合盖不睡眠"></a> 笔记本合盖不睡眠</h4>
+<p>编辑<code>/etc/systemd/logind.conf</code>，在<code>Login</code>下方添加<code>HandleLidSwitch=ignore</code></p>
+<p>重启<code>systemd-logind</code>服务使配置生效</p>
+<h2 id="常用工具配置"><a class="markdownIt-Anchor" href="#常用工具配置"></a> 常用工具配置</h2>
+<h3 id="aur依赖"><a class="markdownIt-Anchor" href="#aur依赖"></a> AUR依赖</h3>
+<p>安装AUR包需要两个重要工具</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> pacman -S git base-devel       <span class="comment"># 版本管理工具  基础编译包组</span></span><br></pre></td></tr></table></figure>
+<h3 id="man手册分页显示工具"><a class="markdownIt-Anchor" href="#man手册分页显示工具"></a> man手册分页显示工具</h3>
+<p>man命令指定语言</p>
+<blockquote>
+<p>需要安装语言包<code>man-pages-zh_cn</code></p>
+</blockquote>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">man -L zh_CN [文档]</span><br></pre></td></tr></table></figure>
+<!-- ## Minecraft服务器搭建-->
+<h2 id="reference"><a class="markdownIt-Anchor" href="#reference"></a> Reference</h2>
+<p><a target="_blank" rel="noopener" href="https://wiki.archlinux.org/title/Installation_guide">Arch Linux Installation Guide</a></p>
+<p><a target="_blank" rel="noopener" href="https://sspai.com/post/78916">现代化的 Archlinux 安装，Btrfs、快照、休眠以及更多。</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/yafengabc/p/5172862.html">Archlinux在Btrfs分区上的安装（bios篇）——yafeng</a></p>
+<p><a target="_blank" rel="noopener" href="https://arch.icekylin.online/guide/">archlinux 简明指南</a></p>
+<p><a target="_blank" rel="noopener" href="https://archlinuxstudio.github.io/ArchLinuxTutorial/#/">Arch Linux 安装使用教程 - ArchTutorial - Arch Linux Studio</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>Buy me a coffee</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.jpg" alt="Jccc 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.jpg" alt="Jccc 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Jccc
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://jccc-l.github.io/2024/05/06/Archlinux%E5%9F%BA%E6%9C%AC%E5%AE%89%E8%A3%85/" title="Archlinux基本安装">https://jccc-l.github.io/2024/05/06/Archlinux基本安装/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/en" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/Linux/" rel="tag"><i class="fa fa-tag"></i> Linux</a>
+              <a href="/tags/Arch-Linux/" rel="tag"><i class="fa fa-tag"></i> Arch Linux</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/05/06/%E4%BD%BF%E7%94%A8PicGo%E5%92%8CGithub%E4%BB%93%E5%BA%93%E6%90%AD%E5%BB%BA%E5%9B%BE%E5%BA%8A/" rel="prev" title="使用PicGo和Github仓库搭建图床">
+                  <i class="fa fa-angle-left"></i> 使用PicGo和Github仓库搭建图床
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2024/05/06/IBus-in-Ubuntu/" rel="next" title="IBus on Ubuntu">
+                  IBus on Ubuntu <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2023 – 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder"><span id="copyright"> 路过的即是风景. All rights reserved. Non-commercial use allowed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>.</span></span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">116k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">1:45</span>
+  </span>
+</div><footer>
+    <div>
+        <!-- 时间统计部分 -->
+        <span id="timeDate">载入天数...</span>
+        <span id="times">载入时分秒...</span>
+        <script>
+            var now = new Date();
+            function createtime() {
+                var grt = new Date("05/04/2023 00:00:00");
+                now.setTime(now.getTime() + 250);
+                days = (now - grt) / 1000 / 60 / 60 / 24; 
+                dnum = Math.floor(days);
+                hours = (now - grt) / 1000 / 60 / 60 - (24 * dnum); 
+                hnum = Math.floor(hours);
+                if(String(hnum).length == 1) {hnum = "0" + hnum;}
+                minutes = (now - grt) / 1000 / 60 - (24 * 60 * dnum) - (60 * hnum);
+                mnum = Math.floor(minutes);
+                if(String(mnum).length == 1) {mnum = "0" + mnum;}
+                seconds = (now - grt) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+                snum = Math.round(seconds);
+                if(String(snum).length == 1) {snum = "0" + snum;}
+                document.getElementById("timeDate").innerHTML = "本站已安全运行 " + dnum + " 天 ";
+                document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+            }
+            setInterval("createtime()", 250);
+        </script>
+        <!-- 版权信息与联系信息部分 -->
+<!--
+		&copy; 2023-<span id="currentYearPlaceholder">YYYY</span>
+		<span id="copyright"> 路过的即是风景. All rights reserved. Non-commercial use allowed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>.</span>
+-->
+<!--
+		<span id="disclaimer" style="text-align: left;">disclaimer: <br>content provided for reference only. <br>accuracy, completeness, suitability not guaranteed. <br>not liable for any loss or damage.</span>
+-->
+
+		<br>
+		<!--联系信息部分-->
+		<span id="Contact">Contact Me: <a href="mailto:1216550215Jc@gmail.com">GMail</a> | Address: Guangdong, China</span>
+		<script>
+			// 使用JavaScript获取当前年份并更新到页面上
+			document.getElementById('currentYearPlaceholder').innerText = new Date().getFullYear();
+		</script>
+    </div>
+</footer>
+
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  <script src="/js/third-party/pace.js"></script>
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" integrity="sha256-UF1fgpAiu3tPJN/uCqEUHNe7pnr+QR0SQDNfgglgtcM=" crossorigin="anonymous">
+
+
+
+</body>
+</html>

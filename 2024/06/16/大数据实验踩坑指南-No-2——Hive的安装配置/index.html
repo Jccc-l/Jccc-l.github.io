@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha256-XOqroi11tY4EFQMR9ZYwZWKj5ZXiftSx36RRuC3anlA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-minimal.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"jccc-l.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"hide","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"fold":{"enable":true,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="分布式数据仓库系统Hive的安装、配置过程记录">
+<meta property="og:type" content="article">
+<meta property="og:title" content="大数据实验踩坑指南_No.2——Hive的安装配置">
+<meta property="og:url" content="https://jccc-l.github.io/2024/06/16/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%9E%E9%AA%8C%E8%B8%A9%E5%9D%91%E6%8C%87%E5%8D%97-No-2%E2%80%94%E2%80%94Hive%E7%9A%84%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/index.html">
+<meta property="og:site_name" content="璐濄のβlòɡ">
+<meta property="og:description" content="分布式数据仓库系统Hive的安装、配置过程记录">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-06-16T08:27:21.000Z">
+<meta property="article:modified_time" content="2024-11-13T03:19:05.408Z">
+<meta property="article:author" content="Jccc">
+<meta property="article:tag" content="MySQL">
+<meta property="article:tag" content="Database">
+<meta property="article:tag" content="Big Data">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://jccc-l.github.io/2024/06/16/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%9E%E9%AA%8C%E8%B8%A9%E5%9D%91%E6%8C%87%E5%8D%97-No-2%E2%80%94%E2%80%94Hive%E7%9A%84%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://jccc-l.github.io/2024/06/16/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%9E%E9%AA%8C%E8%B8%A9%E5%9D%91%E6%8C%87%E5%8D%97-No-2%E2%80%94%E2%80%94Hive%E7%9A%84%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/","path":"2024/06/16/大数据实验踩坑指南-No-2——Hive的安装配置/","title":"大数据实验踩坑指南_No.2——Hive的安装配置"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>大数据实验踩坑指南_No.2——Hive的安装配置 | 璐濄のβlòɡ</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">璐濄のβlòɡ</p>
+      <i class="logo-line"></i>
+    </a>
+      <img class="custom-logo-image" src="https://static.wixstatic.com/media/7ac599_2e792bfa812140c898f6c3a78e4ab78f~mv2.png/v1/fill/w_951,h_1046,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/7ac599_2e792bfa812140c898f6c3a78e4ab78f~mv2.png" alt="璐濄のβlòɡ">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%9E%E9%AA%8C%E8%B8%A9%E5%9D%91%E6%8C%87%E5%8D%97_no2hive%E7%9A%84%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE"><span class="nav-text"> 大数据实验踩坑指南_No.2——Hive的安装配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#hive%E5%9F%BA%E7%A1%80%E5%AE%89%E8%A3%85"><span class="nav-text"> Hive基础安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mysql%E9%85%8D%E7%BD%AE"><span class="nav-text"> MySQL配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mysql%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="nav-text"> MySQL注意事项</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%80%9A%E4%BF%A1%E9%97%AE%E9%A2%98"><span class="nav-text"> 通信问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%91%BD%E4%BB%A4%E5%B7%AE%E5%BC%82"><span class="nav-text"> 命令差异</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E7%94%A8%E6%88%B7%E4%B8%8E%E8%B5%8B%E6%9D%83"><span class="nav-text"> 创建用户与赋权</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E5%AF%86%E7%A0%81"><span class="nav-text"> 修改密码</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hive%E9%85%8D%E7%BD%AE"><span class="nav-text"> Hive配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#hive%E8%87%AA%E8%BA%AB%E9%85%8D%E7%BD%AE"><span class="nav-text"> Hive自身配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AEhadoop%E7%9A%84%E4%BB%A3%E7%90%86%E7%94%A8%E6%88%B7"><span class="nav-text"> 配置Hadoop的代理用户</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8%E5%B9%B6%E8%AF%95%E7%94%A8hive"><span class="nav-text"> 启动并试用Hive</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hive%E6%8E%92%E9%94%99"><span class="nav-text"> Hive排错</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%97%A0%E6%B3%95%E6%89%A7%E8%A1%8Chive%E7%9A%84sql%E8%AF%AD%E5%8F%A5"><span class="nav-text"> 无法执行Hive的SQL语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%A4%B1%E8%B4%A5"><span class="nav-text"> 格式化失败</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Jccc"
+      src="https://static.wixstatic.com/media/7ac599_2e792bfa812140c898f6c3a78e4ab78f~mv2.png/v1/fill/w_951,h_1046,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/7ac599_2e792bfa812140c898f6c3a78e4ab78f~mv2.png">
+  <p class="site-author-name" itemprop="name">Jccc</p>
+  <div class="site-description" itemprop="description">Jccc的胡言乱语</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">36</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">48</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Jccc-l" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Jccc-l" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:1216550215Jc@gmail.com" title="E-Mail → mailto:1216550215Jc@gmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://huggingface.co/Jccc-l" title="🤗 Hg Face → https:&#x2F;&#x2F;huggingface.co&#x2F;Jccc-l" rel="noopener me" target="_blank">🤗 Hg Face</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/contact/WeChat" title="WeChat → &#x2F;contact&#x2F;WeChat" rel="noopener me"><i class="fab fa-weixin fa-fw"></i>WeChat</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://qm.qq.com/q/ZOA0HXIwU0" title="QQ → https:&#x2F;&#x2F;qm.qq.com&#x2F;q&#x2F;ZOA0HXIwU0" rel="noopener me" target="_blank"><i class="fab fa-qq fa-fw"></i>QQ</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="返回顶部">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+    
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+          链接
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="https://julintongxue.github.io/" title="https:&#x2F;&#x2F;julintongxue.github.io" rel="noopener" target="_blank">orangeの博客</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://georgenhj.github.io/" title="https:&#x2F;&#x2F;georgenhj.github.io&#x2F;" rel="noopener" target="_blank">George Nong's Blog</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+    <embed id="musicplayer" frameborder="no" border="0" marginwidth="0" marginheight="0" width=400 height=86 src="//music.163.com/outchain/player?type=2&id=407450660&auto=1&height=66"></embed>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://jccc-l.github.io/2024/06/16/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%9E%E9%AA%8C%E8%B8%A9%E5%9D%91%E6%8C%87%E5%8D%97-No-2%E2%80%94%E2%80%94Hive%E7%9A%84%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://static.wixstatic.com/media/7ac599_2e792bfa812140c898f6c3a78e4ab78f~mv2.png/v1/fill/w_951,h_1046,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/7ac599_2e792bfa812140c898f6c3a78e4ab78f~mv2.png">
+      <meta itemprop="name" content="Jccc">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="璐濄のβlòɡ">
+      <meta itemprop="description" content="Jccc的胡言乱语">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="大数据实验踩坑指南_No.2——Hive的安装配置 | 璐濄のβlòɡ">
+      <meta itemprop="description" content="分布式数据仓库系统Hive的安装、配置过程记录">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          大数据实验踩坑指南_No.2——Hive的安装配置
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-06-16 16:27:21" itemprop="dateCreated datePublished" datetime="2024-06-16T16:27:21+08:00">2024-06-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-11-13 11:19:05" itemprop="dateModified" datetime="2024-11-13T11:19:05+08:00">2024-11-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Big-Data/" itemprop="url" rel="index"><span itemprop="name">Big Data</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>7.6k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>7 分钟</span>
+    </span>
+</div>
+
+            <div class="post-description">分布式数据仓库系统Hive的安装、配置过程记录</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="大数据实验踩坑指南_no2hive的安装配置"><a class="markdownIt-Anchor" href="#大数据实验踩坑指南_no2hive的安装配置"></a> 大数据实验踩坑指南_No.2——Hive的安装配置</h1>
+<blockquote>
+<p>事先说明，Beeline还有很多坑没有处理好，暂时先跳过，只使用传统Hive Cli</p>
+</blockquote>
+<h2 id="hive基础安装"><a class="markdownIt-Anchor" href="#hive基础安装"></a> Hive基础安装</h2>
+<p>通过<a target="_blank" rel="noopener" href="https://hive.apache.org">官网</a>下载<a target="_blank" rel="noopener" href="https://dlcdn.apache.org/hive/hive-3.1.3/apache-hive-3.1.3-bin.tar.gz">apache-hive-3.1.3-bin.tar.gz</a></p>
+<p>根据另一篇文章<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>安装好MySQL</p>
+<p>将文件解压到<code>/usr/local</code>目录内</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> tar -zxvf /home/hadoop/Downloads/apache-hive-3.1.3-bin.tar.gz -C /usr/local/</span><br></pre></td></tr></table></figure>
+<p>进入该目录并将Hive的主目录改名</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/local</span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">mv</span> apache-hive-3.1.3-bin hive</span><br></pre></td></tr></table></figure>
+<p>修改目录拥有者</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> <span class="built_in">chown</span> -R hadoop:hadoop hive</span><br></pre></td></tr></table></figure>
+<p>配置Hive相关的环境变量</p>
+<figure class="highlight sh"><figcaption><span>/home/hadoop/.bashrc</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> HIVE_HOME=/usr/local/hive</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:<span class="variable">$HIVE_HOME</span>/bin</span><br></pre></td></tr></table></figure>
+<p>加载配置文件</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> /home/hadoop/.bashrc</span><br></pre></td></tr></table></figure>
+<h2 id="mysql配置"><a class="markdownIt-Anchor" href="#mysql配置"></a> MySQL配置</h2>
+<p>启动MySQL服务</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> service mysql start</span><br></pre></td></tr></table></figure>
+<p>登录MySQl Shell</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> mysql -u root</span><br></pre></td></tr></table></figure>
+<p>创建<code>hadoop</code>用户，密码为<code>hadoop</code></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">CREATE</span> <span class="keyword">USER</span> <span class="string">&#x27;hadoop&#x27;</span>@<span class="string">&#x27;%&#x27;</span> IDENTIFIED <span class="keyword">BY</span> <span class="string">&#x27;hadoop&#x27;</span>;</span><br></pre></td></tr></table></figure>
+<p>创建<code>hive</code>数据库并把数据库的权限赋予<code>hadoop</code>用户</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">create</span> database hive;</span><br><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">grant</span> <span class="keyword">all</span> privileges <span class="keyword">on</span> hive.<span class="operator">*</span> <span class="keyword">to</span> hadoop;</span><br></pre></td></tr></table></figure>
+<p>最后记得刷新权限</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> flush privileges;</span><br></pre></td></tr></table></figure>
+<p>输入<code>exit</code>退出MySQL</p>
+<p>登录<code>hadoop</code>目录，输入密码<code>hadoop</code></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -u hadoop -p</span><br></pre></td></tr></table></figure>
+<p>下载JDBC连接驱动的<a target="_blank" rel="noopener" href="https://downloads.mysql.com/archives/c-j/">deb安装包</a>，我的MySQL版本为8.0.37，网站上写的Product Version只有8.0.33，不过也是兼容的，选择好MySQL版本和Ubuntu版本，即可下载<a target="_blank" rel="noopener" href="https://downloads.mysql.com/archives/get/p/3/file/mysql-connector-j_8.0.33-1ubuntu22.04_all.deb">deb安装包</a></p>
+<blockquote>
+<p>现在MySQL版本更新到了9，可以直接使用MySQL 9和对应的JDBC驱动</p>
+</blockquote>
+<p>通过<code>apt</code>工具安装驱动</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt-get install /home/hadoop/Downloads/mysql-connector-j_8.0.33-1ubuntu22.04_all.deb</span><br></pre></td></tr></table></figure>
+<p>然后将安装好的驱动复制到Hive的lib目录下</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cp</span> /usr/share/java/mysql-connector-j-8.0.33.jar <span class="variable">$HIVE_HOME</span>/lib/</span><br></pre></td></tr></table></figure>
+<h2 id="mysql注意事项"><a class="markdownIt-Anchor" href="#mysql注意事项"></a> MySQL注意事项</h2>
+<h4 id="通信问题"><a class="markdownIt-Anchor" href="#通信问题"></a> 通信问题</h4>
+<p>为了让Hive与MySQL能通信，需要修改以下配置</p>
+<figure class="highlight plaintext"><figcaption><span>/etc/mysql/mysql.conf.d/mysqld.cnf</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[mysqld]</span><br><span class="line">bind-address    = 0.0.0.0</span><br></pre></td></tr></table></figure>
+<h4 id="命令差异"><a class="markdownIt-Anchor" href="#命令差异"></a> 命令差异</h4>
+<p>MySQL8和MySQL5.7命令有差异</p>
+<h5 id="创建用户与赋权"><a class="markdownIt-Anchor" href="#创建用户与赋权"></a> 创建用户与赋权</h5>
+<p>在MySQL5.7版本上，使用以下命令可以同时创建账户并赋权</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">GRANT</span> <span class="keyword">ALL</span> PRIVILEGES <span class="keyword">ON</span> <span class="operator">*</span>.<span class="operator">*</span> <span class="keyword">TO</span> <span class="string">&#x27;hadoop&#x27;</span>@<span class="string">&#x27;%&#x27;</span> IDENTIFIED <span class="keyword">BY</span> <span class="string">&#x27;hadoop&#x27;</span> <span class="keyword">WITH</span> <span class="keyword">GRANT</span> OPTION;</span><br></pre></td></tr></table></figure>
+<p>但是在新版本的<code>MySQL 8.x</code>版本上，已经将两个操作分离，执行以上命令会导致语法错误</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="string">&#x27;hadoop&#x27;</span>@<span class="string">&#x27;%&#x27;</span> IDENTIFIED <span class="keyword">BY</span> <span class="string">&#x27;hadoop&#x27;</span> <span class="keyword">WITH</span> <span class="keyword">GRANT</span> OPTION;</span><br><span class="line">ERROR <span class="number">1064</span> (<span class="number">42000</span>): You have an error <span class="keyword">in</span> your <span class="keyword">SQL</span> syntax; <span class="keyword">check</span> the manual that corresponds <span class="keyword">to</span> your MySQL server version <span class="keyword">for</span> the <span class="keyword">right</span> syntax <span class="keyword">to</span> use near <span class="string">&#x27;IDENTIFIED BY &#x27;</span><span class="number">123456</span><span class="string">&#x27; WITH GRANT OPTION&#x27;</span> <span class="keyword">at</span> line <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<p>应将创建用户与授权命令分离：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">CREATE</span> <span class="keyword">USER</span> <span class="string">&#x27;hadoop&#x27;</span>@<span class="string">&#x27;%&#x27;</span> IDENTIFIED <span class="keyword">BY</span> <span class="string">&#x27;123456&#x27;</span>;</span><br><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">GRANT</span> <span class="keyword">ALL</span> <span class="keyword">ON</span> hive.<span class="operator">*</span> <span class="keyword">TO</span> <span class="string">&#x27;hadoop&#x27;</span>@<span class="string">&#x27;%&#x27;</span>;</span><br></pre></td></tr></table></figure>
+<h5 id="修改密码"><a class="markdownIt-Anchor" href="#修改密码"></a> 修改密码</h5>
+<p>MySQL修改密码有三种方式<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup></p>
+<p><strong>方法一</strong>：使用UPDATE语句更改MySQL用户密码</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> USE mysql;</span><br><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">UPDATE</span> <span class="keyword">user</span> </span><br><span class="line">            <span class="keyword">SET</span> password <span class="operator">=</span> PASSWORD(<span class="string">&#x27;newpasswd&#x27;</span>)</span><br><span class="line">            <span class="keyword">WHERE</span> <span class="keyword">user</span> <span class="operator">=</span> <span class="string">&#x27;hadoop&#x27;</span> <span class="keyword">AND</span> host <span class="operator">=</span> <span class="string">&#x27;%&#x27;</span>;</span><br><span class="line">mysql<span class="operator">&gt;</span> FLUSH PRIVILEGES;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意：MySQL 5.7.6版本以下，才能使用此方法来修改密码。从MySQL 5.7.6版本起，user表仅使用authentication_string列代替之前版本中的password列来存储密码。此外，它删除了password列。</p>
+</blockquote>
+<p>版本在5.7.6+，必须在UPDATE语句中使用authentication_string列代替password列</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> USE mysql;</span><br><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">UPDATE</span> <span class="keyword">user</span> </span><br><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">SET</span> authentication_string <span class="operator">=</span> PASSWORD(<span class="string">&#x27;newpasswd&#x27;</span>)</span><br><span class="line">            <span class="keyword">WHERE</span> <span class="keyword">user</span> <span class="operator">=</span> <span class="string">&#x27;jccc&#x27;</span> <span class="keyword">AND</span> </span><br><span class="line">                  host <span class="operator">=</span> <span class="string">&#x27;%&#x27;</span>;</span><br><span class="line">mysql<span class="operator">&gt;</span> FLUSH PRIVILEGES;</span><br></pre></td></tr></table></figure>
+<p><strong>方法二</strong>：使用SET PASSWORD语句更改MySQL用户密码</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">SET</span> PASSWORD <span class="keyword">FOR</span> <span class="string">&#x27;jccc&#x27;</span>@<span class="string">&#x27;%&#x27;</span> <span class="operator">=</span> PASSWORD(<span class="string">&#x27;newpasswd2&#x27;</span>);</span><br></pre></td></tr></table></figure>
+<p>从MySQL 5.7.6版本开始，MySQL不推荐使用此语法，可能会在将来的版本中将其删除。作为一个代替的解决方案，它使用明文密码如下：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">SET</span> PASSWORD <span class="keyword">FOR</span> <span class="string">&#x27;jccc&#x27;</span>@<span class="string">&#x27;%&#x27;</span> <span class="operator">=</span> <span class="string">&#x27;newpasswd2&#x27;</span>;</span><br></pre></td></tr></table></figure>
+<p><strong>方法三</strong>：使用<code>ALTER USER</code>语句改MySQL用户密码</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">ALTER</span> <span class="keyword">USER</span> jccc@<span class="operator">%</span> IDENTIFIED <span class="keyword">BY</span> <span class="string">&#x27;newpasswd3&#x27;</span>;</span><br></pre></td></tr></table></figure>
+<h2 id="hive配置"><a class="markdownIt-Anchor" href="#hive配置"></a> Hive配置</h2>
+<h3 id="hive自身配置"><a class="markdownIt-Anchor" href="#hive自身配置"></a> Hive自身配置</h3>
+<p>进入Hive的目录，复制几个配置文件的模板</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> <span class="variable">$HIVE_HOME</span>/conf</span><br><span class="line"><span class="built_in">cp</span> hive-env.sh.template hive-env.sh</span><br><span class="line"><span class="built_in">cp</span> hive-default.xml.template hive-default.xml</span><br></pre></td></tr></table></figure>
+<p>配置<code>hive-site.xml</code>文件，跟使用TiDB<sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup>的配置类似</p>
+<p>各个选项的说明可以在<a target="_blank" rel="noopener" href="https://cwiki.apache.org/confluence/display/Hive/Configuration+Properties?spm=5176.28103460.0.0.7d815d27rIvLt1#ConfigurationProperties-AuthenticationandAuthorization">这里</a>看到</p>
+<blockquote>
+<p><strong>注意</strong>：</p>
+<p><a href="#%E5%91%BD%E4%BB%A4%E5%B7%AE%E5%BC%82">创建用户和授权命令在MySQL8.x版本中有所不同</a>，配置文件中根据你创建的MySQL用户和密码进行修改。</p>
+<p><code>hive-site.xml</code>配置文件中，需要将<code>javax.jdo.option.ConnectionDriverName</code>的值修改为<code>com.mysql.cj.jdbc.Driver</code>，而原本的<code>com.mysql.jdbc.Driver</code>在较新的MySQL Connector/J版本中已被标记为过时，新的驱动类提供了更好的功能和性能。如果使用原本的值，初始化Hive会出现以下警告。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Loading class &#x27;com.mysql.jdbc.Driver&#x27;. This is deprecated. The new driver class is &#x27;com.mysql.cj.jdbc.Driver&#x27;. The driver is automatically registered via the SPI and manual loading of the driver class is generally unnecessary.</span><br></pre></td></tr></table></figure>
+<p>还有用户名密码要设为MySQL中对应的。</p>
+</blockquote>
+<figure class="highlight xml"><figcaption><span>$HIVE_HOME/conf/hive-site.xml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">	<span class="comment">&lt;!-- MySQL连接配置 --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span>javax.jdo.option.ConnectionURL<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">value</span>&gt;</span>jdbc:mysql://localhost:3306/hive<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">description</span>&gt;</span>MySQL address<span class="tag">&lt;/<span class="name">description</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span>javax.jdo.option.ConnectionUserName<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">value</span>&gt;</span>hadoop<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">description</span>&gt;</span>MySQL username<span class="tag">&lt;/<span class="name">description</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span>javax.jdo.option.ConnectionPassword<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">value</span>&gt;</span>hadoop<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">description</span>&gt;</span>MySQL password<span class="tag">&lt;/<span class="name">description</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span>javax.jdo.option.ConnectionDriverName<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">value</span>&gt;</span>com.mysql.cj.jdbc.Driver<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">&lt;!-- Metastore配置 --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span>hive.metastore.uris<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">value</span>&gt;</span>thrift://localhost:9083<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span>hive.metastore.schema.verification<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">value</span>&gt;</span>false<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">&lt;!-- </span></span><br><span class="line"><span class="comment">		新版本（4.0）使用Beeline代替了传统的hive cli</span></span><br><span class="line"><span class="comment">		Beeline需要通过HiveServer2网络服务对Hive进行访问</span></span><br><span class="line"><span class="comment">		如果使用3.x的版本，可以直接在hive cli中输入SQL语句，hive cli并不依赖于HivesServer2</span></span><br><span class="line"><span class="comment">		（但是即使你使用的是3.x的版本，在实验后面把数据从Hive导入MySQL时</span></span><br><span class="line"><span class="comment">		仍然需要使用到HiveServer2）</span></span><br><span class="line"><span class="comment">		下面是hiveserver2的配置</span></span><br><span class="line"><span class="comment">	--&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span>hive.server2.thrift.port<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">value</span>&gt;</span>10000<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span>hive.server2.thrift.bind.host<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">value</span>&gt;</span>127.0.0.1<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">&lt;!-- 这里为了方便，我们将HiveServer2设置为无需认证（也可以省略这个配置，默认值即为NONE）</span></span><br><span class="line"><span class="comment">	任何客户端可直接连接到HiveServer2</span></span><br><span class="line"><span class="comment">	安全的认证方式有简单用户名/密码认证、Kerberos 认证、LDAP 认证、PAM认证等</span></span><br><span class="line"><span class="comment">	如有需要，自行进行配置</span></span><br><span class="line"><span class="comment">	--&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span>hive.server2.authentication<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">value</span>&gt;</span>NONE<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>配置Hive的环境变量<code>hive-env.sh</code></p>
+<figure class="highlight sh"><figcaption><span>$HIVE_HOME/conf/hive-env.sh</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> HADOOP_HOME=/usr/local/hadoop</span><br><span class="line"><span class="built_in">export</span> JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64</span><br><span class="line"><span class="built_in">export</span> HIVE_CONF_DIR=/usr/local/hive/conf</span><br><span class="line"><span class="built_in">export</span> HIVE_AUX_JARS_PATH=/usr/local/hive/lib</span><br></pre></td></tr></table></figure>
+<p>运行下面的命令初始化MySQL元数据</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">schematool -dbType mysql -initSchema --verbose</span><br></pre></td></tr></table></figure>
+<h3 id="配置hadoop的代理用户"><a class="markdownIt-Anchor" href="#配置hadoop的代理用户"></a> 配置Hadoop的代理用户</h3>
+<p>HiveServer2的使用需要用到Hadoop的代理用户，使用以下配置允许hadoop用户代理所有主机中和所有用户</p>
+<figure class="highlight xml"><figcaption><span>$HADOOP_HOME/etc/hadoop/core-site.xml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>hadoop.proxyuser.hadoop.hosts<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>*<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>hadoop.proxyuser.hadoop.groups<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>*<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>注意</strong>：这里的hadoop.proxyuser.xxx.hosts和hadoop.proxy.xxx.groups要把中间的xxx换成你的用户名<sup class="footnote-ref"><a href="#fn4" id="fnref4">[4]</a></sup>，也就是允许xxx代理所有主机所有用户（折腾几天才发现hiveserver2启动不起来是这里的问题(≖_≖ )）</p>
+</blockquote>
+<h3 id="启动并试用hive"><a class="markdownIt-Anchor" href="#启动并试用hive"></a> 启动并试用Hive</h3>
+<p>首先启动Hadoop集群</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">start-all.sh</span><br></pre></td></tr></table></figure>
+<p>启动Metastore（传统Hive Cli不需要HiveServer2）</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hive --service metastore</span><br></pre></td></tr></table></figure>
+<p>启动Hive客户端并进行测试</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hive</span><br></pre></td></tr></table></figure>
+<p>在里面可以输入SQL语句，如果要退出Hive交互式执行环境，可以输入如下命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hive&gt; exit;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>（Beeline部分待完善）<br />
+如果使用的是4.0版本，Beeline代替了传统的hive cli，需要先启动HiveServer2再进入Beeline，大部分Hive的SQL语句也是可以用于Beeline的</p>
+<p>启动HiveServer2：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hive --service hiveserver2</span><br></pre></td></tr></table></figure>
+<p>Beeline连接HiveServer2。为了拥有访问hadoop目录的权限，把<code>username</code>改为你的系统用户名</p>
+<blockquote>
+<p>如果不指定用户，使用的是匿名用户，没有权限访问/user/hive/warehouse，无法创建数据库</p>
+</blockquote>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">beeline -u jdbc:hive2://localhost:10000 -n username</span><br></pre></td></tr></table></figure>
+<p>使用<code>!quit</code>或<code>!exit</code>退出Beeline</p>
+</blockquote>
+<h2 id="hive排错"><a class="markdownIt-Anchor" href="#hive排错"></a> Hive排错</h2>
+<h3 id="无法执行hive的sql语句"><a class="markdownIt-Anchor" href="#无法执行hive的sql语句"></a> 无法执行Hive的SQL语句</h3>
+<p>运行hive命令如果报错：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">FAILED: HiveException java.lang.RuntimeException: Unable to instantiate org.apache.hadoop.hive.ql.metadata.SessionHiveMetaStoreClient</span><br></pre></td></tr></table></figure>
+<p>说明<code>Hive</code>在尝试连接到Hive MetaStore时失败了</p>
+<p>可能是因为<code>Hive MetaStore</code>服务没有运行，在后台运行以下命令：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hive --service metastore &amp;</span><br></pre></td></tr></table></figure>
+<p>然后再运行<code>hive</code>即可正常使用</p>
+<p>如果还是不行，就重新初始化<code>hive</code></p>
+<p>尝试进入MySQL将hive数据库删除。由于已经授权给用户<code>hadoop</code>，直接登录<code>hadoop</code>对hive数据库重置即可，无需登录<code>root</code>用户进行删除并重新创建授权</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">drop</span> database hive;</span><br><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">create</span> database hive;</span><br></pre></td></tr></table></figure>
+<p>然后删除HDFS中的<code>/tmp</code>目录</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hdfs dfs -<span class="built_in">rm</span> -r /tmp</span><br></pre></td></tr></table></figure>
+<p>再重新升级元数据</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">schematool -initSchema -dbType mysql --verbose</span><br></pre></td></tr></table></figure>
+<h3 id="格式化失败"><a class="markdownIt-Anchor" href="#格式化失败"></a> 格式化失败</h3>
+<p>如果在运行<code>schematool</code>命令进行初始化时报以下错误</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Error: Table &#x27;CTLGS&#x27; already exists (state=42S01,code=1050)</span><br><span class="line">org.apache.hadoop.hive.metastore.HiveMetaException: Schema initialization FAILED! Metastore state would be inconsistent !!</span><br><span class="line">Underlying cause: java.io.IOException : Schema script failed, errorcode 2</span><br><span class="line">Use --verbose for detailed stacktrace.</span><br><span class="line">*** schemaTool failed ***</span><br></pre></td></tr></table></figure>
+<p>可以尝试先进入<code>MySQL</code>，删除<code>hive</code>数据库再重建</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DROP</span> DATABASE hive;</span><br><span class="line"><span class="keyword">CREATE</span> DATABASE hive;</span><br></pre></td></tr></table></figure>
+<hr class="footnotes-sep" />
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><a href="/2024/06/16/Ubuntu%E4%B8%8B%E7%9A%84MySQL%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/" title="Ubuntu下的MySQL安装配置">Ubuntu下的MySQL安装配置</a>
+ <a href="#fnref1" class="footnote-backref">↩︎</a></li>
+<li id="fn2" class="footnote-item"><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/happyxin_/article/details/125614272">MySQL修改密码（三种方法示例）</a> <a href="#fnref2" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn3" class="footnote-item"><p><a target="_blank" rel="noopener" href="https://cwiki.apache.org/confluence/display/Hive/Using+TiDB+as+the+Hive+Metastore+database">Using TiDB as the Hive Metastore database</a> <a href="#fnref3" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn4" class="footnote-item"><p><a target="_blank" rel="noopener" href="https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/Superusers.html">Proxy user - Superusers Acting On Behalf Of Other Users</a> <a href="#fnref4" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>Buy me a coffee</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.jpg" alt="Jccc 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.jpg" alt="Jccc 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Jccc
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://jccc-l.github.io/2024/06/16/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%9E%E9%AA%8C%E8%B8%A9%E5%9D%91%E6%8C%87%E5%8D%97-No-2%E2%80%94%E2%80%94Hive%E7%9A%84%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/" title="大数据实验踩坑指南_No.2——Hive的安装配置">https://jccc-l.github.io/2024/06/16/大数据实验踩坑指南-No-2——Hive的安装配置/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/en" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/MySQL/" rel="tag"><i class="fa fa-tag"></i> MySQL</a>
+              <a href="/tags/Database/" rel="tag"><i class="fa fa-tag"></i> Database</a>
+              <a href="/tags/Big-Data/" rel="tag"><i class="fa fa-tag"></i> Big Data</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/06/16/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%9E%E9%AA%8C%E8%B8%A9%E5%9D%91%E6%8C%87%E5%8D%97-No-1%E2%80%94%E2%80%94Hadoop%E7%9A%84%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/" rel="prev" title="大数据实验踩坑指南_No.1——Hadoop的安装配置">
+                  <i class="fa fa-angle-left"></i> 大数据实验踩坑指南_No.1——Hadoop的安装配置
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2024/06/16/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%9E%E9%AA%8C%E8%B8%A9%E5%9D%91%E6%8C%87%E5%8D%97-No-3%E2%80%94%E2%80%94ZooKeeper%E7%9A%84%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/" rel="next" title="大数据实验踩坑指南_No.3——ZooKeeper的安装配置.md">
+                  大数据实验踩坑指南_No.3——ZooKeeper的安装配置.md <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2023 – 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder"><span id="copyright"> 路过的即是风景. All rights reserved. Non-commercial use allowed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>.</span></span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">116k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">1:45</span>
+  </span>
+</div><footer>
+    <div>
+        <!-- 时间统计部分 -->
+        <span id="timeDate">载入天数...</span>
+        <span id="times">载入时分秒...</span>
+        <script>
+            var now = new Date();
+            function createtime() {
+                var grt = new Date("05/04/2023 00:00:00");
+                now.setTime(now.getTime() + 250);
+                days = (now - grt) / 1000 / 60 / 60 / 24; 
+                dnum = Math.floor(days);
+                hours = (now - grt) / 1000 / 60 / 60 - (24 * dnum); 
+                hnum = Math.floor(hours);
+                if(String(hnum).length == 1) {hnum = "0" + hnum;}
+                minutes = (now - grt) / 1000 / 60 - (24 * 60 * dnum) - (60 * hnum);
+                mnum = Math.floor(minutes);
+                if(String(mnum).length == 1) {mnum = "0" + mnum;}
+                seconds = (now - grt) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+                snum = Math.round(seconds);
+                if(String(snum).length == 1) {snum = "0" + snum;}
+                document.getElementById("timeDate").innerHTML = "本站已安全运行 " + dnum + " 天 ";
+                document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+            }
+            setInterval("createtime()", 250);
+        </script>
+        <!-- 版权信息与联系信息部分 -->
+<!--
+		&copy; 2023-<span id="currentYearPlaceholder">YYYY</span>
+		<span id="copyright"> 路过的即是风景. All rights reserved. Non-commercial use allowed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>.</span>
+-->
+<!--
+		<span id="disclaimer" style="text-align: left;">disclaimer: <br>content provided for reference only. <br>accuracy, completeness, suitability not guaranteed. <br>not liable for any loss or damage.</span>
+-->
+
+		<br>
+		<!--联系信息部分-->
+		<span id="Contact">Contact Me: <a href="mailto:1216550215Jc@gmail.com">GMail</a> | Address: Guangdong, China</span>
+		<script>
+			// 使用JavaScript获取当前年份并更新到页面上
+			document.getElementById('currentYearPlaceholder').innerText = new Date().getFullYear();
+		</script>
+    </div>
+</footer>
+
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  <script src="/js/third-party/pace.js"></script>
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" integrity="sha256-UF1fgpAiu3tPJN/uCqEUHNe7pnr+QR0SQDNfgglgtcM=" crossorigin="anonymous">
+
+
+
+</body>
+</html>

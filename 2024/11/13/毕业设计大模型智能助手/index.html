@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha256-XOqroi11tY4EFQMR9ZYwZWKj5ZXiftSx36RRuC3anlA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-minimal.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"jccc-l.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"hide","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"fold":{"enable":true,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="毕业设计头疼中">
+<meta property="og:type" content="article">
+<meta property="og:title" content="毕业设计大模型智能助手">
+<meta property="og:url" content="https://jccc-l.github.io/2024/11/13/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%99%BA%E8%83%BD%E5%8A%A9%E6%89%8B/index.html">
+<meta property="og:site_name" content="璐濄のβlòɡ">
+<meta property="og:description" content="毕业设计头疼中">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-11-13T03:24:02.000Z">
+<meta property="article:modified_time" content="2024-11-13T03:37:30.946Z">
+<meta property="article:author" content="Jccc">
+<meta property="article:tag" content="数据库">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="LLM">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://jccc-l.github.io/2024/11/13/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%99%BA%E8%83%BD%E5%8A%A9%E6%89%8B/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://jccc-l.github.io/2024/11/13/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%99%BA%E8%83%BD%E5%8A%A9%E6%89%8B/","path":"2024/11/13/毕业设计大模型智能助手/","title":"毕业设计大模型智能助手"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>毕业设计大模型智能助手 | 璐濄のβlòɡ</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">璐濄のβlòɡ</p>
+      <i class="logo-line"></i>
+    </a>
+      <img class="custom-logo-image" src="https://static.wixstatic.com/media/7ac599_2e792bfa812140c898f6c3a78e4ab78f~mv2.png/v1/fill/w_951,h_1046,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/7ac599_2e792bfa812140c898f6c3a78e4ab78f~mv2.png" alt="璐濄のβlòɡ">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%99%BA%E8%83%BD%E5%8A%A9%E6%89%8B"><span class="nav-text"> 毕业设计大模型智能助手</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E7%BD%AE%E5%87%86%E5%A4%87"><span class="nav-text"> 前置准备</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ollama%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE"><span class="nav-text"> Ollama安装配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9E%84%E5%BB%BAollama%E7%9A%84docker%E5%AE%B9%E5%99%A8"><span class="nav-text"> 构建Ollama的Docker容器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#cpu"><span class="nav-text"> CPU</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#nvidia-gpu"><span class="nav-text"> NVIDIA GPU</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%90%E8%A1%8C%E6%A8%A1%E5%9E%8B"><span class="nav-text"> 运行模型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#open-webui%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE"><span class="nav-text"> Open Webui安装配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#anything-llm%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE"><span class="nav-text"> Anything LLM安装配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%91%E9%87%8F%E6%95%B0%E6%8D%AE%E5%BA%93milvus"><span class="nav-text"> 向量数据库Milvus</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Jccc"
+      src="https://static.wixstatic.com/media/7ac599_2e792bfa812140c898f6c3a78e4ab78f~mv2.png/v1/fill/w_951,h_1046,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/7ac599_2e792bfa812140c898f6c3a78e4ab78f~mv2.png">
+  <p class="site-author-name" itemprop="name">Jccc</p>
+  <div class="site-description" itemprop="description">Jccc的胡言乱语</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">36</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">48</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Jccc-l" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Jccc-l" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:1216550215Jc@gmail.com" title="E-Mail → mailto:1216550215Jc@gmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://huggingface.co/Jccc-l" title="🤗 Hg Face → https:&#x2F;&#x2F;huggingface.co&#x2F;Jccc-l" rel="noopener me" target="_blank">🤗 Hg Face</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/contact/WeChat" title="WeChat → &#x2F;contact&#x2F;WeChat" rel="noopener me"><i class="fab fa-weixin fa-fw"></i>WeChat</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://qm.qq.com/q/ZOA0HXIwU0" title="QQ → https:&#x2F;&#x2F;qm.qq.com&#x2F;q&#x2F;ZOA0HXIwU0" rel="noopener me" target="_blank"><i class="fab fa-qq fa-fw"></i>QQ</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="返回顶部">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+    
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+          链接
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="https://julintongxue.github.io/" title="https:&#x2F;&#x2F;julintongxue.github.io" rel="noopener" target="_blank">orangeの博客</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://georgenhj.github.io/" title="https:&#x2F;&#x2F;georgenhj.github.io&#x2F;" rel="noopener" target="_blank">George Nong's Blog</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+    <embed id="musicplayer" frameborder="no" border="0" marginwidth="0" marginheight="0" width=400 height=86 src="//music.163.com/outchain/player?type=2&id=407450660&auto=1&height=66"></embed>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://jccc-l.github.io/2024/11/13/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%99%BA%E8%83%BD%E5%8A%A9%E6%89%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://static.wixstatic.com/media/7ac599_2e792bfa812140c898f6c3a78e4ab78f~mv2.png/v1/fill/w_951,h_1046,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/7ac599_2e792bfa812140c898f6c3a78e4ab78f~mv2.png">
+      <meta itemprop="name" content="Jccc">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="璐濄のβlòɡ">
+      <meta itemprop="description" content="Jccc的胡言乱语">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="毕业设计大模型智能助手 | 璐濄のβlòɡ">
+      <meta itemprop="description" content="毕业设计头疼中">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          毕业设计大模型智能助手
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2024-11-13 11:24:02 / 修改时间：11:37:30" itemprop="dateCreated datePublished" datetime="2024-11-13T11:24:02+08:00">2024-11-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" itemprop="url" rel="index"><span itemprop="name">人工智能</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>5.4k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>5 分钟</span>
+    </span>
+</div>
+
+            <div class="post-description">毕业设计头疼中</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="毕业设计大模型智能助手"><a class="markdownIt-Anchor" href="#毕业设计大模型智能助手"></a> 毕业设计大模型智能助手</h1>
+<h2 id="前置准备"><a class="markdownIt-Anchor" href="#前置准备"></a> 前置准备</h2>
+<p>安装Docker</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> pacman -S docker</span><br></pre></td></tr></table></figure>
+<p>将用户添加指docker组</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> usermod -aG docker 用户名</span><br></pre></td></tr></table></figure>
+<p>编辑文件，配置Docker镜像（可以继续添加其他镜像，用逗号分隔）</p>
+<figure class="highlight json"><figcaption><span>/etc/daemon.json</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;registry-mirrors&quot;</span><span class="punctuation">:</span></span><br><span class="line">	<span class="punctuation">[</span>    </span><br><span class="line">        <span class="string">&quot;https://dockerproxy.net&quot;</span></span><br><span class="line">    <span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+<h2 id="ollama安装配置"><a class="markdownIt-Anchor" href="#ollama安装配置"></a> Ollama安装配置</h2>
+<p>Ollama现在支持通过Docker构建<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup></p>
+<h3 id="构建ollama的docker容器"><a class="markdownIt-Anchor" href="#构建ollama的docker容器"></a> 构建Ollama的Docker容器</h3>
+<p>拉取Ollama镜像</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull ollama/ollama</span><br></pre></td></tr></table></figure>
+<p>创建并启动容器（支持显卡或CPU）</p>
+<h4 id="cpu"><a class="markdownIt-Anchor" href="#cpu"></a> CPU</h4>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d -v <span class="variable">$HOME</span>/Documents/docker/ollama:/root/.ollama -p 11434:11434 --name ollama ollama/ollama</span><br></pre></td></tr></table></figure>
+<h4 id="nvidia-gpu"><a class="markdownIt-Anchor" href="#nvidia-gpu"></a> NVIDIA GPU</h4>
+<p>NVIDIA GPU需要先安装工具包，Arch的安装命令如下，其他系统参考说明文档<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> pacman -S nvidia-container-toolkit</span><br></pre></td></tr></table></figure>
+<p>安装完工具包，需要重启一下Docker</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> systemctl restart docker</span><br></pre></td></tr></table></figure>
+<p>然后启动容器，以下这条命令做了以下操作</p>
+<ul>
+<li>把所有GPU分配给容器</li>
+<li>把宿主机的<code>$HOME/Documents/docker/ollama</code>目录挂载到容器的<code>/root/.ollama</code>目录中</li>
+<li>将容器命名为<code>ollama</code></li>
+<li>把主机的11434端口映射到容器的11434端口</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d --gpus=all -v <span class="variable">$HOME</span>/Documents/docker/ollama:/root/.ollama -p 11434:11434 --name ollama ollama/ollama</span><br></pre></td></tr></table></figure>
+<h3 id="运行模型"><a class="markdownIt-Anchor" href="#运行模型"></a> 运行模型</h3>
+<p>这里先介绍以下如何在Docker中执行命令，通常是使用<code>docker exec</code>命令， 这个命令的第一个参数是容器名称，第二个参数是要运行的命令，例子如下：</p>
+<ul>
+<li>通过命令<code>docker exec -it ollama bash</code>，在名为ollama的容器中执行<code>bash</code>命令，进入ollama容器的bash命令行交互界面</li>
+<li>通过命令<code>docker exec -it ollama ollama ...</code>，在名为ollama的容器中执行<code>ollama</code>命令</li>
+</ul>
+<p>Ollama有以下常用命令<sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup></p>
+<p>拉取模型，镜像详情可以在Ollama仓库中查询<sup class="footnote-ref"><a href="#fn4" id="fnref4">[4]</a></sup></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ollama pull qwen:4b</span><br></pre></td></tr></table></figure>
+<p>根据Modefile文件创建模型</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ollama create mymodel -f ./Modelfile</span><br></pre></td></tr></table></figure>
+<p>移除模型</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ollama <span class="built_in">rm</span> llama3.2</span><br></pre></td></tr></table></figure>
+<p>复制模型</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ollama <span class="built_in">cp</span> llama3.2 mymodel</span><br></pre></td></tr></table></figure>
+<h2 id="open-webui安装配置"><a class="markdownIt-Anchor" href="#open-webui安装配置"></a> Open Webui安装配置</h2>
+<p>Ollama主要作为一个后端服务来运行，通常需要一个前端用户界面结合使用，而Open WebUI是一个功能丰富且用户友好的Web界面，支持多重语言模型运行器，提供一个图形化的用户界面来管理和使用语言模型<sup class="footnote-ref"><a href="#fn5" id="fnref5">[5]</a></sup></p>
+<p>Open WebUI可以对模型的各种参数进行调整</p>
+<p>同样使用Docker容器进行安装</p>
+<p>拉取镜像</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull ghcr.io/open-webui/open-webui:main</span><br></pre></td></tr></table></figure>
+<p>可以通过以下命令运行</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">docker run -d -p 3000:8080 \</span><br><span class="line">--add-host=host.docker.internal:host-gateway \</span><br><span class="line">-v <span class="variable">$HOME</span>/Documents/docker/open-webui:/app/backend/data \</span><br><span class="line">--name open-webui \</span><br><span class="line">--restart always \</span><br><span class="line">ghcr.io/open-webui/open-webui:main</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>命令解释</p>
+<ul>
+<li><code>docker run</code>
+<ul>
+<li>这是启动一个新的Docker容器的命令。</li>
+</ul>
+</li>
+<li><code>-d</code>
+<ul>
+<li>表示容器将以分离模式（后台）运行。这意味着容器会在后台运行，不会占用当前终端。</li>
+</ul>
+</li>
+<li><code>-p 3000:8080</code>
+<ul>
+<li>指定端口映射，将宿主机的3000端口映射到容器内的8080端口。这样可以从宿主机通过3000端口访问容器内的服务。</li>
+</ul>
+</li>
+<li><code>--add-host=host.docker.internal</code>host-gateway:
+<ul>
+<li>这个选项将宿主机的IP地址添加到容器的 /etc/hosts 文件中，使用别名 host.docker.internal。这使得容器可以通过 host.docker.internal 访问宿主机上的服务。这对于开发和调试非常有用。</li>
+</ul>
+</li>
+<li><code>-v $HOME/Documents/docker/open-webui</code>/app/backend/data:
+<ul>
+<li>这个选项使用绑定挂载（bind mount）将宿主机上的 $HOME/Documents/docker/open-webui 目录挂载到容器内的 /app/backend/data 目录。这样容器内的应用程序可以读写宿主机上的这个目录，适用于需要直接访问宿主机文件的情况。</li>
+</ul>
+</li>
+<li><code>--name open-webui</code>
+<ul>
+<li>为容器指定一个名称 open-webui。这使得后续操作（如停止、删除等）更加方便。</li>
+</ul>
+</li>
+<li><code>--restart always</code>
+<ul>
+<li>设置容器的重启策略为 always，这意味着无论容器因何原因停止（包括手动停止），Docker 都会自动重启容器。这对于需要长期运行的服务非常有用。</li>
+</ul>
+</li>
+<li><code>ghcr.io/open-webui/open-webui:main</code>
+<ul>
+<li>这是将要运行的Docker镜像的名称和标签。<a target="_blank" rel="noopener" href="http://ghcr.io">ghcr.io</a> 是 GitHub Container Registry 的域名，open-webui/open-webui 是仓库和镜像名称，main 是标签，表示这个镜像是基于 main 分支构建的版本。</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<p>如果想支持显卡，可以使用以下命令</p>
+<blockquote>
+<p><strong>由于网络原因，部分软件库无法下载，无法支持显卡</strong></p>
+</blockquote>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">docker run -d -p 3000:8080 \</span><br><span class="line">--gpus all \</span><br><span class="line">--add-host=host.docker.internal:host-gateway \</span><br><span class="line">-v <span class="variable">$HOME</span>/Documents/docker/open-webui:/app/backend/data \</span><br><span class="line">--name open-webui \</span><br><span class="line">--restart always \</span><br><span class="line">ghcr.io/open-webui/open-webui:cuda</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>命令解释</p>
+<ul>
+<li><code>docker run -d -p 3000:8080</code>
+<ul>
+<li><code>docker run</code>启动一个新的Docker容器</li>
+<li><code>-d</code>表示容器将以分离模式运行，即后台运行</li>
+<li><code>-p 3000:8080</code>指定端口映射，将宿主机的3000端口映射到容器内的8080端口，允许外部访问容器内的服务。</li>
+</ul>
+</li>
+<li><code>--gpus all</code>
+<ul>
+<li>这个选项用于启用GPU支持，并将所有可用的GPU设备分配给容器。</li>
+</ul>
+</li>
+<li><code>--add-host=host.docker.internal:host-gateway</code>
+<ul>
+<li>这个选项将宿主机的IP地址添加到容器的<code>/etc/hosts</code>文件中，使用别名<code>host.docker.internal</code>。这使得容器可以通过<code>host.docker.internal</code>访问宿主机上的服务。</li>
+</ul>
+</li>
+<li><code>-v $HOME/Documents/docker/open-webui:/app/backend/data</code>
+<ul>
+<li>使用绑定挂载（bind mount）将宿主机上的<code>$HOME/Documents/docker/open-webui</code>目录挂载到容器内的<code>/app/backend/data</code>目录。这样容器内的应用程序可以读写宿主机上的这个目录。</li>
+</ul>
+</li>
+<li><code>--name open-webui</code>
+<ul>
+<li>为容器指定一个名称<code>open-webui</code></li>
+</ul>
+</li>
+<li><code>--restart always</code>:
+<ul>
+<li>设置容器的重启策略为<code>always</code>，这意味着无论容器因何原因停止（包括手动停止），Docker 都会自动重启容器。</li>
+</ul>
+</li>
+<li><code>ghcr.io/open-webui/open-webui:cuda</code>
+<ul>
+<li>这是将要运行的Docker镜像的名称和标签。<code>ghcr.io</code>是GitHub Container Registry的域名，<code>open-webui/open-webui</code>是仓库和镜像名称，<code>cuda</code>是标签，表示这个镜像是针对CUDA（NVIDIA的GPU计算平台）优化的版本。</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h2 id="anything-llm安装配置"><a class="markdownIt-Anchor" href="#anything-llm安装配置"></a> Anything LLM安装配置</h2>
+<p>Anything LLM有多种安装方式，我这里通过Docker进行安装<sup class="footnote-ref"><a href="#fn6" id="fnref6">[6]</a></sup></p>
+<p>拉取镜像</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull mintplexlabs/anythingllm</span><br></pre></td></tr></table></figure>
+<p>启动一个新镜像</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> STORAGE_LOCATION=<span class="variable">$HOME</span>/Documents/docker/anythingllm &amp;&amp; \</span><br><span class="line"><span class="built_in">mkdir</span> -p <span class="variable">$STORAGE_LOCATION</span> &amp;&amp; \</span><br><span class="line"><span class="built_in">touch</span> <span class="string">&quot;<span class="variable">$STORAGE_LOCATION</span>/.env&quot;</span> &amp;&amp; \</span><br><span class="line">docker run -d -p 3001:3001 \</span><br><span class="line">--cap-add SYS_ADMIN \</span><br><span class="line">-v <span class="variable">$&#123;STORAGE_LOCATION&#125;</span>:/app/server/storage \</span><br><span class="line">-v <span class="variable">$&#123;STORAGE_LOCATION&#125;</span>/.env:/app/server/.env \</span><br><span class="line">-e STORAGE_DIR=<span class="string">&quot;/app/server/storage&quot;</span> \</span><br><span class="line">--name anythingllm \</span><br><span class="line">mintplexlabs/anythingllm</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>命令解释</p>
+<p>前置命令</p>
+<ul>
+<li><code>export STORAGE_LOCATION=$HOME/Documents/docker/anythingllm</code>
+<ul>
+<li>这是一个bash命令，用于在当前shell会话中设置一个环境变量<code>STORAGE_LOCATION</code>，其值为用户主目录下的<code>Documents/docker/anythingllm</code>文件夹。这个变量将在后续的Docker命令中使用。</li>
+</ul>
+</li>
+<li><code>mkdir -p $STORAGE_LOCATION</code>
+<ul>
+<li>这也是一个bash命令，它创建了由<code>STORAGE_LOCATION</code>变量指定的目录（如果该目录不存在的话）。<code>-p</code>选项确保即使父目录不存在也会被创建。</li>
+</ul>
+</li>
+<li><code>touch &quot;$STORAGE_LOCATION/.env&quot;</code>
+<ul>
+<li><code>touch</code>命令用于创建一个空文件或更新现有文件的时间戳。这里是在<code>STORAGE_LOCATION</code>目录下创建了一个<code>.env</code>文件，这个文件通常用来存储环境变量。</li>
+</ul>
+</li>
+</ul>
+<p>Docker 命令</p>
+<ul>
+<li><code>docker run</code>
+<ul>
+<li>这是启动一个新的Docker容器的命令。</li>
+</ul>
+</li>
+<li><code>-d</code>
+<ul>
+<li>表示容器将以分离模式（后台）运行。这意味着容器会在后台运行，不会占用当前终端。</li>
+</ul>
+</li>
+<li><code>-p 3001:3001</code>
+<ul>
+<li>指定端口映射，将宿主机的3001端口映射到容器内的3001端口。这样可以从宿主机通过3001端口访问容器内的服务。</li>
+</ul>
+</li>
+<li><code>--cap-add SYS_ADMIN</code>
+<ul>
+<li>这个选项给容器添加了<code>SYS_ADMIN</code>能力，这是一个Linux内核的能力，赋予了容器更多的权限，比如执行某些系统管理任务。请注意，赋予额外的能力可能会增加安全风险。</li>
+</ul>
+</li>
+<li><code>-v $&#123;STORAGE_LOCATION&#125;:/app/server/storage</code>
+<ul>
+<li>这个选项使用绑定挂载（bind mount）将宿主机上的<code>$&#123;STORAGE_LOCATION&#125;</code>目录挂载到容器内的<code>/app/server/storage</code>目录。这样容器内的应用程序可以读写宿主机上的这个目录，适用于需要直接访问宿主机文件的情况。</li>
+</ul>
+</li>
+<li><code>-v $&#123;STORAGE_LOCATION&#125;/.env:/app/server/.env</code>
+<ul>
+<li>这个选项使用绑定挂载将宿主机上的<code>$&#123;STORAGE_LOCATION&#125;/.env</code>文件挂载到容器内的<code>/app/server/.env</code>文件。这样容器内的应用程序可以读取这些环境配置。</li>
+</ul>
+</li>
+<li><code>-e STORAGE_DIR=&quot;/app/server/storage&quot;</code>
+<ul>
+<li>这个选项向容器传递环境变量<code>STORAGE_DIR</code>，其值为<code>/app/server/storage</code>。应用程序内部用于引用存储目录的位置。</li>
+</ul>
+</li>
+<li><code>--name anythingllm</code>
+<ul>
+<li>将容器命名为anythingllm</li>
+</ul>
+</li>
+<li><code>mintplexlabs/anythingllm</code>
+<ul>
+<li>这是将要运行的Docker镜像的名称。Docker会从Docker Hub或其他注册表拉取这个镜像（如果本地没有的话），并基于此镜像启动一个新的容器。</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h2 id="向量数据库milvus"><a class="markdownIt-Anchor" href="#向量数据库milvus"></a> 向量数据库Milvus</h2>
+<p>进入到你需要存储milvus数据的目录（脚本会把容器的目录挂载的当前目录下）</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> <span class="variable">$HOME</span>/Documents/docker/milvus</span><br></pre></td></tr></table></figure>
+<p>下载安装脚本</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -sfL https://raw.githubusercontent.com/milvus-io/milvus/master/scripts/standalone_embed.sh -o standalone_embed.sh</span><br></pre></td></tr></table></figure>
+<p>启动Docker容器</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash standalone_embed.sh start</span><br></pre></td></tr></table></figure>
+<hr class="footnotes-sep" />
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p><a target="_blank" rel="noopener" href="https://ollama.com/blog/ollama-is-now-available-as-an-official-docker-image">Ollama is now available as an official Docker image</a> <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn2" class="footnote-item"><p><a target="_blank" rel="noopener" href="https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html#installation">Installing the NVIDIA Container Toolkit</a> <a href="#fnref2" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn3" class="footnote-item"><p><a target="_blank" rel="noopener" href="https://github.com/ollama/ollama">Ollama Github Repository</a> <a href="#fnref3" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn4" class="footnote-item"><p><a target="_blank" rel="noopener" href="https://ollama.com/library">Ollama Models</a> <a href="#fnref4" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn5" class="footnote-item"><p><a target="_blank" rel="noopener" href="https://github.com/open-webui/open-webui">Open WebUI Github Repository</a> <a href="#fnref5" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn6" class="footnote-item"><p><a target="_blank" rel="noopener" href="https://docs.anythingllm.com/installation-docker/local-docker">How to use Dockerized Anything LLM</a> <a href="#fnref6" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>Buy me a coffee</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.jpg" alt="Jccc 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.jpg" alt="Jccc 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Jccc
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://jccc-l.github.io/2024/11/13/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%99%BA%E8%83%BD%E5%8A%A9%E6%89%8B/" title="毕业设计大模型智能助手">https://jccc-l.github.io/2024/11/13/毕业设计大模型智能助手/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/en" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag"><i class="fa fa-tag"></i> 数据库</a>
+              <a href="/tags/Python/" rel="tag"><i class="fa fa-tag"></i> Python</a>
+              <a href="/tags/LLM/" rel="tag"><i class="fa fa-tag"></i> LLM</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/06/27/%E5%9C%A8Linux%E4%B8%AD%E4%BD%BF%E7%94%A8%E9%94%90%E6%8D%B7%E7%99%BB%E5%BD%95%E6%A0%A1%E5%9B%AD%E7%BD%91/" rel="prev" title="在Linux中使用锐捷登录校园网">
+                  <i class="fa fa-angle-left"></i> 在Linux中使用锐捷登录校园网
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2023 – 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder"><span id="copyright"> 路过的即是风景. All rights reserved. Non-commercial use allowed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>.</span></span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">116k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">1:45</span>
+  </span>
+</div><footer>
+    <div>
+        <!-- 时间统计部分 -->
+        <span id="timeDate">载入天数...</span>
+        <span id="times">载入时分秒...</span>
+        <script>
+            var now = new Date();
+            function createtime() {
+                var grt = new Date("05/04/2023 00:00:00");
+                now.setTime(now.getTime() + 250);
+                days = (now - grt) / 1000 / 60 / 60 / 24; 
+                dnum = Math.floor(days);
+                hours = (now - grt) / 1000 / 60 / 60 - (24 * dnum); 
+                hnum = Math.floor(hours);
+                if(String(hnum).length == 1) {hnum = "0" + hnum;}
+                minutes = (now - grt) / 1000 / 60 - (24 * 60 * dnum) - (60 * hnum);
+                mnum = Math.floor(minutes);
+                if(String(mnum).length == 1) {mnum = "0" + mnum;}
+                seconds = (now - grt) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+                snum = Math.round(seconds);
+                if(String(snum).length == 1) {snum = "0" + snum;}
+                document.getElementById("timeDate").innerHTML = "本站已安全运行 " + dnum + " 天 ";
+                document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+            }
+            setInterval("createtime()", 250);
+        </script>
+        <!-- 版权信息与联系信息部分 -->
+<!--
+		&copy; 2023-<span id="currentYearPlaceholder">YYYY</span>
+		<span id="copyright"> 路过的即是风景. All rights reserved. Non-commercial use allowed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>.</span>
+-->
+<!--
+		<span id="disclaimer" style="text-align: left;">disclaimer: <br>content provided for reference only. <br>accuracy, completeness, suitability not guaranteed. <br>not liable for any loss or damage.</span>
+-->
+
+		<br>
+		<!--联系信息部分-->
+		<span id="Contact">Contact Me: <a href="mailto:1216550215Jc@gmail.com">GMail</a> | Address: Guangdong, China</span>
+		<script>
+			// 使用JavaScript获取当前年份并更新到页面上
+			document.getElementById('currentYearPlaceholder').innerText = new Date().getFullYear();
+		</script>
+    </div>
+</footer>
+
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  <script src="/js/third-party/pace.js"></script>
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" integrity="sha256-UF1fgpAiu3tPJN/uCqEUHNe7pnr+QR0SQDNfgglgtcM=" crossorigin="anonymous">
+
+
+
+</body>
+</html>
