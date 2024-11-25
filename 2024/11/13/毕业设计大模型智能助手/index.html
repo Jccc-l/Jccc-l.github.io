@@ -29,7 +29,7 @@
 <meta property="og:description" content="毕业设计头疼中">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-11-13T03:24:02.000Z">
-<meta property="article:modified_time" content="2024-11-13T03:37:30.946Z">
+<meta property="article:modified_time" content="2024-11-14T15:37:53.659Z">
 <meta property="article:author" content="Jccc">
 <meta property="article:tag" content="数据库">
 <meta property="article:tag" content="Python">
@@ -144,7 +144,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%99%BA%E8%83%BD%E5%8A%A9%E6%89%8B"><span class="nav-text"> 毕业设计大模型智能助手</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E7%BD%AE%E5%87%86%E5%A4%87"><span class="nav-text"> 前置准备</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ollama%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE"><span class="nav-text"> Ollama安装配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9E%84%E5%BB%BAollama%E7%9A%84docker%E5%AE%B9%E5%99%A8"><span class="nav-text"> 构建Ollama的Docker容器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#cpu"><span class="nav-text"> CPU</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#nvidia-gpu"><span class="nav-text"> NVIDIA GPU</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%90%E8%A1%8C%E6%A8%A1%E5%9E%8B"><span class="nav-text"> 运行模型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#open-webui%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE"><span class="nav-text"> Open Webui安装配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#anything-llm%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE"><span class="nav-text"> Anything LLM安装配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%91%E9%87%8F%E6%95%B0%E6%8D%AE%E5%BA%93milvus"><span class="nav-text"> 向量数据库Milvus</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%99%BA%E8%83%BD%E5%8A%A9%E6%89%8B"><span class="nav-text"> 毕业设计大模型智能助手</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E7%BD%AE%E5%87%86%E5%A4%87"><span class="nav-text"> 前置准备</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8%E5%92%8C%E9%A2%84%E5%A4%84%E7%90%86"><span class="nav-text"> 数据存储和预处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-text"> 安装配置数据库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%BC%E5%85%A5%E6%95%B0%E6%8D%AE"><span class="nav-text"> 导入数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ollama%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE"><span class="nav-text"> Ollama安装配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9E%84%E5%BB%BAollama%E7%9A%84docker%E5%AE%B9%E5%99%A8"><span class="nav-text"> 构建Ollama的Docker容器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#cpu"><span class="nav-text"> CPU</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#nvidia-gpu"><span class="nav-text"> NVIDIA GPU</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%90%E8%A1%8C%E6%A8%A1%E5%9E%8B"><span class="nav-text"> 运行模型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#open-webui%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE"><span class="nav-text"> Open Webui安装配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#anything-llm%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE"><span class="nav-text"> Anything LLM安装配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%91%E9%87%8F%E6%95%B0%E6%8D%AE%E5%BA%93milvus"><span class="nav-text"> 向量数据库Milvus</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -262,9 +262,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2024-11-13 11:24:02 / 修改时间：11:37:30" itemprop="dateCreated datePublished" datetime="2024-11-13T11:24:02+08:00">2024-11-13</time>
+      <time title="创建时间：2024-11-13 11:24:02" itemprop="dateCreated datePublished" datetime="2024-11-13T11:24:02+08:00">2024-11-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-11-14 23:37:53" itemprop="dateModified" datetime="2024-11-14T23:37:53+08:00">2024-11-14</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -283,14 +289,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>5.4k</span>
+      <span>6.7k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>5 分钟</span>
+      <span>6 分钟</span>
     </span>
 </div>
 
@@ -304,24 +310,75 @@
     <div class="post-body" itemprop="articleBody"><h1 id="毕业设计大模型智能助手"><a class="markdownIt-Anchor" href="#毕业设计大模型智能助手"></a> 毕业设计大模型智能助手</h1>
 <h2 id="前置准备"><a class="markdownIt-Anchor" href="#前置准备"></a> 前置准备</h2>
 <p>安装Docker</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> pacman -S docker</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">sudo</span> pacman -S docker</span><br></pre></td></tr></table></figure>
 <p>将用户添加指docker组</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> usermod -aG docker 用户名</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">sudo</span> usermod -aG docker 用户名</span><br></pre></td></tr></table></figure>
 <p>编辑文件，配置Docker镜像（可以继续添加其他镜像，用逗号分隔）</p>
-<figure class="highlight json"><figcaption><span>/etc/daemon.json</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;registry-mirrors&quot;</span><span class="punctuation">:</span></span><br><span class="line">	<span class="punctuation">[</span>    </span><br><span class="line">        <span class="string">&quot;https://dockerproxy.net&quot;</span></span><br><span class="line">    <span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight json"><figcaption><span>/etc/daemon.json</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;registry-mirrors&quot;</span><span class="punctuation">:</span></span><br><span class="line">    <span class="punctuation">[</span>    </span><br><span class="line">        <span class="string">&quot;https://dockerproxy.net&quot;</span></span><br><span class="line">    <span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+<h2 id="数据存储和预处理"><a class="markdownIt-Anchor" href="#数据存储和预处理"></a> 数据存储和预处理</h2>
+<p>实验使用的的数据集来源于Stack Overflow的贴子<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup></p>
+<p><a href="magnet:?xt=urn:btih:745b43ba30154eb2bc1df080b4c12de904edb2cb&amp;dn=Stack%20Exchange%20Data%20Dump%20September%202024&amp;tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&amp;ws=https%3A%2F%2Farchive.org%2Fdownload%2F">磁力链接</a></p>
+<h2 id="安装配置数据库"><a class="markdownIt-Anchor" href="#安装配置数据库"></a> 安装配置数据库</h2>
+<p>计划将文本数据存储在MySQL数据库中</p>
+<p>使用Docker安装MySQL数据库</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">export</span> STORAGE_LOCATION=<span class="variable">$HOME</span>/Documents/docker/mysql&amp;&amp; \</span><br><span class="line"><span class="built_in">mkdir</span> -p <span class="string">&quot;<span class="variable">$STORAGE_LOCATION</span>/etc/my.cnf.d&quot;</span> &amp;&amp; \</span><br><span class="line"><span class="built_in">mkdir</span> -p <span class="string">&quot;<span class="variable">$STORAGE_LOCATION</span>/etc/mysql&quot;</span> &amp;&amp; \</span><br><span class="line"><span class="built_in">mkdir</span> -p <span class="string">&quot;<span class="variable">$STORAGE_LOCATION</span>/var/lib/mysql&quot;</span> &amp;&amp; \</span><br><span class="line"><span class="built_in">mkdir</span> -p <span class="string">&quot;<span class="variable">$STORAGE_LOCATION</span>/var/log&quot;</span> &amp;&amp; \</span><br><span class="line"><span class="built_in">touch</span> <span class="string">&quot;<span class="variable">$STORAGE_LOCATION</span>/etc/my.cnf&quot;</span> &amp;&amp; \</span><br><span class="line"><span class="built_in">touch</span> <span class="string">&quot;<span class="variable">$STORAGE_LOCATION</span>/var/log/mysqld.log&quot;</span></span><br><span class="line"></span><br><span class="line">docker run -d \</span><br><span class="line">--name mysql-container \</span><br><span class="line">-p 3306:3306 \</span><br><span class="line">-e TZ=Asia/Shanghai \</span><br><span class="line">-e MYSQL_ROOT_PASSWORD=123 \</span><br><span class="line">-v <span class="variable">$STORAGE_LOCATION</span>/etc/my.cnf.d:/etc/my.cnf.d \</span><br><span class="line">-v <span class="variable">$STORAGE_LOCATION</span>/etc/mysql:/etc/mysql \</span><br><span class="line">-v <span class="variable">$STORAGE_LOCATION</span>/var/lib/mysql:/var/lib/mysql \</span><br><span class="line">-v <span class="variable">$STORAGE_LOCATION</span>/etc/my.cnf:/etc/my.cnf \</span><br><span class="line">-v <span class="variable">$STORAGE_LOCATION</span>/var/log/mysqld.log:/var/log/mysqld.log \</span><br><span class="line">mysql</span><br></pre></td></tr></table></figure>
+<p>命令解释</p>
+<blockquote>
+<ul>
+<li><code>docker run -d</code>
+<ul>
+<li>在后台运行容器</li>
+</ul>
+</li>
+<li><code>--name mysql-container</code>
+<ul>
+<li>把容器命令为mysql-container</li>
+</ul>
+</li>
+<li><code>-p 3306:3306</code>
+<ul>
+<li>把主机的3306端口映射到容器而3306端口</li>
+</ul>
+</li>
+<li><code>-e TZ=Asia/Shanghai</code>
+<ul>
+<li>设置时区<code>timezone</code>环境变量</li>
+</ul>
+</li>
+<li><code>-e MYSQL_ROOT_PASSWORD=123</code>
+<ul>
+<li>设置MySQL数据库的<code>root</code>用户密码</li>
+</ul>
+</li>
+<li><code>mysql</code>
+<ul>
+<li>使用<code>mysql</code>镜像构建容器</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<!--
+> - `-e MYSQL_USER=jccc`
+>     - 创建一个名为`jccc`的用户
+> - `-e MYSQL_PASSWORD=123`
+>     - 设置MySQL数据库的新用户密码
+-->
+<h2 id="导入数据"><a class="markdownIt-Anchor" href="#导入数据"></a> 导入数据</h2>
+<p>我要使用到的数据文件是Posts.xml</p>
+<p>通过Python脚本导入数据</p>
 <h2 id="ollama安装配置"><a class="markdownIt-Anchor" href="#ollama安装配置"></a> Ollama安装配置</h2>
-<p>Ollama现在支持通过Docker构建<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup></p>
+<p>Ollama现在支持通过Docker构建<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup></p>
 <h3 id="构建ollama的docker容器"><a class="markdownIt-Anchor" href="#构建ollama的docker容器"></a> 构建Ollama的Docker容器</h3>
 <p>拉取Ollama镜像</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull ollama/ollama</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker pull ollama/ollama</span><br></pre></td></tr></table></figure>
 <p>创建并启动容器（支持显卡或CPU）</p>
 <h4 id="cpu"><a class="markdownIt-Anchor" href="#cpu"></a> CPU</h4>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d -v <span class="variable">$HOME</span>/Documents/docker/ollama:/root/.ollama -p 11434:11434 --name ollama ollama/ollama</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker run -d -v <span class="variable">$HOME</span>/Documents/docker/ollama:/root/.ollama -p 11434:11434 --name ollama ollama/ollama</span><br></pre></td></tr></table></figure>
 <h4 id="nvidia-gpu"><a class="markdownIt-Anchor" href="#nvidia-gpu"></a> NVIDIA GPU</h4>
-<p>NVIDIA GPU需要先安装工具包，Arch的安装命令如下，其他系统参考说明文档<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup></p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> pacman -S nvidia-container-toolkit</span><br></pre></td></tr></table></figure>
+<p>NVIDIA GPU需要先安装工具包，Arch的安装命令如下，其他系统参考说明文档<sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">sudo</span> pacman -S nvidia-container-toolkit</span><br></pre></td></tr></table></figure>
 <p>安装完工具包，需要重启一下Docker</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> systemctl restart docker</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">sudo</span> systemctl restart docker</span><br></pre></td></tr></table></figure>
 <p>然后启动容器，以下这条命令做了以下操作</p>
 <ul>
 <li>把所有GPU分配给容器</li>
@@ -329,30 +386,30 @@
 <li>将容器命名为<code>ollama</code></li>
 <li>把主机的11434端口映射到容器的11434端口</li>
 </ul>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d --gpus=all -v <span class="variable">$HOME</span>/Documents/docker/ollama:/root/.ollama -p 11434:11434 --name ollama ollama/ollama</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker run -d --gpus=all -v <span class="variable">$HOME</span>/Documents/docker/ollama:/root/.ollama -p 11434:11434 --name ollama ollama/ollama</span><br></pre></td></tr></table></figure>
 <h3 id="运行模型"><a class="markdownIt-Anchor" href="#运行模型"></a> 运行模型</h3>
 <p>这里先介绍以下如何在Docker中执行命令，通常是使用<code>docker exec</code>命令， 这个命令的第一个参数是容器名称，第二个参数是要运行的命令，例子如下：</p>
 <ul>
 <li>通过命令<code>docker exec -it ollama bash</code>，在名为ollama的容器中执行<code>bash</code>命令，进入ollama容器的bash命令行交互界面</li>
 <li>通过命令<code>docker exec -it ollama ollama ...</code>，在名为ollama的容器中执行<code>ollama</code>命令</li>
 </ul>
-<p>Ollama有以下常用命令<sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup></p>
-<p>拉取模型，镜像详情可以在Ollama仓库中查询<sup class="footnote-ref"><a href="#fn4" id="fnref4">[4]</a></sup></p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ollama pull qwen:4b</span><br></pre></td></tr></table></figure>
+<p>Ollama有以下常用命令<sup class="footnote-ref"><a href="#fn4" id="fnref4">[4]</a></sup></p>
+<p>拉取模型，镜像详情可以在Ollama仓库中查询<sup class="footnote-ref"><a href="#fn5" id="fnref5">[5]</a></sup></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ollama pull qwen:4b</span><br></pre></td></tr></table></figure>
 <p>根据Modefile文件创建模型</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ollama create mymodel -f ./Modelfile</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ollama create mymodel -f ./Modelfile</span><br></pre></td></tr></table></figure>
 <p>移除模型</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ollama <span class="built_in">rm</span> llama3.2</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ollama <span class="built_in">rm</span> llama3.2</span><br></pre></td></tr></table></figure>
 <p>复制模型</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ollama <span class="built_in">cp</span> llama3.2 mymodel</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ollama <span class="built_in">cp</span> llama3.2 mymodel</span><br></pre></td></tr></table></figure>
 <h2 id="open-webui安装配置"><a class="markdownIt-Anchor" href="#open-webui安装配置"></a> Open Webui安装配置</h2>
-<p>Ollama主要作为一个后端服务来运行，通常需要一个前端用户界面结合使用，而Open WebUI是一个功能丰富且用户友好的Web界面，支持多重语言模型运行器，提供一个图形化的用户界面来管理和使用语言模型<sup class="footnote-ref"><a href="#fn5" id="fnref5">[5]</a></sup></p>
+<p>Ollama主要作为一个后端服务来运行，通常需要一个前端用户界面结合使用，而Open WebUI是一个功能丰富且用户友好的Web界面，支持多重语言模型运行器，提供一个图形化的用户界面来管理和使用语言模型<sup class="footnote-ref"><a href="#fn6" id="fnref6">[6]</a></sup></p>
 <p>Open WebUI可以对模型的各种参数进行调整</p>
 <p>同样使用Docker容器进行安装</p>
 <p>拉取镜像</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull ghcr.io/open-webui/open-webui:main</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker pull ghcr.io/open-webui/open-webui:main</span><br></pre></td></tr></table></figure>
 <p>可以通过以下命令运行</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">docker run -d -p 3000:8080 \</span><br><span class="line">--add-host=host.docker.internal:host-gateway \</span><br><span class="line">-v <span class="variable">$HOME</span>/Documents/docker/open-webui:/app/backend/data \</span><br><span class="line">--name open-webui \</span><br><span class="line">--restart always \</span><br><span class="line">ghcr.io/open-webui/open-webui:main</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ docker run -d -p 3000:8080 \</span><br><span class="line">--add-host=host.docker.internal:host-gateway \</span><br><span class="line">-v <span class="variable">$HOME</span>/Documents/docker/open-webui:/app/backend/data \</span><br><span class="line">--name open-webui \</span><br><span class="line">--restart always \</span><br><span class="line">ghcr.io/open-webui/open-webui:main</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>命令解释</p>
 <ul>
@@ -402,7 +459,7 @@
 <blockquote>
 <p><strong>由于网络原因，部分软件库无法下载，无法支持显卡</strong></p>
 </blockquote>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">docker run -d -p 3000:8080 \</span><br><span class="line">--gpus all \</span><br><span class="line">--add-host=host.docker.internal:host-gateway \</span><br><span class="line">-v <span class="variable">$HOME</span>/Documents/docker/open-webui:/app/backend/data \</span><br><span class="line">--name open-webui \</span><br><span class="line">--restart always \</span><br><span class="line">ghcr.io/open-webui/open-webui:cuda</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ docker run -d -p 3000:8080 \</span><br><span class="line">--gpus all \</span><br><span class="line">--add-host=host.docker.internal:host-gateway \</span><br><span class="line">-v <span class="variable">$HOME</span>/Documents/docker/open-webui:/app/backend/data \</span><br><span class="line">--name open-webui \</span><br><span class="line">--restart always \</span><br><span class="line">ghcr.io/open-webui/open-webui:cuda</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>命令解释</p>
 <ul>
@@ -446,11 +503,11 @@
 </ul>
 </blockquote>
 <h2 id="anything-llm安装配置"><a class="markdownIt-Anchor" href="#anything-llm安装配置"></a> Anything LLM安装配置</h2>
-<p>Anything LLM有多种安装方式，我这里通过Docker进行安装<sup class="footnote-ref"><a href="#fn6" id="fnref6">[6]</a></sup></p>
+<p>Anything LLM有多种安装方式，我这里通过Docker进行安装<sup class="footnote-ref"><a href="#fn7" id="fnref7">[7]</a></sup></p>
 <p>拉取镜像</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull mintplexlabs/anythingllm</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker pull mintplexlabs/anythingllm</span><br></pre></td></tr></table></figure>
 <p>启动一个新镜像</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> STORAGE_LOCATION=<span class="variable">$HOME</span>/Documents/docker/anythingllm &amp;&amp; \</span><br><span class="line"><span class="built_in">mkdir</span> -p <span class="variable">$STORAGE_LOCATION</span> &amp;&amp; \</span><br><span class="line"><span class="built_in">touch</span> <span class="string">&quot;<span class="variable">$STORAGE_LOCATION</span>/.env&quot;</span> &amp;&amp; \</span><br><span class="line">docker run -d -p 3001:3001 \</span><br><span class="line">--cap-add SYS_ADMIN \</span><br><span class="line">-v <span class="variable">$&#123;STORAGE_LOCATION&#125;</span>:/app/server/storage \</span><br><span class="line">-v <span class="variable">$&#123;STORAGE_LOCATION&#125;</span>/.env:/app/server/.env \</span><br><span class="line">-e STORAGE_DIR=<span class="string">&quot;/app/server/storage&quot;</span> \</span><br><span class="line">--name anythingllm \</span><br><span class="line">mintplexlabs/anythingllm</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">export</span> STORAGE_LOCATION=<span class="variable">$HOME</span>/Documents/docker/anythingllm &amp;&amp; \</span><br><span class="line"><span class="built_in">mkdir</span> -p <span class="variable">$STORAGE_LOCATION</span> &amp;&amp; \</span><br><span class="line"><span class="built_in">touch</span> <span class="string">&quot;<span class="variable">$STORAGE_LOCATION</span>/.env&quot;</span> &amp;&amp; \</span><br><span class="line">docker run -d -p 3001:3001 \</span><br><span class="line">--cap-add SYS_ADMIN \</span><br><span class="line">-v <span class="variable">$&#123;STORAGE_LOCATION&#125;</span>:/app/server/storage \</span><br><span class="line">-v <span class="variable">$&#123;STORAGE_LOCATION&#125;</span>/.env:/app/server/.env \</span><br><span class="line">-e STORAGE_DIR=<span class="string">&quot;/app/server/storage&quot;</span> \</span><br><span class="line">--name anythingllm \</span><br><span class="line">mintplexlabs/anythingllm</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>命令解释</p>
 <p>前置命令</p>
@@ -522,25 +579,32 @@
 </blockquote>
 <h2 id="向量数据库milvus"><a class="markdownIt-Anchor" href="#向量数据库milvus"></a> 向量数据库Milvus</h2>
 <p>进入到你需要存储milvus数据的目录（脚本会把容器的目录挂载的当前目录下）</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> <span class="variable">$HOME</span>/Documents/docker/milvus</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> <span class="variable">$HOME</span>/Documents/docker/milvus</span><br></pre></td></tr></table></figure>
 <p>下载安装脚本</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -sfL https://raw.githubusercontent.com/milvus-io/milvus/master/scripts/standalone_embed.sh -o standalone_embed.sh</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl -sfL https://raw.githubusercontent.com/milvus-io/milvus/master/scripts/standalone_embed.sh -o standalone_embed.sh</span><br></pre></td></tr></table></figure>
 <p>启动Docker容器</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash standalone_embed.sh start</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ bash standalone_embed.sh start</span><br></pre></td></tr></table></figure>
+<p>为了方便数据库的管理，需要用到Milvus_CLI工具<sup class="footnote-ref"><a href="#fn8" id="fnref8">[8]</a></sup></p>
+<p>通过Docker安装</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker run -it zilliz/milvus_cli:latest</span><br></pre></td></tr></table></figure>
 <hr class="footnotes-sep" />
 <section class="footnotes">
 <ol class="footnotes-list">
-<li id="fn1" class="footnote-item"><p><a target="_blank" rel="noopener" href="https://ollama.com/blog/ollama-is-now-available-as-an-official-docker-image">Ollama is now available as an official Docker image</a> <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+<li id="fn1" class="footnote-item"><p><a target="_blank" rel="noopener" href="https://communitydatadump.com/index.html">stackexchange_20240930</a> <a href="#fnref1" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn2" class="footnote-item"><p><a target="_blank" rel="noopener" href="https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html#installation">Installing the NVIDIA Container Toolkit</a> <a href="#fnref2" class="footnote-backref">↩︎</a></p>
+<li id="fn2" class="footnote-item"><p><a target="_blank" rel="noopener" href="https://ollama.com/blog/ollama-is-now-available-as-an-official-docker-image">Ollama is now available as an official Docker image</a> <a href="#fnref2" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn3" class="footnote-item"><p><a target="_blank" rel="noopener" href="https://github.com/ollama/ollama">Ollama Github Repository</a> <a href="#fnref3" class="footnote-backref">↩︎</a></p>
+<li id="fn3" class="footnote-item"><p><a target="_blank" rel="noopener" href="https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html#installation">Installing the NVIDIA Container Toolkit</a> <a href="#fnref3" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn4" class="footnote-item"><p><a target="_blank" rel="noopener" href="https://ollama.com/library">Ollama Models</a> <a href="#fnref4" class="footnote-backref">↩︎</a></p>
+<li id="fn4" class="footnote-item"><p><a target="_blank" rel="noopener" href="https://github.com/ollama/ollama">Ollama Github Repository</a> <a href="#fnref4" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn5" class="footnote-item"><p><a target="_blank" rel="noopener" href="https://github.com/open-webui/open-webui">Open WebUI Github Repository</a> <a href="#fnref5" class="footnote-backref">↩︎</a></p>
+<li id="fn5" class="footnote-item"><p><a target="_blank" rel="noopener" href="https://ollama.com/library">Ollama Models</a> <a href="#fnref5" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn6" class="footnote-item"><p><a target="_blank" rel="noopener" href="https://docs.anythingllm.com/installation-docker/local-docker">How to use Dockerized Anything LLM</a> <a href="#fnref6" class="footnote-backref">↩︎</a></p>
+<li id="fn6" class="footnote-item"><p><a target="_blank" rel="noopener" href="https://github.com/open-webui/open-webui">Open WebUI Github Repository</a> <a href="#fnref6" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn7" class="footnote-item"><p><a target="_blank" rel="noopener" href="https://docs.anythingllm.com/installation-docker/local-docker">How to use Dockerized Anything LLM</a> <a href="#fnref7" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn8" class="footnote-item"><p><a target="_blank" rel="noopener" href="https://milvus.io/docs/cli_overview.md">Milvus Command-Line Interface</a> <a href="#fnref8" class="footnote-backref">↩︎</a></p>
 </li>
 </ol>
 </section>
@@ -632,13 +696,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">116k</span>
+    <span title="站点总字数">124k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">1:45</span>
+    <span title="站点阅读时长">1:53</span>
   </span>
 </div><footer>
     <div>
