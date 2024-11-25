@@ -32,6 +32,12 @@ sudo pacman -S mariadb
 mariadb-install-db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
 ```
 
+设置Mariadb服务开机自动启动并立刻启动
+
+```sh
+sudo systemctl enable --now mariadb.service
+```
+
 命令创建了两个具有所有特权的帐户。
 
 - 一个是`root@localhost`，它没有密码，但您需要是系统的`root`用户才能连接。例如，使用`sudo mysql`。
