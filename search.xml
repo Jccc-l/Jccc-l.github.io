@@ -1602,32 +1602,6 @@ Use <code>ctrl</code>+<code>alt</code>+<code>t</code> to start a terminal, and r
       </tags>
   </entry>
   <entry>
-    <title>在Wayland环境下的Electron应用中使用Fcitx5输入法</title>
-    <url>/2024/06/23/%E5%9C%A8Wayland%E7%8E%AF%E5%A2%83%E4%B8%8B%E7%9A%84Electron%E5%BA%94%E7%94%A8%E4%B8%AD%E4%BD%BF%E7%94%A8Fcitx5%E8%BE%93%E5%85%A5%E6%B3%95/</url>
-    <content><![CDATA[<h1 id="在wayland环境下的electron应用中使用fcitx5输入法"><a class="markdownIt-Anchor" href="#在wayland环境下的electron应用中使用fcitx5输入法"></a> 在Wayland环境下的Electron应用中使用Fcitx5输入法</h1>
-<p>为Electron添加以下配置<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup><sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup></p>
-<figure class="highlight plaintext"><figcaption><span>$HOME/.config/electron-flags.conf</span></figcaption><table><tr><td class="code"><pre><span class="line">--enable-features=WaylandWindowDecorations</span><br><span class="line">--ozone-platform-hint=wayland</span><br><span class="line">--enable-wayland-ime</span><br></pre></td></tr></table></figure>
-<hr class="footnotes-sep" />
-<section class="footnotes">
-<ol class="footnotes-list">
-<li id="fn1" class="footnote-item"><p><a href="https://wiki.archlinux.org/title/Wayland#Electron">Wayland#Electron - ArchWiki</a> <a href="#fnref1" class="footnote-backref">↩︎</a></p>
-</li>
-<li id="fn2" class="footnote-item"><p><a href="https://www.bilibili.com/video/BV1aL41117kc/?spm_id_from=333.1007.top_right_bar_window_history.content.click&amp;vd_source=e2a73086fbc135c64d40acbe84e65505">Linux Wayland进展+1——Electron应用可以使用fcitx5输入法了</a> <a href="#fnref2" class="footnote-backref">↩︎</a></p>
-</li>
-</ol>
-</section>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-        <tag>Fcitx5</tag>
-        <tag>Electron</tag>
-        <tag>Wayland</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>在Linux中使用锐捷登录校园网</title>
     <url>/2024/06/27/%E5%9C%A8Linux%E4%B8%AD%E4%BD%BF%E7%94%A8%E9%94%90%E6%8D%B7%E7%99%BB%E5%BD%95%E6%A0%A1%E5%9B%AD%E7%BD%91/</url>
     <content><![CDATA[<h1 id="在linux中使用锐捷登录校园网"><a class="markdownIt-Anchor" href="#在linux中使用锐捷登录校园网"></a> 在Linux中使用锐捷登录校园网</h1>
@@ -1660,6 +1634,32 @@ Use <code>ctrl</code>+<code>alt</code>+<code>t</code> to start a terminal, and r
         <tag>Linux</tag>
         <tag>Ubuntu</tag>
         <tag>Network</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>在Wayland环境下的Electron应用中使用Fcitx5输入法</title>
+    <url>/2024/06/23/%E5%9C%A8Wayland%E7%8E%AF%E5%A2%83%E4%B8%8B%E7%9A%84Electron%E5%BA%94%E7%94%A8%E4%B8%AD%E4%BD%BF%E7%94%A8Fcitx5%E8%BE%93%E5%85%A5%E6%B3%95/</url>
+    <content><![CDATA[<h1 id="在wayland环境下的electron应用中使用fcitx5输入法"><a class="markdownIt-Anchor" href="#在wayland环境下的electron应用中使用fcitx5输入法"></a> 在Wayland环境下的Electron应用中使用Fcitx5输入法</h1>
+<p>为Electron添加以下配置<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup><sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup></p>
+<figure class="highlight plaintext"><figcaption><span>$HOME/.config/electron-flags.conf</span></figcaption><table><tr><td class="code"><pre><span class="line">--enable-features=WaylandWindowDecorations</span><br><span class="line">--ozone-platform-hint=wayland</span><br><span class="line">--enable-wayland-ime</span><br></pre></td></tr></table></figure>
+<hr class="footnotes-sep" />
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p><a href="https://wiki.archlinux.org/title/Wayland#Electron">Wayland#Electron - ArchWiki</a> <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn2" class="footnote-item"><p><a href="https://www.bilibili.com/video/BV1aL41117kc/?spm_id_from=333.1007.top_right_bar_window_history.content.click&amp;vd_source=e2a73086fbc135c64d40acbe84e65505">Linux Wayland进展+1——Electron应用可以使用fcitx5输入法了</a> <a href="#fnref2" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>Fcitx5</tag>
+        <tag>Electron</tag>
+        <tag>Wayland</tag>
       </tags>
   </entry>
   <entry>
@@ -1770,164 +1770,6 @@ Use <code>ctrl</code>+<code>alt</code>+<code>t</code> to start a terminal, and r
         <tag>Hexo</tag>
         <tag>Blog</tag>
         <tag>NexT</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>大数据实验踩坑指南_No.2——Hive的安装配置</title>
-    <url>/2024/06/16/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%9E%E9%AA%8C%E8%B8%A9%E5%9D%91%E6%8C%87%E5%8D%97-No-2%E2%80%94%E2%80%94Hive%E7%9A%84%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/</url>
-    <content><![CDATA[<h1 id="大数据实验踩坑指南_no2hive的安装配置"><a class="markdownIt-Anchor" href="#大数据实验踩坑指南_no2hive的安装配置"></a> 大数据实验踩坑指南_No.2——Hive的安装配置</h1>
-<blockquote>
-<p>事先说明，Beeline还有很多坑没有处理好，暂时先跳过，只使用传统Hive Cli</p>
-</blockquote>
-<h2 id="hive基础安装"><a class="markdownIt-Anchor" href="#hive基础安装"></a> Hive基础安装</h2>
-<p>通过<a href="https://hive.apache.org">官网</a>下载<a href="https://dlcdn.apache.org/hive/hive-3.1.3/apache-hive-3.1.3-bin.tar.gz">apache-hive-3.1.3-bin.tar.gz</a></p>
-<p>根据另一篇文章<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>安装好MySQL</p>
-<p>将文件解压到<code>/usr/local</code>目录内</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> tar -zxvf /home/hadoop/Downloads/apache-hive-3.1.3-bin.tar.gz -C /usr/local/</span><br></pre></td></tr></table></figure>
-<p>进入该目录并将Hive的主目录改名</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/local</span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">mv</span> apache-hive-3.1.3-bin hive</span><br></pre></td></tr></table></figure>
-<p>修改目录拥有者</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> <span class="built_in">chown</span> -R hadoop:hadoop hive</span><br></pre></td></tr></table></figure>
-<p>配置Hive相关的环境变量</p>
-<figure class="highlight sh"><figcaption><span>/home/hadoop/.bashrc</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="built_in">export</span> HIVE_HOME=/usr/local/hive</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:<span class="variable">$HIVE_HOME</span>/bin</span><br></pre></td></tr></table></figure>
-<p>加载配置文件</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="built_in">source</span> /home/hadoop/.bashrc</span><br></pre></td></tr></table></figure>
-<h2 id="mysql配置"><a class="markdownIt-Anchor" href="#mysql配置"></a> MySQL配置</h2>
-<p>启动MySQL服务</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> service mysql start</span><br></pre></td></tr></table></figure>
-<p>登录MySQl Shell</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> mysql -u root</span><br></pre></td></tr></table></figure>
-<p>创建<code>hadoop</code>用户，密码为<code>hadoop</code></p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">CREATE</span> <span class="keyword">USER</span> <span class="string">&#x27;hadoop&#x27;</span>@<span class="string">&#x27;%&#x27;</span> IDENTIFIED <span class="keyword">BY</span> <span class="string">&#x27;hadoop&#x27;</span>;</span><br></pre></td></tr></table></figure>
-<p>创建<code>hive</code>数据库并把数据库的权限赋予<code>hadoop</code>用户</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">create</span> database hive;</span><br><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">grant</span> <span class="keyword">all</span> privileges <span class="keyword">on</span> hive.<span class="operator">*</span> <span class="keyword">to</span> hadoop;</span><br></pre></td></tr></table></figure>
-<p>最后记得刷新权限</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> flush privileges;</span><br></pre></td></tr></table></figure>
-<p>输入<code>exit</code>退出MySQL</p>
-<p>登录<code>hadoop</code>目录，输入密码<code>hadoop</code></p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">mysql -u hadoop -p</span><br></pre></td></tr></table></figure>
-<p>下载JDBC连接驱动的<a href="https://downloads.mysql.com/archives/c-j/">deb安装包</a>，我的MySQL版本为8.0.37，网站上写的Product Version只有8.0.33，不过也是兼容的，选择好MySQL版本和Ubuntu版本，即可下载<a href="https://downloads.mysql.com/archives/get/p/3/file/mysql-connector-j_8.0.33-1ubuntu22.04_all.deb">deb安装包</a></p>
-<blockquote>
-<p>现在MySQL版本更新到了9，可以直接使用MySQL 9和对应的JDBC驱动</p>
-</blockquote>
-<p>通过<code>apt</code>工具安装驱动</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt-get install /home/hadoop/Downloads/mysql-connector-j_8.0.33-1ubuntu22.04_all.deb</span><br></pre></td></tr></table></figure>
-<p>然后将安装好的驱动复制到Hive的lib目录下</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cp</span> /usr/share/java/mysql-connector-j-8.0.33.jar <span class="variable">$HIVE_HOME</span>/lib/</span><br></pre></td></tr></table></figure>
-<h2 id="mysql注意事项"><a class="markdownIt-Anchor" href="#mysql注意事项"></a> MySQL注意事项</h2>
-<h4 id="通信问题"><a class="markdownIt-Anchor" href="#通信问题"></a> 通信问题</h4>
-<p>为了让Hive与MySQL能通信，需要修改以下配置</p>
-<figure class="highlight plaintext"><figcaption><span>/etc/mysql/mysql.conf.d/mysqld.cnf</span></figcaption><table><tr><td class="code"><pre><span class="line">[mysqld]</span><br><span class="line">bind-address    = 0.0.0.0</span><br></pre></td></tr></table></figure>
-<h4 id="命令差异"><a class="markdownIt-Anchor" href="#命令差异"></a> 命令差异</h4>
-<p>MySQL8和MySQL5.7命令有差异</p>
-<h5 id="创建用户与赋权"><a class="markdownIt-Anchor" href="#创建用户与赋权"></a> 创建用户与赋权</h5>
-<p>在MySQL5.7版本上，使用以下命令可以同时创建账户并赋权</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">GRANT</span> <span class="keyword">ALL</span> PRIVILEGES <span class="keyword">ON</span> <span class="operator">*</span>.<span class="operator">*</span> <span class="keyword">TO</span> <span class="string">&#x27;hadoop&#x27;</span>@<span class="string">&#x27;%&#x27;</span> IDENTIFIED <span class="keyword">BY</span> <span class="string">&#x27;hadoop&#x27;</span> <span class="keyword">WITH</span> <span class="keyword">GRANT</span> OPTION;</span><br></pre></td></tr></table></figure>
-<p>但是在新版本的<code>MySQL 8.x</code>版本上，已经将两个操作分离，执行以上命令会导致语法错误</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="string">&#x27;hadoop&#x27;</span>@<span class="string">&#x27;%&#x27;</span> IDENTIFIED <span class="keyword">BY</span> <span class="string">&#x27;hadoop&#x27;</span> <span class="keyword">WITH</span> <span class="keyword">GRANT</span> OPTION;</span><br><span class="line">ERROR <span class="number">1064</span> (<span class="number">42000</span>): You have an error <span class="keyword">in</span> your <span class="keyword">SQL</span> syntax; <span class="keyword">check</span> the manual that corresponds <span class="keyword">to</span> your MySQL server version <span class="keyword">for</span> the <span class="keyword">right</span> syntax <span class="keyword">to</span> use near <span class="string">&#x27;IDENTIFIED BY &#x27;</span><span class="number">123456</span><span class="string">&#x27; WITH GRANT OPTION&#x27;</span> <span class="keyword">at</span> line <span class="number">1</span></span><br></pre></td></tr></table></figure>
-<p>应将创建用户与授权命令分离：</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">CREATE</span> <span class="keyword">USER</span> <span class="string">&#x27;hadoop&#x27;</span>@<span class="string">&#x27;%&#x27;</span> IDENTIFIED <span class="keyword">BY</span> <span class="string">&#x27;123456&#x27;</span>;</span><br><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">GRANT</span> <span class="keyword">ALL</span> <span class="keyword">ON</span> hive.<span class="operator">*</span> <span class="keyword">TO</span> <span class="string">&#x27;hadoop&#x27;</span>@<span class="string">&#x27;%&#x27;</span>;</span><br></pre></td></tr></table></figure>
-<h5 id="修改密码"><a class="markdownIt-Anchor" href="#修改密码"></a> 修改密码</h5>
-<p>MySQL修改密码有三种方式<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup></p>
-<p><strong>方法一</strong>：使用UPDATE语句更改MySQL用户密码</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> USE mysql;</span><br><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">UPDATE</span> <span class="keyword">user</span> </span><br><span class="line">            <span class="keyword">SET</span> password <span class="operator">=</span> PASSWORD(<span class="string">&#x27;newpasswd&#x27;</span>)</span><br><span class="line">            <span class="keyword">WHERE</span> <span class="keyword">user</span> <span class="operator">=</span> <span class="string">&#x27;hadoop&#x27;</span> <span class="keyword">AND</span> host <span class="operator">=</span> <span class="string">&#x27;%&#x27;</span>;</span><br><span class="line">mysql<span class="operator">&gt;</span> FLUSH PRIVILEGES;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>注意：MySQL 5.7.6版本以下，才能使用此方法来修改密码。从MySQL 5.7.6版本起，user表仅使用authentication_string列代替之前版本中的password列来存储密码。此外，它删除了password列。</p>
-</blockquote>
-<p>版本在5.7.6+，必须在UPDATE语句中使用authentication_string列代替password列</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> USE mysql;</span><br><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">UPDATE</span> <span class="keyword">user</span> </span><br><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">SET</span> authentication_string <span class="operator">=</span> PASSWORD(<span class="string">&#x27;newpasswd&#x27;</span>)</span><br><span class="line">            <span class="keyword">WHERE</span> <span class="keyword">user</span> <span class="operator">=</span> <span class="string">&#x27;jccc&#x27;</span> <span class="keyword">AND</span> </span><br><span class="line">                  host <span class="operator">=</span> <span class="string">&#x27;%&#x27;</span>;</span><br><span class="line">mysql<span class="operator">&gt;</span> FLUSH PRIVILEGES;</span><br></pre></td></tr></table></figure>
-<p><strong>方法二</strong>：使用SET PASSWORD语句更改MySQL用户密码</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">SET</span> PASSWORD <span class="keyword">FOR</span> <span class="string">&#x27;jccc&#x27;</span>@<span class="string">&#x27;%&#x27;</span> <span class="operator">=</span> PASSWORD(<span class="string">&#x27;newpasswd2&#x27;</span>);</span><br></pre></td></tr></table></figure>
-<p>从MySQL 5.7.6版本开始，MySQL不推荐使用此语法，可能会在将来的版本中将其删除。作为一个代替的解决方案，它使用明文密码如下：</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">SET</span> PASSWORD <span class="keyword">FOR</span> <span class="string">&#x27;jccc&#x27;</span>@<span class="string">&#x27;%&#x27;</span> <span class="operator">=</span> <span class="string">&#x27;newpasswd2&#x27;</span>;</span><br></pre></td></tr></table></figure>
-<p><strong>方法三</strong>：使用<code>ALTER USER</code>语句改MySQL用户密码</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">ALTER</span> <span class="keyword">USER</span> jccc@<span class="operator">%</span> IDENTIFIED <span class="keyword">BY</span> <span class="string">&#x27;newpasswd3&#x27;</span>;</span><br></pre></td></tr></table></figure>
-<h2 id="hive配置"><a class="markdownIt-Anchor" href="#hive配置"></a> Hive配置</h2>
-<h3 id="hive自身配置"><a class="markdownIt-Anchor" href="#hive自身配置"></a> Hive自身配置</h3>
-<p>进入Hive的目录，复制几个配置文件的模板</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> <span class="variable">$HIVE_HOME</span>/conf</span><br><span class="line"><span class="built_in">cp</span> hive-env.sh.template hive-env.sh</span><br><span class="line"><span class="built_in">cp</span> hive-default.xml.template hive-default.xml</span><br></pre></td></tr></table></figure>
-<p>配置<code>hive-site.xml</code>文件，跟使用TiDB<sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup>的配置类似</p>
-<p>各个选项的说明可以在<a href="https://cwiki.apache.org/confluence/display/Hive/Configuration+Properties?spm=5176.28103460.0.0.7d815d27rIvLt1#ConfigurationProperties-AuthenticationandAuthorization">这里</a>看到</p>
-<blockquote>
-<p><strong>注意</strong>：</p>
-<p><a href="#%E5%91%BD%E4%BB%A4%E5%B7%AE%E5%BC%82">创建用户和授权命令在MySQL8.x版本中有所不同</a>，配置文件中根据你创建的MySQL用户和密码进行修改。</p>
-<p><code>hive-site.xml</code>配置文件中，需要将<code>javax.jdo.option.ConnectionDriverName</code>的值修改为<code>com.mysql.cj.jdbc.Driver</code>，而原本的<code>com.mysql.jdbc.Driver</code>在较新的MySQL Connector/J版本中已被标记为过时，新的驱动类提供了更好的功能和性能。如果使用原本的值，初始化Hive会出现以下警告。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Loading class &#x27;com.mysql.jdbc.Driver&#x27;. This is deprecated. The new driver class is &#x27;com.mysql.cj.jdbc.Driver&#x27;. The driver is automatically registered via the SPI and manual loading of the driver class is generally unnecessary.</span><br></pre></td></tr></table></figure>
-<p>还有用户名密码要设为MySQL中对应的。</p>
-</blockquote>
-<figure class="highlight xml"><figcaption><span>$HIVE_HOME/conf/hive-site.xml</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">	<span class="comment">&lt;!-- MySQL连接配置 --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span>javax.jdo.option.ConnectionURL<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">value</span>&gt;</span>jdbc:mysql://localhost:3306/hive<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">description</span>&gt;</span>MySQL address<span class="tag">&lt;/<span class="name">description</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span>javax.jdo.option.ConnectionUserName<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">value</span>&gt;</span>hadoop<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">description</span>&gt;</span>MySQL username<span class="tag">&lt;/<span class="name">description</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span>javax.jdo.option.ConnectionPassword<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">value</span>&gt;</span>hadoop<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">description</span>&gt;</span>MySQL password<span class="tag">&lt;/<span class="name">description</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span>javax.jdo.option.ConnectionDriverName<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">value</span>&gt;</span>com.mysql.cj.jdbc.Driver<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">&lt;!-- Metastore配置 --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span>hive.metastore.uris<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">value</span>&gt;</span>thrift://localhost:9083<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span>hive.metastore.schema.verification<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">value</span>&gt;</span>false<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">&lt;!-- </span></span><br><span class="line"><span class="comment">		新版本（4.0）使用Beeline代替了传统的hive cli</span></span><br><span class="line"><span class="comment">		Beeline需要通过HiveServer2网络服务对Hive进行访问</span></span><br><span class="line"><span class="comment">		如果使用3.x的版本，可以直接在hive cli中输入SQL语句，hive cli并不依赖于HivesServer2</span></span><br><span class="line"><span class="comment">		（但是即使你使用的是3.x的版本，在实验后面把数据从Hive导入MySQL时</span></span><br><span class="line"><span class="comment">		仍然需要使用到HiveServer2）</span></span><br><span class="line"><span class="comment">		下面是hiveserver2的配置</span></span><br><span class="line"><span class="comment">	--&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span>hive.server2.thrift.port<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">value</span>&gt;</span>10000<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span>hive.server2.thrift.bind.host<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">value</span>&gt;</span>127.0.0.1<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">&lt;!-- 这里为了方便，我们将HiveServer2设置为无需认证（也可以省略这个配置，默认值即为NONE）</span></span><br><span class="line"><span class="comment">	任何客户端可直接连接到HiveServer2</span></span><br><span class="line"><span class="comment">	安全的认证方式有简单用户名/密码认证、Kerberos 认证、LDAP 认证、PAM认证等</span></span><br><span class="line"><span class="comment">	如有需要，自行进行配置</span></span><br><span class="line"><span class="comment">	--&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span>hive.server2.authentication<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">value</span>&gt;</span>NONE<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>配置Hive的环境变量<code>hive-env.sh</code></p>
-<figure class="highlight sh"><figcaption><span>$HIVE_HOME/conf/hive-env.sh</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="built_in">export</span> HADOOP_HOME=/usr/local/hadoop</span><br><span class="line"><span class="built_in">export</span> JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64</span><br><span class="line"><span class="built_in">export</span> HIVE_CONF_DIR=/usr/local/hive/conf</span><br><span class="line"><span class="built_in">export</span> HIVE_AUX_JARS_PATH=/usr/local/hive/lib</span><br></pre></td></tr></table></figure>
-<p>运行下面的命令初始化MySQL元数据</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">schematool -dbType mysql -initSchema --verbose</span><br></pre></td></tr></table></figure>
-<h3 id="配置hadoop的代理用户"><a class="markdownIt-Anchor" href="#配置hadoop的代理用户"></a> 配置Hadoop的代理用户</h3>
-<p>HiveServer2的使用需要用到Hadoop的代理用户，使用以下配置允许hadoop用户代理所有主机中和所有用户</p>
-<figure class="highlight xml"><figcaption><span>$HADOOP_HOME/etc/hadoop/core-site.xml</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>hadoop.proxyuser.hadoop.hosts<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>*<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>hadoop.proxyuser.hadoop.groups<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>*<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p><strong>注意</strong>：这里的hadoop.proxyuser.xxx.hosts和hadoop.proxy.xxx.groups要把中间的xxx换成你的用户名<sup class="footnote-ref"><a href="#fn4" id="fnref4">[4]</a></sup>，也就是允许xxx代理所有主机所有用户（折腾几天才发现hiveserver2启动不起来是这里的问题(≖_≖ )）</p>
-</blockquote>
-<h3 id="启动并试用hive"><a class="markdownIt-Anchor" href="#启动并试用hive"></a> 启动并试用Hive</h3>
-<p>首先启动Hadoop集群</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">start-all.sh</span><br></pre></td></tr></table></figure>
-<p>启动Metastore（传统Hive Cli不需要HiveServer2）</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">hive --service metastore</span><br></pre></td></tr></table></figure>
-<p>启动Hive客户端并进行测试</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">hive</span><br></pre></td></tr></table></figure>
-<p>在里面可以输入SQL语句，如果要退出Hive交互式执行环境，可以输入如下命令：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hive&gt; exit;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>（Beeline部分待完善）<br />
-如果使用的是4.0版本，Beeline代替了传统的hive cli，需要先启动HiveServer2再进入Beeline，大部分Hive的SQL语句也是可以用于Beeline的</p>
-<p>启动HiveServer2：</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">hive --service hiveserver2</span><br></pre></td></tr></table></figure>
-<p>Beeline连接HiveServer2。为了拥有访问hadoop目录的权限，把<code>username</code>改为你的系统用户名</p>
-<blockquote>
-<p>如果不指定用户，使用的是匿名用户，没有权限访问/user/hive/warehouse，无法创建数据库</p>
-</blockquote>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">beeline -u jdbc:hive2://localhost:10000 -n username</span><br></pre></td></tr></table></figure>
-<p>使用<code>!quit</code>或<code>!exit</code>退出Beeline</p>
-</blockquote>
-<h2 id="hive排错"><a class="markdownIt-Anchor" href="#hive排错"></a> Hive排错</h2>
-<h3 id="无法执行hive的sql语句"><a class="markdownIt-Anchor" href="#无法执行hive的sql语句"></a> 无法执行Hive的SQL语句</h3>
-<p>运行hive命令如果报错：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">FAILED: HiveException java.lang.RuntimeException: Unable to instantiate org.apache.hadoop.hive.ql.metadata.SessionHiveMetaStoreClient</span><br></pre></td></tr></table></figure>
-<p>说明<code>Hive</code>在尝试连接到Hive MetaStore时失败了</p>
-<p>可能是因为<code>Hive MetaStore</code>服务没有运行，在后台运行以下命令：</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">hive --service metastore &amp;</span><br></pre></td></tr></table></figure>
-<p>然后再运行<code>hive</code>即可正常使用</p>
-<p>如果还是不行，就重新初始化<code>hive</code></p>
-<p>尝试进入MySQL将hive数据库删除。由于已经授权给用户<code>hadoop</code>，直接登录<code>hadoop</code>对hive数据库重置即可，无需登录<code>root</code>用户进行删除并重新创建授权</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">drop</span> database hive;</span><br><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">create</span> database hive;</span><br></pre></td></tr></table></figure>
-<p>然后删除HDFS中的<code>/tmp</code>目录</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">hdfs dfs -<span class="built_in">rm</span> -r /tmp</span><br></pre></td></tr></table></figure>
-<p>再重新升级元数据</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">schematool -initSchema -dbType mysql --verbose</span><br></pre></td></tr></table></figure>
-<h3 id="格式化失败"><a class="markdownIt-Anchor" href="#格式化失败"></a> 格式化失败</h3>
-<p>如果在运行<code>schematool</code>命令进行初始化时报以下错误</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Error: Table &#x27;CTLGS&#x27; already exists (state=42S01,code=1050)</span><br><span class="line">org.apache.hadoop.hive.metastore.HiveMetaException: Schema initialization FAILED! Metastore state would be inconsistent !!</span><br><span class="line">Underlying cause: java.io.IOException : Schema script failed, errorcode 2</span><br><span class="line">Use --verbose for detailed stacktrace.</span><br><span class="line">*** schemaTool failed ***</span><br></pre></td></tr></table></figure>
-<p>可以尝试先进入<code>MySQL</code>，删除<code>hive</code>数据库再重建</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">DROP</span> DATABASE hive;</span><br><span class="line"><span class="keyword">CREATE</span> DATABASE hive;</span><br></pre></td></tr></table></figure>
-<hr class="footnotes-sep" />
-<section class="footnotes">
-<ol class="footnotes-list">
-<li id="fn1" class="footnote-item"><a href="/2024/06/16/Ubuntu%E4%B8%8B%E7%9A%84MySQL%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/" title="Ubuntu下的MySQL安装配置">Ubuntu下的MySQL安装配置</a>
- <a href="#fnref1" class="footnote-backref">↩︎</a></li>
-<li id="fn2" class="footnote-item"><p><a href="https://blog.csdn.net/happyxin_/article/details/125614272">MySQL修改密码（三种方法示例）</a> <a href="#fnref2" class="footnote-backref">↩︎</a></p>
-</li>
-<li id="fn3" class="footnote-item"><p><a href="https://cwiki.apache.org/confluence/display/Hive/Using+TiDB+as+the+Hive+Metastore+database">Using TiDB as the Hive Metastore database</a> <a href="#fnref3" class="footnote-backref">↩︎</a></p>
-</li>
-<li id="fn4" class="footnote-item"><p><a href="https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/Superusers.html">Proxy user - Superusers Acting On Behalf Of Other Users</a> <a href="#fnref4" class="footnote-backref">↩︎</a></p>
-</li>
-</ol>
-</section>
-]]></content>
-      <categories>
-        <category>Big Data</category>
-      </categories>
-      <tags>
-        <tag>MySQL</tag>
-        <tag>Database</tag>
-        <tag>Big Data</tag>
       </tags>
   </entry>
   <entry>
@@ -2152,6 +1994,164 @@ Use <code>ctrl</code>+<code>alt</code>+<code>t</code> to start a terminal, and r
         <tag>Linux</tag>
         <tag>Big Data</tag>
         <tag>Hadoop</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>大数据实验踩坑指南_No.2——Hive的安装配置</title>
+    <url>/2024/06/16/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%9E%E9%AA%8C%E8%B8%A9%E5%9D%91%E6%8C%87%E5%8D%97-No-2%E2%80%94%E2%80%94Hive%E7%9A%84%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/</url>
+    <content><![CDATA[<h1 id="大数据实验踩坑指南_no2hive的安装配置"><a class="markdownIt-Anchor" href="#大数据实验踩坑指南_no2hive的安装配置"></a> 大数据实验踩坑指南_No.2——Hive的安装配置</h1>
+<blockquote>
+<p>事先说明，Beeline还有很多坑没有处理好，暂时先跳过，只使用传统Hive Cli</p>
+</blockquote>
+<h2 id="hive基础安装"><a class="markdownIt-Anchor" href="#hive基础安装"></a> Hive基础安装</h2>
+<p>通过<a href="https://hive.apache.org">官网</a>下载<a href="https://dlcdn.apache.org/hive/hive-3.1.3/apache-hive-3.1.3-bin.tar.gz">apache-hive-3.1.3-bin.tar.gz</a></p>
+<p>根据另一篇文章<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>安装好MySQL</p>
+<p>将文件解压到<code>/usr/local</code>目录内</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> tar -zxvf /home/hadoop/Downloads/apache-hive-3.1.3-bin.tar.gz -C /usr/local/</span><br></pre></td></tr></table></figure>
+<p>进入该目录并将Hive的主目录改名</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/local</span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">mv</span> apache-hive-3.1.3-bin hive</span><br></pre></td></tr></table></figure>
+<p>修改目录拥有者</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> <span class="built_in">chown</span> -R hadoop:hadoop hive</span><br></pre></td></tr></table></figure>
+<p>配置Hive相关的环境变量</p>
+<figure class="highlight sh"><figcaption><span>/home/hadoop/.bashrc</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="built_in">export</span> HIVE_HOME=/usr/local/hive</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:<span class="variable">$HIVE_HOME</span>/bin</span><br></pre></td></tr></table></figure>
+<p>加载配置文件</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="built_in">source</span> /home/hadoop/.bashrc</span><br></pre></td></tr></table></figure>
+<h2 id="mysql配置"><a class="markdownIt-Anchor" href="#mysql配置"></a> MySQL配置</h2>
+<p>启动MySQL服务</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> service mysql start</span><br></pre></td></tr></table></figure>
+<p>登录MySQl Shell</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> mysql -u root</span><br></pre></td></tr></table></figure>
+<p>创建<code>hadoop</code>用户，密码为<code>hadoop</code></p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">CREATE</span> <span class="keyword">USER</span> <span class="string">&#x27;hadoop&#x27;</span>@<span class="string">&#x27;%&#x27;</span> IDENTIFIED <span class="keyword">BY</span> <span class="string">&#x27;hadoop&#x27;</span>;</span><br></pre></td></tr></table></figure>
+<p>创建<code>hive</code>数据库并把数据库的权限赋予<code>hadoop</code>用户</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">create</span> database hive;</span><br><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">grant</span> <span class="keyword">all</span> privileges <span class="keyword">on</span> hive.<span class="operator">*</span> <span class="keyword">to</span> hadoop;</span><br></pre></td></tr></table></figure>
+<p>最后记得刷新权限</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> flush privileges;</span><br></pre></td></tr></table></figure>
+<p>输入<code>exit</code>退出MySQL</p>
+<p>登录<code>hadoop</code>目录，输入密码<code>hadoop</code></p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">mysql -u hadoop -p</span><br></pre></td></tr></table></figure>
+<p>下载JDBC连接驱动的<a href="https://downloads.mysql.com/archives/c-j/">deb安装包</a>，我的MySQL版本为8.0.37，网站上写的Product Version只有8.0.33，不过也是兼容的，选择好MySQL版本和Ubuntu版本，即可下载<a href="https://downloads.mysql.com/archives/get/p/3/file/mysql-connector-j_8.0.33-1ubuntu22.04_all.deb">deb安装包</a></p>
+<blockquote>
+<p>现在MySQL版本更新到了9，可以直接使用MySQL 9和对应的JDBC驱动</p>
+</blockquote>
+<p>通过<code>apt</code>工具安装驱动</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt-get install /home/hadoop/Downloads/mysql-connector-j_8.0.33-1ubuntu22.04_all.deb</span><br></pre></td></tr></table></figure>
+<p>然后将安装好的驱动复制到Hive的lib目录下</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cp</span> /usr/share/java/mysql-connector-j-8.0.33.jar <span class="variable">$HIVE_HOME</span>/lib/</span><br></pre></td></tr></table></figure>
+<h2 id="mysql注意事项"><a class="markdownIt-Anchor" href="#mysql注意事项"></a> MySQL注意事项</h2>
+<h4 id="通信问题"><a class="markdownIt-Anchor" href="#通信问题"></a> 通信问题</h4>
+<p>为了让Hive与MySQL能通信，需要修改以下配置</p>
+<figure class="highlight plaintext"><figcaption><span>/etc/mysql/mysql.conf.d/mysqld.cnf</span></figcaption><table><tr><td class="code"><pre><span class="line">[mysqld]</span><br><span class="line">bind-address    = 0.0.0.0</span><br></pre></td></tr></table></figure>
+<h4 id="命令差异"><a class="markdownIt-Anchor" href="#命令差异"></a> 命令差异</h4>
+<p>MySQL8和MySQL5.7命令有差异</p>
+<h5 id="创建用户与赋权"><a class="markdownIt-Anchor" href="#创建用户与赋权"></a> 创建用户与赋权</h5>
+<p>在MySQL5.7版本上，使用以下命令可以同时创建账户并赋权</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">GRANT</span> <span class="keyword">ALL</span> PRIVILEGES <span class="keyword">ON</span> <span class="operator">*</span>.<span class="operator">*</span> <span class="keyword">TO</span> <span class="string">&#x27;hadoop&#x27;</span>@<span class="string">&#x27;%&#x27;</span> IDENTIFIED <span class="keyword">BY</span> <span class="string">&#x27;hadoop&#x27;</span> <span class="keyword">WITH</span> <span class="keyword">GRANT</span> OPTION;</span><br></pre></td></tr></table></figure>
+<p>但是在新版本的<code>MySQL 8.x</code>版本上，已经将两个操作分离，执行以上命令会导致语法错误</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="string">&#x27;hadoop&#x27;</span>@<span class="string">&#x27;%&#x27;</span> IDENTIFIED <span class="keyword">BY</span> <span class="string">&#x27;hadoop&#x27;</span> <span class="keyword">WITH</span> <span class="keyword">GRANT</span> OPTION;</span><br><span class="line">ERROR <span class="number">1064</span> (<span class="number">42000</span>): You have an error <span class="keyword">in</span> your <span class="keyword">SQL</span> syntax; <span class="keyword">check</span> the manual that corresponds <span class="keyword">to</span> your MySQL server version <span class="keyword">for</span> the <span class="keyword">right</span> syntax <span class="keyword">to</span> use near <span class="string">&#x27;IDENTIFIED BY &#x27;</span><span class="number">123456</span><span class="string">&#x27; WITH GRANT OPTION&#x27;</span> <span class="keyword">at</span> line <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<p>应将创建用户与授权命令分离：</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">CREATE</span> <span class="keyword">USER</span> <span class="string">&#x27;hadoop&#x27;</span>@<span class="string">&#x27;%&#x27;</span> IDENTIFIED <span class="keyword">BY</span> <span class="string">&#x27;123456&#x27;</span>;</span><br><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">GRANT</span> <span class="keyword">ALL</span> <span class="keyword">ON</span> hive.<span class="operator">*</span> <span class="keyword">TO</span> <span class="string">&#x27;hadoop&#x27;</span>@<span class="string">&#x27;%&#x27;</span>;</span><br></pre></td></tr></table></figure>
+<h5 id="修改密码"><a class="markdownIt-Anchor" href="#修改密码"></a> 修改密码</h5>
+<p>MySQL修改密码有三种方式<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup></p>
+<p><strong>方法一</strong>：使用UPDATE语句更改MySQL用户密码</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> USE mysql;</span><br><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">UPDATE</span> <span class="keyword">user</span> </span><br><span class="line">            <span class="keyword">SET</span> password <span class="operator">=</span> PASSWORD(<span class="string">&#x27;newpasswd&#x27;</span>)</span><br><span class="line">            <span class="keyword">WHERE</span> <span class="keyword">user</span> <span class="operator">=</span> <span class="string">&#x27;hadoop&#x27;</span> <span class="keyword">AND</span> host <span class="operator">=</span> <span class="string">&#x27;%&#x27;</span>;</span><br><span class="line">mysql<span class="operator">&gt;</span> FLUSH PRIVILEGES;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意：MySQL 5.7.6版本以下，才能使用此方法来修改密码。从MySQL 5.7.6版本起，user表仅使用authentication_string列代替之前版本中的password列来存储密码。此外，它删除了password列。</p>
+</blockquote>
+<p>版本在5.7.6+，必须在UPDATE语句中使用authentication_string列代替password列</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> USE mysql;</span><br><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">UPDATE</span> <span class="keyword">user</span> </span><br><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">SET</span> authentication_string <span class="operator">=</span> PASSWORD(<span class="string">&#x27;newpasswd&#x27;</span>)</span><br><span class="line">            <span class="keyword">WHERE</span> <span class="keyword">user</span> <span class="operator">=</span> <span class="string">&#x27;jccc&#x27;</span> <span class="keyword">AND</span> </span><br><span class="line">                  host <span class="operator">=</span> <span class="string">&#x27;%&#x27;</span>;</span><br><span class="line">mysql<span class="operator">&gt;</span> FLUSH PRIVILEGES;</span><br></pre></td></tr></table></figure>
+<p><strong>方法二</strong>：使用SET PASSWORD语句更改MySQL用户密码</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">SET</span> PASSWORD <span class="keyword">FOR</span> <span class="string">&#x27;jccc&#x27;</span>@<span class="string">&#x27;%&#x27;</span> <span class="operator">=</span> PASSWORD(<span class="string">&#x27;newpasswd2&#x27;</span>);</span><br></pre></td></tr></table></figure>
+<p>从MySQL 5.7.6版本开始，MySQL不推荐使用此语法，可能会在将来的版本中将其删除。作为一个代替的解决方案，它使用明文密码如下：</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">SET</span> PASSWORD <span class="keyword">FOR</span> <span class="string">&#x27;jccc&#x27;</span>@<span class="string">&#x27;%&#x27;</span> <span class="operator">=</span> <span class="string">&#x27;newpasswd2&#x27;</span>;</span><br></pre></td></tr></table></figure>
+<p><strong>方法三</strong>：使用<code>ALTER USER</code>语句改MySQL用户密码</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">ALTER</span> <span class="keyword">USER</span> jccc@<span class="operator">%</span> IDENTIFIED <span class="keyword">BY</span> <span class="string">&#x27;newpasswd3&#x27;</span>;</span><br></pre></td></tr></table></figure>
+<h2 id="hive配置"><a class="markdownIt-Anchor" href="#hive配置"></a> Hive配置</h2>
+<h3 id="hive自身配置"><a class="markdownIt-Anchor" href="#hive自身配置"></a> Hive自身配置</h3>
+<p>进入Hive的目录，复制几个配置文件的模板</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> <span class="variable">$HIVE_HOME</span>/conf</span><br><span class="line"><span class="built_in">cp</span> hive-env.sh.template hive-env.sh</span><br><span class="line"><span class="built_in">cp</span> hive-default.xml.template hive-default.xml</span><br></pre></td></tr></table></figure>
+<p>配置<code>hive-site.xml</code>文件，跟使用TiDB<sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup>的配置类似</p>
+<p>各个选项的说明可以在<a href="https://cwiki.apache.org/confluence/display/Hive/Configuration+Properties?spm=5176.28103460.0.0.7d815d27rIvLt1#ConfigurationProperties-AuthenticationandAuthorization">这里</a>看到</p>
+<blockquote>
+<p><strong>注意</strong>：</p>
+<p><a href="#%E5%91%BD%E4%BB%A4%E5%B7%AE%E5%BC%82">创建用户和授权命令在MySQL8.x版本中有所不同</a>，配置文件中根据你创建的MySQL用户和密码进行修改。</p>
+<p><code>hive-site.xml</code>配置文件中，需要将<code>javax.jdo.option.ConnectionDriverName</code>的值修改为<code>com.mysql.cj.jdbc.Driver</code>，而原本的<code>com.mysql.jdbc.Driver</code>在较新的MySQL Connector/J版本中已被标记为过时，新的驱动类提供了更好的功能和性能。如果使用原本的值，初始化Hive会出现以下警告。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Loading class &#x27;com.mysql.jdbc.Driver&#x27;. This is deprecated. The new driver class is &#x27;com.mysql.cj.jdbc.Driver&#x27;. The driver is automatically registered via the SPI and manual loading of the driver class is generally unnecessary.</span><br></pre></td></tr></table></figure>
+<p>还有用户名密码要设为MySQL中对应的。</p>
+</blockquote>
+<figure class="highlight xml"><figcaption><span>$HIVE_HOME/conf/hive-site.xml</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">	<span class="comment">&lt;!-- MySQL连接配置 --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span>javax.jdo.option.ConnectionURL<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">value</span>&gt;</span>jdbc:mysql://localhost:3306/hive<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">description</span>&gt;</span>MySQL address<span class="tag">&lt;/<span class="name">description</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span>javax.jdo.option.ConnectionUserName<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">value</span>&gt;</span>hadoop<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">description</span>&gt;</span>MySQL username<span class="tag">&lt;/<span class="name">description</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span>javax.jdo.option.ConnectionPassword<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">value</span>&gt;</span>hadoop<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">description</span>&gt;</span>MySQL password<span class="tag">&lt;/<span class="name">description</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span>javax.jdo.option.ConnectionDriverName<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">value</span>&gt;</span>com.mysql.cj.jdbc.Driver<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">&lt;!-- Metastore配置 --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span>hive.metastore.uris<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">value</span>&gt;</span>thrift://localhost:9083<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span>hive.metastore.schema.verification<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">value</span>&gt;</span>false<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">&lt;!-- </span></span><br><span class="line"><span class="comment">		新版本（4.0）使用Beeline代替了传统的hive cli</span></span><br><span class="line"><span class="comment">		Beeline需要通过HiveServer2网络服务对Hive进行访问</span></span><br><span class="line"><span class="comment">		如果使用3.x的版本，可以直接在hive cli中输入SQL语句，hive cli并不依赖于HivesServer2</span></span><br><span class="line"><span class="comment">		（但是即使你使用的是3.x的版本，在实验后面把数据从Hive导入MySQL时</span></span><br><span class="line"><span class="comment">		仍然需要使用到HiveServer2）</span></span><br><span class="line"><span class="comment">		下面是hiveserver2的配置</span></span><br><span class="line"><span class="comment">	--&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span>hive.server2.thrift.port<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">value</span>&gt;</span>10000<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span>hive.server2.thrift.bind.host<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">value</span>&gt;</span>127.0.0.1<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">&lt;!-- 这里为了方便，我们将HiveServer2设置为无需认证（也可以省略这个配置，默认值即为NONE）</span></span><br><span class="line"><span class="comment">	任何客户端可直接连接到HiveServer2</span></span><br><span class="line"><span class="comment">	安全的认证方式有简单用户名/密码认证、Kerberos 认证、LDAP 认证、PAM认证等</span></span><br><span class="line"><span class="comment">	如有需要，自行进行配置</span></span><br><span class="line"><span class="comment">	--&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span>hive.server2.authentication<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">value</span>&gt;</span>NONE<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>配置Hive的环境变量<code>hive-env.sh</code></p>
+<figure class="highlight sh"><figcaption><span>$HIVE_HOME/conf/hive-env.sh</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="built_in">export</span> HADOOP_HOME=/usr/local/hadoop</span><br><span class="line"><span class="built_in">export</span> JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64</span><br><span class="line"><span class="built_in">export</span> HIVE_CONF_DIR=/usr/local/hive/conf</span><br><span class="line"><span class="built_in">export</span> HIVE_AUX_JARS_PATH=/usr/local/hive/lib</span><br></pre></td></tr></table></figure>
+<p>运行下面的命令初始化MySQL元数据</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">schematool -dbType mysql -initSchema --verbose</span><br></pre></td></tr></table></figure>
+<h3 id="配置hadoop的代理用户"><a class="markdownIt-Anchor" href="#配置hadoop的代理用户"></a> 配置Hadoop的代理用户</h3>
+<p>HiveServer2的使用需要用到Hadoop的代理用户，使用以下配置允许hadoop用户代理所有主机中和所有用户</p>
+<figure class="highlight xml"><figcaption><span>$HADOOP_HOME/etc/hadoop/core-site.xml</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>hadoop.proxyuser.hadoop.hosts<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>*<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>hadoop.proxyuser.hadoop.groups<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>*<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>注意</strong>：这里的hadoop.proxyuser.xxx.hosts和hadoop.proxy.xxx.groups要把中间的xxx换成你的用户名<sup class="footnote-ref"><a href="#fn4" id="fnref4">[4]</a></sup>，也就是允许xxx代理所有主机所有用户（折腾几天才发现hiveserver2启动不起来是这里的问题(≖_≖ )）</p>
+</blockquote>
+<h3 id="启动并试用hive"><a class="markdownIt-Anchor" href="#启动并试用hive"></a> 启动并试用Hive</h3>
+<p>首先启动Hadoop集群</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">start-all.sh</span><br></pre></td></tr></table></figure>
+<p>启动Metastore（传统Hive Cli不需要HiveServer2）</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">hive --service metastore</span><br></pre></td></tr></table></figure>
+<p>启动Hive客户端并进行测试</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">hive</span><br></pre></td></tr></table></figure>
+<p>在里面可以输入SQL语句，如果要退出Hive交互式执行环境，可以输入如下命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hive&gt; exit;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>（Beeline部分待完善）<br />
+如果使用的是4.0版本，Beeline代替了传统的hive cli，需要先启动HiveServer2再进入Beeline，大部分Hive的SQL语句也是可以用于Beeline的</p>
+<p>启动HiveServer2：</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">hive --service hiveserver2</span><br></pre></td></tr></table></figure>
+<p>Beeline连接HiveServer2。为了拥有访问hadoop目录的权限，把<code>username</code>改为你的系统用户名</p>
+<blockquote>
+<p>如果不指定用户，使用的是匿名用户，没有权限访问/user/hive/warehouse，无法创建数据库</p>
+</blockquote>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">beeline -u jdbc:hive2://localhost:10000 -n username</span><br></pre></td></tr></table></figure>
+<p>使用<code>!quit</code>或<code>!exit</code>退出Beeline</p>
+</blockquote>
+<h2 id="hive排错"><a class="markdownIt-Anchor" href="#hive排错"></a> Hive排错</h2>
+<h3 id="无法执行hive的sql语句"><a class="markdownIt-Anchor" href="#无法执行hive的sql语句"></a> 无法执行Hive的SQL语句</h3>
+<p>运行hive命令如果报错：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">FAILED: HiveException java.lang.RuntimeException: Unable to instantiate org.apache.hadoop.hive.ql.metadata.SessionHiveMetaStoreClient</span><br></pre></td></tr></table></figure>
+<p>说明<code>Hive</code>在尝试连接到Hive MetaStore时失败了</p>
+<p>可能是因为<code>Hive MetaStore</code>服务没有运行，在后台运行以下命令：</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">hive --service metastore &amp;</span><br></pre></td></tr></table></figure>
+<p>然后再运行<code>hive</code>即可正常使用</p>
+<p>如果还是不行，就重新初始化<code>hive</code></p>
+<p>尝试进入MySQL将hive数据库删除。由于已经授权给用户<code>hadoop</code>，直接登录<code>hadoop</code>对hive数据库重置即可，无需登录<code>root</code>用户进行删除并重新创建授权</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">drop</span> database hive;</span><br><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">create</span> database hive;</span><br></pre></td></tr></table></figure>
+<p>然后删除HDFS中的<code>/tmp</code>目录</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">hdfs dfs -<span class="built_in">rm</span> -r /tmp</span><br></pre></td></tr></table></figure>
+<p>再重新升级元数据</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">schematool -initSchema -dbType mysql --verbose</span><br></pre></td></tr></table></figure>
+<h3 id="格式化失败"><a class="markdownIt-Anchor" href="#格式化失败"></a> 格式化失败</h3>
+<p>如果在运行<code>schematool</code>命令进行初始化时报以下错误</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Error: Table &#x27;CTLGS&#x27; already exists (state=42S01,code=1050)</span><br><span class="line">org.apache.hadoop.hive.metastore.HiveMetaException: Schema initialization FAILED! Metastore state would be inconsistent !!</span><br><span class="line">Underlying cause: java.io.IOException : Schema script failed, errorcode 2</span><br><span class="line">Use --verbose for detailed stacktrace.</span><br><span class="line">*** schemaTool failed ***</span><br></pre></td></tr></table></figure>
+<p>可以尝试先进入<code>MySQL</code>，删除<code>hive</code>数据库再重建</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">DROP</span> DATABASE hive;</span><br><span class="line"><span class="keyword">CREATE</span> DATABASE hive;</span><br></pre></td></tr></table></figure>
+<hr class="footnotes-sep" />
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><a href="/2024/06/16/Ubuntu%E4%B8%8B%E7%9A%84MySQL%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/" title="Ubuntu下的MySQL安装配置">Ubuntu下的MySQL安装配置</a>
+ <a href="#fnref1" class="footnote-backref">↩︎</a></li>
+<li id="fn2" class="footnote-item"><p><a href="https://blog.csdn.net/happyxin_/article/details/125614272">MySQL修改密码（三种方法示例）</a> <a href="#fnref2" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn3" class="footnote-item"><p><a href="https://cwiki.apache.org/confluence/display/Hive/Using+TiDB+as+the+Hive+Metastore+database">Using TiDB as the Hive Metastore database</a> <a href="#fnref3" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn4" class="footnote-item"><p><a href="https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/Superusers.html">Proxy user - Superusers Acting On Behalf Of Other Users</a> <a href="#fnref4" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
+]]></content>
+      <categories>
+        <category>Big Data</category>
+      </categories>
+      <tags>
+        <tag>MySQL</tag>
+        <tag>Database</tag>
+        <tag>Big Data</tag>
       </tags>
   </entry>
   <entry>
@@ -2383,59 +2383,6 @@ repos选项如果上面已经配置了，这里可以省略</p>
         <tag>Linux</tag>
         <tag>Big Data</tag>
         <tag>R</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>大数据实验踩坑指南</title>
-    <url>/2024/06/16/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%9E%E9%AA%8C%E8%B8%A9%E5%9D%91%E6%8C%87%E5%8D%97/</url>
-    <content><![CDATA[<p>本文记录搭建伪分布式的大数据集群的全过程，复现（<s>抄袭</s>）了林子雨老师的网站用户行为分析案例<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>，删除了已被归档的sqoop工具的部分，并对一些踩坑点进行了说明和修改</p>
-<p>本文环境说明：</p>
-<ul>
-<li>本文使用的Shell为bash shell</li>
-<li>本文的Linux用户名及密码为<code>hadoop</code></li>
-<li>本文的MySQL使用用户hadoop，密码为hadoop</li>
-</ul>
-<p>记录分为以下章节</p>
-<ul>
-<li>
-<a href="/2024/06/16/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%9E%E9%AA%8C%E8%B8%A9%E5%9D%91%E6%8C%87%E5%8D%97-No-1%E2%80%94%E2%80%94Hadoop%E7%9A%84%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/" title="大数据实验踩坑指南_No.1——Hadoop的安装配置">大数据实验踩坑指南_No.1——Hadoop的安装配置</a>
-</li>
-<li>
-<a href="/2024/06/16/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%9E%E9%AA%8C%E8%B8%A9%E5%9D%91%E6%8C%87%E5%8D%97-No-2%E2%80%94%E2%80%94Hive%E7%9A%84%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/" title="大数据实验踩坑指南_No.2——Hive的安装配置">大数据实验踩坑指南_No.2——Hive的安装配置</a>
-</li>
-<li>
-<a href="/2024/06/16/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%9E%E9%AA%8C%E8%B8%A9%E5%9D%91%E6%8C%87%E5%8D%97-No-3%E2%80%94%E2%80%94ZooKeeper%E7%9A%84%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/" title="大数据实验踩坑指南_No.3——ZooKeeper的安装配置.md">大数据实验踩坑指南_No.3——ZooKeeper的安装配置.md</a>
-</li>
-<li>
-<a href="/2024/06/16/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%9E%E9%AA%8C%E8%B8%A9%E5%9D%91%E6%8C%87%E5%8D%97-No-4%E2%80%94%E2%80%94HBase%E7%9A%84%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/" title="大数据实验踩坑指南_No.4——HBase的安装配置.md">大数据实验踩坑指南_No.4——HBase的安装配置.md</a>
-</li>
-<li>
-<a href="/2024/06/16/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%9E%E9%AA%8C%E8%B8%A9%E5%9D%91%E6%8C%87%E5%8D%97-No-5%E2%80%94%E2%80%94R%E8%AF%AD%E8%A8%80%E5%92%8C%E8%BD%AF%E4%BB%B6%E5%8C%85%E7%9A%84%E5%AE%89%E8%A3%85/" title="大数据实验踩坑指南_No.5——R语言和软件包的安装">大数据实验踩坑指南_No.5——R语言和软件包的安装</a>
-</li>
-<li>
-<a href="/2024/06/16/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%9E%E9%AA%8C%E8%B8%A9%E5%9D%91%E6%8C%87%E5%8D%97-No-6%E2%80%94%E2%80%94%E5%AE%9E%E9%AA%8C%E6%A1%88%E4%BE%8B%EF%BC%9A%E7%BD%91%E7%AB%99%E7%94%A8%E6%88%B7%E8%A1%8C%E4%B8%BA%E5%88%86%E6%9E%90/" title="大数据实验踩坑指南_No.6——实验案例：网站用户行为分析">大数据实验踩坑指南_No.6——实验案例：网站用户行为分析</a>
-</li>
-</ul>
-<hr class="footnotes-sep" />
-<section class="footnotes">
-<ol class="footnotes-list">
-<li id="fn1" class="footnote-item"><p><a href="https://dblab.xmu.edu.cn/post/7499/">重磅：大数据课程实验案例：网站用户行为分析（免费共享）</a> <a href="#fnref1" class="footnote-backref">↩︎</a></p>
-</li>
-</ol>
-</section>
-]]></content>
-      <categories>
-        <category>Big Data</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-        <tag>Big Data</tag>
-        <tag>Hadoop</tag>
-        <tag>ZooKeeper</tag>
-        <tag>HBase</tag>
-        <tag>R</tag>
-        <tag>Hive</tag>
-        <tag>Java</tag>
       </tags>
   </entry>
   <entry>
@@ -2702,6 +2649,59 @@ select 列1，列2，….，列n from 表名；<br />
 <li id="fn3" class="footnote-item"><p><a href="https://www.jetbrains.com/help/idea/working-with-module-dependencies.html#add-a-new-dependency">Add a new dependency</a> <a href="#fnref3" class="footnote-backref">↩︎</a></p>
 </li>
 <li id="fn4" class="footnote-item"><p><a href="https://www.jetbrains.com/help/idea/working-with-artifacts.html#configure_artifact">Deployment/Artifacts</a> <a href="#fnref4" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
+]]></content>
+      <categories>
+        <category>Big Data</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>Big Data</tag>
+        <tag>Hadoop</tag>
+        <tag>ZooKeeper</tag>
+        <tag>HBase</tag>
+        <tag>R</tag>
+        <tag>Hive</tag>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>大数据实验踩坑指南</title>
+    <url>/2024/06/16/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%9E%E9%AA%8C%E8%B8%A9%E5%9D%91%E6%8C%87%E5%8D%97/</url>
+    <content><![CDATA[<p>本文记录搭建伪分布式的大数据集群的全过程，复现（<s>抄袭</s>）了林子雨老师的网站用户行为分析案例<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>，删除了已被归档的sqoop工具的部分，并对一些踩坑点进行了说明和修改</p>
+<p>本文环境说明：</p>
+<ul>
+<li>本文使用的Shell为bash shell</li>
+<li>本文的Linux用户名及密码为<code>hadoop</code></li>
+<li>本文的MySQL使用用户hadoop，密码为hadoop</li>
+</ul>
+<p>记录分为以下章节</p>
+<ul>
+<li>
+<a href="/2024/06/16/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%9E%E9%AA%8C%E8%B8%A9%E5%9D%91%E6%8C%87%E5%8D%97-No-1%E2%80%94%E2%80%94Hadoop%E7%9A%84%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/" title="大数据实验踩坑指南_No.1——Hadoop的安装配置">大数据实验踩坑指南_No.1——Hadoop的安装配置</a>
+</li>
+<li>
+<a href="/2024/06/16/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%9E%E9%AA%8C%E8%B8%A9%E5%9D%91%E6%8C%87%E5%8D%97-No-2%E2%80%94%E2%80%94Hive%E7%9A%84%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/" title="大数据实验踩坑指南_No.2——Hive的安装配置">大数据实验踩坑指南_No.2——Hive的安装配置</a>
+</li>
+<li>
+<a href="/2024/06/16/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%9E%E9%AA%8C%E8%B8%A9%E5%9D%91%E6%8C%87%E5%8D%97-No-3%E2%80%94%E2%80%94ZooKeeper%E7%9A%84%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/" title="大数据实验踩坑指南_No.3——ZooKeeper的安装配置.md">大数据实验踩坑指南_No.3——ZooKeeper的安装配置.md</a>
+</li>
+<li>
+<a href="/2024/06/16/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%9E%E9%AA%8C%E8%B8%A9%E5%9D%91%E6%8C%87%E5%8D%97-No-4%E2%80%94%E2%80%94HBase%E7%9A%84%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/" title="大数据实验踩坑指南_No.4——HBase的安装配置.md">大数据实验踩坑指南_No.4——HBase的安装配置.md</a>
+</li>
+<li>
+<a href="/2024/06/16/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%9E%E9%AA%8C%E8%B8%A9%E5%9D%91%E6%8C%87%E5%8D%97-No-5%E2%80%94%E2%80%94R%E8%AF%AD%E8%A8%80%E5%92%8C%E8%BD%AF%E4%BB%B6%E5%8C%85%E7%9A%84%E5%AE%89%E8%A3%85/" title="大数据实验踩坑指南_No.5——R语言和软件包的安装">大数据实验踩坑指南_No.5——R语言和软件包的安装</a>
+</li>
+<li>
+<a href="/2024/06/16/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%9E%E9%AA%8C%E8%B8%A9%E5%9D%91%E6%8C%87%E5%8D%97-No-6%E2%80%94%E2%80%94%E5%AE%9E%E9%AA%8C%E6%A1%88%E4%BE%8B%EF%BC%9A%E7%BD%91%E7%AB%99%E7%94%A8%E6%88%B7%E8%A1%8C%E4%B8%BA%E5%88%86%E6%9E%90/" title="大数据实验踩坑指南_No.6——实验案例：网站用户行为分析">大数据实验踩坑指南_No.6——实验案例：网站用户行为分析</a>
+</li>
+</ul>
+<hr class="footnotes-sep" />
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p><a href="https://dblab.xmu.edu.cn/post/7499/">重磅：大数据课程实验案例：网站用户行为分析（免费共享）</a> <a href="#fnref1" class="footnote-backref">↩︎</a></p>
 </li>
 </ol>
 </section>
